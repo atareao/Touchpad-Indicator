@@ -1,0 +1,25 @@
+Source: touchpad-indicator
+Section: utils
+Priority: extra
+Maintainer: Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
+Build-Depends: debhelper (>= 8), python, python-distutils-extra, python-polib
+Standards-Version: 3.9.3
+Homepage: http://www.atareao.es
+
+Package: touchpad-indicator
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends},
+	gir1.2-gtk-3.0,
+	gir1.2-gdkpixbuf-2.0,
+	gir1.2-appindicator3-0.1,
+	gir1.2-notify-0.7,
+	gir1.2-gconf-2.0,
+	gir1.2-rsvg-2.0,
+	python3-pyudev,		
+	python3-dbus,
+	xinput,
+	xserver-xorg-input-synaptics
+Description: An indicator for the touchpad
+ With Touchpad-Indicator you can enable or disable the touchpad, with shortcuts
+ or by clicking on menu. Besides, it enables or disables the touchpad, when
+ the computer returns from hibernation.

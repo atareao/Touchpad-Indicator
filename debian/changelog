@@ -1,0 +1,837 @@
+touchpad-indicator (1.1.0-0extras15.04.2) vivid; urgency=medium
+
+  * Fixed bug #1461885 - Preferences not loading in Ubuntu 14.04.02
+  * Fixed bug #1403657 - Allow sub-second delay
+  * Fixed bug #1457422 - Touchpad indicater does not work on Ubuntu 14:04 LTS
+  * Fixed bug #1440965 - Try to open preferences on the notification bar and it grays out the script without opening the option
+  * Fixed bug #1425926 - Erroneous mouse detection for HP laptops
+  * Fixed bug #1369226 - preferences settings not stored
+  * Fixed bug #1231873 - touchpad not re-enabled after suspend with mouse unplugged
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 25 Jul 2015 11:22:35 +0200
+
+touchpad-indicator (1.0.5-0extras15.04.0) vivid; urgency=medium
+
+  * Added compatibility to Dell XPS 13
+  * Synclient properties saved to configuration file
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 19 Jul 2015 20:39:56 +0200
+
+touchpad-indicator (1.0.4-0extras14.04.1) trusty; urgency=medium
+
+  * Added tapping configuration
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 20 Sep 2014 08:50:48 +0200
+
+touchpad-indicator (1.0.3-0extras14.04.0) trusty; urgency=medium
+
+  * Changed the color of the icons
+  * Updated translations
+  * Fixed bug #1328960 Touchpad-indicator crashes on startup
+  * Fixed bug #1225777 Settings not avaible
+  * Fixed bug #1334457 Preferences not displaying (python exception) Mint 17
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Fri, 08 Aug 2014 20:43:04 +0200
+
+touchpad-indicator (1.0.2-0extras14.04.1) trusty; urgency=medium
+
+  * Fixed bug #1312091
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 24 Jun 2014 18:21:23 +0200
+
+touchpad-indicator (1.0.0-0extras14.04.0) trusty; urgency=low
+
+  * Ported to trusty
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 29 Mar 2014 23:02:41 +0100
+
+touchpad-indicator (1.0.0-0extras13.10.1) saucy; urgency=low
+
+  * Disable touchpad while write
+  * Configure touchpad with vertical scroll, horizontal scroll, circular scroll
+  * Configure touchpad with two finger vertical and horizontal scroll
+  * Configure natural scroll
+
+ -- Lorenzo <lorenzo.carbonell.cerezo@gmail.com>  Sun, 24 Nov 2013 22:27:47 +0100
+
+touchpad-indicator (0.9.5-0extras13.04.1) raring; urgency=low
+
+  * Support scroll to change Touchpad status
+  * Fixed a bug with saving configuration
+
+ -- Lorenzo <lorenzo.carbonell.cerezo@gmail.com>  Sun, 25 Aug 2013 19:43:23 +0200
+
+touchpad-indicator (0.9.4-0extras13.04.6) raring; urgency=low
+
+  * Minor bugs
+  * Added translations: Sinhalese, Belarusian
+  * Some modifications to Dbus
+
+ -- Lorenzo <lorenzo.carbonell.cerezo@gmail.com>  Sun, 25 Aug 2013 14:48:48 +0200
+
+touchpad-indicator (0.9.4-0extras13.04.4) raring; urgency=low
+
+  * Using GSettings for shortcut
+  * Fixed a bug with shortcut
+
+ -- Lorenzo <lorenzo.carbonell.cerezo@gmail.com>  Sun, 25 Aug 2013 09:28:31 +0200
+
+touchpad-indicator (0.9.4-0extras13.04.2ubuntu3) raring; urgency=low
+
+  * Fixed a bug with social icons
+  * Fixed a bug with languages 
+  * Fixed a bug with directories
+
+ -- Lorenzo <lorenzo.carbonell.cerezo@gmail.com>  Sat, 17 Aug 2013 18:44:12 +0200
+
+touchpad-indicator (0.9.4-0extras13.04.2) raring; urgency=low
+
+  * Fixed changelog location
+  * Fixed a bug with watchdog
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 12 May 2013 20:30:01 +0200
+
+touchpad-indicator (0.9.3.12-1ubuntu1) precise; urgency=low
+
+  * Fixed a bug with translations
+
+ -- lorenzo <lorenzo.carbonell.cerezo@gmail.com>  Tue, 14 Aug 2012 15:53:11 +0200
+
+touchpad-indicator (0.9.3.11-1ubuntu1) precise; urgency=low
+
+  * Updated translations
+
+ -- lorenzo <lorenzo.carbonell.cerezo@gmail.com>  Thu, 09 Aug 2012 12:49:23 +0200
+
+touchpad-indicator (0.9.3.10-1ubuntu1) precise; urgency=low
+
+  * Fixed a bub #1033344 Can't Save Autostart Preference
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Aug 2012 06:07:00 +0200
+
+touchpad-indicator (0.9.3.9-1ubuntu1) precise; urgency=low
+
+  * Fixed bug #888333 Doesn't disable trackpad Inspiron N5110
+  * Fixed bug #939852 Not work correct with dell Vostro series n
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 05 Aug 2012 10:10:03 +0200
+
+touchpad-indicator (0.9.3.8-1ubuntu1) precise; urgency=low
+
+  * Update desktop launcher
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 05 Aug 2012 08:48:32 +0200
+
+touchpad-indicator (0.9.3.7-1ubuntu1) precise; urgency=low
+
+  * Fixed a bug with sources
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 04 Aug 2012 20:16:53 +0200
+
+touchpad-indicator (0.9.3.6-1ubuntu1) precise; urgency=low
+
+  * Fixed a bug with sources
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 04 Aug 2012 20:14:52 +0200
+
+touchpad-indicator (0.9.3.5-1ubuntu1) precise; urgency=low
+
+  * Fixed rules
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 04 Aug 2012 20:02:58 +0200
+
+touchpad-indicator (0.9.3.4-1ubuntu1) precise; urgency=low
+
+  * Fixed a bug with build dependencies
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 04 Aug 2012 19:46:45 +0200
+
+touchpad-indicator (0.9.3.3-1ubuntu1) precise; urgency=low
+
+  * Using distutils
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 04 Aug 2012 19:14:05 +0200
+
+touchpad-indicator (0.9.3.2-1ubuntu1) precise; urgency=low
+
+  * Fixed a bug with AUTOSTART_DIR
+
+ -- lorenzo <lorenzo.carbonell.cerezo@gmail.com>  Tue, 31 Jul 2012 15:32:25 +0200
+
+touchpad-indicator (0.9.3.1-1ubuntu1) precise; urgency=low
+
+  * Fixed errors with UTF-8
+
+ -- lorenzo <lorenzo.carbonell.cerezo@gmail.com>  Tue, 31 Jul 2012 10:02:52 +0200
+
+touchpad-indicator (0.9.3.0-1ubuntu1) precise; urgency=low
+
+  * Now works when come back from sleep
+  * Fixed bug with shortcut
+  * Improved preferences dialog
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 29 Jul 2012 19:10:27 +0200
+
+touchpad-indicator (0.9.2.10-1ubuntu1) precise; urgency=low
+
+  * come back from sleep 3
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 29 Jul 2012 13:51:15 +0200
+
+touchpad-indicator (0.9.2.9-1ubuntu1) precise; urgency=low
+
+  * come back from sleep 2
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 29 Jul 2012 13:44:33 +0200
+
+touchpad-indicator (0.9.2.8-1ubuntu1) precise; urgency=low
+
+  * come back from sleep
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 29 Jul 2012 13:25:48 +0200
+
+touchpad-indicator (0.9.2.7-1ubuntu1) precise; urgency=low
+
+  * Some changes in check_touchpad_status.py
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 29 Jul 2012 12:11:17 +0200
+
+touchpad-indicator (0.9.2.6-1ubuntu1) precise; urgency=low
+
+  * Enable and disable touchpad with shortcut
+  * Added support to Gnome and Xfce
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 29 Jul 2012 11:47:36 +0200
+
+touchpad-indicator (0.9.2.5-1ubuntu1) precise; urgency=low
+
+  * Minor changes
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 29 Jul 2012 09:07:46 +0200
+
+touchpad-indicator (0.9.2.4-1ubuntu1) precise; urgency=low
+
+  * Working with restart after sleeping
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 29 Jul 2012 08:31:47 +0200
+
+touchpad-indicator (0.9.2.3-1ubuntu1) precise; urgency=low
+
+  * Fixed a bug with dependencies
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 28 Jul 2012 23:20:54 +0200
+
+touchpad-indicator (0.9.2.2-1ubuntu1) precise; urgency=low
+
+  * Fixed a bug with hibernation
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 28 Jul 2012 22:44:55 +0200
+
+touchpad-indicator (0.9.2.1-1ubuntu1) precise; urgency=low
+
+  * Fixed a bug with dependencies
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 28 Jul 2012 22:20:04 +0200
+
+touchpad-indicator (0.9.2.0-1ubuntu1) precise; urgency=low
+
+  * Fixed some bugs
+  * Restart when comes from hibernation
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 28 Jul 2012 21:54:11 +0200
+
+touchpad-indicator (0.9.1.7-1ubuntu1) oneiric; urgency=low
+
+  * added bugfix for dell laptop which disables the psmouse kernel module when mouse is plugged in
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 04 Dec 2011 10:50:44 +0100
+
+touchpad-indicator (0.9.1.6-1ubuntu1) oneiric; urgency=low
+
+  * Updated translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 06 Nov 2011 15:07:06 +0100
+
+touchpad-indicator (0.9.1.5-1ubuntu1) oneiric; urgency=low
+
+  * Fixed a bug with GlidePoint 
+
+ -- Lorenz Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 06 Nov 2011 14:36:50 +0100
+
+touchpad-indicator (0.9.1.4-1ubuntu1) oneiric; urgency=low
+
+  * Fixed a bug with start
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 06 Nov 2011 14:02:23 +0100
+
+touchpad-indicator (0.9.1.3-1ubuntu1) oneiric; urgency=low
+
+  * Removed log in listenkbd
+  * Fixed a bug in the wathdog
+  * If there isn't touchpad it will start unabled
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 06 Nov 2011 11:27:06 +0100
+
+touchpad-indicator (0.9.1.2-1ubuntu1) oneiric; urgency=low
+
+  * Modify way to get information
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 16 Oct 2011 08:56:52 +0200
+
+touchpad-indicator (0.9.1.1-1ubuntu1) oneiric; urgency=low
+
+  * Fixed some bugs with enable and disable feature by shortcut
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 15 Oct 2011 07:46:55 +0200
+
+touchpad-indicator (0.9.1.0-1ubuntu1) oneiric; urgency=low
+
+  * Ported to PyGi, added several features by Miguel Angel Santamaria
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 11 Oct 2011 20:43:32 +0200
+
+touchpad-indicator (0.8.1.1-1ubuntu1) natty; urgency=low
+
+  * On exit enable touchpad
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 03 Jul 2011 11:27:15 +0200
+
+touchpad-indicator (0.8.1.0-1ubuntu1) natty; urgency=low
+
+  * On exit enable touchpad
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 02 Jul 2011 18:17:12 +0200
+
+touchpad-indicator (0.8.0.11-1ubuntu1) natty; urgency=low
+
+  * On exit enable touchpad
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 28 Jun 2011 04:18:03 +0200
+
+touchpad-indicator (0.8.0.10-1ubuntu1) natty; urgency=low
+
+  * Create ./config/autostart if not exists
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 22 Jun 2011 20:08:30 +0200
+
+touchpad-indicator (0.8.0.9-1ubuntu1) natty; urgency=low
+
+  * Option to select icon theme
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 20 Jun 2011 20:05:28 +0200
+
+touchpad-indicator (0.8.0.7-1ubuntu1) natty; urgency=low
+
+  * Added support to Sentelic touchpad
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Thu, 16 Jun 2011 21:25:39 +0200
+
+touchpad-indicator (0.8.0.6-1ubuntu1) natty; urgency=low
+
+  * updated
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 15 Jun 2011 19:02:49 +0200
+
+touchpad-indicator (0.8.0.5-1ubuntu1) natty; urgency=low
+
+  * Changed wathdog, now it must work when you come back from suspend
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 15 Jun 2011 04:57:00 +0200
+
+touchpad-indicator (0.8.0.4-1ubuntu1) natty; urgency=low
+
+  * Updated pyudev to version 0.10
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 14 Jun 2011 20:09:34 +0200
+
+touchpad-indicator (0.8.0.3-1ubuntu1) natty; urgency=low
+
+  * Fixed a bug with icons status
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 14 Jun 2011 14:03:55 +0200
+
+touchpad-indicator (0.8.0.2-1ubuntu1) natty; urgency=low
+
+  * Fixed a bug with icons
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 13 Jun 2011 18:52:20 +0200
+
+touchpad-indicator (0.8.0.1-1ubuntu1) natty; urgency=low
+
+  * Added new option at start
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 12 Jun 2011 19:45:05 +0200
+
+touchpad-indicator (0.8.0.0-1ubuntu1) natty; urgency=low
+
+  * Added new option at start
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 12 Jun 2011 19:15:21 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 20:11:09 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 17:17:20 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 17:08:02 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 17:05:43 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 17:05:39 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 17:05:25 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 17:03:06 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 17:02:27 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:59:21 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:58:54 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:58:04 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:57:24 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:55:43 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:53:39 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:51:35 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:51:12 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:37:43 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:37:15 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:37:02 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:35:26 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:34:47 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:25:32 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:21:56 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:21:06 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:16:35 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:14:41 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:14:34 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:13:21 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:12:53 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:11:54 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:11:03 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:10:33 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:09:44 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:09:21 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:05:46 +0200
+
+touchpad-indicator (0.7.6.6-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+  * Included new translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 06 Jun 2011 16:00:18 +0200
+
+touchpad-indicator (0.7.6.5-1ubuntu1) natty; urgency=low
+
+  * Fixed the bug with icons in Lucid
+  * Improve the work of watchdog
+  * Improve the work of notificactions
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 25 May 2011 20:22:30 +0200
+
+touchpad-indicator (0.7.6.4-1ubuntu1) natty; urgency=low
+
+  * Added funcionability to GlidePoint devices
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 24 May 2011 06:05:19 +0200
+
+touchpad-indicator (0.7.6.3-1ubuntu1) natty; urgency=low
+
+  * Fixed a bug. If mouse is plugged with run applicaction didn't start
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 23 May 2011 21:21:44 +0200
+
+touchpad-indicator (0.7.6.2-1ubuntu1) natty; urgency=low
+
+  * Kill watchdog when Touchpad-Indicator finished
+  * Fixed a bug on start Touchpad-Indicator and mouse on
+  * Improve work with DBus
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 22 May 2011 12:05:38 +0200
+
+touchpad-indicator (0.7.6.1-1ubuntu1) natty; urgency=low
+
+  * Fixed a bug with package
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 22 May 2011 06:43:54 +0200
+
+touchpad-indicator (0.7.6.0-1ubuntu1) natty; urgency=low
+
+  * A new way to detect all mouse when connect and disconnect
+  * Cleaned the code
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 21 May 2011 22:32:02 +0200
+
+touchpad-indicator (0.7.5.4-1ubuntu1) natty; urgency=low
+
+  * Fixed a bug with autostart
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Thu, 19 May 2011 21:02:40 +0200
+
+touchpad-indicator (0.7.5.3-1ubuntu1) natty; urgency=low
+
+  * Fixing a bug with enabling and disabling touchpad and time for reading status
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Thu, 19 May 2011 07:33:25 +0200
+
+touchpad-indicator (0.7.5.2-1ubuntu1) natty; urgency=low
+
+  * Improve comprobations of enabling touchpad
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 18 May 2011 21:40:22 +0200
+
+touchpad-indicator (0.7.5.1-1ubuntu1) natty; urgency=low
+
+  * Fixed a bug with executable
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 18 May 2011 20:59:13 +0200
+
+touchpad-indicator (0.7.5.0-1ubuntu1) natty; urgency=low
+
+  * New system to enable and disable the touchpad
+  * Added facilities to report bugs
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 18 May 2011 20:28:23 +0200
+
+touchpad-indicator (0.7.4.2-1ubuntu1) natty; urgency=low
+
+  * Fixed a bug with package
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 03 May 2011 20:57:54 +0200
+
+touchpad-indicator (0.7.4.1-1ubuntu1) natty; urgency=low
+
+  * Fixed several bugs
+  * Added several translations
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 02 May 2011 20:40:40 +0200
+
+touchpad-indicator (0.7.3-1ubuntu1) maverick; urgency=low
+
+  * Fixed a bug with configuration
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 20 Feb 2011 22:12:35 +0100
+
+touchpad-indicator (0.7.2-1ubuntu1) maverick; urgency=low
+
+  * Fixed a bug with galician
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 19 Feb 2011 21:06:04 +0100
+
+touchpad-indicator (0.7.1-1ubuntu1) maverick; urgency=low
+
+  * Fixed a bug with languages 
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 19 Feb 2011 11:29:19 +0100
+
+touchpad-indicator (0.7.0-1ubuntu1) maverick; urgency=low
+
+  * Added autostart option
+  * Added option to disable touchpad when a mouse is plugged
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com> Sat, 19 Feb 2011 11:03:12 +0100
+
+touchpad-indicator (0.6.4-1ubuntu1) maverick; urgency=low
+
+  * Solved a bug about label language in shortcut window
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com> Sun, 05 Dec 
+2010 20:14:37 +0100
+
+touchpad-indicator (0.6.3-1ubuntu1) maverick; urgency=low
+
+  * Solved a bug about binding at start
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com> Sun, 05 Dec 
+2010 18:51:22 +0100
+
+touchpad-indicator (0.6.2-1ubuntu1) maverick; urgency=low
+
+  * Solved a bug with shorcut window
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com> Sun, 05 Dec 
+2010 11:08:00 +0100
+
+  * Added shortcut funcionality
+  * Added italian translation
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com> Sun, 05 Dec 
+2010 10:10:24 +0100
+
+  * Correct some bugs with languages
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com> Sat, 27 Nov 
+2010 08:18:23 +0100

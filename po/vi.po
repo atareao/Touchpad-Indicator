@@ -1,0 +1,395 @@
+# Vietnamese translation for touchpad-indicator
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the touchpad-indicator package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: touchpad-indicator 1.0.3\n"
+"Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
+"POT-Creation-Date: 2014-09-19 07:47+0200\n"
+"PO-Revision-Date: 2012-03-12 07:44+0000\n"
+"Last-Translator: Lê Trường An <pinkyfinger111@gmail.com>\n"
+"Language-Team: Vietnamese <vi@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-09-18 20:01+0000\n"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:107
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:149
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:286
+msgid "Disable Touchpad"
+msgstr "Tắt touchpad"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:109
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:159
+msgid "Enable Touchpad"
+msgstr "Bật touchpad"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:171
+msgid "Touchpad Enabled"
+msgstr "Đã bật touchpad"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:174
+msgid "Touchpad Disabled"
+msgstr "Đã tắt touchpad"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:255
+msgid "Homepage..."
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:256
+msgid "Get help online..."
+msgstr "Nhận trợ giúp trực tuyến..."
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:257
+msgid "Translate this application..."
+msgstr "Dịch ứng dụng này..."
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:258
+msgid "Report a bug..."
+msgstr "Báo lỗi..."
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:260
+msgid "Homepage"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:261
+msgid "Follow us in Twitter"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:262
+msgid "Follow us in Google+"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:263
+msgid "Follow us in Facebook"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:276
+msgid "About"
+msgstr "Giới thiệu"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:287
+msgid "Hide icon"
+msgstr "Ẩn biểu tượng"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:289
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:74
+msgid "Preferences"
+msgstr "Tùy chỉnh"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:291
+msgid "Help"
+msgstr "Trợ giúp"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:294
+msgid "Exit"
+msgstr "Thoát"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:305
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:67
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:68
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:69
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:70
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:71
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:72
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:73
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:74
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:75
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:76
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:77
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:78
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:79
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:80
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:81
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:82
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:83
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:84
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:85
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:86
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:87
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:88
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:89
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:90
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:91
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:92
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:93
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:110
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:111
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:112
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:113
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:114
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:115
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:116
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:117
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:122
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:123
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:126
+msgid "An indicator for the Touchpad"
+msgstr "Một chỉ báo cho Touchpad"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:425
+msgid "usage: %prog [options]"
+msgstr "cách dùng: %prog [options]"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:431
+msgid "show this help and exit."
+msgstr "hiện trợ giúp này và thoát."
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:436
+msgid "change the touchpad state. If indicator is not running launch it."
+msgstr "đổi trạng thái của touchpad. Bật nó nếu chưa chạy."
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:441
+msgid ""
+"show the icon if indicator is hidden. Default action. If indicator is not "
+"running launch it."
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/touchpad_indicator.py:446
+msgid "list devices"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:89
+msgid "Shortcut"
+msgstr "Phím tắt"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:95
+msgid "Shortcut enabled"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:116
+msgid "Actions"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:122
+msgid "Disable touchpad when mouse plugged"
+msgstr "Tắt touchpad khi cắm chuột"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:125
+msgid "Enable touchpad on exit"
+msgstr "Bật touchpad khi thoát"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:129
+msgid "Disable touchpad on exit"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:133
+msgid "Disable touchpad when Touchpad-Indicator starts"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:136
+msgid "Disable touchpad on typing"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:140
+msgid "Seconds to wait after the last key press before enabling the touchpad"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:149
+msgid "General options"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:155
+msgid "Autostart"
+msgstr "Tự khởi động"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:158
+msgid "Start hidden"
+msgstr "Khởi động ẩn"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:161
+msgid "Show notifications"
+msgstr "Hiện thông báo"
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:166
+msgid "Touchpad configuration"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:180
+msgid "Vertical scrolling"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:182
+msgid "Horizontal scrolling"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:184
+msgid "Circular scrolling"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:186
+msgid "Two fingers vertical scrolling"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:188
+msgid "Two fingers horizontal scrolling"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:190
+msgid "Natural scrolling"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:193
+msgid "Tapping with one finger"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:201
+msgid "Tapping with two fingers"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:209
+msgid "Tapping with three fingers"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:220
+msgid "Theme"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:226
+msgid "Select theme"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:303
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:304
+msgid "This shortcut <Control> + <Alt> + "
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:303
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/src/preferences_dialog.py:304
+msgid " is assigned"
+msgstr ""
+
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:13
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:14
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:15
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:16
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:17
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:18
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:19
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:20
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:21
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:22
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:23
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:24
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:25
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:26
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:27
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:28
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:29
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:30
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:31
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:32
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:33
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:34
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:35
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:36
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:37
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:38
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:39
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:40
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:41
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:42
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:43
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:44
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:45
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:46
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:47
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:48
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:49
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:50
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:51
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:52
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:53
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:54
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:55
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:56
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:57
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:58
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:59
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:60
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:61
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:62
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:63
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:64
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:65
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:66
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:94
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:95
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:96
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:97
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:98
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:99
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:100
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:101
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:102
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:103
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:104
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:105
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:106
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:107
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:108
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:109
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:118
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:119
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:120
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:121
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:124
+#: /home/atareao/Copy/PROGRAMACION/Python/trusty/touchpad-indicator/extras-touchpad-indicator.desktop.in:125
+msgid "Touchpad-Indicator"
+msgstr ""
+
+#~ msgid "Select icon theme"
+#~ msgstr "Chọn chủ đề biểu tượng"
+
+#~ msgid "Normal"
+#~ msgstr "Bình thường"
+
+#~ msgid "Light"
+#~ msgstr "Sáng"
+
+#~ msgid "Dark"
+#~ msgstr "Tối"
+
+#~ msgid "Enable touchpad on start"
+#~ msgstr "Bật touchpad khi khởi động"
+
+#~ msgid "Application Web..."
+#~ msgstr "Trang web của ứng dụng..."
+
+#~ msgid "Esc "
+#~ msgstr "Esc "
+
+#~ msgid "Caps "
+#~ msgstr "Caps "
+
+#~ msgid "Home "
+#~ msgstr "Home "
+
+#~ msgid "PgUp "
+#~ msgstr "PgUp "
+
+#~ msgid "PgDn "
+#~ msgstr "PgDn "
+
+#~ msgid "Super+"
+#~ msgstr "Super+"
+
+#~ msgid "Alt+"
+#~ msgstr "Alt+"
+
+#~ msgid "Ctrl+"
+#~ msgstr "Ctrl+"
+
+#~ msgid "Del "
+#~ msgstr "Del "
+
+#~ msgid "Ins "
+#~ msgstr "Ins "
+
+#~ msgid "End "
+#~ msgstr "End "
