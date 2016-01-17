@@ -1,3 +1,9 @@
+touchpad-indicator (1.1.0-0extras15.04.3) wily; urgency=medium
+
+  * Fixed bug #1483954 - Touchpad-Indicator crashes on start
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 17 Jan 2016 20:34:50 +0100
+
 touchpad-indicator (1.1.0-0extras15.04.2) vivid; urgency=medium
 
   * Fixed bug #1461885 - Preferences not loading in Ubuntu 14.04.02

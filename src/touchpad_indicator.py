@@ -32,6 +32,7 @@ from gi.repository import Notify
 from gi.repository import GObject
 
 import os
+import sys
 import webbrowser
 import subprocess
 import dbus
@@ -446,7 +447,7 @@ def main():
 	DBusGMainLoop(set_as_default=True)
 	bus = dbus.SessionBus()
 	request = bus.request_name('es.atareao.TouchpadIndicator',dbus.bus.NAME_FLAG_DO_NOT_QUEUE)
-	if request == dbus.bus.REQUEST_NAME_REPLY_EXISTS:
+	if request == dbus.bus.REQUEST_NAME_REPLY_EXISTS or len(sys.argv)>1:
 		print('Another instance of Touchpad Indicator is working')
 		usage_msg = _('usage: %prog [options]')
 		parser = OptionParser(usage=usage_msg, add_help_option=False)

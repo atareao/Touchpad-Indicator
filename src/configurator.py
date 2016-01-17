@@ -53,27 +53,17 @@ class Configuration(object):
 		self.save()
 	
 	def read(self):
-		f=codecs.open(comun.CONFIG_FILE,'r','utf-8')
-		'''		
 		try:
 			f=codecs.open(comun.CONFIG_FILE,'r','utf-8')
-		except IOError as e:
-			print(e)
-			self.save()
-			f=codecs.open(comun.CONFIG_FILE,'r','utf-8')
-		try:
 			self.params = json.loads(f.read())
-		except ValueError as e:
+			f.close()
+		except Exception as e:
 			print(e)
-			self.save()
-		'''
-		self.params = json.loads(f.read())
-		f.close()
+			self.set_defaults()
 
 	def save(self):
 		if not os.path.exists(comun.CONFIG_APP_DIR):
 			os.makedirs(comun.CONFIG_APP_DIR)
 		f=codecs.open(comun.CONFIG_FILE,'w','utf-8')
-		#f.write(json.dumps(self.params,encoding ='utf-8'))
 		f.write(json.dumps(self.params))
 		f.close()
