@@ -1,12 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-__author__='atareao'
-__date__ ='$21/11/2010'
 #
 # Check touchpad status of Touchpad-Indicator
 #
-# Copyright (C) 2010 Lorenzo Carbonell
+# Copyright (C) 2010 - 2017 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -28,43 +26,46 @@ import dbus
 from touchpad import Touchpad
 from configurator import Configuration
 import sys
-import time
 
 if __name__ == '__main__':
-	try:
-		bus = dbus.SessionBus()
-		touchpad_indicator_service = bus.get_object('es.atareao.TouchpadIndicator', '/es/atareao/TouchpadIndicator')
-		if len(sys.argv)>1 and sys.argv[1] == 'resume':
-			print(sys.argv)
-			check_status_from_resume = touchpad_indicator_service.get_dbus_method('check_status_from_resume', 'es.atareao.TouchpadIndicator')
-			check_status_from_resume()
-		else:
-			check_status = touchpad_indicator_service.get_dbus_method('check_status', 'es.atareao.TouchpadIndicator')
-			check_status()
-		print('Touchpad-Indicator is working')
-	except dbus.exceptions.DBusException as argument:
-		print(argument)	
-		touchpad = Touchpad()
-		configuration = Configuration()
-		touchpad_enabled = configuration.get('touchpad_enabled')
-		touchpad_indicator_working = configuration.get('is_working')
-		status = touchpad.are_all_touchpad_enabled()
-		if touchpad_indicator_working:
-			print('Touchpad-Indicator is working')
-			if touchpad_enabled != status:
-				if touchpad_enabled:
-					touchpad.enable_all_touchpads()
-				else:
-					touchpad.disable_all_touchpads()
-				newstatus = touchpad.are_all_touchpad_enabled()
-				if status != newstatus:
-					configuration.set('touchpad_enabled',newstatus)
-					configuration.save()
-					status = newstatus
-		else:
-			print('Touchpad-Indicator is not working')
-		if status:
-			print('Touchpad is enabled')
-		else:
-			print('Touchpad is disabled')
-	exit(0)
+    try:
+        bus = dbus.SessionBus()
+        touchpad_indicator_service = bus.get_object(
+            'es.atareao.TouchpadIndicator', '/es/atareao/TouchpadIndicator')
+        if len(sys.argv) > 1 and sys.argv[1] == 'resume':
+            print(sys.argv)
+            check_status_from_resume = \
+                touchpad_indicator_service.get_dbus_method(
+                    'check_status_from_resume', 'es.atareao.TouchpadIndicator')
+            check_status_from_resume()
+        else:
+            check_status = touchpad_indicator_service.get_dbus_method(
+                'check_status', 'es.atareao.TouchpadIndicator')
+            check_status()
+        print('Touchpad-Indicator is working')
+    except dbus.exceptions.DBusException as argument:
+        print(argument)
+        touchpad = Touchpad()
+        configuration = Configuration()
+        touchpad_enabled = configuration.get('touchpad_enabled')
+        touchpad_indicator_working = configuration.get('is_working')
+        status = touchpad.are_all_touchpad_enabled()
+        if touchpad_indicator_working:
+            print('Touchpad-Indicator is working')
+            if touchpad_enabled != status:
+                if touchpad_enabled:
+                    touchpad.enable_all_touchpads()
+                else:
+                    touchpad.disable_all_touchpads()
+                newstatus = touchpad.are_all_touchpad_enabled()
+                if status != newstatus:
+                    configuration.set('touchpad_enabled', newstatus)
+                    configuration.save()
+                    status = newstatus
+        else:
+            print('Touchpad-Indicator is not working')
+        if status:
+            print('Touchpad is enabled')
+        else:
+            print('Touchpad is disabled')
+    exit(0)

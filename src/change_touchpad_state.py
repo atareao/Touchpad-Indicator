@@ -1,12 +1,10 @@
-#! /usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-__author__='atareao'
-__date__ ='$21/11/2010'
 #
 # Change state of Touchpad-Indicator
 #
-# Copyright (C) 2010 Lorenzo Carbonell
+# Copyright (C) 2010 - 2017 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -27,32 +25,34 @@ __date__ ='$21/11/2010'
 import dbus
 from touchpad import Touchpad
 from configurator import Configuration
- 
+
 bus = dbus.SessionBus()
 
 
 if __name__ == '__main__':
-	try:
-		touchpad_indicator_service = bus.get_object('es.atareao.TouchpadIndicator', '/es/atareao/TouchpadIndicator')
-		change_state = touchpad_indicator_service.get_dbus_method('change_state', 'es.atareao.TouchpadIndicator')
-		change_state()
-		print('Touchpad-Indicator is working')
-	except dbus.exceptions.DBusException as argument:
-		print(argument)
-		print('Touchpad-Indicator is not working')
-		touchpad = Touchpad()
-		status = touchpad.are_all_touchpad_enabled()
-		if status:
-			touchpad.disable_all_touchpads()
-		else:
-			touchpad.enable_all_touchpads()
-		newstatus = touchpad.are_all_touchpad_enabled()
-		if newstatus != status:
-			configuration = Configuration()
-			configuration.set('touchpad_enabled',newstatus)
-			configuration.save()
-		if newstatus:
-			print('Touchpad is enabled')
-		else:
-			print('Touchpad is disabled')		
-	exit(0)
+    try:
+        touchpad_indicator_service = bus.get_object(
+            'es.atareao.TouchpadIndicator', '/es/atareao/TouchpadIndicator')
+        change_state = touchpad_indicator_service.get_dbus_method(
+            'change_state', 'es.atareao.TouchpadIndicator')
+        change_state()
+        print('Touchpad-Indicator is working')
+    except dbus.exceptions.DBusException as argument:
+        print(argument)
+        print('Touchpad-Indicator is not working')
+        touchpad = Touchpad()
+        status = touchpad.are_all_touchpad_enabled()
+        if status:
+            touchpad.disable_all_touchpads()
+        else:
+            touchpad.enable_all_touchpads()
+        newstatus = touchpad.are_all_touchpad_enabled()
+        if newstatus != status:
+            configuration = Configuration()
+            configuration.set('touchpad_enabled', newstatus)
+            configuration.save()
+        if newstatus:
+            print('Touchpad is enabled')
+        else:
+            print('Touchpad is disabled')
+    exit(0)

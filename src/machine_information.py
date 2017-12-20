@@ -4,7 +4,7 @@
 #
 # Report Ubuntu and Machine information
 #
-# Copyright (C) 2010,2011
+# Copyright (C) 2010 - 2017
 # Miguel Angel Santamaría Rogado <leibag@gmail.com>
 # Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
 #
@@ -20,26 +20,26 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-#
-#
 
 import shlex
 import subprocess
 
+
 def ejecuta(comando):
-	args = shlex.split(comando)
-	p = subprocess.Popen(args, bufsize=10000, stdout=subprocess.PIPE)
-	valor = p.communicate()[0]
-	return valor
-	
+    args = shlex.split(comando)
+    p = subprocess.Popen(args, bufsize=10000, stdout=subprocess.PIPE)
+    valor = p.communicate()[0]
+    return valor
+
+
 def get_information():
-	information = '#####################################################\n'
-	information += ejecuta('lsb_release -a').decode('utf-8')
-	information += 'Version:\t%s'%ejecuta('uname -m').decode('utf-8')
-	information += '#####################################################\n'
-	return information
-	
-if __name__=='__main__':
-	print(get_information())
-	exit(0)
+    information = '#####################################################\n'
+    information += ejecuta('lsb_release -a').decode('utf-8')
+    information += 'Version:\t%s' % ejecuta('uname -m').decode('utf-8')
+    information += '#####################################################\n'
+    return information
+
+
+if __name__ == '__main__':
+    print(get_information())
+    exit(0)
