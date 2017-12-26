@@ -29,8 +29,8 @@ from gi.repository import Gtk
 from gi.repository import Notify
 
 if __name__ == '__main__':
-	if __file__.startswith('/opt/extras.ubuntu.com/touchpad-indicator') or os.getcwd().startswith('/opt/extras.ubuntu.com/touchpad-indicator'):
-		sys.path.insert(1, '/opt/extras.ubuntu.com/touchpad-indicator/share/touchpad-indicator')
+	if __file__.startswith('/usr') or os.getcwd().startswith('/usr'):
+		sys.path.insert(1, '/usr/share/touchpad-indicator')
 	else:
 		sys.path.insert(1,os.path.normpath(os.path.join(os.getcwd(), '../src')))
 	####################################################################

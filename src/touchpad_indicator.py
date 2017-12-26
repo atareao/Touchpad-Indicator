@@ -493,7 +493,10 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
 
     def on_preferences_item(self, widget, data=None):
         widget.set_sensitive(False)
-        preferences_dialog = PreferencesDialog()
+        if self.syndaemon is not None and self.synclient is not None:
+            preferences_dialog = PreferencesDialog(True)
+        else:
+            preferences_dialog = PreferencesDialog(False)
         if preferences_dialog.run() == Gtk.ResponseType.ACCEPT:
             preferences_dialog.close_ok()
             self.read_preferences()

@@ -7,7 +7,7 @@
       <description>Binding for touchpad.</description>
     </key>
     <key type="s" name="command">
-      <default>'/usr/bin/python3 /opt/extras.ubuntu.com/touchpad-indicator/share/touchpad-indicator/change_touchpad_state.py'</default>
+      <default>'/usr/bin/python3 /usr/share/touchpad-indicator/change_touchpad_state.py'</default>
       <summary>Command to change touchpad status</summary>
       <description>Command to change touchpad status.</description>
     </key>

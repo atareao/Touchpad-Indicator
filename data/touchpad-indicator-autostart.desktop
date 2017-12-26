@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Icon=/opt/extras.ubuntu.com/touchpad-indicator/share/touchpad-indicator/icons/touchpad-indicator.svg
-Exec=/opt/extras.ubuntu.com/touchpad-indicator/bin/touchpad-indicator
+Icon=/usr/share/touchpad-indicator/icons/touchpad-indicator.svg
+Exec=/usr/bin/touchpad-indicator
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true

@@ -80,7 +80,7 @@ def get_shortcuts():
 
 class PreferencesDialog(Gtk.Dialog):
 
-    def __init__(self):
+    def __init__(self, is_synaptics):
         #
         Gtk.Dialog.__init__(self, 'Touchpad Indicator | ' + _('Preferences'),
                             None,
@@ -94,6 +94,7 @@ class PreferencesDialog(Gtk.Dialog):
         # self.set_size_request(400, 230)
         self.connect('close', self.close_application)
         self.set_icon_from_file(comun.ICON)
+        self.is_synaptics = is_synaptics
 
         vbox0 = Gtk.VBox(spacing=5)
         vbox0.set_border_width(5)
@@ -107,173 +108,208 @@ class PreferencesDialog(Gtk.Dialog):
         notebook.append_page(vbox1, Gtk.Label.new(_('Shortcut')))
         frame1 = Gtk.Frame()
         vbox1.pack_start(frame1, False, True, 1)
-        table1 = Gtk.Table(2, 3, False)
-        frame1.add(table1)
+        grid1 = Gtk.Grid()
+        grid1.set_row_spacing(10)
+        grid1.set_column_spacing(10)
+        grid1.set_margin_bottom(10)
+        grid1.set_margin_left(10)
+        grid1.set_margin_right(10)
+        grid1.set_margin_top(10)
+        frame1.add(grid1)
 
         label1 = Gtk.Label(_('Shortcut enabled'))
         label1.set_alignment(0, 0.5)
-        table1.attach(label1, 0, 2, 0, 1, xpadding=5, ypadding=5)
+        grid1.attach(label1, 0, 0, 1, 1)
         self.checkbutton0 = Gtk.Switch()
         self.checkbutton0.connect('button-press-event',
                                   self.on_checkbutton0_clicked)
-        table1.attach(self.checkbutton0, 2, 3, 0, 1,
-                      xpadding=5, ypadding=5,
-                      xoptions=Gtk.AttachOptions.SHRINK)
+        grid1.attach(self.checkbutton0, 1, 0, 1, 1)
         #
         self.ctrl = Gtk.ToggleButton('Ctrl')
-        table1.attach(self.ctrl, 0, 1, 1, 2, xpadding=5, ypadding=5)
+        grid1.attach(self.ctrl, 2, 0, 1, 1)
         #
         self.alt = Gtk.ToggleButton('Alt')
-        table1.attach(self.alt, 1, 2, 1, 2, xpadding=5, ypadding=5)
+        grid1.attach(self.alt, 3, 0, 1, 1)
         #
         self.entry11 = Gtk.Entry()
         self.entry11.set_editable(False)
         self.entry11.set_width_chars(4)
         self.entry11.connect('key-release-event',
                              self.on_entry11_key_release_event)
-        table1.attach(self.entry11, 2, 3, 1, 2, xpadding=5, ypadding=5)
+        grid1.attach(self.entry11, 4, 0, 1, 1)
 
         vbox2 = Gtk.VBox(spacing=5)
         vbox2.set_border_width(5)
         notebook.append_page(vbox2, Gtk.Label.new(_('Actions')))
         frame2 = Gtk.Frame()
         vbox2.pack_start(frame2, True, True, 0)
-        table2 = Gtk.Table(6, 2, False)
-        frame2.add(table2)
+        grid2 = Gtk.Grid()
+        grid2.set_row_spacing(10)
+        grid2.set_column_spacing(10)
+        grid2.set_margin_bottom(10)
+        grid2.set_margin_left(10)
+        grid2.set_margin_right(10)
+        grid2.set_margin_top(10)
+        frame2.add(grid2)
 
         self.checkbutton2 = Gtk.CheckButton.new_with_label(
             _('Disable touchpad when mouse plugged'))
-        table2.attach(self.checkbutton2, 0, 1, 0, 1, xpadding=5, ypadding=5)
+        grid2.attach(self.checkbutton2, 0, 0, 1, 1)
         #
         self.checkbutton3 = Gtk.CheckButton.new_with_label(
             _('Enable touchpad on exit'))
         self.checkbutton3.connect('clicked',
                                   self.on_checkbutton3_activate)
-        table2.attach(self.checkbutton3, 0, 1, 1, 2, xpadding=5, ypadding=5)
+        grid2.attach(self.checkbutton2, 0, 1, 1, 1)
         #
         self.checkbutton4 = Gtk.CheckButton.new_with_label(
             _('Disable touchpad on exit'))
         self.checkbutton4.connect('clicked', self.on_checkbutton4_activate)
-        table2.attach(self.checkbutton4, 0, 1, 2, 3, xpadding=5, ypadding=5)
+        grid2.attach(self.checkbutton4, 0, 2, 1, 1)
         #
         self.checkbutton7 = Gtk.CheckButton.new_with_label(
             _('Disable touchpad when Touchpad-Indicator starts'))
-        table2.attach(self.checkbutton7, 0, 1, 3, 4, xpadding=5, ypadding=5)
+        grid2.attach(self.checkbutton7, 0, 3, 1, 1)
         #
         self.checkbutton8 = Gtk.CheckButton.new_with_label(
             _('Disable touchpad on typing'))
         self.checkbutton8.connect('toggled', self.on_checkbutton8_toggled)
-        table2.attach(self.checkbutton8, 0, 1, 4, 5, xpadding=5, ypadding=5)
+        grid2.attach(self.checkbutton8, 0, 4, 1, 1)
         #
         self.label_seconds = Gtk.Label('        ' + _('Milliseconds to wait \
 after the last key press before enabling the touchpad') + ':')
-        table2.attach(self.label_seconds, 0, 1, 5, 6, xpadding=5, ypadding=5)
+        grid2.attach(self.label_seconds, 0, 5, 1, 1)
         #
         self.seconds = Gtk.SpinButton()
         self.seconds.set_adjustment(
             Gtk.Adjustment(1000, 100, 10000, 100, 1000, 0))
-        table2.attach(self.seconds, 1, 2, 5, 6, xpadding=5, ypadding=5)
+        grid2.attach(self.seconds, 1, 5, 1, 1)
 
         vbox3 = Gtk.VBox(spacing=5)
         vbox3.set_border_width(5)
         notebook.append_page(vbox3, Gtk.Label.new(_('General options')))
         frame3 = Gtk.Frame()
         vbox3.pack_start(frame3, True, True, 0)
-        table3 = Gtk.Table(3, 1, True)
-        frame3.add(table3)
+        grid3 = Gtk.Grid()
+        grid3.set_row_spacing(10)
+        grid3.set_column_spacing(10)
+        grid3.set_margin_bottom(10)
+        grid3.set_margin_left(10)
+        grid3.set_margin_right(10)
+        grid3.set_margin_top(10)
+        frame3.add(grid3)
 
-        self.checkbutton1 = Gtk.CheckButton.new_with_label(_('Autostart'))
-        table3.attach(self.checkbutton1, 0, 1, 0, 1, xpadding=5, ypadding=5)
-        #
+        label = Gtk.Label(_('Autostart'))
+        label.set_alignment(0, 0.5)
+        grid3.attach(label, 0, 0, 1, 1)
+        self.checkbutton1 = Gtk.Switch()
+        grid3.attach(self.checkbutton1, 1, 0, 1, 1)
+
         self.checkbutton5 = Gtk.CheckButton.new_with_label(_('Start hidden'))
-        table3.attach(self.checkbutton5, 0, 1, 1, 2, xpadding=5, ypadding=5)
+        grid3.attach(self.checkbutton5, 0, 1, 1, 1)
         #
         self.checkbutton6 = Gtk.CheckButton.new_with_label(
             _('Show notifications'))
-        table3.attach(self.checkbutton6, 0, 1, 2, 3, xpadding=5, ypadding=5)
+        grid3.attach(self.checkbutton6, 0, 2, 1, 1)
 
-        vbox4 = Gtk.VBox(spacing=5)
-        vbox4.set_border_width(5)
-        notebook.append_page(vbox4, Gtk.Label.new(_('Touchpad configuration')))
-        frame4 = Gtk.Frame()
-        vbox4.pack_start(frame4, True, True, 0)
-        table4 = Gtk.Table(9, 2, False)
-        frame4.add(table4)
+        if self.is_synaptics is True:
 
-        mbuttons_store = Gtk.ListStore(str)
-        mbuttons = ['None', 'Left mouse button', 'Middle mouse button',
-                    'Right mouse button']
-        for mbutton in mbuttons:
-            mbuttons_store.append([mbutton])
+            vbox4 = Gtk.VBox(spacing=5)
+            vbox4.set_border_width(5)
+            notebook.append_page(vbox4,
+                                 Gtk.Label.new(_('Touchpad configuration')))
+            frame4 = Gtk.Frame()
+            vbox4.pack_start(frame4, True, True, 0)
+            grid4 = Gtk.Grid()
+            grid4.set_row_spacing(10)
+            grid4.set_column_spacing(10)
+            grid4.set_margin_bottom(10)
+            grid4.set_margin_left(10)
+            grid4.set_margin_right(10)
+            grid4.set_margin_top(10)
+            frame4.add(grid4)
 
-        renderer_text = Gtk.CellRendererText()
+            mbuttons_store = Gtk.ListStore(str)
+            mbuttons = ['None', 'Left mouse button', 'Middle mouse button',
+                        'Right mouse button']
+            for mbutton in mbuttons:
+                mbuttons_store.append([mbutton])
 
-        self.checkbutton41 = Gtk.CheckButton.new_with_label(
-            _('Vertical scrolling'))
-        table4.attach(self.checkbutton41, 0, 2, 0, 1, xpadding=5, ypadding=5)
-        self.checkbutton42 = Gtk.CheckButton.new_with_label(
-            _('Horizontal scrolling'))
-        table4.attach(self.checkbutton42, 0, 2, 1, 2, xpadding=5, ypadding=5)
-        self.checkbutton43 = Gtk.CheckButton.new_with_label(
-            _('Circular scrolling'))
-        table4.attach(self.checkbutton43, 0, 2, 2, 3, xpadding=5, ypadding=5)
-        self.checkbutton44 = Gtk.CheckButton.new_with_label(
-            _('Two fingers vertical scrolling'))
-        table4.attach(self.checkbutton44, 0, 2, 3, 4, xpadding=5, ypadding=5)
-        self.checkbutton45 = Gtk.CheckButton.new_with_label(
-            _('Two fingers horizontal scrolling'))
-        table4.attach(self.checkbutton45, 0, 3, 4, 5, xpadding=5, ypadding=5)
-        self.checkbutton46 = Gtk.CheckButton.new_with_label(
-            _('Natural scrolling'))
-        table4.attach(self.checkbutton46, 0, 3, 5, 6, xpadding=5, ypadding=5)
+            renderer_text = Gtk.CellRendererText()
 
-        self.label_tapping1 = Gtk.Label(_('Tapping with one finger'))
-        self.label_tapping1.set_alignment(0, 0.5)
-        table4.attach(self.label_tapping1, 0, 1, 6, 7, xpadding=5, ypadding=5)
-        self.combobox47 = Gtk.ComboBox.new_with_model(mbuttons_store)
-        self.combobox47.pack_start(renderer_text, True)
-        self.combobox47.add_attribute(renderer_text, "text", 0)
-        table4.attach(self.combobox47, 2, 3, 6, 7, xpadding=5, ypadding=5)
+            self.checkbutton41 = Gtk.CheckButton.new_with_label(
+                _('Vertical scrolling'))
+            grid4.attach(self.checkbutton41, 0, 0, 2, 1)
+            self.checkbutton42 = Gtk.CheckButton.new_with_label(
+                _('Horizontal scrolling'))
+            grid4.attach(self.checkbutton42, 0, 1, 2, 1)
+            self.checkbutton43 = Gtk.CheckButton.new_with_label(
+                _('Circular scrolling'))
+            grid4.attach(self.checkbutton43, 0, 2, 2, 1)
+            self.checkbutton44 = Gtk.CheckButton.new_with_label(
+                _('Two fingers vertical scrolling'))
+            grid4.attach(self.checkbutton44, 0, 3, 2, 1)
+            self.checkbutton45 = Gtk.CheckButton.new_with_label(
+                _('Two fingers horizontal scrolling'))
+            grid4.attach(self.checkbutton45, 0, 4, 2, 1)
+            self.checkbutton46 = Gtk.CheckButton.new_with_label(
+                _('Natural scrolling'))
+            grid4.attach(self.checkbutton46, 0, 5, 2, 1)
+            self.label_tapping1 = Gtk.Label(_('Tapping with one finger'))
+            self.label_tapping1.set_alignment(0, 0.5)
+            grid4.attach(self.label_tapping1, 0, 6, 1, 1)
+            self.combobox47 = Gtk.ComboBox.new_with_model(mbuttons_store)
+            self.combobox47.pack_start(renderer_text, True)
+            self.combobox47.add_attribute(renderer_text, "text", 0)
+            grid4.attach(self.combobox47, 1, 6, 1, 1)
 
-        self.label_tapping2 = Gtk.Label(_('Tapping with two fingers'))
-        self.label_tapping2.set_alignment(0, 0.5)
-        table4.attach(self.label_tapping2, 0, 1, 7, 8, xpadding=5, ypadding=5)
-        self.combobox48 = Gtk.ComboBox.new_with_model(mbuttons_store)
-        self.combobox48.pack_start(renderer_text, True)
-        self.combobox48.add_attribute(renderer_text, "text", 0)
-        table4.attach(self.combobox48, 2, 3, 7, 8, xpadding=5, ypadding=5)
+            self.label_tapping2 = Gtk.Label(_('Tapping with two fingers'))
+            self.label_tapping2.set_alignment(0, 0.5)
+            grid4.attach(self.label_tapping2, 0, 7, 1, 1)
+            self.combobox48 = Gtk.ComboBox.new_with_model(mbuttons_store)
+            self.combobox48.pack_start(renderer_text, True)
+            self.combobox48.add_attribute(renderer_text, "text", 0)
+            grid4.attach(self.combobox48, 1, 7, 1, 1)
 
-        self.label_tapping3 = Gtk.Label(_('Tapping with three fingers'))
-        self.label_tapping3.set_alignment(0, 0.5)
-        table4.attach(self.label_tapping3, 0, 1, 8, 9, xpadding=5, ypadding=5)
-        self.combobox49 = Gtk.ComboBox.new_with_model(mbuttons_store)
-        self.combobox49.pack_start(renderer_text, True)
-        self.combobox49.add_attribute(renderer_text, "text", 0)
-        table4.attach(self.combobox49, 2, 3, 8, 9, xpadding=5, ypadding=5)
+            self.label_tapping3 = Gtk.Label(_('Tapping with three fingers'))
+            self.label_tapping3.set_alignment(0, 0.5)
+            grid4.attach(self.label_tapping3, 0, 8, 1, 1)
+            self.combobox49 = Gtk.ComboBox.new_with_model(mbuttons_store)
+            self.combobox49.pack_start(renderer_text, True)
+            self.combobox49.add_attribute(renderer_text, "text", 0)
+            grid4.attach(self.combobox49, 1, 8, 1, 1)
+        else:
+            pass
 
         vbox5 = Gtk.VBox(spacing=5)
         vbox5.set_border_width(5)
         notebook.append_page(vbox5, Gtk.Label.new(_('Theme')))
         frame5 = Gtk.Frame()
         vbox5.pack_start(frame5, True, True, 0)
-        table5 = Gtk.Table(1, 3, True)
-        frame5.add(table5)
+        grid5 = Gtk.Grid()
+        grid5.set_row_spacing(10)
+        grid5.set_column_spacing(10)
+        grid5.set_margin_bottom(10)
+        grid5.set_margin_left(10)
+        grid5.set_margin_right(10)
+        grid5.set_margin_top(10)
+        frame5.add(grid5)
 
         label4 = Gtk.Label(_('Select theme') + ':')
         label4.set_alignment(0, 0.5)
-        table5.attach(label4, 0, 1, 0, 1, xpadding=5, ypadding=5)
+        grid5.attach(label4, 0, 0, 1, 1)
         self.radiobutton1 = Gtk.RadioButton()
         image1 = Gtk.Image()
         image1.set_from_file(os.path.join(comun.ICONDIR,
                              'touchpad-indicator-light-enabled.svg'))
         self.radiobutton1.add(image1)
-        table5.attach(self.radiobutton1, 1, 2, 0, 1, xpadding=5, ypadding=5)
+        grid5.attach(self.radiobutton1, 1, 0, 1, 1)
         self.radiobutton2 = Gtk.RadioButton(group=self.radiobutton1)
         image2 = Gtk.Image()
         image2.set_from_file(os.path.join(comun.ICONDIR,
                              'touchpad-indicator-dark-enabled.svg'))
         self.radiobutton2.add(image2)
-        table5.attach(self.radiobutton2, 2, 3, 0, 1, xpadding=5, ypadding=5)
+        grid5.attach(self.radiobutton2, 2, 0, 1, 1)
 
         self.load_preferences()
 
@@ -371,7 +407,6 @@ after the last key press before enabling the touchpad') + ':')
         self.checkbutton7.set_active(configuration.get(
             'disable_touchpad_on_start_indicator'))
         self.checkbutton8.set_active(configuration.get('disable_on_typing'))
-        self.checkbutton46.set_active(configuration.get('natural_scrolling'))
         self.seconds.set_value(configuration.get('seconds') * 1000)
         self.label_seconds.set_sensitive(self.checkbutton8.get_active())
         self.seconds.set_sensitive(self.checkbutton8.get_active())
@@ -389,15 +424,20 @@ after the last key press before enabling the touchpad') + ':')
         else:
             self.radiobutton2.set_active(True)
         #
-        self.checkbutton41.set_active(configuration.get('VertEdgeScroll'))
-        self.checkbutton42.set_active(configuration.get('HorizEdgeScroll'))
-        self.checkbutton43.set_active(configuration.get('CircularScrolling'))
-        self.checkbutton44.set_active(configuration.get('VertTwoFingerScroll'))
-        self.checkbutton45.set_active(configuration.get(
-            'HorizTwoFingerScroll'))
-        self.combobox47.set_active(configuration.get('TapButton1'))
-        self.combobox48.set_active(configuration.get('TapButton2'))
-        self.combobox49.set_active(configuration.get('TapButton3'))
+        if self.is_synaptics:
+            self.checkbutton41.set_active(configuration.get('VertEdgeScroll'))
+            self.checkbutton42.set_active(configuration.get('HorizEdgeScroll'))
+            self.checkbutton43.set_active(
+                configuration.get('CircularScrolling'))
+            self.checkbutton44.set_active(
+                configuration.get('VertTwoFingerScroll'))
+            self.checkbutton45.set_active(
+                configuration.get('HorizTwoFingerScroll'))
+            self.checkbutton46.set_active(
+                configuration.get('natural_scrolling'))
+            self.combobox47.set_active(configuration.get('TapButton1'))
+            self.combobox48.set_active(configuration.get('TapButton2'))
+            self.combobox49.set_active(configuration.get('TapButton3'))
 
     def save_preferences(self):
         configuration = Configuration()
@@ -417,7 +457,6 @@ after the last key press before enabling the touchpad') + ':')
         configuration.set('autostart', self.checkbutton1.get_active())
         create_or_remove_autostart(self.checkbutton1.get_active())
         configuration.set('on_mouse_plugged', self.checkbutton2.get_active())
-        configuration.set('natural_scrolling', self.checkbutton46.get_active())
         configuration.set('enable_on_exit', self.checkbutton3.get_active())
         configuration.set('disable_on_exit', self.checkbutton4.get_active())
         configuration.set('start_hidden', self.checkbutton5.get_active())
@@ -428,16 +467,22 @@ after the last key press before enabling the touchpad') + ':')
         configuration.set('seconds', self.seconds.get_value() / 1000)
         configuration.set('shortcut', key)
         configuration.set('theme', theme)
-        configuration.set('VertEdgeScroll', self.checkbutton41.get_active())
-        configuration.set('HorizEdgeScroll', self.checkbutton42.get_active())
-        configuration.set('CircularScrolling', self.checkbutton43.get_active())
-        configuration.set('VertTwoFingerScroll',
-                          self.checkbutton44.get_active())
-        configuration.set('HorizTwoFingerScroll',
-                          self.checkbutton45.get_active())
-        configuration.set('TapButton1', self.combobox47.get_active())
-        configuration.set('TapButton2', self.combobox48.get_active())
-        configuration.set('TapButton3', self.combobox49.get_active())
+        if self.is_synaptics:
+            configuration.set('VertEdgeScroll',
+                              self.checkbutton41.get_active())
+            configuration.set('HorizEdgeScroll',
+                              self.checkbutton42.get_active())
+            configuration.set('CircularScrolling',
+                              self.checkbutton43.get_active())
+            configuration.set('VertTwoFingerScroll',
+                              self.checkbutton44.get_active())
+            configuration.set('HorizTwoFingerScroll',
+                              self.checkbutton45.get_active())
+            configuration.set('natural_scrolling',
+                              self.checkbutton46.get_active())
+            configuration.set('TapButton1', self.combobox47.get_active())
+            configuration.set('TapButton2', self.combobox48.get_active())
+            configuration.set('TapButton3', self.combobox49.get_active())
         configuration.save()
 
         desktop_environment = get_desktop_environment()
@@ -483,7 +528,7 @@ touchpad-indicator/change_touchpad_state.py')
 
 
 if __name__ == "__main__":
-    cm = PreferencesDialog()
+    cm = PreferencesDialog(False)
     if cm.run() == Gtk.ResponseType.ACCEPT:
             cm.close_ok()
     cm.hide()

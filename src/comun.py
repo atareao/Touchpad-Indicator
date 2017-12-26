@@ -68,7 +68,7 @@ PARAMS = {'first-time': True,
 # check if running from source
 STATUS_ICON = {}
 if is_package():
-    ROOTDIR = '/opt/extras.ubuntu.com/touchpad-indicator/share/'
+    ROOTDIR = '/usr/share/'
     LANGDIR = os.path.join(ROOTDIR, 'locale-langpack')
     APPDIR = os.path.join(ROOTDIR, APP)
     GCONFXML = os.path.join(APPDIR, 'touchpad-indicator.xml')

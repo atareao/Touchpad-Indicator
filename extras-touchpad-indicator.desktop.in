@@ -2,8 +2,8 @@
 _Name = Touchpad-Indicator
 _GenericName = Touchpad-Indicator
 _Comment = An indicator for the Touchpad
-Exec = /opt/extras.ubuntu.com/touchpad-indicator/bin/touchpad-indicator
-Icon = /opt/extras.ubuntu.com/touchpad-indicator/share/touchpad-indicator/icons/touchpad-indicator.svg
+Exec = /usr/bin/touchpad-indicator
+Icon = /usr/share/touchpad-indicator/icons/touchpad-indicator.svg
 Type = Application
 Terminal = false
 StartupNotify = true
