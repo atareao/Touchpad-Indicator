@@ -39,12 +39,14 @@ def run2(comando):
     subprocess.Popen(args, bufsize=10000, stdout=subprocess.PIPE)
 
 
-def run3(comando):
-    print(comando)
-    args = shlex.split(comando)
+def is_a_synaptic():
+    args = shlex.split('syndaemon -v')
     p = subprocess.Popen(args, bufsize=10000, stderr=subprocess.PIPE)
     answer = p.communicate()[1].decode('utf-8')
-    return answer
+    if answer.find('No synaptics properties') > -1:
+        p.kill()
+        return False
+    return True
 
 
 class Syndaemon(object):
@@ -54,9 +56,7 @@ class Syndaemon(object):
 
     @classmethod
     def createSyndaemon(cls, waiting_time=2):
-        ans = run3('syndaemon')
-        print('___', ans, '___')
-        if run3('syndaemon').find('No synaptics properties') > -1:
+        if is_a_synaptic() is False:
             return None
         return cls(waiting_time)
 
