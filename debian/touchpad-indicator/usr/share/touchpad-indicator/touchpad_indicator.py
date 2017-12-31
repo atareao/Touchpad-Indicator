@@ -160,10 +160,6 @@ class TouchpadIndicator(dbus.service.Object):
         """Enable or disable the touchpads and update the indicator status
             and menu items.
             :param enabled: If True enable the touchpads."""
-        print('==== start set_touch_enabled =====')
-        print('set_touch_enabled:', enabled)
-        print('are_all_touchpad_enabled: ',
-              self.touchpad.are_all_touchpad_enabled())
         if enabled and not self.touchpad.are_all_touchpad_enabled():
             if self.touchpad.enable_all_touchpads():
                 if self.show_notifications:
@@ -190,7 +186,6 @@ class TouchpadIndicator(dbus.service.Object):
                 configuration.set('touchpad_enabled',
                                   self.touchpad.are_all_touchpad_enabled())
                 configuration.save()
-        print('==== end set_touch_enabled ====')
 
     def show_notification(self, kind):
         """Show a notification of type kind"""

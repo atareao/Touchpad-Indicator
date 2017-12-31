@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.touchpad-indicator" path="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/touchpad-indicator/">
+    <key type="s" name="binding">
+      <default>''</default>
+      <summary>Binding for touchpad</summary>
+      <description>Binding for touchpad.</description>
+    </key>
+    <key type="s" name="command">
+      <default>'/usr/bin/python3 /usr/share/touchpad-indicator/change_touchpad_state.py'</default>
+      <summary>Command to change touchpad status</summary>
+      <description>Command to change touchpad status.</description>
+    </key>
+    <key type="s" name="name">
+      <default>'Touchpad indicator'</default>
+      <summary>Touchpad indicator</summary>
+      <description>Touchpad indicator.</description>
+    </key>
+  </schema>
+</schemalist>

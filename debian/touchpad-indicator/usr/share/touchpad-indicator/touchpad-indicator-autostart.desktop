@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Icon=/usr/share/touchpad-indicator/icons/touchpad-indicator.svg
+Exec=/usr/bin/touchpad-indicator
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[es_ES]=touchpad-indicator-autostart
+Name=touchpad-indicator-autostart
+Comment[es_ES]=Touchpad-Indicator official shortcut
+Comment=Touchpad-Indicator official shortcut

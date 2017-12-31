@@ -1,0 +1,13 @@
+Package: touchpad-indicator
+Version: 1.1.0-0extras15.04.3
+Architecture: all
+Maintainer: Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
+Installed-Size: 1245
+Depends: dconf-gsettings-backend | gsettings-backend, python (>= 2.7), python (<< 2.8), gir1.2-gtk-3.0, gir1.2-gdkpixbuf-2.0, gir1.2-appindicator3-0.1, gir1.2-notify-0.7, gir1.2-gconf-2.0, gir1.2-rsvg-2.0, python3-pyudev, python3-dbus, xinput, xserver-xorg-input-synaptics
+Section: utils
+Priority: extra
+Homepage: http://www.atareao.es
+Description: An indicator for the touchpad
+ With Touchpad-Indicator you can enable or disable the touchpad, with shortcuts
+ or by clicking on menu. Besides, it enables or disables the touchpad, when
+ the computer returns from hibernation.
