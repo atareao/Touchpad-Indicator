@@ -43,8 +43,8 @@ def is_a_synaptic():
     args = shlex.split('syndaemon -v')
     p = subprocess.Popen(args, bufsize=10000, stderr=subprocess.PIPE)
     answer = p.communicate()[1].decode('utf-8')
+    p.kill()
     if answer.find('No synaptics properties') > -1:
-        p.kill()
         return False
     return True
 
