@@ -44,12 +44,12 @@ import dbus
 import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
 from optparse import OptionParser
-from synclient import Synclient
-from syndaemon import Syndaemon
 from watchdog import is_mouse_plugged
 from touchpad import Touchpad
 from configurator import Configuration
 from preferences_dialog import PreferencesDialog
+from do_it_after import DoItAfter
+from pynput import keyboard
 from comun import _
 import comun
 import watchdog
@@ -97,8 +97,10 @@ class TouchpadIndicator(dbus.service.Object):
         self.icon = comun.ICON
         self.active_icon = None
         self.attention_icon = None
-        self.synclient = Synclient.createSynClient()
-        self.syndaemon = Syndaemon.createSyndaemon()
+        self.keyboardListener = None
+        self.doItAfter = None
+        self.enable_after = 0.2
+        self.touchpad = Touchpad()
         self.read_preferences()
         self.notification = Notify.Notification.new('', '', None)
 
@@ -110,8 +112,6 @@ class TouchpadIndicator(dbus.service.Object):
 
         if not self.start_hidden:
             self.indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
-
-        self.touchpad = Touchpad()
 
         menu = self.get_menu()
         self.indicator.set_menu(menu)
@@ -128,9 +128,6 @@ class TouchpadIndicator(dbus.service.Object):
         if self.touchpad.are_all_touchpad_enabled() and\
                 self.disable_touchpad_on_start_indicator:
             self.set_touch_enabled(False)
-        configuration = Configuration()
-        configuration.set('is_working', True)
-        configuration.save()
 
     # ########### preferences related methods #################
 
@@ -156,7 +153,7 @@ class TouchpadIndicator(dbus.service.Object):
             self.change_state()
 
     # ################# main functions ####################
-    def set_touch_enabled(self, enabled):
+    def set_touch_enabled(self, enabled, isforwriting=False):
         """Enable or disable the touchpads and update the indicator status
             and menu items.
             :param enabled: If True enable the touchpads."""
@@ -166,30 +163,32 @@ class TouchpadIndicator(dbus.service.Object):
               self.touchpad.are_all_touchpad_enabled())
         if enabled and not self.touchpad.are_all_touchpad_enabled():
             if self.touchpad.enable_all_touchpads():
-                if self.show_notifications:
+                if self.show_notifications and not isforwriting:
                     self.show_notification('enabled')
                 self.change_state_item.set_label(_('Disable Touchpad'))
                 if self.indicator.get_status() !=\
                         appindicator.IndicatorStatus.PASSIVE:
                     self.indicator.set_status(
                         appindicator.IndicatorStatus.ACTIVE)
-                configuration = Configuration()
-                configuration.set('touchpad_enabled',
-                                  self.touchpad.are_all_touchpad_enabled())
-                configuration.save()
+                if not isforwriting:
+                    configuration = Configuration()
+                    configuration.set('touchpad_enabled',
+                                      self.touchpad.are_all_touchpad_enabled())
+                    configuration.save()
         elif not enabled and self.touchpad.are_all_touchpad_enabled():
             if self.touchpad.disable_all_touchpads():
-                if self.show_notifications:
+                if self.show_notifications and not isforwriting:
                     self.show_notification('disabled')
                 self.change_state_item.set_label(_('Enable Touchpad'))
                 if self.indicator.get_status() !=\
                         appindicator.IndicatorStatus.PASSIVE:
                     self.indicator.set_status(
                         appindicator.IndicatorStatus.ATTENTION)
-                configuration = Configuration()
-                configuration.set('touchpad_enabled',
-                                  self.touchpad.are_all_touchpad_enabled())
-                configuration.save()
+                if not isforwriting:
+                    configuration = Configuration()
+                    configuration.set('touchpad_enabled',
+                                      self.touchpad.are_all_touchpad_enabled())
+                    configuration.save()
         print('==== end set_touch_enabled ====')
 
     def show_notification(self, kind):
@@ -263,6 +262,20 @@ class TouchpadIndicator(dbus.service.Object):
             self.change_state_item.set_sensitive(False)
             self.set_touch_enabled(False)
 
+    def on_key_release(self, key):
+        if self.doItAfter is not None and self.doItAfter.is_working is True:
+            self.doItAfter.increase()
+        else:
+            if self.touchpad.are_all_touchpad_enabled() is True:
+                self.set_touch_enabled(False, True)
+            if self.doItAfter is not None:
+                self.doItAfter.stop()
+            self.doItAfter = DoItAfter(self.enable_touchpad, self.enable_after)
+            self.doItAfter.start()
+
+    def enable_touchpad(self):
+        self.set_touch_enabled(True, True)
+
     def read_preferences(self):
         configuration = Configuration()
         self.first_time = configuration.get('first-time')
@@ -278,54 +291,23 @@ class TouchpadIndicator(dbus.service.Object):
         self.touchpad_enabled = configuration.get('touchpad_enabled')
         self.disable_touchpad_on_start_indicator = configuration.get(
             'disable_touchpad_on_start_indicator')
-        ##
-        self.syndaemon = Syndaemon.createSyndaemon(
-            configuration.get('seconds'))
-        print('---', self.syndaemon, '---')
-        if self.syndaemon is not None:
-            if configuration.get('disable_on_typing'):
-                self.syndaemon.start()
-            else:
-                self.syndaemon.stop()
         self.shortcut = configuration.get('shortcut')
         self.ICON = comun.ICON
         self.active_icon = comun.STATUS_ICON[configuration.get('theme')][0]
         self.attention_icon = comun.STATUS_ICON[configuration.get('theme')][1]
-        print('====', self.synclient, '====')
-        if self.synclient is not None:
-            self.synclient.set(
-                'VertEdgeScroll',
-                1 if configuration.get('VertEdgeScroll') else 0)
-            self.synclient.set(
-                'HorizEdgeScroll',
-                1 if configuration.get('HorizEdgeScroll') else 0)
-            self.synclient.set(
-                'CircularScrolling',
-                1 if configuration.get('CircularScrolling') else 0)
-            self.synclient.set(
-                'VertTwoFingerScroll',
-                1 if configuration.get('VertTwoFingerScroll') else 0)
-            self.synclient.set(
-                'HorizTwoFingerScroll',
-                1 if configuration.get('HorizTwoFingerScroll')else 0)
-            self.synclient.set('TapButton1', configuration.get('TapButton1'))
-            self.synclient.set('TapButton2', configuration.get('TapButton2'))
-            self.synclient.set('TapButton3', configuration.get('TapButton3'))
-            if configuration.get('natural_scrolling'):
-                self.synclient.set(
-                    'VertScrollDelta',
-                    -abs(int(self.synclient.get('VertScrollDelta'))))
-                self.synclient.set(
-                    'HorizScrollDelta',
-                    -abs(int(self.synclient.get('HorizScrollDelta'))))
-            else:
-                self.synclient.set(
-                    'VertScrollDelta',
-                    abs(int(self.synclient.get('VertScrollDelta'))))
-                self.synclient.set(
-                    'HorizScrollDelta',
-                    abs(int(self.synclient.get('HorizScrollDelta'))))
+        # XINPUT
+        self.touchpad.set_natural_scrolling_for_all(
+            configuration.get('natural_scrolling'))
 
+        if configuration.get('disable_on_typing'):
+            if self.keyboardListener is not None:
+                self.keyboardListener.stop()
+            self.keyboardListener = keyboard.Listener(self.on_key_release)
+            self.keyboardListener.start()
+        else:
+            if self.keyboardListener is not None:
+                self.keyboardListener.stop()
+            self.keyboardListener = None
     # ################## menu creation ######################
 
     def get_help_menu(self):
@@ -498,10 +480,7 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
 
     def on_preferences_item(self, widget, data=None):
         widget.set_sensitive(False)
-        if self.syndaemon is not None and self.synclient is not None:
-            preferences_dialog = PreferencesDialog(True)
-        else:
-            preferences_dialog = PreferencesDialog(False)
+        preferences_dialog = PreferencesDialog(False)
         if preferences_dialog.run() == Gtk.ResponseType.ACCEPT:
             preferences_dialog.close_ok()
             self.read_preferences()
@@ -514,8 +493,15 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
         widget.set_sensitive(True)
 
     def on_quit_item(self, widget, data=None):
+        print(1)
         if self.the_watchdog is not None:
             self.the_watchdog.kill()
+        if self.keyboardListener is not None:
+            print(2)
+            self.keyboardListener.stop()
+            print(3)
+            self.keyboardListener.stop()
+            print(4)
         if self.enable_on_exit:
             self.touchpad.enable_all_touchpads()
         if self.disable_on_exit:
@@ -523,9 +509,6 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
         configuration = Configuration()
         configuration.set('is_working', False)
         configuration.save()
-        # Actions to do on init
-        if self.syndaemon is not None:
-            self.syndaemon.stop()
         exit(0)
 
     def on_about_item(self, widget, data=None):

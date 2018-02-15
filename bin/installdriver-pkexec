@@ -1,0 +1,12 @@
+#!/bin/bash
+LOCATIONS=(
+"/opt/extras.ubuntu.com/installdriver/share/installdriver/installdriver.py"
+)
+
+for ((i = 0; i < ${#LOCATIONS[@]}; i++))
+do
+    if [[ -e "${LOCATIONS[${i}]}" ]]; then
+        python3 ${LOCATIONS[${i}]} $1
+        break
+    fi
+done

@@ -1,6 +1,0 @@
-#! /bin/sh
-set -e
-if [ "$1" = rtupdate ]; then
-	pyclean -p touchpad-indicator /usr/share/touchpad-indicator
-	pycompile -p touchpad-indicator  /usr/share/touchpad-indicator
-fi

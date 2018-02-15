@@ -1,9 +1,9 @@
-#!/usr/bin/python3
-# -*- coding: UTF-8 -*-
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
 #
-# touchpad-Indicator launcher
+# This file is part of ppaurl
 #
-# Copyright (C) 2011-2018 Lorenzo Carbonell Cerezo
+# Copyright (C) 2016-2017 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -18,20 +18,18 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-#
-#
-import os
-import sys
 
-if __name__ == '__main__':
-    if __file__.startswith('/usr') or os.getcwd().startswith('/usr'):
-        sys.path.insert(1, '/usr/share/touchpad-indicator')
-    else:
-        sys.path.insert(1, os.path.normpath(
-            os.path.join(os.getcwd(), '../src')))
-    ####################################################################
-    from touchpad_indicator import main
-    ####################################################################
-    main()
-exit(0)
+from gi.repository import GObject
+from gi.repository import GLib
+
+
+class IdleObject(GObject.GObject):
+    """
+    Override GObject.GObject to always emit signals in the main thread
+    by emmitting on an idle handler
+    """
+    def __init__(self):
+        GObject.GObject.__init__(self)
+
+    def emit(self, *args):
+        GLib.idle_add(GObject.GObject.emit, self, *args)

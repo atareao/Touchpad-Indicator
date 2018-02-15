@@ -1,8 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright (C) 2010 - 2017 Lorenzo Carbonell
+# Copyright (C) 2010 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,6 @@
 import codecs
 import os
 import json
-
 import comun
 
 

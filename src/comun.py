@@ -39,32 +39,34 @@ APP = 'touchpad-indicator'
 APPCONF = APP + '.conf'
 
 
-PARAMS = {'first-time': True,
-          'version': '',
-          'is_working': False,
-          'shortcut_enabled': False,
-          'autostart': False,
-          'disable_touchpad_on_start_indicator': False,
-          'on_mouse_plugged': False,
-          'enable_on_exit': True,
-          'disable_on_exit': False,
-          'disable_on_typing': False,
-          'seconds': 2,
-          'start_hidden': False,
-          'show_notifications': True,
-          'theme': 'light',
-          'touchpad_enabled': True,
-          'natural_scrolling': False,
-          'shortcut': '<Primary><Alt>c',
-          'VertEdgeScroll': True,
-          'HorizEdgeScroll': True,
-          'CircularScrolling': True,
-          'VertTwoFingerScroll': True,
-          'HorizTwoFingerScroll': True,
-          'TapButton1': 1,
-          'TapButton2': 3,
-          'TapButton3': 0
-          }
+PARAMS = {
+    'first-time': True,
+    'version': '',
+    'is_working': False,
+    'shortcut_enabled': False,
+    'autostart': False,
+    'disable_touchpad_on_start_indicator': False,
+    'on_mouse_plugged': False,
+    'enable_on_exit': True,
+    'disable_on_exit': False,
+    'disable_on_typing': False,
+    'seconds': 2,
+    'start_hidden': False,
+    'show_notifications': True,
+    'theme': 'light',
+    'touchpad_enabled': True,
+    'natural_scrolling': False,
+    'shortcut': '<Primary><Alt>c',
+    'VertEdgeScroll': True,
+    'HorizEdgeScroll': True,
+    'CircularScrolling': True,
+    'VertTwoFingerScroll': True,
+    'HorizTwoFingerScroll': True,
+    'TapButton1': 1,
+    'TapButton2': 3,
+    'TapButton3': 0
+}
+
 # check if running from source
 STATUS_ICON = {}
 if is_package():

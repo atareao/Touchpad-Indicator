@@ -15,10 +15,10 @@ Depends: ${misc:Depends}, ${python:Depends},
 	gir1.2-notify-0.7,
 	gir1.2-gconf-2.0,
 	gir1.2-rsvg-2.0,
-	python3-pyudev,		
+	python3-xlib,
+	python3-pyudev,
 	python3-dbus,
-	xinput,
-	xserver-xorg-input-synaptics
+	xinput
 Description: An indicator for the touchpad
  With Touchpad-Indicator you can enable or disable the touchpad, with shortcuts
  or by clicking on menu. Besides, it enables or disables the touchpad, when

@@ -30,29 +30,37 @@ except Exception as e:
     exit(-1)
 from gi.repository import Gtk
 from gi.repository import Gdk
-from configurator import Configuration
 from dconfigurator import DConfManager
 from xconfigurator import xfconfquery_exists
 from xconfigurator import XFCEConfiguration
 from xconfigurator import get_desktop_environment
 import os
-import shutil
+import configparser
+from configurator import Configuration
+from touchpad import Touchpad
 import comun
 from comun import _
+import webbrowser
 
-
-def check_autostart_dir():
+def set_autostart(autostart):
     if not os.path.exists(comun.AUTOSTART_DIR):
         os.makedirs(comun.AUTOSTART_DIR)
-
-
-def create_or_remove_autostart(create):
-    check_autostart_dir()
-    if create is True:
-        if not os.path.exists(comun.FILE_AUTO_START):
-            shutil.copyfile('/usr/share/\
-touchpad-indicator/touchpad-indicator-autostart.desktop',
-                            comun.FILE_AUTO_START)
+    if autostart:
+        config = configparser.ConfigParser()
+        config['Desktop Entry'] = {
+            'Type': 'Application',
+            'Icon': 'touchpad-indicator',
+            'Exec': '/usr/bin/touchpad-indicator',
+            'Hidden': 'false',
+            'NoDisplay': 'false',
+            'X-MATE-Autostart-Phase': 'Applications',
+            'X-MATE-Autostart-Delay': '2',
+            'X-MATE-Autostart-enabled': str(autostart),
+            'X-GNOME-Autostart-Phase': 'Applications',
+            'X-GNOME-Autostart-Delay': '2',
+            'X-GNOME-Autostart-enabled': str(autostart)}
+        with open(comun.FILE_AUTO_START, 'w') as autostart_file:
+            config.write(autostart_file)
     else:
         if os.path.exists(comun.FILE_AUTO_START):
             os.remove(comun.FILE_AUTO_START)
@@ -212,22 +220,52 @@ after the last key press before enabling the touchpad') + ':')
             _('Show notifications'))
         grid3.attach(self.checkbutton6, 0, 2, 1, 1)
 
-        if self.is_synaptics is True:
+        vbox4 = Gtk.VBox(spacing=5)
+        vbox4.set_border_width(5)
+        notebook.append_page(vbox4,
+                             Gtk.Label.new(_('Touchpad configuration')))
+        frame4 = Gtk.Frame()
+        vbox4.pack_start(frame4, True, True, 0)
+        grid4 = Gtk.Grid()
+        grid4.set_row_spacing(10)
+        grid4.set_column_spacing(10)
+        grid4.set_margin_bottom(10)
+        grid4.set_margin_left(10)
+        grid4.set_margin_right(10)
+        grid4.set_margin_top(10)
+        frame4.add(grid4)
 
-            vbox4 = Gtk.VBox(spacing=5)
-            vbox4.set_border_width(5)
-            notebook.append_page(vbox4,
-                                 Gtk.Label.new(_('Touchpad configuration')))
-            frame4 = Gtk.Frame()
-            vbox4.pack_start(frame4, True, True, 0)
-            grid4 = Gtk.Grid()
-            grid4.set_row_spacing(10)
-            grid4.set_column_spacing(10)
-            grid4.set_margin_bottom(10)
-            grid4.set_margin_left(10)
-            grid4.set_margin_right(10)
-            grid4.set_margin_top(10)
-            frame4.add(grid4)
+        self.checkbutton46 = Gtk.CheckButton.new_with_label(
+            _('Natural scrolling'))
+        grid4.attach(self.checkbutton46, 0, 0, 1, 1)
+
+        tp = Touchpad()
+        if tp.is_there_touchpad():
+            tipo = tp._get_type(tp._get_ids()[0])
+            if tipo == 0:
+                label = Gtk.Label(_('Driver: Synaptics'))
+            elif tipo == 1:
+                label = Gtk.Label(_('Driver: Libinput'))
+            else:
+                label = Gtk.Label(_('Driver: Evdev'))
+            label.set_alignment(0, 0.5)
+            grid4.attach(label, 0, 1, 1, 1)
+            if tipo == 1:
+                label = Gtk.Label(_('Install Evdev?'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 2, 1, 1)
+                install_evdev = Gtk.Switch()
+                grid4.attach(install_evdev, 1, 2, 1, 1)
+                install_evdev.connect('notify::active', self.on_install_evdev)
+            elif tipo == 2:
+                label = Gtk.Label(_('Install Libinput?'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 2, 1, 1)
+                install_libinput = Gtk.Switch()
+                grid4.attach(install_libinput, 1, 2, 1, 1)
+                install_libinput.connect('activate', self.on_install_libinput)
+
+        if self.is_synaptics is True:
 
             mbuttons_store = Gtk.ListStore(str)
             mbuttons = ['None', 'Left mouse button', 'Middle mouse button',
@@ -314,6 +352,10 @@ after the last key press before enabling the touchpad') + ':')
         self.load_preferences()
 
         self.show_all()
+
+    def on_install_evdev(self, widget, state):
+        if state:
+            webbrowser.open('apt:evdev')
 
     def on_checkbutton8_toggled(self, widget):
         self.label_seconds.set_sensitive(self.checkbutton8.get_active())
@@ -404,8 +446,8 @@ after the last key press before enabling the touchpad') + ':')
         self.checkbutton4.set_active(configuration.get('disable_on_exit'))
         self.checkbutton5.set_active(configuration.get('start_hidden'))
         self.checkbutton6.set_active(configuration.get('show_notifications'))
-        self.checkbutton7.set_active(configuration.get(
-            'disable_touchpad_on_start_indicator'))
+        self.checkbutton7.set_active(
+            configuration.get('disable_touchpad_on_start_indicator'))
         self.checkbutton8.set_active(configuration.get('disable_on_typing'))
         self.seconds.set_value(configuration.get('seconds') * 1000)
         self.label_seconds.set_sensitive(self.checkbutton8.get_active())
@@ -423,21 +465,8 @@ after the last key press before enabling the touchpad') + ':')
             self.radiobutton1.set_active(True)
         else:
             self.radiobutton2.set_active(True)
-        #
-        if self.is_synaptics:
-            self.checkbutton41.set_active(configuration.get('VertEdgeScroll'))
-            self.checkbutton42.set_active(configuration.get('HorizEdgeScroll'))
-            self.checkbutton43.set_active(
-                configuration.get('CircularScrolling'))
-            self.checkbutton44.set_active(
-                configuration.get('VertTwoFingerScroll'))
-            self.checkbutton45.set_active(
-                configuration.get('HorizTwoFingerScroll'))
-            self.checkbutton46.set_active(
-                configuration.get('natural_scrolling'))
-            self.combobox47.set_active(configuration.get('TapButton1'))
-            self.combobox48.set_active(configuration.get('TapButton2'))
-            self.combobox49.set_active(configuration.get('TapButton3'))
+
+        self.checkbutton46.set_active(configuration.get('natural_scrolling'))
 
     def save_preferences(self):
         configuration = Configuration()
@@ -455,34 +484,21 @@ after the last key press before enabling the touchpad') + ':')
             theme = 'dark'
         configuration.set('shortcut_enabled', self.checkbutton0.get_active())
         configuration.set('autostart', self.checkbutton1.get_active())
-        create_or_remove_autostart(self.checkbutton1.get_active())
+        set_autostart(self.checkbutton1.get_active())
         configuration.set('on_mouse_plugged', self.checkbutton2.get_active())
         configuration.set('enable_on_exit', self.checkbutton3.get_active())
         configuration.set('disable_on_exit', self.checkbutton4.get_active())
         configuration.set('start_hidden', self.checkbutton5.get_active())
         configuration.set('show_notifications', self.checkbutton6.get_active())
-        configuration.set('disable_touchpad_on_start_indicator',
-                          self.checkbutton7.get_active())
+        configuration.set(
+            'disable_touchpad_on_start_indicator',
+            self.checkbutton7.get_active())
         configuration.set('disable_on_typing', self.checkbutton8.get_active())
-        configuration.set('seconds', self.seconds.get_value() / 1000)
+        configuration.set('seconds', self.seconds.get_value() / 1000.0)
         configuration.set('shortcut', key)
         configuration.set('theme', theme)
-        if self.is_synaptics:
-            configuration.set('VertEdgeScroll',
-                              self.checkbutton41.get_active())
-            configuration.set('HorizEdgeScroll',
-                              self.checkbutton42.get_active())
-            configuration.set('CircularScrolling',
-                              self.checkbutton43.get_active())
-            configuration.set('VertTwoFingerScroll',
-                              self.checkbutton44.get_active())
-            configuration.set('HorizTwoFingerScroll',
-                              self.checkbutton45.get_active())
-            configuration.set('natural_scrolling',
-                              self.checkbutton46.get_active())
-            configuration.set('TapButton1', self.combobox47.get_active())
-            configuration.set('TapButton2', self.combobox48.get_active())
-            configuration.set('TapButton3', self.combobox49.get_active())
+
+        configuration.set('natural_scrolling', self.checkbutton46.get_active())
         configuration.save()
 
         desktop_environment = get_desktop_environment()

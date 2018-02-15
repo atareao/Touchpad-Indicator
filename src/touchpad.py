@@ -30,6 +30,10 @@ TOUCHPADS = ['touchpad', 'glidepoint', 'fingersensingpad', 'bcm5974',
              'dll0665', 'dll05e3', 'cyps/2', 'alpsps/2', 'imexps/2',
              'synaptics', 'elantech', 'imps/2']
 
+SYNAPTICS = 0
+LIBINPUT = 1
+EVDEV = 2
+
 
 def run(comando):
     args = shlex.split(comando)
@@ -125,15 +129,109 @@ class Touchpad(object):
             return True
         return False
 
+    def _get_type(self, id):
+        test_str = run('xinput --list-props %s' % (id)).lower()
+        regex = r'libinput'
+        matches = re.search(regex, test_str)
+        if matches is not None:
+            if str(matches.group(0)) == 'libinput':
+                return LIBINPUT
+        else:
+            regex = r'synaptics'
+            matches = re.search(regex, test_str)
+            if matches is not None:
+                if str(matches.group(0)) == 'synaptics':
+                    return SYNAPTICS
+            else:
+                regex = r'evdev'
+                matches = re.search(regex, test_str)
+                if matches is not None:
+                    if str(matches.group(0)) == 'evdev':
+                        return EVDEV
+        return -1
+
+    def _is_natural_scrolling(self, id):
+        test_str = run('xinput --list-props %s' % (id)).lower()
+        if self._get_type(id) == LIBINPUT:
+            regex = r'natural\s*scrolling\s*enabled\s*\(\d*\):\s*(\d)'
+            matches = re.search(regex, test_str)
+            if matches is not None:
+                print(matches.group(1))
+                if str(matches.group(1)) == '1':
+                    return True
+        elif self._get_type(id) == SYNAPTICS:
+            regex = r'synaptics\s*scrolling\s*distance\s*\(\d*\):\s*(-*)\d*'
+            matches = re.search(regex, test_str)
+            if matches is not None:
+                if len(matches.group(1)) > 0:
+                    return True
+        elif self._get_type(id) == EVDEV:
+            regex = r'evdev\s*scrolling\s*distance\s*\(\d*\):\s*(-*)\d*'
+            matches = re.search(regex, test_str)
+            if matches is not None:
+                if len(matches.group(1)) > 0:
+                    return True
+        return False
+
+    def set_natural_scrolling(self, id, natural_scrolling):
+        test_str = run('xinput --list-props %s' % id).lower()
+        if self._get_type(id) == LIBINPUT:
+            regex = r'natural\s*scrolling\s*enabled\s*\((\d*)\)'
+            matches = re.search(regex, test_str)
+            if matches is not None:
+                if(natural_scrolling):
+                    return run('xinput --set-prop %s %s 1' % (
+                        id, matches.group(1)))
+                else:
+                    print(matches.group(1))
+                    return run('xinput --set-prop %s %s 0' % (
+                        id, matches.group(1)))
+        elif self._get_type(id) == SYNAPTICS:
+            regex = r'synaptics\s*scrolling\s*distance\s*\((\d*)\):\s*-*(\d*),\s*-*(\d*)'
+            matches = re.search(regex, test_str)
+            if matches is not None:
+                if(natural_scrolling):
+                    return run('xinput --set-prop %s %s -%s, -%s' % (
+                        id, matches.group(1), matches.group(2),
+                        matches.group(3)))
+                else:
+                    return run('xinput --set-prop %s %s %s, %s' % (
+                        id, matches.group(1), matches.group(2),
+                        matches.group(3)))
+        elif self._get_type(id) == EVDEV:
+            regex = r'evdev\s*scrolling\s*distance\s*\((\d*)\):\s*-*(\d*),\s*-*(\d*),\s*-*(\d*)'
+            matches = re.search(regex, test_str)
+            if matches is not None:
+                if(natural_scrolling):
+                    return run('xinput --set-prop %s %s -%s, -%s, -%s' % (
+                        id, matches.group(1), matches.group(2),
+                        matches.group(3), matches.group(4)))
+                else:
+                    return run('xinput --set-prop %s %s %s, %s, %s' % (
+                        id, matches.group(1), matches.group(2),
+                        matches.group(3), matches.group(4)))
+
+    def set_natural_scrolling_for_all(self, natural_scrolling):
+        ids = self._get_ids()
+        if len(ids) > 0:
+            for id in ids:
+                self.set_natural_scrolling(id, natural_scrolling)
+
+    def are_all_touchpad_natural_scrolling(self):
+        ids = self._get_ids()
+        if len(ids) > 0:
+            for id in ids:
+                if not self._is_natural_scrolling(id):
+                    return False
+            return True
+        return False
+
 
 if __name__ == '__main__':
     tp = Touchpad()
     print('Is there touchpad? %s' % tp.is_there_touchpad())
     print(tp._get_ids())
-    print(tp.are_all_touchpad_enabled())
-    print(tp.disable_all_touchpads())
-    print('sleeping...')
-    time.sleep(5)
-    print(tp.are_all_touchpad_disabled())
-    print(tp.enable_all_touchpads())
+    print(tp.set_natural_scrolling_for_all(False))
+    print('Natural srolling:', tp.are_all_touchpad_natural_scrolling())
+    print(tp._get_type(12))
     exit(0)

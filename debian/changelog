@@ -1,8 +1,8 @@
-touchpad-indicator (1.1.0-0extras15.04.3) xenial; urgency=medium
+touchpad-indicator (1.2.0-0extras17.10.0) xenial; urgency=medium
 
   * Fixed bug #1483954 - Touchpad-Indicator crashes on start
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 26 Dec 2017 10:59:10 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Thu, 15 Feb 2018 19:45:53 +0100
 
 touchpad-indicator (1.1.0-0extras15.04.2) vivid; urgency=medium
 

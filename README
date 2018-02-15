@@ -1,13 +1,16 @@
 ==================
-PushBullet-Indicator
+Touchpad-Indicator
 ==================
 
-pushbullet-Indicator an indicator for sending notes, links, lists, files, to other devices
+With Touchpad-Indicator you can enable or disable the touchpad, with shortcuts
+ or by clicking on menu. Besides, it enables or disables the touchpad, when
+ the computer returns from hibernation.
 
 For more information, please visit our website:
-http://launchpad.net/pushbullet-indicator/
+http://launchpad.net/touchpad-indicator/
 or
 http://www.atareao.es
+
 
 ============
 Requirements
@@ -15,16 +18,20 @@ Requirements
 
 Required dependencies:
 
-	gir1.2-gtk-3.0,
-	gir1.2-gdkpixbuf-2.0,
-	gir1.2-appindicator3-0.1,
-	gir1.2-notify-0.7,
-	python3-requests
-
+    gir1.2-gtk-3.0,
+    gir1.2-gdkpixbuf-2.0,
+    gir1.2-appindicator3-0.1,
+    gir1.2-notify-0.7,
+    gir1.2-gconf-2.0,
+    gir1.2-rsvg-2.0,
+    python3-xlib,
+    python3-pyudev,
+    python3-dbus,
+    xinput
 ========
 Download
 ========
 
 Download the package:
 
-    $ bzr branch lp:pushbullet-indicator
+    $ bzr branch lp:touchpad-indicator
