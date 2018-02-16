@@ -311,12 +311,12 @@ class SlimbookTouchpad(dbus.service.Object):
             if self.on_mouse_plugged and watchdog.is_mouse_plugged():
                 if self.keyboardListener is not None:
                     self.keyboardListener.stop()
-                self.keyboardListener = keyboard.Listener(self.on_key_release)
-                self.keyboardListener.start()
+                self.keyboardListener = None
             else:
                 if self.keyboardListener is not None:
                     self.keyboardListener.stop()
-                self.keyboardListener = None
+                self.keyboardListener = keyboard.Listener(self.on_key_release)
+                self.keyboardListener.start()
         else:
             if self.keyboardListener is not None:
                 self.keyboardListener.stop()
