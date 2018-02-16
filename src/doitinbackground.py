@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# This file is part of ppaurl
+# This file is part of slimbooktouchpad
 #
-# Copyright (C) 2016-2017 Lorenzo Carbonell
+# Copyright (C) 2016-2018 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -25,9 +25,6 @@ from threading import Thread
 import subprocess
 import os
 import shlex
-import sys
-from threading import Thread
-import time
 
 
 class DoItInBackground(IdleObject, Thread):
@@ -73,14 +70,13 @@ class DoItInBackground(IdleObject, Thread):
                 self.printer.feed(output.encode())
                 self.ok = False
         except OSError as e:
-            print('Execution failed:', e, file=sys.stderr)
+            print('Execution failed:', e)
             self.ok = False
 
     def stop(self, *args):
         self.stopit = True
 
     def run(self):
-        total = len(self.commands)
         self.emit('started')
         for index, command in enumerate(self.commands):
             if self.stopit is True:

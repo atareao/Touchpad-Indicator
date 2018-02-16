@@ -1,9 +1,9 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: touchpad-indicator
+Upstream-Name: slimbook-touchpad
 Source: http://www.atareao.es
 
 Files: *
-Copyright: 2010, 2011 Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>
+Copyright: 2010, 2018 Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>
 License: GPL-3.0+
 
 Files: debian/*, watchdog.py, PreferencesManager.py

@@ -85,13 +85,13 @@ def add2menu(menu, text=None, icon=None, conector_event=None,
     return menu_item
 
 
-class TouchpadIndicator(dbus.service.Object):
+class SlimbookTouchpad(dbus.service.Object):
     def __init__(self):
-        bus_name = dbus.service.BusName('es.atareao.TouchpadIndicator',
+        bus_name = dbus.service.BusName('es.slimbook.SlimbookTouchpad',
                                         bus=dbus.SessionBus())
         dbus.service.Object.__init__(self,
                                      bus_name,
-                                     '/es/atareao/TouchpadIndicator')
+                                     '/es/slimbook/SlimbookTouchpad')
         self.about_dialog = None
         self.the_watchdog = None
         self.icon = comun.ICON
@@ -105,7 +105,7 @@ class TouchpadIndicator(dbus.service.Object):
         self.notification = Notify.Notification.new('', '', None)
 
         self.indicator = appindicator.Indicator.new(
-            'Touchpad-Indicator',
+            'SlimbookTouchpad',
             self.active_icon,
             appindicator.IndicatorCategory.HARDWARE)
         self.indicator.set_attention_icon(self.attention_icon)
@@ -195,31 +195,39 @@ class TouchpadIndicator(dbus.service.Object):
         """Show a notification of type kind"""
         if kind == 'enabled':
             self.notification.update(
-                'Touchpad-Indicator',
+                'Slimbook Touchpad',
                 _('Touchpad Enabled'),
                 self.active_icon)
         elif kind == 'disabled':
             self.notification.update(
-                'Touchpad-Indicator',
+                'Slimbook Touchpad',
                 _('Touchpad Disabled'),
                 self.attention_icon)
         self.notification.show()
 
-    @dbus.service.method(dbus_interface='es.atareao.TouchpadIndicator')
+    @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def on_mouse_detected_plugged(self):
         if self.on_mouse_plugged and self.touchpad.are_all_touchpad_enabled():
             self.change_state_item.set_sensitive(False)
             self.set_touch_enabled(False)
+            if self.keyboardListener is not None:
+                self.keyboardListener.stop()
+            self.keyboardListener = None
 
-    @dbus.service.method(dbus_interface='es.atareao.TouchpadIndicator')
+    @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def on_mouse_detected_unplugged(self):
         if self.on_mouse_plugged and\
                 not watchdog.is_mouse_plugged() and\
                 not self.touchpad.are_all_touchpad_enabled():
             self.change_state_item.set_sensitive(True)
             self.set_touch_enabled(True)
+            if self.disable_on_typing:
+                if self.keyboardListener is not None:
+                    self.keyboardListener.stop()
+                self.keyboardListener = keyboard.Listener(self.on_key_release)
+                self.keyboardListener.start()
 
-    @dbus.service.method(dbus_interface='es.atareao.TouchpadIndicator')
+    @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def unhide(self):
         """Make the indicator icon visible again, if needed."""
         if self.indicator.get_status() == appindicator.IndicatorStatus.PASSIVE:
@@ -229,14 +237,14 @@ class TouchpadIndicator(dbus.service.Object):
                 self.indicator.set_status(
                     appindicator.IndicatorStatus.ATTENTION)
 
-    @dbus.service.method(dbus_interface='es.atareao.TouchpadIndicator')
+    @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def change_state(self):
         if not self.on_mouse_plugged or\
                 not watchdog.is_mouse_plugged():
             is_touch_enabled = not self.touchpad.are_all_touchpad_enabled()
             self.set_touch_enabled(is_touch_enabled)
 
-    @dbus.service.method(dbus_interface='es.atareao.TouchpadIndicator')
+    @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def check_status_from_resume(self):
         configuration = Configuration()
         self.touchpad_enabled = configuration.get('touchpad_enabled')
@@ -246,7 +254,7 @@ class TouchpadIndicator(dbus.service.Object):
             if not is_mouse_plugged():
                 self.set_touch_enabled(True)
 
-    @dbus.service.method(dbus_interface='es.atareao.TouchpadIndicator')
+    @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def check_status(self):
         configuration = Configuration()
         self.touchpad_enabled = configuration.get('touchpad_enabled')
@@ -298,12 +306,17 @@ class TouchpadIndicator(dbus.service.Object):
         # XINPUT
         self.touchpad.set_natural_scrolling_for_all(
             configuration.get('natural_scrolling'))
-
-        if configuration.get('disable_on_typing'):
-            if self.keyboardListener is not None:
-                self.keyboardListener.stop()
-            self.keyboardListener = keyboard.Listener(self.on_key_release)
-            self.keyboardListener.start()
+        self.disable_on_typing = configuration.get('disable_on_typing')
+        if self.disable_on_typing:
+            if self.on_mouse_plugged and watchdog.is_mouse_plugged():
+                if self.keyboardListener is not None:
+                    self.keyboardListener.stop()
+                self.keyboardListener = keyboard.Listener(self.on_key_release)
+                self.keyboardListener.start()
+            else:
+                if self.keyboardListener is not None:
+                    self.keyboardListener.stop()
+                self.keyboardListener = None
         else:
             if self.keyboardListener is not None:
                 self.keyboardListener.stop()
@@ -317,12 +330,12 @@ class TouchpadIndicator(dbus.service.Object):
                  text=_('Homepage...'),
                  conector_event='activate',
                  conector_action=lambda x: webbrowser.open('\
-https://launchpad.net/touchpad-indicator'))
+https://slimbook.es'))
         add2menu(help_menu,
                  text=_('Get help online...'),
                  conector_event='activate',
                  conector_action=lambda x: webbrowser.open('\
-https://answers.launchpad.net/touchpad-indicator'))
+https://answers.launchpad.net/~slimbook'))
         add2menu(help_menu,
                  text=_('Translate this application...'),
                  conector_event='activate',
@@ -332,41 +345,41 @@ https://translations.launchpad.net/touchpad-indicator'))
                  text=_('Report a bug...'),
                  conector_event='activate',
                  conector_action=lambda x: webbrowser.open('\
-https://bugs.launchpad.net/touchpad-indicator'))
+https://translations.launchpad.net/~slimbook'))
         add2menu(help_menu)
         web = add2menu(help_menu,
                        text=_('Homepage'),
                        conector_event='activate',
                        conector_action=lambda x: webbrowser.open('\
-http://www.atareao.es/tag/cryptfolder-indicator'))
+https://slimbook.es/tutoriales/linux/46-tutoriales/aplicaciones/96-slimbook-touchpad-activa-o-desactiva-tu-panel-tactil-con-este-indicador'))
         twitter = add2menu(help_menu,
                            text=_('Follow us in Twitter'),
                            conector_event='activate',
                            conector_action=lambda x: webbrowser.open('\
-https://twitter.com/atareao'))
+https://twitter.com/slimbookes'))
         googleplus = add2menu(help_menu,
                               text=_('Follow us in Google+'),
                               conector_event='activate',
                               conector_action=lambda x: webbrowser.open('\
-https://plus.google.com/118214486317320563625/posts'))
+https://plus.google.com/+SlimbookEs101'))
         facebook = add2menu(help_menu,
                             text=_('Follow us in Facebook'),
                             conector_event='activate',
                             conector_action=lambda x: webbrowser.open('\
-http://www.facebook.com/elatareao'))
+https://www.facebook.com/slimbook.es/'))
         add2menu(help_menu)
         #
-        web.set_image(Gtk.Image.new_from_file(os.path.join(comun.SOCIALDIR,
-                                                           'web.svg')))
+        web.set_image(Gtk.Image.new_from_file(os.path.join(comun.ICONDIR,
+                                                           'slimbook.svg')))
         web.set_always_show_image(True)
         twitter.set_image(Gtk.Image.new_from_file(os.path.join(
-            comun.SOCIALDIR, 'twitter.svg')))
+            comun.ICONDIR, 'twitter.svg')))
         twitter.set_always_show_image(True)
         googleplus.set_image(Gtk.Image.new_from_file(os.path.join(
-            comun.SOCIALDIR, 'googleplus.svg')))
+            comun.ICONDIR, 'google.svg')))
         googleplus.set_always_show_image(True)
         facebook.set_image(Gtk.Image.new_from_file(os.path.join(
-            comun.SOCIALDIR, 'facebook.svg')))
+            comun.ICONDIR, 'facebook.svg')))
         facebook.set_always_show_image(True)
 
         add2menu(help_menu)
@@ -418,7 +431,7 @@ http://www.facebook.com/elatareao'))
         about_dialog.set_name(comun.APPNAME)
         about_dialog.set_version(comun.VERSION)
         about_dialog.set_copyright(
-            'Copyrignt (c) 2010-2017\nMiguel Angel Santamaría Rogado\
+            'Copyrignt (c) 2010-2018\nMiguel Angel Santamaría Rogado\
 \nLorenzo Carbonell Cerezo')
         about_dialog.set_comments(_('An indicator for the Touchpad'))
         about_dialog.set_license('''
@@ -434,8 +447,8 @@ more details.
 
 You should have received a copy of the GNU General Public License along with
 this program.  If not, see <http://www.gnu.org/licenses/>.''')
-        about_dialog.set_website('http://www.atareao.es')
-        about_dialog.set_website_label('http://www.atareao.es')
+        about_dialog.set_website('http://www.slimbook.es')
+        about_dialog.set_website_label('http://www.slimbook.es')
         about_dialog.set_authors([
             'Lorenzo Carbonell <https://launchpad.net/~lorenzo-carbonell>',
             'Miguel Angel Santamaría Rogado <https://launchpad.net/~gabiel>'])
@@ -463,7 +476,8 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
 'XsLiDian <https://launchpad.net/~xslidian>\n'+
 'Yared Hufkens <https://launchpad.net/~w38m4570r>\n''')
         about_dialog.set_icon(GdkPixbuf.Pixbuf.new_from_file(comun.ICON))
-        about_dialog.set_logo(GdkPixbuf.Pixbuf.new_from_file(comun.ICON))
+        about_dialog.set_logo(GdkPixbuf.Pixbuf.new_from_file(os.path.join(
+            comun.ICONDIR, 'logo1.jpg')))
         about_dialog.set_program_name(comun.APPNAME)
         return about_dialog
 
@@ -525,10 +539,10 @@ def make_visible():
     """Get and call the unhide method of the running Touchpad-indicator."""
 
     bus = dbus.SessionBus()
-    service = bus.get_object('es.atareao.TouchpadIndicator',
-                             '/es/atareao/TouchpadIndicator')
+    service = bus.get_object('es.slimbook.SlimbookTouchpad',
+                             '/es/slimbook/SlimbookTouchpad')
     unhide = service.get_dbus_method('unhide',
-                                     'es.atareao.TouchpadIndicator')
+                                     'es.slimbook.SlimbookTouchpad')
     unhide()
 
 
@@ -537,20 +551,20 @@ def change_status():
         Touchpad-indicator."""
 
     bus = dbus.SessionBus()
-    service = bus.get_object('es.atareao.TouchpadIndicator',
-                             '/es/atareao/TouchpadIndicator')
+    service = bus.get_object('es.slimbook.SlimbookTouchpad',
+                             '/es/slimbook/SlimbookTouchpad')
     change_state = service.get_dbus_method('change_state',
-                                           'es.atareao.TouchpadIndicator')
+                                           'es.slimbook.SlimbookTouchpad')
     change_state()
 
 
 def main():
     DBusGMainLoop(set_as_default=True)
     bus = dbus.SessionBus()
-    request = bus.request_name('es.atareao.TouchpadIndicator',
+    request = bus.request_name('es.slimbook.SlimbookTouchpad',
                                dbus.bus.NAME_FLAG_DO_NOT_QUEUE)
     if request == dbus.bus.REQUEST_NAME_REPLY_EXISTS or len(sys.argv) > 1:
-        print('Another instance of Touchpad Indicator is working')
+        print('Another instance of SlimbookTouchpad is working')
         usage_msg = _('usage: %prog [options]')
         parser = OptionParser(usage=usage_msg, add_help_option=False)
         parser.add_option('-h', '--help',
@@ -589,14 +603,14 @@ Default action. If indicator is not running launch it.'))
         # ###################################################################
         print('#####################################################')
         print(machine_information.get_information())
-        print('Touchpad-Indicator version: %s' % comun.VERSION)
+        print('SlimbookTouchpad version: %s' % comun.VERSION)
         print('#####################################################')
         # ###################################################################
         Notify.init("touchpad-indicator")
-        object = bus.get_object('es.atareao.TouchpadIndicator',
-                                '/es/atareao/TouchpadIndicator')
-        dbus.Interface(object, 'es.atareao.TouchpadIndicator')
-        TouchpadIndicator()
+        object = bus.get_object('es.slimbook.SlimbookTouchpad',
+                                '/es/slimbook/SlimbookTouchpad')
+        dbus.Interface(object, 'es.slimbook.SlimbookTouchpad')
+        SlimbookTouchpad()
         Gtk.main()
     exit(0)
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Change state of Touchpad-Indicator
+# Change state of SlimbookTouchpad
 #
 # Copyright (C) 2010 - 2017 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
@@ -32,14 +32,14 @@ bus = dbus.SessionBus()
 if __name__ == '__main__':
     try:
         touchpad_indicator_service = bus.get_object(
-            'es.atareao.TouchpadIndicator', '/es/atareao/TouchpadIndicator')
+            'es.slimbook.SlimbookTouchpad', '/es/slimbook/SlimbookTouchpad')
         change_state = touchpad_indicator_service.get_dbus_method(
-            'change_state', 'es.atareao.TouchpadIndicator')
+            'change_state', 'es.slimbook.SlimbookTouchpad')
         change_state()
-        print('Touchpad-Indicator is working')
+        print('SlimbookTouchpad is working')
     except dbus.exceptions.DBusException as argument:
         print(argument)
-        print('Touchpad-Indicator is not working')
+        print('SlimbookTouchpad is not working')
         touchpad = Touchpad()
         status = touchpad.are_all_touchpad_enabled()
         if status:

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #
-# Copyright (C) 2010 - 2017 Lorenzo Carbonell
+# Copyright (C) 2010 - 2018 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -149,7 +149,7 @@ if __name__ == '__main__':
         xfceconf = XFCEConfiguration('xfce4-keyboard-shortcuts')
         akeys = xfceconf.search_for_value_in_properties_startswith(
             '/commands/custom/',
-            '/usr/share/touchpad-indicator/change_touchpad_state.py')
+            '/usr/share/slimbooktouchpad/change_touchpad_state.py')
         print('akeys: ' + str(akeys))
         if akeys:
             for akey in akeys:
@@ -160,5 +160,5 @@ if __name__ == '__main__':
             print(key)
             print(xfceconf.set_property(
                 '/commands/custom/' + key,
-                '/usr/share/touchpad-indicator/change_touchpad_state.py'))
+                '/usr/share/slimbooktouchpad/change_touchpad_state.py'))
     exit(0)

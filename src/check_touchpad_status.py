@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
+# Check touchpad status of SlimbookTouchpad
 #
-# Check touchpad status of Touchpad-Indicator
-#
-# Copyright (C) 2010 - 2017 Lorenzo Carbonell
+# Copyright (C) 2010 - 2018 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -31,18 +30,18 @@ if __name__ == '__main__':
     try:
         bus = dbus.SessionBus()
         touchpad_indicator_service = bus.get_object(
-            'es.atareao.TouchpadIndicator', '/es/atareao/TouchpadIndicator')
+            'es.slimbook.SlimbookTouchpad', '/es/slimbook/SlimbookTouchpad')
         if len(sys.argv) > 1 and sys.argv[1] == 'resume':
             print(sys.argv)
             check_status_from_resume = \
                 touchpad_indicator_service.get_dbus_method(
-                    'check_status_from_resume', 'es.atareao.TouchpadIndicator')
+                    'check_status_from_resume', 'es.slimbook.SlimbookTouchpad')
             check_status_from_resume()
         else:
             check_status = touchpad_indicator_service.get_dbus_method(
-                'check_status', 'es.atareao.TouchpadIndicator')
+                'check_status', 'es.slimbook.SlimbookTouchpad')
             check_status()
-        print('Touchpad-Indicator is working')
+        print('SlimbookTouchpad is working')
     except dbus.exceptions.DBusException as argument:
         print(argument)
         touchpad = Touchpad()
@@ -51,7 +50,7 @@ if __name__ == '__main__':
         touchpad_indicator_working = configuration.get('is_working')
         status = touchpad.are_all_touchpad_enabled()
         if touchpad_indicator_working:
-            print('Touchpad-Indicator is working')
+            print('SlimbookTouchpad is working')
             if touchpad_enabled != status:
                 if touchpad_enabled:
                     touchpad.enable_all_touchpads()
@@ -63,7 +62,7 @@ if __name__ == '__main__':
                     configuration.save()
                     status = newstatus
         else:
-            print('Touchpad-Indicator is not working')
+            print('SlimbookTouchpad is not working')
         if status:
             print('Touchpad is enabled')
         else:

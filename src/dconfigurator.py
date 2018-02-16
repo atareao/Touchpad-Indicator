@@ -3,7 +3,7 @@
 #
 #
 #
-# Copyright (C) 2012 - 2017 Lorenzo Carbonell
+# Copyright (C) 2012 - 2018 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -81,18 +81,18 @@ if __name__ == '__main__':
     dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys')
     values = dcm.get_value('custom-keybindings')
     if '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\
-touchpad-indicator/' in values:
+slimbook-touchpad/' in values:
         values.remove('/org/gnome/settings-daemon/plugins/media-keys/\
-custom-keybindings/touchpad-indicator/')
+custom-keybindings/slimbook-touchpad/')
         dcm.set_value('custom-keybindings', values)
     else:
         values.append('/org/gnome/settings-daemon/plugins/media-keys/\
-custom-keybindings/touchpad-indicator/')
+custom-keybindings/slimbook-touchpad/')
         dcm.set_value('custom-keybindings', values)
     dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys.\
-custom-keybindings.touchpad-indicator')
+custom-keybindings.slimbook-touchpad')
     dcm.get_keys()
     print(dcm.set_value('binding', '<Primary><Alt>p'))
     print(dcm.set_value('command', '/usr/bin/python3 /home/atareao_r/Dropbox/\
-tp/raring/touchpad-indicator/src/change_touchpad_state.py'))
+tp/raring/slimbook-touchpad/src/change_touchpad_state.py'))
     print(dcm.set_value('name', 'Touchpad-Indicator'))

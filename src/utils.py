@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# This file is part of ppaurl
+# This file is part of slimbooktouchpad
 #
-# Copyright (C) 2016-2017 Lorenzo Carbonell
+# Copyright (C) 2016-2018 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify

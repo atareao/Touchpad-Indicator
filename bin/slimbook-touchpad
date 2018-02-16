@@ -26,12 +26,12 @@ import sys
 
 if __name__ == '__main__':
     if __file__.startswith('/usr') or os.getcwd().startswith('/usr'):
-        sys.path.insert(1, '/usr/share/touchpad-indicator')
+        sys.path.insert(1, '/usr/share/slimbook-touchpad')
     else:
         sys.path.insert(1, os.path.normpath(
             os.path.join(os.getcwd(), '../src')))
     ####################################################################
-    from touchpad_indicator import main
+    from slimbooktouchpad import main
     ####################################################################
     main()
 exit(0)

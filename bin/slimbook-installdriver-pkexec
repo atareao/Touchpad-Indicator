@@ -1,6 +1,6 @@
 #!/bin/bash
 LOCATIONS=(
-"/opt/extras.ubuntu.com/installdriver/share/installdriver/installdriver.py"
+"/usr/share/slimbook-touchpad/installdriver.py"
 )
 
 for ((i = 0; i < ${#LOCATIONS[@]}; i++))

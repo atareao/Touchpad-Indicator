@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# This file is part of ppaurl
+# This file is part of slimbooktouchpad
 #
-# Copyright (C) 2016-2017 Lorenzo Carbonell
+# Copyright (C) 2016-2018 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -91,7 +91,7 @@ class Progreso(Gtk.Dialog, threading.Thread):
                   estimated_time=-1):
         if value >= 0 and value <= self.max_value:
             self.value = value
-            fraction = self.value/self.max_value
+            fraction = self.value / self.max_value
             self.progressbar.set_fraction(fraction)
             text = _('Copied: %s %%\nElapsed time: %s s\n\
 Estimated time: %s s' % (
@@ -106,15 +106,16 @@ Estimated time: %s s' % (
     def increase(self, anobject, command, *args):
         self.label.set_text(_('Executing: %s') % command)
         self.value += 1.0
-        fraction = self.value/self.max_value
+        fraction = self.value / self.max_value
         self.progressbar.set_fraction(fraction)
         if self.value == self.max_value:
             self.hide()
 
     def decrease(self):
         self.value -= 1.0
-        fraction = self.value/self.max_value
+        fraction = self.value / self.max_value
         self.progressbar.set_fraction(fraction)
+
 
 if __name__ == '__main__':
     p = Progreso('Prueba', None, 100)

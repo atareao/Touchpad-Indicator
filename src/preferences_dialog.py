@@ -3,8 +3,9 @@
 #
 # preferences_dialog.py
 #
-# Copyright (C), 2010, 2011
+# Copyright (C), 2010 - 2018
 # Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
+# Copyright (C), 2010, 2011
 # Miguel Angel Santamaría Rogado <leibag@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -35,12 +36,13 @@ from xconfigurator import xfconfquery_exists
 from xconfigurator import XFCEConfiguration
 from xconfigurator import get_desktop_environment
 import os
+import subprocess
 import configparser
 from configurator import Configuration
 from touchpad import Touchpad
 import comun
 from comun import _
-import webbrowser
+
 
 def set_autostart(autostart):
     if not os.path.exists(comun.AUTOSTART_DIR):
@@ -49,8 +51,8 @@ def set_autostart(autostart):
         config = configparser.ConfigParser()
         config['Desktop Entry'] = {
             'Type': 'Application',
-            'Icon': 'touchpad-indicator',
-            'Exec': '/usr/bin/touchpad-indicator',
+            'Icon': 'slimbook-touchpad',
+            'Exec': '/usr/bin/slimbook-touchpad',
             'Hidden': 'false',
             'NoDisplay': 'false',
             'X-MATE-Autostart-Phase': 'Applications',
@@ -64,12 +66,6 @@ def set_autostart(autostart):
     else:
         if os.path.exists(comun.FILE_AUTO_START):
             os.remove(comun.FILE_AUTO_START)
-
-
-def exist_touchpad_shortcut():
-    gcm = GConfManager()
-    for directory in gcm.get_dirs('/desktop/gnome/keybindings'):
-        print(directory)
 
 
 def get_shortcuts():
@@ -90,7 +86,7 @@ class PreferencesDialog(Gtk.Dialog):
 
     def __init__(self, is_synaptics):
         #
-        Gtk.Dialog.__init__(self, 'Touchpad Indicator | ' + _('Preferences'),
+        Gtk.Dialog.__init__(self, 'Slimbook Touchpad | ' + _('Preferences'),
                             None,
                             Gtk.DialogFlags.MODAL |
                             Gtk.DialogFlags.DESTROY_WITH_PARENT,
@@ -251,19 +247,13 @@ after the last key press before enabling the touchpad') + ':')
             label.set_alignment(0, 0.5)
             grid4.attach(label, 0, 1, 1, 1)
             if tipo == 1:
-                label = Gtk.Label(_('Install Evdev?'))
-                label.set_alignment(0, 0.5)
-                grid4.attach(label, 0, 2, 1, 1)
-                install_evdev = Gtk.Switch()
-                grid4.attach(install_evdev, 1, 2, 1, 1)
-                install_evdev.connect('notify::active', self.on_install_evdev)
+                install_evdev = Gtk.Button(_('Install Evdev?'))
+                install_evdev.connect('clicked', self.on_install_evdev)
+                grid4.attach(install_evdev, 0, 2, 1, 1)
             elif tipo == 2:
-                label = Gtk.Label(_('Install Libinput?'))
-                label.set_alignment(0, 0.5)
-                grid4.attach(label, 0, 2, 1, 1)
-                install_libinput = Gtk.Switch()
-                grid4.attach(install_libinput, 1, 2, 1, 1)
-                install_libinput.connect('activate', self.on_install_libinput)
+                install_libinput = Gtk.Button(_('Install Libinput?'))
+                install_libinput.connect('clicked', self.on_install_libinput)
+                grid4.attach(install_libinput, 0, 2, 1, 1)
 
         if self.is_synaptics is True:
 
@@ -339,23 +329,33 @@ after the last key press before enabling the touchpad') + ':')
         self.radiobutton1 = Gtk.RadioButton()
         image1 = Gtk.Image()
         image1.set_from_file(os.path.join(comun.ICONDIR,
-                             'touchpad-indicator-light-enabled.svg'))
+                             'slimbook-touchpad-light-enabled.svg'))
         self.radiobutton1.add(image1)
         grid5.attach(self.radiobutton1, 1, 0, 1, 1)
+
         self.radiobutton2 = Gtk.RadioButton(group=self.radiobutton1)
         image2 = Gtk.Image()
         image2.set_from_file(os.path.join(comun.ICONDIR,
-                             'touchpad-indicator-dark-enabled.svg'))
+                             'slimbook-touchpad-dark-enabled.svg'))
         self.radiobutton2.add(image2)
         grid5.attach(self.radiobutton2, 2, 0, 1, 1)
+
+        self.radiobutton3 = Gtk.RadioButton(group=self.radiobutton1)
+        image3 = Gtk.Image()
+        image3.set_from_file(os.path.join(comun.ICONDIR,
+                             'slimbook-touchpad-normal-enabled.svg'))
+        self.radiobutton3.add(image3)
+        grid5.attach(self.radiobutton3, 3, 0, 1, 1)
 
         self.load_preferences()
 
         self.show_all()
 
-    def on_install_evdev(self, widget, state):
-        if state:
-            webbrowser.open('apt:evdev')
+    def on_install_evdev(self, widget):
+        subprocess.call(['installdriver', 'evdev'])
+
+    def on_install_libinput(self, widget):
+        subprocess.call(['installdriver', 'libinput'])
 
     def on_checkbutton8_toggled(self, widget):
         self.label_seconds.set_sensitive(self.checkbutton8.get_active())
@@ -463,8 +463,10 @@ after the last key press before enabling the touchpad') + ':')
         self.set_shortcut_sensitive(self.checkbutton0.get_active())
         if option == 'light':
             self.radiobutton1.set_active(True)
-        else:
+        if option == 'dark':
             self.radiobutton2.set_active(True)
+        else:
+            self.radiobutton3.set_active(True)
 
         self.checkbutton46.set_active(configuration.get('natural_scrolling'))
 
@@ -482,6 +484,8 @@ after the last key press before enabling the touchpad') + ':')
             theme = 'light'
         elif self.radiobutton2.get_active() is True:
             theme = 'dark'
+        else:
+            theme = 'normal'
         configuration.set('shortcut_enabled', self.checkbutton0.get_active())
         configuration.set('autostart', self.checkbutton1.get_active())
         set_autostart(self.checkbutton1.get_active())
@@ -508,22 +512,22 @@ after the last key press before enabling the touchpad') + ':')
             values = dcm.get_value('custom-keybindings')
             if self.checkbutton0.get_active():
                 if '/org/gnome/settings-daemon/plugins/media-keys/\
-custom-keybindings/touchpad-indicator/' not in values:
+custom-keybindings/slimbook-touchpad/' not in values:
                     values.append('/org/gnome/settings-daemon/plugins/\
-media-keys/custom-keybindings/touchpad-indicator/')
+media-keys/custom-keybindings/slimbook-touchpad/')
                     dcm.set_value('custom-keybindings', values)
                 dcm = DConfManager('org.gnome.settings-daemon.plugins.\
-media-keys.custom-keybindings.touchpad-indicator')
+media-keys.custom-keybindings.slimbook-touchpad')
                 print(dcm.set_value('binding', key))
                 print(dcm.set_value('command', '/usr/bin/python3 \
-/usr/share/touchpad-indicator/\
+/usr/share/slimbook-touchpad/\
 change_touchpad_state.py'))
                 print(dcm.set_value('name', 'Touchpad-Indicator key binding'))
             else:
                 if '/org/gnome/settings-daemon/plugins/media-keys/\
-custom-keybindings/touchpad-indicator/' in values:
+custom-keybindings/slimbook-touchpad/' in values:
                     values.remove('/org/gnome/settings-daemon/plugins/\
-media-keys/custom-keybindings/touchpad-indicator/')
+media-keys/custom-keybindings/slimbook-touchpad/')
                     dcm.set_value('custom-keybindings', values)
         elif desktop_environment == 'xfce':
             if xfconfquery_exists():
@@ -531,7 +535,7 @@ media-keys/custom-keybindings/touchpad-indicator/')
                 keys = xfceconf.search_for_value_in_properties_startswith(
                     '/commands/custom/',
                     '/usr/share/\
-touchpad-indicator/change_touchpad_state.py')
+slimbook-touchpad/change_touchpad_state.py')
                 if keys:
                     for akey in keys:
                         xfceconf.reset_property(akey['key'])
@@ -540,7 +544,7 @@ touchpad-indicator/change_touchpad_state.py')
                     xfceconf.set_property(
                         '/commands/custom/' + key,
                         '/usr/share/\
-touchpad-indicator/change_touchpad_state.py')
+slimbook-touchpad/change_touchpad_state.py')
 
 
 if __name__ == "__main__":

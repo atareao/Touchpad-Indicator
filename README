@@ -1,15 +1,13 @@
 ==================
-Touchpad-Indicator
+SlimbookTouchpad
 ==================
 
-With Touchpad-Indicator you can enable or disable the touchpad, with shortcuts
+With SlimbookTouchpad you can enable or disable the touchpad, with shortcuts
  or by clicking on menu. Besides, it enables or disables the touchpad, when
  the computer returns from hibernation.
 
 For more information, please visit our website:
-http://launchpad.net/touchpad-indicator/
-or
-http://www.atareao.es
+https://slimbook.es/
 
 
 ============
@@ -28,10 +26,3 @@ Required dependencies:
     python3-pyudev,
     python3-dbus,
     xinput
-========
-Download
-========
-
-Download the package:
-
-    $ bzr branch lp:touchpad-indicator

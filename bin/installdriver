@@ -1,3 +1,0 @@
-#!/bin/bash
-c_user=$(whoami)
-pkexec installdriver-pkexec $1

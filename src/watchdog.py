@@ -3,9 +3,10 @@
 #
 # watchdog.py
 #
+# Copyright (C) 2010 - 2018
+# Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
 # Copyright (C) 2010,2011
 # Miguel Angel Santamaría Rogado <leibag@gmail.com>
-# Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -112,21 +113,21 @@ def init_dbus():
     bus = dbus.SessionBus()
     try:
         touchpad_indicator_service = bus.get_object(
-            'es.atareao.TouchpadIndicator',
-            '/es/atareao/TouchpadIndicator')
+            'es.slimbook.SlimbookTouchpad',
+            '/es/slimbook/SlimbookTouchpad')
         on_mouse_detected_plugged = touchpad_indicator_service.get_dbus_method(
             'on_mouse_detected_plugged',
-            'es.atareao.TouchpadIndicator')
+            'es.slimbook.SlimbookTouchpad')
         on_mouse_detected_unplugged = \
             touchpad_indicator_service.get_dbus_method(
                 'on_mouse_detected_unplugged',
-                'es.atareao.TouchpadIndicator')
+                'es.slimbook.SlimbookTouchpad')
         check_status = touchpad_indicator_service.get_dbus_method(
             'check_status',
-            'es.atareao.TouchpadIndicator')
+            'es.slimbook.SlimbookTouchpad')
         check_status_from_resume = touchpad_indicator_service.get_dbus_method(
             'check_status_from_resume',
-            'es.atareao.TouchpadIndicator')
+            'es.slimbook.SlimbookTouchpad')
     except Exception as e:
         print(e, 'watchdog: Failed to initialize dbus.')
         exit(0)

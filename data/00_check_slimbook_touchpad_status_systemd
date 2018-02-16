@@ -11,7 +11,7 @@ case $1/$2 in
     echo "Waking up from $2..."
     # Place your post suspend (resume) commands here, or `exit 0` if no post suspend action required
 	echo "Resumed systemd from suspend at `date`" >> "$LOGFILE"
-	/usr/bin/python3 /usr/share/touchpad-indicator/check_touchpad_status.py resume
+	/usr/bin/python3 /usr/share/slimbooktouchpad/check_touchpad_status.py resume
 	echo "Touchpad enabled"
 	;;
 esac

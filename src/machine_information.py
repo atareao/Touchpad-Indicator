@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #
-#
 # Report Ubuntu and Machine information
 #
-# Copyright (C) 2010 - 2017
-# Miguel Angel Santamaría Rogado <leibag@gmail.com>
+# Copyright (C) 2010 - 2018
 # Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
+# Miguel Angel Santamaría Rogado <leibag@gmail.com>
+# Copyright (C) 2010 - 2011
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
