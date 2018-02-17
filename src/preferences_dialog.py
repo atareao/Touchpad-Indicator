@@ -352,10 +352,10 @@ after the last key press before enabling the touchpad') + ':')
         self.show_all()
 
     def on_install_evdev(self, widget):
-        subprocess.call(['installdriver', 'evdev'])
+        subprocess.call(['slimbook-installdriver', 'evdev'])
 
     def on_install_libinput(self, widget):
-        subprocess.call(['installdriver', 'libinput'])
+        subprocess.call(['slimbook-installdriver', 'libinput'])
 
     def on_checkbutton8_toggled(self, widget):
         self.label_seconds.set_sensitive(self.checkbutton8.get_active())
