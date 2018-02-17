@@ -1,3 +1,9 @@
+slimbook-touchpad (1.9.1-0extras17.10.1) xenial; urgency=medium
+
+  * Fixed a bug with install Evdev and Libinput
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 17 Feb 2018 18:22:26 +0100
+
 slimbook-touchpad (1.9.1-0extras17.10.0) xenial; urgency=medium
 
   * First commit
