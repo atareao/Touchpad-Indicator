@@ -1,10 +1,6 @@
 bin/* /usr/bin
 debian/changelog /usr/share/slimbook-touchpad
 src/*.py /usr/share/slimbook-touchpad
-pynput/lib/pynput/*.py /usr/share/slimbook-touchpad/pynput
-pynput/lib/pynput/_util/*.py /usr/share/slimbook-touchpad/pynput/_util
-pynput/lib/pynput/keyboard/*.py /usr/share/slimbook-touchpad/pynput/keyboard
-pynput/lib/pynput/mouse/*.py /usr/share/slimbook-touchpad/pynput/mouse
 data/icons/*.svg /usr/share/slimbook-touchpad/icons
 data/icons/*.jpg /usr/share/slimbook-touchpad/icons
 data/schemas/org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.slimbook-touchpad.gschema.xml /usr/share/glib-2.0/schemas

@@ -48,9 +48,8 @@ from watchdog import is_mouse_plugged
 from touchpad import Touchpad
 from configurator import Configuration
 from preferences_dialog import PreferencesDialog
-from do_it_after import DoItAfter
-from pynput import keyboard
 from comun import _
+import xinterface
 import comun
 import watchdog
 import machine_information
@@ -97,12 +96,13 @@ class SlimbookTouchpad(dbus.service.Object):
         self.icon = comun.ICON
         self.active_icon = None
         self.attention_icon = None
-        self.keyboardListener = None
+        self.keyboardMonitor = None
         self.doItAfter = None
         self.enable_after = 0.2
         self.touchpad = Touchpad()
-        self.read_preferences()
         self.notification = Notify.Notification.new('', '', None)
+
+        self.read_preferences()
 
         self.indicator = appindicator.Indicator.new(
             'SlimbookTouchpad',
@@ -128,6 +128,7 @@ class SlimbookTouchpad(dbus.service.Object):
         if self.touchpad.are_all_touchpad_enabled() and\
                 self.disable_touchpad_on_start_indicator:
             self.set_touch_enabled(False)
+        self.read_preferences()
 
     # ########### preferences related methods #################
 
@@ -157,10 +158,10 @@ class SlimbookTouchpad(dbus.service.Object):
         """Enable or disable the touchpads and update the indicator status
             and menu items.
             :param enabled: If True enable the touchpads."""
-        print('==== start set_touch_enabled =====')
-        print('set_touch_enabled:', enabled)
-        print('are_all_touchpad_enabled: ',
-              self.touchpad.are_all_touchpad_enabled())
+        # print('==== start set_touch_enabled =====')
+        # print('set_touch_enabled:', enabled)
+        # print('are_all_touchpad_enabled: ',
+        #      self.touchpad.are_all_touchpad_enabled())
         if enabled and not self.touchpad.are_all_touchpad_enabled():
             if self.touchpad.enable_all_touchpads():
                 if self.show_notifications and not isforwriting:
@@ -189,7 +190,7 @@ class SlimbookTouchpad(dbus.service.Object):
                     configuration.set('touchpad_enabled',
                                       self.touchpad.are_all_touchpad_enabled())
                     configuration.save()
-        print('==== end set_touch_enabled ====')
+        # print('==== end set_touch_enabled ====')
 
     def show_notification(self, kind):
         """Show a notification of type kind"""
@@ -210,22 +211,18 @@ class SlimbookTouchpad(dbus.service.Object):
         if self.on_mouse_plugged and self.touchpad.are_all_touchpad_enabled():
             self.change_state_item.set_sensitive(False)
             self.set_touch_enabled(False)
-            if self.keyboardListener is not None:
-                self.keyboardListener.stop()
-            self.keyboardListener = None
+            if self.disable_on_typing:
+                self.keyboardMonitor.stop()
 
     @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def on_mouse_detected_unplugged(self):
         if self.on_mouse_plugged and\
-                not watchdog.is_mouse_plugged() and\
+                not is_mouse_plugged() and\
                 not self.touchpad.are_all_touchpad_enabled():
             self.change_state_item.set_sensitive(True)
             self.set_touch_enabled(True)
             if self.disable_on_typing:
-                if self.keyboardListener is not None:
-                    self.keyboardListener.stop()
-                self.keyboardListener = keyboard.Listener(self.on_key_release)
-                self.keyboardListener.start()
+                self.keyboardMonitor.start()
 
     @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def unhide(self):
@@ -240,7 +237,7 @@ class SlimbookTouchpad(dbus.service.Object):
     @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def change_state(self):
         if not self.on_mouse_plugged or\
-                not watchdog.is_mouse_plugged():
+                not is_mouse_plugged():
             is_touch_enabled = not self.touchpad.are_all_touchpad_enabled()
             self.set_touch_enabled(is_touch_enabled)
 
@@ -266,20 +263,16 @@ class SlimbookTouchpad(dbus.service.Object):
 
         if self.the_watchdog is None:
             self.the_watchdog = subprocess.Popen(comun.WATCHDOG)
-        if watchdog.is_mouse_plugged():
+        if is_mouse_plugged():
             self.change_state_item.set_sensitive(False)
             self.set_touch_enabled(False)
 
-    def on_key_release(self, key):
-        if self.doItAfter is not None and self.doItAfter.is_working is True:
-            self.doItAfter.increase()
-        else:
-            if self.touchpad.are_all_touchpad_enabled() is True:
-                self.set_touch_enabled(False, True)
-            if self.doItAfter is not None:
-                self.doItAfter.stop()
-            self.doItAfter = DoItAfter(self.enable_touchpad, self.enable_after)
-            self.doItAfter.start()
+    def on_key_pressed(self, key):
+        print('must disable touchpad')
+        self.set_touch_enabled(False, True)
+
+    def on_key_released(self, key):
+        self.set_touch_enabled(True, True)
 
     def enable_touchpad(self):
         self.set_touch_enabled(True, True)
@@ -307,20 +300,17 @@ class SlimbookTouchpad(dbus.service.Object):
         self.touchpad.set_natural_scrolling_for_all(
             configuration.get('natural_scrolling'))
         self.disable_on_typing = configuration.get('disable_on_typing')
+        if self.keyboardMonitor is not None:
+            self.keyboardMonitor.stop()
+            self.keyboardMonitor = None
         if self.disable_on_typing:
-            if self.on_mouse_plugged and watchdog.is_mouse_plugged():
-                if self.keyboardListener is not None:
-                    self.keyboardListener.stop()
-                self.keyboardListener = None
+            self.keyboardMonitor = xinterface.Interface()
+            self.keyboardMonitor.connect('key_pressed', self.on_key_pressed)
+            self.keyboardMonitor.connect('key_released', self.on_key_released)
+            if self.on_mouse_plugged and is_mouse_plugged():
+                self.keyboardMonitor.stop()
             else:
-                if self.keyboardListener is not None:
-                    self.keyboardListener.stop()
-                self.keyboardListener = keyboard.Listener(self.on_key_release)
-                self.keyboardListener.start()
-        else:
-            if self.keyboardListener is not None:
-                self.keyboardListener.stop()
-            self.keyboardListener = None
+                self.keyboardMonitor.start()
     # ################## menu creation ######################
 
     def get_help_menu(self):
@@ -510,12 +500,9 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
         print(1)
         if self.the_watchdog is not None:
             self.the_watchdog.kill()
-        if self.keyboardListener is not None:
-            print(2)
-            self.keyboardListener.stop()
-            print(3)
-            self.keyboardListener.stop()
-            print(4)
+        if self.keyboardMonitor is not None:
+            self.keyboardMonitor.stop()
+            self.keyboardMonitor = None
         if self.enable_on_exit:
             self.touchpad.enable_all_touchpads()
         if self.disable_on_exit:

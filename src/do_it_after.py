@@ -37,7 +37,7 @@ class DoItAfter(Thread):
         self.working = True
         self.start_time = time.time()
         while(1):
-            time.sleep(0.2)
+            time.sleep(self.elapsed_time)
             if self.stopit is True:
                 return
             if time.time() > self.start_time + self.elapsed_time:
@@ -49,7 +49,7 @@ class DoItAfter(Thread):
         self.stopit = True
 
     def increase(self):
-        self.start_time += 0.2
+        self.start_time = time.time()
 
     def is_working(self):
         return self.working
