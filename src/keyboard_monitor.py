@@ -63,6 +63,10 @@ class KeyboardMonitor(Thread, GObject.GObject):
         self.cola.put_nowait(KeyEvent(KEY_PRESSED))
 
     def run(self):
+        print('Monitor on')
+        if self.keyboardListener is None:
+            self.keyboardListener = xinterface.Interface(self.key_press)
+        self.keyboardListener.start()
         while True:
             try:
                 new_event = self.cola.get(True, self.elapsed_time)
@@ -85,13 +89,7 @@ class KeyboardMonitor(Thread, GObject.GObject):
                 else:
                     self.cola.put_nowait(KeyEvent(KEY_RELEASED))
 
-    def set_monitor_on(self):
-        print('Monitor on')
-        if self.keyboardListener is None:
-            self.keyboardListener = xinterface.Interface(self.key_press)
-        self.keyboardListener.start()
-
-    def set_monitor_off(self):
+    def stop(self):
         print('Monitor off')
         self.keyboardListener.stop()
         self.keyboardListener = None

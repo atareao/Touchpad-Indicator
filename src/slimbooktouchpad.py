@@ -284,10 +284,10 @@ class SlimbookTouchpad(dbus.service.Object):
             self.change_state_item.set_sensitive(False)
             self.set_touch_enabled(False)
 
-    def on_key_pressed(self):
+    def on_key_pressed(self, widget):
         self.set_touch_enabled(False, True)
 
-    def on_key_released(self):
+    def on_key_released(self, widget):
         self.set_touch_enabled(True, True)
 
     def read_preferences(self):
