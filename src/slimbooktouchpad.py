@@ -51,7 +51,7 @@ from touchpad import Touchpad
 from configurator import Configuration
 from preferences_dialog import PreferencesDialog
 from comun import _
-import xinterface
+from keyboard_monitor import KeyboardMonitor
 import time
 import comun
 import machine_information
@@ -230,7 +230,6 @@ class SlimbookTouchpad(dbus.service.Object):
             self.set_touch_enabled(False)
             if self.disable_on_typing:
                 self.keyboardMonitor.stop()
-                self.stop_time_watcher()
 
     @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def on_mouse_detected_unplugged(self):
@@ -241,7 +240,6 @@ class SlimbookTouchpad(dbus.service.Object):
             self.set_touch_enabled(True)
             if self.disable_on_typing:
                 self.keyboardMonitor.start()
-                self.start_time_watcher()
 
     @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def unhide(self):
@@ -286,9 +284,11 @@ class SlimbookTouchpad(dbus.service.Object):
             self.change_state_item.set_sensitive(False)
             self.set_touch_enabled(False)
 
-    def on_key_pressed(self, key):
+    def on_key_pressed(self):
         self.set_touch_enabled(False, True)
-        self.last_time_keypressed = time.time()
+
+    def on_key_released(self):
+        self.set_touch_enabled(True, True)
 
     def read_preferences(self):
         configuration = Configuration()
@@ -318,14 +318,13 @@ class SlimbookTouchpad(dbus.service.Object):
             self.keyboardMonitor.stop()
             self.keyboardMonitor = None
         if self.disable_on_typing:
-            self.keyboardMonitor = xinterface.Interface()
+            self.keyboardMonitor = KeyboardMonitor(self.interval)
             self.keyboardMonitor.connect('key_pressed', self.on_key_pressed)
+            self.keyboardMonitor.connect('key_released', self.on_key_released)
             if self.on_mouse_plugged and is_mouse_plugged():
                 self.keyboardMonitor.stop()
-                self.stop_time_watcher()
             else:
                 self.keyboardMonitor.start()
-                self.start_time_watcher()
 
     def start_time_watcher(self):
         self.stop_time_watcher()

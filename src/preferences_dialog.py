@@ -44,6 +44,16 @@ import comun
 from comun import _
 
 
+class EqualsSpaceRemover:
+    output_file = None
+
+    def __init__(self, new_output_file):
+        self.output_file = new_output_file
+
+    def write(self, what):
+        self.output_file.write(what.replace(" = ", "=", 1))
+
+
 def set_autostart(autostart):
     if not os.path.exists(comun.AUTOSTART_DIR):
         os.makedirs(comun.AUTOSTART_DIR)
@@ -62,7 +72,7 @@ def set_autostart(autostart):
             'X-GNOME-Autostart-Delay': '2',
             'X-GNOME-Autostart-enabled': str(autostart)}
         with open(comun.FILE_AUTO_START, 'w') as autostart_file:
-            config.write(autostart_file)
+            config.write(EqualsSpaceRemover(autostart_file))
     else:
         if os.path.exists(comun.FILE_AUTO_START):
             os.remove(comun.FILE_AUTO_START)
