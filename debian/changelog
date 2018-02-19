@@ -1,8 +1,8 @@
-slimbook-touchpad (1.9.2-0extras17.10.2) xenial; urgency=medium
+slimbook-touchpad (1.9.2-0extras17.10.4) xenial; urgency=medium
 
   * Spaces in autostart config
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 19 Feb 2018 12:38:56 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 19 Feb 2018 16:39:19 +0100
 
 slimbook-touchpad (1.9.1-0extras17.10.2) xenial; urgency=medium
 

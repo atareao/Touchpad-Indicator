@@ -1,12 +1,12 @@
 [Desktop Entry]
-Name = Slimbook Touchpad
-GenericName = Slimbook Touchpad
-Exec = /usr/bin/slimbook-touchpad
-Icon = /usr/share/slimbook-touchpad/icons/slimbook-touchpad.svg
-Type = Application
-Terminal = false
-StartupNotify = true
-Encoding = UTF-8
-Categories = Utility;
-X-Ubuntu-Gettext-Domain = slimbook-touchpad
-Name[es] = Slimbook Touchpad
+Name=Slimbook Touchpad
+GenericName=Slimbook Touchpad
+Exec=/usr/bin/python3 /usr/bin/slimbook-touchpad
+Icon=/usr/share/slimbook-touchpad/icons/slimbook-touchpad.svg
+Type=Application
+Terminal=false
+StartupNotify=true
+Encoding=UTF-8
+Categories=Utility;
+X-Ubuntu-Gettext-Domain=slimbook-touchpad
+Name[es]=Slimbook Touchpad

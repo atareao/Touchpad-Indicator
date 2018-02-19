@@ -54,7 +54,6 @@ class KeyboardMonitor(Thread, GObject.GObject):
         self.daemon = True
 
         self.keyboardListener = xinterface.Interface(self.key_press)
-        # self.keyboardListener.connect('key_pressed', self.on_key_pressed)
         self.elapsed_time = elapsed_time
         self.cola = queue.Queue()
         self.last_event = None

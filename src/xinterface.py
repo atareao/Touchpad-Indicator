@@ -8,6 +8,9 @@ from Xlib.protocol import rq, event
 import CONSTANTS
 import service
 
+import logging
+logging.basicConfig(filename='/home/lorenzo/example.log',level=logging.DEBUG)
+
 
 class Interface():
 
@@ -98,14 +101,16 @@ class Interface():
             self.context, self.process_event)
 
     def get_window_class(self, window):
-
+        if type(window) == int:
+            return '.'
         wm_class = window.get_wm_class()
         if (wm_class is None or wm_class == ''):
             return self.get_window_class(window.query_tree().parent)
         return '{0}.{1}'.format(wm_class[0], wm_class[1])
 
     def get_window_title(self, window):
-
+        if type(window) == int:
+            return ''
         atom = window.get_property(self._visible_name_atom, 0, 0, 255)
         if atom is None:
             atom = window.get_property(self._name_atom, 0, 0, 255)
@@ -119,7 +124,6 @@ class Interface():
                 window.query_tree().parent)
 
     def update_active_window(self):
-
         self.static_window = self.static_display.get_input_focus().focus
         self.active_window = self.local_display.get_input_focus().focus
         self.active_window_class = self.get_window_class(self.active_window)
@@ -203,7 +207,7 @@ class Interface():
                 self.enqueue(self.update_active_window)
                 return
 
-            if event.type in {X.KeyPress, X.KeyRelease}:
+            if event.type in [X.KeyPress, X.KeyRelease]:
                 self.enqueue(self.handle_key_event,
                              event.type,
                              event.detail,
@@ -213,15 +217,6 @@ class Interface():
 
     def emit_event(self):
         self.callback()
-        '''
-        new_time_key_pressed = time.time()
-        if new_time_key_pressed - self.last_time_key_pressed > 0.2:
-            print('=== Key Pressed', time.time())
-            self.emit('key_pressed')
-            if self.callback is not None:
-                self.callback
-        self.last_time_key_pressed = new_time_key_pressed
-        '''
 
     def handle_key_event(self, type, keycode, state, window_class,
                          window_title):
@@ -344,3 +339,24 @@ class Interface():
                                        state=state,
                                        same_screen=1)
         self.static_window.send_event(key_release)
+
+def get_window_class(window):
+    if type(window) == int:
+        return '.'
+    wm_class = window.get_wm_class()
+    if (wm_class is None or wm_class == ''):
+        return get_window_class(window.query_tree().parent)
+    return '{0}.{1}'.format(wm_class[0], wm_class[1])
+
+
+
+if __name__ == '__main__':
+    root = display.Display().screen().root
+    print(type(root))
+    print(type(root.query_tree().parent))
+    wm_class = root.get_wm_class()
+    print(type(wm_class))
+    # Get all windows?
+    windows = display.Display().screen().root.query_tree().children
+    # Print WM_CLASS properties of all windows.
+    for w in windows: print(get_window_class(w))
