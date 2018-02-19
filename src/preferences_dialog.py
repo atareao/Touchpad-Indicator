@@ -180,14 +180,14 @@ class PreferencesDialog(Gtk.Dialog):
         self.checkbutton8.connect('toggled', self.on_checkbutton8_toggled)
         grid2.attach(self.checkbutton8, 0, 4, 1, 1)
         #
-        self.label_seconds = Gtk.Label('        ' + _('Milliseconds to wait \
+        self.label_interval = Gtk.Label('        ' + _('Seconds to wait \
 after the last key press before enabling the touchpad') + ':')
-        grid2.attach(self.label_seconds, 0, 5, 1, 1)
+        grid2.attach(self.label_interval, 0, 5, 1, 1)
         #
-        self.seconds = Gtk.SpinButton()
-        self.seconds.set_adjustment(
-            Gtk.Adjustment(1000, 100, 10000, 100, 1000, 0))
-        grid2.attach(self.seconds, 1, 5, 1, 1)
+        self.interval = Gtk.SpinButton()
+        self.interval.set_adjustment(
+            Gtk.Adjustment(1, 1, 10, 1, 2, 0))
+        grid2.attach(self.interval, 1, 5, 1, 1)
 
         vbox3 = Gtk.VBox(spacing=5)
         vbox3.set_border_width(5)
@@ -358,8 +358,8 @@ after the last key press before enabling the touchpad') + ':')
         subprocess.call(['slimbook-installdriver', 'libinput'])
 
     def on_checkbutton8_toggled(self, widget):
-        self.label_seconds.set_sensitive(self.checkbutton8.get_active())
-        self.seconds.set_sensitive(self.checkbutton8.get_active())
+        self.label_interval.set_sensitive(self.checkbutton8.get_active())
+        self.interval.set_sensitive(self.checkbutton8.get_active())
 
     def on_checkbutton0_clicked(self, widget, data):
         self.set_shortcut_sensitive(not widget.get_active())
@@ -449,9 +449,9 @@ after the last key press before enabling the touchpad') + ':')
         self.checkbutton7.set_active(
             configuration.get('disable_touchpad_on_start_indicator'))
         self.checkbutton8.set_active(configuration.get('disable_on_typing'))
-        self.seconds.set_value(configuration.get('seconds') * 1000)
-        self.label_seconds.set_sensitive(self.checkbutton8.get_active())
-        self.seconds.set_sensitive(self.checkbutton8.get_active())
+        self.interval.set_value(configuration.get('interval'))
+        self.label_interval.set_sensitive(self.checkbutton8.get_active())
+        self.interval.set_sensitive(self.checkbutton8.get_active())
         self.key = configuration.get('shortcut')
         self.shortcut_enabled = configuration.get('shortcut_enabled')
         if self.key.find('<Primary>') > -1:
@@ -498,7 +498,7 @@ after the last key press before enabling the touchpad') + ':')
             'disable_touchpad_on_start_indicator',
             self.checkbutton7.get_active())
         configuration.set('disable_on_typing', self.checkbutton8.get_active())
-        configuration.set('seconds', self.seconds.get_value() / 1000.0)
+        configuration.set('interval', self.interval.get_value())
         configuration.set('shortcut', key)
         configuration.set('theme', theme)
 

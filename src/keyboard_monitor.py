@@ -27,9 +27,19 @@ except Exception as e:
     exit(-1)
 from gi.repository import GObject
 from threading import Thread
-from threading import Event
+import queue
 import time
-from pynput import keyboard
+import xinterface
+
+KEY_PRESSED = 1
+KEY_RELEASED = 0
+KEY_NONE = -1
+
+
+class KeyEvent():
+    def __init__(self, eventtype):
+        self.eventtype = eventtype
+        self.instant = time.time()
 
 
 class KeyboardMonitor(Thread, GObject.GObject):
@@ -42,60 +52,58 @@ class KeyboardMonitor(Thread, GObject.GObject):
         Thread.__init__(self)
         GObject.GObject.__init__(self)
         self.daemon = True
-        self.keyboardListener = None
+
+        self.keyboardListener = xinterface.Interface(self.key_press)
+        # self.keyboardListener.connect('key_pressed', self.on_key_pressed)
         self.elapsed_time = elapsed_time
-        self.event = Event()
-        self.is_pressing = False
-        self.stopit = False
+        self.cola = queue.Queue()
+        self.last_event = None
+
+    def key_press(self):
+        self.cola.put_nowait(KeyEvent(KEY_PRESSED))
 
     def run(self):
-        while(1):
-            if self.event.wait() and self.stopit is False:
-                if self.stopit:
-                    return
-                if self.start_time + self.elapsed_time < time.time():
-                    print('callback')
-                    self.event.clear()
-                    self.is_pressing = False
-                    self.emit('key_released')
-
-    def on_press(self, key):
-        if self.is_pressing is False:
-            self.emit('key_pressed')
-            self.event.clear()
-            self.is_pressing = True
-
-    def on_release(self, key):
-        if self.start_time + 0.5 < time.time():
-            print(key)
-            self.event.set()
-            self.start_time = time.time()
-            return True
+        while True:
+            try:
+                new_event = self.cola.get(True, self.elapsed_time)
+                if new_event.eventtype in [KEY_PRESSED, KEY_RELEASED]:
+                    if self.last_event is None or \
+                            (self.last_event.eventtype == KEY_RELEASED and
+                             new_event.eventtype == KEY_PRESSED) or\
+                            (self.last_event.instant + self.elapsed_time <
+                             new_event.instant):
+                        if self.keyboardListener is not None:
+                            if new_event.eventtype == KEY_PRESSED:
+                                self.emit('key_pressed')
+                            elif new_event.eventtype == KEY_RELEASED:
+                                self.emit('key_released')
+                    self.last_event = new_event
+            except queue.Empty:
+                if self.last_event is None or\
+                        self.last_event.eventtype == KEY_RELEASED:
+                    self.cola.put_nowait(KeyEvent(KEY_NONE))
+                else:
+                    self.cola.put_nowait(KeyEvent(KEY_RELEASED))
 
     def set_monitor_on(self):
         print('Monitor on')
-        if self.keyboardListener is not None:
-            self.set_monitor_off()
-        self.keyboardListener = keyboard.Listener(on_press=self.on_press,
-                                                  on_release=self.on_release)
+        if self.keyboardListener is None:
+            self.keyboardListener = xinterface.Interface(self.key_press)
         self.keyboardListener.start()
-        self.start_time = 0
 
     def set_monitor_off(self):
         print('Monitor off')
         self.keyboardListener.stop()
         self.keyboardListener = None
 
-    def stop(self):
-        self.stopit = True
 
 if __name__ == '__main__':
-    km = KeyboardMonitor(None, .5)
+    km = KeyboardMonitor(1)
     km.start()
-    time.sleep(3)
+    time.sleep(2)
     km.set_monitor_on()
-    time.sleep(3)
+    time.sleep(20)
     km.set_monitor_off()
-    time.sleep(3)
+    time.sleep(10)
     km.set_monitor_on()
     time.sleep(5)

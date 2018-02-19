@@ -51,7 +51,7 @@ PARAMS = {
     'enable_on_exit': True,
     'disable_on_exit': False,
     'disable_on_typing': False,
-    'seconds': 2,
+    'interval': 1,
     'start_hidden': False,
     'show_notifications': True,
     'theme': 'light',

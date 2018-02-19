@@ -26,6 +26,7 @@
 import gi
 try:
     gi.require_version('Gtk', '3.0')
+    gi.require_version('GLib', '2.0')
     gi.require_version('GdkPixbuf', '2.0')
     gi.require_version('AppIndicator3', '0.1')
     gi.require_version('Notify', '0.7')
@@ -36,6 +37,7 @@ from gi.repository import Gtk
 from gi.repository import GdkPixbuf
 from gi.repository import AppIndicator3 as appindicator
 from gi.repository import Notify
+from gi.repository import GLib
 import os
 import sys
 import webbrowser
@@ -50,8 +52,8 @@ from configurator import Configuration
 from preferences_dialog import PreferencesDialog
 from comun import _
 import xinterface
+import time
 import comun
-import watchdog
 import machine_information
 import shlex
 import device_list
@@ -100,6 +102,11 @@ class SlimbookTouchpad(dbus.service.Object):
         self.doItAfter = None
         self.enable_after = 0.2
         self.touchpad = Touchpad()
+
+        self.last_time_keypressed = 0
+        self.interval = 0
+        self.time_watcher = 0
+
         self.notification = Notify.Notification.new('', '', None)
 
         self.read_preferences()
@@ -131,6 +138,16 @@ class SlimbookTouchpad(dbus.service.Object):
         self.read_preferences()
 
     # ########### preferences related methods #################
+
+    def check_touchpad_status(self):
+        if self.on_mouse_plugged and self.is_mouse_plugged:
+            return False
+        if self.last_time_keypressed + self.interval > time.time():
+            print('Hace tiempo de la ultima keypress')
+            if not self.touchpad.are_all_touchpad_enabled():
+                print('Habilitando')
+                self.set_touch_enabled(True, True)
+        return True
 
     def theme_change(self, theme):
         """Change the icon theme of the indicator.
@@ -169,8 +186,8 @@ class SlimbookTouchpad(dbus.service.Object):
                 self.change_state_item.set_label(_('Disable Touchpad'))
                 if self.indicator.get_status() !=\
                         appindicator.IndicatorStatus.PASSIVE:
-                    self.indicator.set_status(
-                        appindicator.IndicatorStatus.ACTIVE)
+                    GLib.idle_add(self.indicator.set_status,
+                                  appindicator.IndicatorStatus.ACTIVE)
                 if not isforwriting:
                     configuration = Configuration()
                     configuration.set('touchpad_enabled',
@@ -183,8 +200,8 @@ class SlimbookTouchpad(dbus.service.Object):
                 self.change_state_item.set_label(_('Enable Touchpad'))
                 if self.indicator.get_status() !=\
                         appindicator.IndicatorStatus.PASSIVE:
-                    self.indicator.set_status(
-                        appindicator.IndicatorStatus.ATTENTION)
+                    GLib.idle_add(self.indicator.set_status,
+                                  appindicator.IndicatorStatus.ATTENTION)
                 if not isforwriting:
                     configuration = Configuration()
                     configuration.set('touchpad_enabled',
@@ -213,6 +230,7 @@ class SlimbookTouchpad(dbus.service.Object):
             self.set_touch_enabled(False)
             if self.disable_on_typing:
                 self.keyboardMonitor.stop()
+                self.stop_time_watcher()
 
     @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def on_mouse_detected_unplugged(self):
@@ -223,6 +241,7 @@ class SlimbookTouchpad(dbus.service.Object):
             self.set_touch_enabled(True)
             if self.disable_on_typing:
                 self.keyboardMonitor.start()
+                self.start_time_watcher()
 
     @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def unhide(self):
@@ -268,14 +287,8 @@ class SlimbookTouchpad(dbus.service.Object):
             self.set_touch_enabled(False)
 
     def on_key_pressed(self, key):
-        print('must disable touchpad')
         self.set_touch_enabled(False, True)
-
-    def on_key_released(self, key):
-        self.set_touch_enabled(True, True)
-
-    def enable_touchpad(self):
-        self.set_touch_enabled(True, True)
+        self.last_time_keypressed = time.time()
 
     def read_preferences(self):
         configuration = Configuration()
@@ -297,6 +310,7 @@ class SlimbookTouchpad(dbus.service.Object):
         self.active_icon = comun.STATUS_ICON[configuration.get('theme')][0]
         self.attention_icon = comun.STATUS_ICON[configuration.get('theme')][1]
         # XINPUT
+        self.interval = configuration.get('interval')
         self.touchpad.set_natural_scrolling_for_all(
             configuration.get('natural_scrolling'))
         self.disable_on_typing = configuration.get('disable_on_typing')
@@ -306,11 +320,24 @@ class SlimbookTouchpad(dbus.service.Object):
         if self.disable_on_typing:
             self.keyboardMonitor = xinterface.Interface()
             self.keyboardMonitor.connect('key_pressed', self.on_key_pressed)
-            self.keyboardMonitor.connect('key_released', self.on_key_released)
             if self.on_mouse_plugged and is_mouse_plugged():
                 self.keyboardMonitor.stop()
+                self.stop_time_watcher()
             else:
                 self.keyboardMonitor.start()
+                self.start_time_watcher()
+
+    def start_time_watcher(self):
+        self.stop_time_watcher()
+        interval = float(self.interval) * 500.0
+        self.widgets_updater = GLib.timeout_add(interval,
+                                                self.check_touchpad_status)
+
+    def stop_time_watcher(self):
+        if self.time_watcher > 0:
+            GLib.source_remove(self.time_watcher)
+            self.time_watcher = 0
+
     # ################## menu creation ######################
 
     def get_help_menu(self):

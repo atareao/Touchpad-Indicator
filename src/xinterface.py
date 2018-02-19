@@ -1,40 +1,26 @@
 #!/usr/bin/env python3
 
-import gi
-try:
-    gi.require_version('GObject', '2.0')
-except Exception as e:
-    print(e)
-    exit(-1)
-from gi.repository import GObject
 import threading
 import queue
-import time
 from Xlib import X, display
 from Xlib.ext import record
 from Xlib.protocol import rq, event
 import CONSTANTS
 import service
-import time_watcher
 
 
-class Interface(GObject.GObject):
-    __gsignals__ = {
-        'key_pressed': (GObject.SIGNAL_RUN_FIRST, None, ()),
-        'key_released': (GObject.SIGNAL_RUN_FIRST, None, ()),
-    }
+class Interface():
 
-    def __init__(self):
-        GObject.GObject.__init__(self)
+    def __init__(self, callback=None):
         self.main_loop = threading.Thread(
             target=self._main_loop, name='Main Loop', daemon=True)
         self.queue = queue.Queue()
 
         self.event_hook = threading.Thread(
             target=self._event_hook, name='Event Hook', daemon=True)
+        self.callback = callback
         self.last_time_key_pressed = 0
         self.service = service.Service(self)
-        self.timeWatcher = time_watcher.TimeWatcher(0.5, self.on_key_released)
         self.static_display = display.Display()
         self.local_display = display.Display()
         self.record_display = display.Display()
@@ -75,22 +61,17 @@ class Interface(GObject.GObject):
             "_NET_WM_VISIBLE_NAME", True)
         self.update_active_window()
 
-    def on_key_released(self):
-        print('Key released')
-        self.emit('key_released')
-
     def start(self):
-
+        if self.service is None:
+            self.service = service.Service(self)
         self.service.start()
-        self.timeWatcher.start()
         self.main_loop.start()
         self.event_hook.start()
 
     def stop(self):
-
         self.enqueue(None)
-        self.timeWatcher.stop()
         self.service.stop()
+        self.service = None
 
     def _main_loop(self):
 
@@ -231,12 +212,16 @@ class Interface(GObject.GObject):
                              self.active_window_title)
 
     def emit_event(self):
+        self.callback()
+        '''
         new_time_key_pressed = time.time()
-        self.timeWatcher.set_event_happened()
-        if new_time_key_pressed - self.last_time_key_pressed > 0.5:
+        if new_time_key_pressed - self.last_time_key_pressed > 0.2:
             print('=== Key Pressed', time.time())
             self.emit('key_pressed')
+            if self.callback is not None:
+                self.callback
         self.last_time_key_pressed = new_time_key_pressed
+        '''
 
     def handle_key_event(self, type, keycode, state, window_class,
                          window_title):
