@@ -8,9 +8,6 @@ from Xlib.protocol import rq, event
 import CONSTANTS
 import service
 
-import logging
-logging.basicConfig(filename='/home/lorenzo/example.log',level=logging.DEBUG)
-
 
 class Interface():
 

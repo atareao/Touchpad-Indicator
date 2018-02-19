@@ -190,13 +190,13 @@ class PreferencesDialog(Gtk.Dialog):
         self.checkbutton8.connect('toggled', self.on_checkbutton8_toggled)
         grid2.attach(self.checkbutton8, 0, 4, 1, 1)
         #
-        self.label_interval = Gtk.Label('        ' + _('Seconds to wait \
+        self.label_interval = Gtk.Label('        ' + _('Milliseconds to wait \
 after the last key press before enabling the touchpad') + ':')
         grid2.attach(self.label_interval, 0, 5, 1, 1)
         #
         self.interval = Gtk.SpinButton()
         self.interval.set_adjustment(
-            Gtk.Adjustment(1, 1, 10, 1, 2, 0))
+            Gtk.Adjustment(500, 300, 10000, 100, 1000, 0))
         grid2.attach(self.interval, 1, 5, 1, 1)
 
         vbox3 = Gtk.VBox(spacing=5)
