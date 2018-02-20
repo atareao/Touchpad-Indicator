@@ -4,8 +4,8 @@ LOGFILE="/var/log/sleep.log"
 
 case "$1" in
         resume|thaw)
-                echo "Resumed normal from suspend at `date`" >> "$LOGFILE"
-                /usr/bin/python3 /usr/share/slimbooktouchpad/check_touchpad_status.py resume
+                echo "Resume normal from suspend at `date`" >> "$LOGFILE"
+                /usr/bin/python3 /usr/share/slimbook-touchpad/check_touchpad_status.py resume
                 echo "Touchpad enabled"
                 ;;
 esac

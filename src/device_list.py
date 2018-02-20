@@ -106,7 +106,7 @@ def print_devices(kind, context, fileoutput=None):
                 fileoutput.write('parent attributes:\n')
                 print_device_attrib(device.parent, fileoutput)
             except Exception as e:
-                fileoutput.write(e, device.sys_name + ' has no parent\n')
+                fileoutput.write('Error: ' + str(e) + device.sys_name + ' has no parent\n')
             fileoutput.write('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
             fileoutput.write('device atributes:\n')
             print_device_attrib(device, fileoutput)
@@ -131,5 +131,4 @@ def list():
 
 if __name__ == "__main__":
     list()
-    # print(unicode(chr(255)))
     exit(0)

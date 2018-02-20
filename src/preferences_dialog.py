@@ -56,9 +56,11 @@ class EqualsSpaceRemover:
 
 
 def set_autostart(autostart):
+    print(1)
     if not os.path.exists(comun.AUTOSTART_DIR):
         os.makedirs(comun.AUTOSTART_DIR)
     if autostart:
+        print(2)
         config = configparser.ConfigParser()
         config['Desktop Entry'] = {
             'Type': 'Application',
@@ -73,6 +75,7 @@ def set_autostart(autostart):
             'X-GNOME-Autostart-Delay': '2',
             'X-GNOME-Autostart-enabled': str(autostart)}
         with open(comun.FILE_AUTO_START, 'w') as autostart_file:
+            print(3)
             config.write(EqualsSpaceRemover(autostart_file))
     else:
         if os.path.exists(comun.FILE_AUTO_START):
@@ -498,8 +501,16 @@ after the last key press before enabling the touchpad') + ':')
             self.radiobutton3.set_active(True)
 
         self.checkbutton46.set_active(configuration.get('natural_scrolling'))
-        self.tapping.set_active(configuration.get('tapping'))
-        self.speed.set_value(configuration.get('speed'))
+        tp = Touchpad()
+        if tp.is_there_touchpad():
+            tipo = tp._get_type(tp._get_ids()[0])
+            if tipo == SYNAPTICS:
+                pass
+            elif tipo == LIBINPUT:
+                self.tapping.set_active(configuration.get('tapping'))
+                self.speed.set_value(configuration.get('speed'))
+            elif tipo == EVDEV:
+                pass
 
     def save_preferences(self):
         configuration = Configuration()
@@ -534,8 +545,17 @@ after the last key press before enabling the touchpad') + ':')
         configuration.set('theme', theme)
 
         configuration.set('natural_scrolling', self.checkbutton46.get_active())
-        configuration.set('tapping', self.tapping.get_active())
-        configuration.set('speed', self.speed.get_value())
+        tp = Touchpad()
+        if tp.is_there_touchpad():
+            tipo = tp._get_type(tp._get_ids()[0])
+            if tipo == SYNAPTICS:
+                pass
+            elif tipo == LIBINPUT:
+                configuration.set('tapping', self.tapping.get_active())
+                configuration.set('speed', self.speed.get_value())
+            elif tipo == EVDEV:
+                pass
+
         configuration.save()
 
         desktop_environment = get_desktop_environment()

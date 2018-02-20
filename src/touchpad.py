@@ -29,7 +29,7 @@ import time
 
 TOUCHPADS = ['touchpad', 'glidepoint', 'fingersensingpad', 'bcm5974',
              'dll0665', 'dll05e3', 'cyps/2', 'alpsps/2', 'imexps/2',
-             'synaptics', 'elantech', 'imps/2']
+             'synaptics', 'elantech', 'imps/2', 'tpps/2']
 
 SYNAPTICS = 0
 LIBINPUT = 1
