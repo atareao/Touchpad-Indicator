@@ -90,8 +90,9 @@ class KeyboardMonitor(Thread, GObject.GObject):
 
     def stop(self):
         print('Monitor off')
-        self.keyboardListener.stop()
-        self.keyboardListener = None
+        if self.keyboardListener is not None:
+            self.keyboardListener.stop()
+            self.keyboardListener = None
 
 
 if __name__ == '__main__':
