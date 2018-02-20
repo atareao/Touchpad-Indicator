@@ -37,7 +37,6 @@ from xconfigurator import XFCEConfiguration
 from xconfigurator import get_desktop_environment
 import os
 import subprocess
-import configparser
 from configurator import Configuration
 from touchpad import Touchpad
 from touchpad import SYNAPTICS, LIBINPUT, EVDEV
@@ -45,38 +44,10 @@ import comun
 from comun import _
 
 
-class EqualsSpaceRemover:
-    output_file = None
-
-    def __init__(self, new_output_file):
-        self.output_file = new_output_file
-
-    def write(self, what):
-        self.output_file.write(what.replace(" = ", "=", 1))
-
-
 def set_autostart(autostart):
-    print(1)
-    if not os.path.exists(comun.AUTOSTART_DIR):
-        os.makedirs(comun.AUTOSTART_DIR)
-    if autostart:
-        print(2)
-        config = configparser.ConfigParser()
-        config['Desktop Entry'] = {
-            'Type': 'Application',
-            'Icon': 'slimbook-touchpad',
-            'Exec': '/usr/bin/slimbook-touchpad',
-            'Hidden': 'false',
-            'NoDisplay': 'false',
-            'X-MATE-Autostart-Phase': 'Applications',
-            'X-MATE-Autostart-Delay': '2',
-            'X-MATE-Autostart-enabled': str(autostart),
-            'X-GNOME-Autostart-Phase': 'Applications',
-            'X-GNOME-Autostart-Delay': '2',
-            'X-GNOME-Autostart-enabled': str(autostart)}
-        with open(comun.FILE_AUTO_START, 'w') as autostart_file:
-            print(3)
-            config.write(EqualsSpaceRemover(autostart_file))
+    if autostart is True:
+        if not os.path.exists(comun.FILE_AUTO_START):
+            os.symlink(comun.FILE_AUTO_START_SRC, comun.FILE_AUTO_START)
     else:
         if os.path.exists(comun.FILE_AUTO_START):
             os.remove(comun.FILE_AUTO_START)

@@ -99,8 +99,9 @@ CONFIG_APP_DIR = os.path.join(CONFIG_DIR, APP)
 CONFIG_FILE = os.path.join(CONFIG_APP_DIR, APPCONF)
 
 AUTOSTART_DIR = os.path.join(CONFIG_DIR, 'autostart')
-FILE_AUTO_START = os.path.join(AUTOSTART_DIR,
-                               'slimbook-touchpad-autostart.desktop')
+FILE_AUTO_START_NAME = 'slimbook-touchpad-autostart.desktop'
+FILE_AUTO_START_SRC = os.path.join(APPDIR, FILE_AUTO_START_NAME)
+FILE_AUTO_START = os.path.join(AUTOSTART_DIR, FILE_AUTO_START_NAME)
 WATCHDOG = os.path.join(APPDIR, 'watchdog.py')
 
 f = open(CHANGELOG, 'r')
