@@ -317,6 +317,8 @@ class SlimbookTouchpad(dbus.service.Object):
         self.interval = configuration.get('interval')
         self.touchpad.set_natural_scrolling_for_all(
             configuration.get('natural_scrolling'))
+        self.touchpad.set_speed(configuration.get('speed') / 100.0)
+        self.touchpad.set_tapping(configuration.get('tapping'))
         self.disable_on_typing = configuration.get('disable_on_typing')
         if self.keyboardMonitor is not None:
             self.keyboardMonitor.stop()

@@ -57,7 +57,6 @@ def search_touchpad(where):
 
 class Touchpad(object):
     def __init__(self):
-        # self.synclient = Synclient()
         pass
 
     def _get_all_ids(self):
@@ -87,7 +86,7 @@ class Touchpad(object):
         matches = re.search(regex, test_str)
         if matches is not None:
             if matches.group(2) != '1':
-                run(('xinput set-prop %s %s 1') % (id, matches.group(1)))
+                run(('xinput --set-prop %s %s 1') % (id, matches.group(1)))
 
     def set_touchpad_disabled(self, id):
         test_str = run('xinput --list-props %s' % (id)).lower()
@@ -95,7 +94,7 @@ class Touchpad(object):
         matches = re.search(regex, test_str)
         if matches is not None:
             if matches.group(2) != '0':
-                run(('xinput set-prop %s %s 0') % (id, matches.group(1)))
+                run(('xinput --set-prop %s %s 0') % (id, matches.group(1)))
 
     def is_touchpad_enabled(self, id):
         test_str = run('xinput --list-props %s' % (id)).lower()
@@ -158,6 +157,56 @@ class Touchpad(object):
     def _get_type(self, id):
         test_str = run('xinput --list-props %s' % (id)).lower()
         return self._get_type_from_string(test_str)
+
+    def get_tapping(self):
+        ids = self._get_ids()
+        if len(ids) > 0:
+            return self._get_tapping(ids[0])
+        return False
+
+    def _get_tapping(self, id):
+        test_str = run('xinput --list-props %s' % (id)).lower()
+        type_of_touchpad = self._get_type_from_string(test_str)
+        if type_of_touchpad == LIBINPUT:
+            regex = r'libinput\s*tapping\s*enabled\s*\(\d*\):\s*(.*)'
+        elif type_of_touchpad == SYNAPTICS:
+            regex = r'synaptics\s*tapping\s*enabled\s*\(\d*\):\s*(.*)'
+        elif type_of_touchpad == EVDEV:
+            regex = r'evdev\s*tapping\s*enabled\s*\(\d*\):\s*(.*)'
+        else:
+            return 0.0
+        matches = re.search(regex, test_str)
+        if matches is not None:
+            return matches.group(1) == '1'
+        return False
+
+    def _set_tapping(self, id, tapping):
+        test_str = run('xinput --list-props %s' % (id)).lower()
+        type_of_touchpad = self._get_type_from_string(test_str)
+        if type_of_touchpad == LIBINPUT:
+            regex = r'libinput\s*tapping\s*enabled\s*\((\d*)\):\s*(.*)'
+        elif type_of_touchpad == SYNAPTICS:
+            regex = r'synaptics\s*tapping\s*enabled\s*\((\d*)\):\s*(.*)'
+        elif type_of_touchpad == EVDEV:
+            regex = r'evdev\s*tapping\s*enabled\s*\((\d*)\):\s*(.*)'
+        else:
+            return
+        matches = re.search(regex, test_str)
+        if matches is not None:
+            print(matches.group(1), matches.group(2))
+            if tapping is True and matches.group(2) == '1':
+                return
+            elif tapping is False and matches.group(2) == '0':
+                return
+            else:
+                if tapping is True:
+                    run(('xinput --set-prop %s %s 1') % (id, matches.group(1)))
+                else:
+                    run(('xinput --set-prop %s %s 0') % (id, matches.group(1)))
+
+    def set_tapping(self, tapping):
+        for id in self._get_ids():
+            self._set_tapping(id, tapping)
 
     def get_speed(self):
         ids = self._get_ids()
@@ -315,12 +364,14 @@ if __name__ == '__main__':
     print(tp._get_speed(12))
     print(tp.get_default_speed())
     print(tp.set_speed(0.3))
-    #print(tp.set_default_speed())
+    # print(tp.set_default_speed())
     print('======')
     tp.disable_all_touchpads()
     print(tp.are_all_touchpad_disabled())
     print('======')
     tp.enable_all_touchpads()
     print(tp.are_all_touchpad_enabled())
+    print(tp._set_tapping(12, True))
+    print(tp.get_tapping())
 
     exit(0)

@@ -40,6 +40,7 @@ import subprocess
 import configparser
 from configurator import Configuration
 from touchpad import Touchpad
+from touchpad import SYNAPTICS, LIBINPUT, EVDEV
 import comun
 from comun import _
 
@@ -241,26 +242,44 @@ after the last key press before enabling the touchpad') + ':')
         grid4.set_margin_top(10)
         frame4.add(grid4)
 
-        self.checkbutton46 = Gtk.CheckButton.new_with_label(
-            _('Natural scrolling'))
-        grid4.attach(self.checkbutton46, 0, 0, 1, 1)
+        label = Gtk.Label(_('Natural scrolling?'))
+        label.set_alignment(0, 0.5)
+        grid4.attach(label, 0, 0, 1, 1)
+        self.checkbutton46 = Gtk.Switch()
+        grid4.attach(self.checkbutton46, 1, 0, 1, 1)
 
         tp = Touchpad()
         if tp.is_there_touchpad():
             tipo = tp._get_type(tp._get_ids()[0])
-            if tipo == 0:
+            if tipo == SYNAPTICS:
                 label = Gtk.Label(_('Driver: Synaptics'))
-            elif tipo == 1:
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 1, 1, 1)
+            elif tipo == LIBINPUT:
+                label = Gtk.Label(_('Tapping?'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 1, 1, 1)
+                self.tapping = Gtk.Switch()
+                grid4.attach(self.tapping, 1, 1, 1, 1)
+
+                label = Gtk.Label(_('Touchpad speed?'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 2, 1, 1)
+                self.speed = Gtk.Scale()
+                self.speed.set_adjustment(
+                    Gtk.Adjustment(0, 0, 100, 1, 10, 0))
+                grid4.attach(self.speed, 1, 2, 1, 1)
+
                 label = Gtk.Label(_('Driver: Libinput'))
-            else:
-                label = Gtk.Label(_('Driver: Evdev'))
-            label.set_alignment(0, 0.5)
-            grid4.attach(label, 0, 1, 1, 1)
-            if tipo == 1:
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 3, 1, 1)
                 install_evdev = Gtk.Button(_('Install Evdev?'))
                 install_evdev.connect('clicked', self.on_install_evdev)
-                grid4.attach(install_evdev, 0, 2, 1, 1)
-            elif tipo == 2:
+                grid4.attach(install_evdev, 0, 4, 1, 1)
+            elif tipo == EVDEV:
+                label = Gtk.Label(_('Driver: Evdev'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 1, 1, 1)
                 install_libinput = Gtk.Button(_('Install Libinput?'))
                 install_libinput.connect('clicked', self.on_install_libinput)
                 grid4.attach(install_libinput, 0, 2, 1, 1)
@@ -479,6 +498,8 @@ after the last key press before enabling the touchpad') + ':')
             self.radiobutton3.set_active(True)
 
         self.checkbutton46.set_active(configuration.get('natural_scrolling'))
+        self.tapping.set_active(configuration.get('tapping'))
+        self.speed.set_value(configuration.get('speed'))
 
     def save_preferences(self):
         configuration = Configuration()
@@ -513,6 +534,8 @@ after the last key press before enabling the touchpad') + ':')
         configuration.set('theme', theme)
 
         configuration.set('natural_scrolling', self.checkbutton46.get_active())
+        configuration.set('tapping', self.tapping.get_active())
+        configuration.set('speed', self.speed.get_value())
         configuration.save()
 
         desktop_environment = get_desktop_environment()
