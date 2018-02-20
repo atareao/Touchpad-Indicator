@@ -310,6 +310,10 @@ class SlimbookTouchpad(dbus.service.Object):
         self.active_icon = comun.STATUS_ICON[configuration.get('theme')][0]
         self.attention_icon = comun.STATUS_ICON[configuration.get('theme')][1]
         # XINPUT
+        # Para configurar el touchpad es necesario que esté habilitado
+        are_all_touchpad_enabled = self.touchpad.are_all_touchpad_enabled()
+        self.touchpad.enable_all_touchpads()
+        #
         self.interval = configuration.get('interval')
         self.touchpad.set_natural_scrolling_for_all(
             configuration.get('natural_scrolling'))
@@ -325,6 +329,10 @@ class SlimbookTouchpad(dbus.service.Object):
                 self.keyboardMonitor.stop()
             else:
                 self.keyboardMonitor.start()
+        if are_all_touchpad_enabled:
+            self.touchpad.enable_all_touchpads()
+        else:
+            self.touchpad.disable_all_touchpads()
 
     def start_time_watcher(self):
         self.stop_time_watcher()

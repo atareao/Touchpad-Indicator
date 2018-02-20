@@ -58,14 +58,8 @@ PARAMS = {
     'touchpad_enabled': True,
     'natural_scrolling': False,
     'shortcut': '<Primary><Alt>c',
-    'VertEdgeScroll': True,
-    'HorizEdgeScroll': True,
-    'CircularScrolling': True,
-    'VertTwoFingerScroll': True,
-    'HorizTwoFingerScroll': True,
-    'TapButton1': 1,
-    'TapButton2': 3,
-    'TapButton3': 0
+    'speed': 0.0,
+    'tapping': True
 }
 
 # check if running from source
