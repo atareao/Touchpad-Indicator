@@ -32,7 +32,9 @@ import sys
 import comun
 from comun import _
 from doitinbackground import DoItInBackground
+from machine_information import DistroInfo
 from progreso import Progreso
+from utils import is_package_installed
 
 MARGIN = 5
 
@@ -129,14 +131,53 @@ class DriverInstallerDialog(Gtk.Window):
         Gtk.main_quit()
 
     def on_button_ok_clicked(self, button):
+        di = DistroInfo()
         if self.driver == 'libinput':
-            commands = ['apt update',
-                        'apt install xserver-xorg-input-libinput -y',
+            if di.distributor == 'Ubuntu' and di.release == '16.04':
+                if is_package_installed(
+                        'xserver-xorg-input-evdev-hwe-16.04'):
+                    commands = [
+                        'apt update',
+                        'apt install xserver-xorg-input-libinput-hwe-16.04 -y',
+                        'apt remove xserver-xorg-input-evdev-hwe-16.04 -y']
+                elif is_package_installed(
+                        'xserver-xorg-evdev-libinput'):
+                    commands = [
+                        'apt update',
+                        'apt install xserver-xorg-input-libinput-hwe-16.04 -y',
                         'apt remove xserver-xorg-input-evdev -y']
+                else:
+                    commands = [
+                        'apt update',
+                        'apt install xserver-xorg-input-libinput-hwe-16.04 -y']
+            else:
+                commands = [
+                    'apt update',
+                    'apt install xserver-xorg-input-libinput -y',
+                    'apt remove xserver-xorg-input-evdev -y']
         else:
-            commands = ['apt update',
-                        'apt install xserver-xorg-input-evdev -y',
+            if di.distributor == 'Ubuntu' and di.release == '16.04':
+                if is_package_installed(
+                        'xserver-xorg-input-libinput-hwe-16.04'):
+                    commands = [
+                        'apt update',
+                        'apt install xserver-xorg-input-evdev-hwe-16.04 -y',
+                        'apt remove xserver-xorg-input-libinput-hwe-16.04 -y']
+                elif is_package_installed(
+                        'xserver-xorg-input-libinput'):
+                    commands = [
+                        'apt update',
+                        'apt install xserver-xorg-input-evdev-hwe-16.04 -y',
                         'apt remove xserver-xorg-input-libinput -y']
+                else:
+                    commands = [
+                        'apt update',
+                        'apt install xserver-xorg-input-evdev-hwe-16.04 -y']
+            else:
+                commands = [
+                    'apt update',
+                    'apt install xserver-xorg-input-evdev -y',
+                    'apt remove xserver-xorg-input-libinput -y']
         print(commands)
         self.terminal.execute(commands)
 

@@ -65,6 +65,7 @@ def is_ppa_repository_added(repository):
 
 if __name__ == '__main__':
     print(is_package_installed('my-weather-indicator'))
-    print(is_package_installed('utext'))
+    print(is_package_installed('xserver-xorg-input-libinput'))
     print(get_version())
     print(is_ppa_repository_added('ppa:atareao/atareao'))
+    

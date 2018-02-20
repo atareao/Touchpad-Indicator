@@ -1,3 +1,9 @@
+slimbook-touchpad (1.9.5-0extras17.10.0) xenial; urgency=medium
+
+  * libinput-hwe-16.04
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 20 Feb 2018 20:18:49 +0100
+
 slimbook-touchpad (1.9.4-0extras17.10.2) xenial; urgency=medium
 
   * autostart
