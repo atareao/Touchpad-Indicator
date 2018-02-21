@@ -34,7 +34,6 @@ import sys
 import comun
 from comun import _
 from doitinbackground import DoItInBackground
-from progreso import Progreso
 from utils import is_package_installed
 
 MARGIN = 5
