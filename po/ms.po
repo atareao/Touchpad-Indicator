@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: slimbooktouchpad 1.2.0\n"
+"Project-Id-Version: slimbook-touchpad 1.9.5\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
-"POT-Creation-Date: 2018-02-16 13:45+0100\n"
+"POT-Creation-Date: 2018-02-21 09:10+0100\n"
 "PO-Revision-Date: 2012-08-14 14:21+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
@@ -18,95 +18,96 @@ msgstr ""
 "X-Generator: Launchpad (build 17196)\n"
 "X-Launchpad-Export-Date: 2014-09-18 20:00+0000\n"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:120
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:168
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:400
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:128
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:180
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:418
 msgid "Disable Touchpad"
 msgstr "Lumpuhkan Pad Sesentuh"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:122
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:182
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:130
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:194
 msgid "Enable Touchpad"
 msgstr "Benarkan Pad Sesentuh"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:199
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:211
 msgid "Touchpad Enabled"
 msgstr "Pad Sesentuh Dibenarkan"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:204
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:216
 msgid "Touchpad Disabled"
 msgstr "Pad Sesentuh Dilumpuhkan"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:330
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:348
 msgid "Homepage..."
 msgstr "Laman Sesawang..."
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:335
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:353
 msgid "Get help online..."
 msgstr "Dapatkan bantuan diatas talian..."
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:340
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:358
 msgid "Translate this application..."
 msgstr "Terjemah aplikasi ini..."
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:345
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:363
 msgid "Report a bug..."
 msgstr "Laporkan pepijat..."
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:351
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:369
 msgid "Homepage"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:356
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:374
 msgid "Follow us in Twitter"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:361
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:379
 msgid "Follow us in Google+"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:366
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:384
 msgid "Follow us in Facebook"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:387
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:405
 msgid "About"
 msgstr "Perihal"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:405
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:423
 msgid "Hide icon"
 msgstr "Sembunyi ikon"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:410
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:89
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:428
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:74
 msgid "Preferences"
 msgstr "Keutamaan"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:416
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:434
 msgid "Help"
 msgstr "Bantuan"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:421
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:439
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:120
 msgid "Exit"
 msgstr "Keluar"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:436
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:454
 msgid "An indicator for the Touchpad"
 msgstr "Merupakan penunjuk untuk Pad Sesentuh"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:567
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:584
 msgid "usage: %prog [options]"
 msgstr "penggunaan: %prog [option]"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:573
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:590
 msgid "show this help and exit."
 msgstr "papar bantuan ini dan keluar."
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:578
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:595
 msgid "change the touchpad state. If indicator is not running launch it."
 msgstr "ubah keadaan pad sesentuh. Jika penunjuk tidak berjalan, lancarkannya."
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:584
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:601
 msgid ""
 "show the icon if indicator is hidden. Default action. If indicator is not "
 "running launch it."
@@ -114,190 +115,177 @@ msgstr ""
 "papar ikon jika penunjuk tersembunyi. Tindakan lalai. Jika penunjuk tidak "
 "berjalan, lancarkannya."
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/slimbooktouchpad.py:590
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:607
 msgid "list devices"
 msgstr "senari peranti"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:112
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:97
 msgid "Shortcut"
 msgstr "Pintasan"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:124
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:109
 msgid "Shortcut enabled"
 msgstr "Pintasan dibenarkan"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:147
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:132
 msgid "Actions"
 msgstr "Tindakan"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:160
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:144
 msgid "Disable touchpad when mouse plugged"
 msgstr "Lumpuhkan pad sesentuh bila tetikus dipalamkan"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:164
-msgid "Enable touchpad on exit"
-msgstr "Benarkan pad sesentuh bila keluar"
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:150
+#, fuzzy
+msgid "On Slimbook Touchpad starts:"
+msgstr "Benarkan pad sesentuh bila mula"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:170
-msgid "Disable touchpad on exit"
-msgstr "Lumpuhkan pad sentuh bila keluar"
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:156
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:169
+msgid "None"
+msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:175
-msgid "Disable touchpad when Touchpad-Indicator starts"
-msgstr "Lumpuhkan pad sentuh bila Touchpad-Indicator bermula"
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:160
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:177
+#, fuzzy
+msgid "Disable touchpad"
+msgstr "Lumpuhkan Pad Sesentuh"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:179
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:163
+msgid "On Slimbook Touchpad ends:"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:173
+#, fuzzy
+msgid "Enable touchpad"
+msgstr "Benarkan Pad Sesentuh"
+
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:181
 msgid "Disable touchpad on typing"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:183
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:185
 msgid ""
-"Milliseconds to wait after the last key press before enabling the touchpad"
+"Milliseconds to wait after the last key\n"
+"press before enabling the touchpad"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:194
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:196
 msgid "General options"
 msgstr "Pilihan am"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:206
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:208
 msgid "Autostart"
 msgstr "Mula-sendiri"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:212
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:214
 msgid "Start hidden"
 msgstr "Mula dengan tersembunyi"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:216
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:218
 msgid "Show notifications"
 msgstr "Papar pemberitahuan"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:222
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:224
 msgid "Touchpad configuration"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:235
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:284
-msgid "Natural scrolling"
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:236
+msgid "Natural scrolling?"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:242
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:246
 msgid "Driver: Synaptics"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:244
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:250
+msgid "Tapping?"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:256
+#, fuzzy
+msgid "Touchpad speed?"
+msgstr "Pad Sesentuh Dilumpuhkan"
+
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:265
 msgid "Driver: Libinput"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:246
-msgid "Driver: Evdev"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:250
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:268
 msgid "Install Evdev?"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:254
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:272
+msgid "Driver: Evdev"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:275
 msgid "Install Libinput?"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:269
-msgid "Vertical scrolling"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:272
-msgid "Horizontal scrolling"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:275
-msgid "Circular scrolling"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:278
-msgid "Two fingers vertical scrolling"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:281
-msgid "Two fingers horizontal scrolling"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:286
-msgid "Tapping with one finger"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:294
-msgid "Tapping with two fingers"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:302
-msgid "Tapping with three fingers"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:314
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:281
 msgid "Theme"
 msgstr "Tema"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:326
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:293
 msgid "Select theme"
 msgstr "Pilih tema"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:414
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:389
 #, fuzzy
 msgid "This shortcut <Control> + <Alt> +"
 msgstr "Pintasan <Control> + <Alt> + ini "
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:415
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:417
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:390
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:392
 msgid " is assigned"
 msgstr " telah diumpuk"
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/preferences_dialog.py:416
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:391
 msgid "This shortcut <Control> + <Alt> + "
 msgstr "Pintasan <Control> + <Alt> + ini "
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/installdriver.py:47
-msgid "Installing driver"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/installdriver.py:57
-msgid "Driver installed"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/installdriver.py:60
-msgid "Driver NOT installed"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/installdriver.py:74
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:61
 msgid "Install driver"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/installdriver.py:91
-msgid "Install libinput driver?"
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:77
+msgid "Installing libinput driver..."
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/installdriver.py:93
-msgid "Install evdev driver?"
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:79
+msgid "Installing evdev driver..."
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/installdriver.py:111
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:105
 msgid "Ok"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/installdriver.py:114
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:109
 msgid "Cancel"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/progreso.py:96
-#, python-format
-msgid ""
-"Copied: %s %%\n"
-"Elapsed time: %s s\n"
-"Estimated time: %s s"
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:125
+msgid "Driver installed"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbooktouchpad/src/progreso.py:107
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:128
+msgid "Driver NOT installed"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:142
 #, python-format
 msgid "Executing: %s"
 msgstr ""
+
+#~ msgid "Enable touchpad on exit"
+#~ msgstr "Benarkan pad sesentuh bila keluar"
+
+#~ msgid "Disable touchpad on exit"
+#~ msgstr "Lumpuhkan pad sentuh bila keluar"
+
+#~ msgid "Disable touchpad when Touchpad-Indicator starts"
+#~ msgstr "Lumpuhkan pad sentuh bila Touchpad-Indicator bermula"
 
 #~ msgid "Touchpad-Indicator"
 #~ msgstr "Penunjuk-Pad-Sentuh"
@@ -319,9 +307,6 @@ msgstr ""
 
 #~ msgid "Alt+"
 #~ msgstr "Alt+"
-
-#~ msgid "Enable touchpad on start"
-#~ msgstr "Benarkan pad sesentuh bila mula"
 
 #~ msgid "Esc "
 #~ msgstr "Esc "

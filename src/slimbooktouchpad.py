@@ -123,6 +123,7 @@ class SlimbookTouchpad(dbus.service.Object):
         menu = self.get_menu()
         self.indicator.set_menu(menu)
         self.indicator.connect('scroll-event', self.on_scroll)
+
         if self.touchpad.are_all_touchpad_enabled():
             self.change_state_item.set_label(_('Disable Touchpad'))
         else:
@@ -131,11 +132,11 @@ class SlimbookTouchpad(dbus.service.Object):
                     appindicator.IndicatorStatus.PASSIVE:
                 self.indicator.set_status(
                     appindicator.IndicatorStatus.ATTENTION)
-        self.on_mouse_plugged_change(self.on_mouse_plugged)
-        if self.touchpad.are_all_touchpad_enabled() and\
-                self.disable_touchpad_on_start_indicator:
-            self.set_touch_enabled(False)
+
         self.read_preferences()
+
+        if self.on_start == -1:
+            self.touchpad.disable_all_touchpads()
 
     # ########### preferences related methods #################
 
@@ -162,13 +163,6 @@ class SlimbookTouchpad(dbus.service.Object):
         """Prepare the indicator to respond to mouse_plugged events.
             :param status: if True the indicator will listen to the events."""
 
-        if status:
-            self.launch_watchdog()
-        elif not status and self.the_watchdog is not None:
-            self.the_watchdog.kill()
-            self.the_watchdog = None
-            self.change_state_item.set_sensitive(True)
-            self.change_state()
 
     # ################# main functions ####################
     def set_touch_enabled(self, enabled, isforwriting=False):
@@ -297,14 +291,15 @@ class SlimbookTouchpad(dbus.service.Object):
         self.shortcut_enabled = configuration.get('shortcut_enabled')
         self.autostart = configuration.get('autostart')
         self.on_mouse_plugged = configuration.get('on_mouse_plugged')
-        self.enable_on_exit = configuration.get('enable_on_exit')
-        self.disable_on_exit = configuration.get('disable_on_exit')
+
         self.start_hidden = configuration.get('start_hidden')
         self.show_notifications = configuration.get('show_notifications')
         self.theme = configuration.get('theme')
         self.touchpad_enabled = configuration.get('touchpad_enabled')
-        self.disable_touchpad_on_start_indicator = configuration.get(
-            'disable_touchpad_on_start_indicator')
+
+        self.on_start = configuration.get('on_start')
+        self.on_end = configuration.get('on_end')
+
         self.shortcut = configuration.get('shortcut')
         self.ICON = comun.ICON
         self.active_icon = comun.STATUS_ICON[configuration.get('theme')][0]
@@ -313,16 +308,22 @@ class SlimbookTouchpad(dbus.service.Object):
         # Para configurar el touchpad es necesario que esté habilitado
         are_all_touchpad_enabled = self.touchpad.are_all_touchpad_enabled()
         self.touchpad.enable_all_touchpads()
-        #
+        # If keyboardMonitor is working must stop
+        if self.keyboardMonitor is not None:
+            self.keyboardMonitor.stop()
+            self.keyboardMonitor = None
+        # If Watchdog is working must stop
+        if self.the_watchdog is not None:
+            self.the_watchdog.kill()
+            self.the_watchdog = None
+            self.change_state_item.set_sensitive(True)
+            self.change_state()
         self.interval = configuration.get('interval')
         self.touchpad.set_natural_scrolling_for_all(
             configuration.get('natural_scrolling'))
         self.touchpad.set_speed(configuration.get('speed') / 100.0)
         self.touchpad.set_tapping(configuration.get('tapping'))
         self.disable_on_typing = configuration.get('disable_on_typing')
-        if self.keyboardMonitor is not None:
-            self.keyboardMonitor.stop()
-            self.keyboardMonitor = None
         if self.disable_on_typing:
             self.keyboardMonitor = KeyboardMonitor(self.interval)
             self.keyboardMonitor.connect('key_pressed', self.on_key_pressed)
@@ -331,21 +332,12 @@ class SlimbookTouchpad(dbus.service.Object):
                 self.keyboardMonitor.stop()
             else:
                 self.keyboardMonitor.start()
+        if self.on_mouse_plugged:
+            self.launch_watchdog()
         if are_all_touchpad_enabled:
             self.touchpad.enable_all_touchpads()
         else:
             self.touchpad.disable_all_touchpads()
-
-    def start_time_watcher(self):
-        self.stop_time_watcher()
-        interval = float(self.interval) * 500.0
-        self.widgets_updater = GLib.timeout_add(interval,
-                                                self.check_touchpad_status)
-
-    def stop_time_watcher(self):
-        if self.time_watcher > 0:
-            GLib.source_remove(self.time_watcher)
-            self.time_watcher = 0
 
     # ################## menu creation ######################
 
@@ -524,7 +516,6 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
         if preferences_dialog.run() == Gtk.ResponseType.ACCEPT:
             preferences_dialog.close_ok()
             self.read_preferences()
-            self.on_mouse_plugged_change(self.on_mouse_plugged)
         preferences_dialog.hide()
         preferences_dialog.destroy()
         # we need to change the status icons
@@ -539,10 +530,12 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
         if self.keyboardMonitor is not None:
             self.keyboardMonitor.stop()
             self.keyboardMonitor = None
-        if self.enable_on_exit:
+
+        if self.on_end == 1:
             self.touchpad.enable_all_touchpads()
-        if self.disable_on_exit:
+        elif self.on_end == -1:
             self.touchpad.disable_all_touchpads()
+
         configuration = Configuration()
         configuration.set('is_working', False)
         configuration.save()

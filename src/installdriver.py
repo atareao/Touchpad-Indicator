@@ -22,17 +22,18 @@
 import gi
 try:
     gi.require_version('Gtk', '3.0')
+    gi.require_version('GLib', '2.0')
     gi.require_version('Vte', '2.91')
 except Exception as e:
     print(e)
     exit(1)
 from gi.repository import Gtk
+from gi.repository import GLib
 from gi.repository import Vte
 import sys
 import comun
 from comun import _
 from doitinbackground import DoItInBackground
-from machine_information import DistroInfo
 from progreso import Progreso
 from utils import is_package_installed
 
@@ -46,26 +47,10 @@ class SmartTerminal(Vte.Terminal):
 
     def execute(self, commands):
         diib = DoItInBackground(self, commands)
-        progreso = Progreso(_('Installing driver'), self.parent, len(commands))
-        diib.connect('done_one', progreso.increase)
-        diib.connect('ended', progreso.close)
-        diib.connect('ended', self.on_ended)
-        progreso.connect('i-want-stop', diib.stop)
+        diib.connect('started', self.parent.start)
+        diib.connect('done_one', self.parent.increase)
+        diib.connect('ended', self.parent.end)
         diib.start()
-
-    def on_ended(self, diib, ok):
-        if ok is True:
-            kind = Gtk.MessageType.INFO
-            message = _('Driver installed')
-        else:
-            kind = Gtk.MessageType.ERROR
-            message = _('Driver NOT installed')
-        dialog = Gtk.MessageDialog(self.parent, 0, kind,
-                                   Gtk.ButtonsType.OK,
-                                   message)
-        dialog.run()
-        dialog.destroy()
-        Gtk.main_quit()
 
 
 class DriverInstallerDialog(Gtk.Window):
@@ -77,7 +62,6 @@ class DriverInstallerDialog(Gtk.Window):
         self.connect('delete-event', Gtk.main_quit)
         self.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
         self.set_icon_from_file(comun.ICON)
-        self.set_size_request(600, 50)
         grid = Gtk.Grid()
         grid.set_margin_bottom(MARGIN)
         grid.set_margin_left(MARGIN)
@@ -90,14 +74,22 @@ class DriverInstallerDialog(Gtk.Window):
 
         self.driver = args[1].lower()
         if self.driver == 'libinput':
-            label = Gtk.Label(_('Install libinput driver?'))
+            label = Gtk.Label(_('Installing libinput driver...'))
         else:
-            label = Gtk.Label(_('Install evdev driver?'))
+            label = Gtk.Label(_('Installing evdev driver...'))
         label.set_alignment(0, 0.5)
         grid.attach(label, 0, 0, 2, 1)
+
+        self.label = Gtk.Label('')
+        self.label.set_alignment(0, 0.5)
+        grid.attach(self.label, 0, 1, 2, 1)
+
+        self.progressbar = Gtk.ProgressBar()
+        grid.attach(self.progressbar, 0, 2, 4, 1)
+
         expander = Gtk.Expander()
         expander.connect('notify::expanded', self.on_expanded)
-        grid.attach(expander, 0, 1, 2, 2)
+        grid.attach(expander, 0, 3, 4, 4)
 
         alignment = Gtk.Alignment()
         # alignment.set_padding(1, 0, 2, 2)
@@ -110,74 +102,93 @@ class DriverInstallerDialog(Gtk.Window):
         alignment.add(scrolledwindow)
         expander.add(alignment)
 
-        button_ok = Gtk.Button(_('Ok'))
-        grid.attach(button_ok, 0, 3, 1, 1)
-        button_ok.connect('clicked', self.on_button_ok_clicked)
-        button_cancel = Gtk.Button(_('Cancel'))
-        button_cancel.connect('clicked', self.on_button_cancel_clicked)
-        grid.attach(button_cancel, 1, 3, 1, 1)
+        self.button_ok = Gtk.Button(_('Ok'))
+        self.button_ok.connect('clicked', self.on_button_ok_clicked)
+        grid.attach(self.button_ok, 1, 8, 1, 1)
+
+        self.button_cancel = Gtk.Button(_('Cancel'))
+        self.button_cancel.connect('clicked', self.on_button_cancel_clicked)
+        grid.attach(self.button_cancel, 2, 8, 1, 1)
 
         self.is_added = False
         self.show_all()
+        self.progressbar.set_visible(False)
+        self.label.set_visible(False)
+        expander.set_expanded(True)
+
+    def end(self, anobject, ok, *args):
+        self.button_cancel.set_label(_('Exit'))
+        self.button_cancel.set_sensitive(True)
+        self.button_ok.set_sensitive(False)
+        if ok is True:
+            kind = Gtk.MessageType.INFO
+            message = _('Driver installed')
+        else:
+            kind = Gtk.MessageType.ERROR
+            message = _('Driver NOT installed')
+        dialog = Gtk.MessageDialog(self, 0, kind,
+                                   Gtk.ButtonsType.OK,
+                                   message)
+        dialog.run()
+        dialog.destroy()
+
+    def start(self, anobject, total, *args):
+        self.button_ok.set_sensitive(False)
+        self.button_cancel.set_sensitive(False)
+        self.value = 0.0
+        self.max_value = total
+
+    def increase(self, anobject, command, *args):
+        GLib.idle_add(self.label.set_text, _('Executing: %s') % command)
+        self.value += 1.0
+        fraction = self.value / self.max_value
+        print(fraction)
+        GLib.idle_add(self.progressbar.set_fraction, fraction)
+
+    def decrease(self):
+        self.value -= 1.0
+        fraction = self.value / self.max_value
+        GLib.idle_add(self.progressbar.set_fraction, fraction)
 
     def on_expanded(self, widget, data):
         if widget.get_property('expanded') is True:
-            self.set_size_request(600, 200)
+            self.set_size_request(600, 300)
         else:
             self.set_size_request(600, 50)
             self.resize(600, 50)
 
     def on_button_cancel_clicked(self, button):
-        Gtk.main_quit()
+        self.destroy()
+
+    def show_info(self):
+        self.progressbar.set_visible(True)
+        self.label.set_visible(True)
 
     def on_button_ok_clicked(self, button):
-        di = DistroInfo()
+        GLib.idle_add(self.show_info)
         if self.driver == 'libinput':
-            if di.distributor == 'Ubuntu' and di.release == '16.04':
-                if is_package_installed(
-                        'xserver-xorg-input-evdev-hwe-16.04'):
-                    commands = [
-                        'apt update',
-                        'apt install xserver-xorg-input-libinput-hwe-16.04 -y',
-                        'apt remove xserver-xorg-input-evdev-hwe-16.04 -y']
-                elif is_package_installed(
-                        'xserver-xorg-evdev-libinput'):
-                    commands = [
-                        'apt update',
-                        'apt install xserver-xorg-input-libinput-hwe-16.04 -y',
-                        'apt remove xserver-xorg-input-evdev -y']
-                else:
-                    commands = [
-                        'apt update',
-                        'apt install xserver-xorg-input-libinput-hwe-16.04 -y']
-            else:
+            if is_package_installed('xserver-xorg-input-evdev'):
                 commands = [
                     'apt update',
                     'apt install xserver-xorg-input-libinput -y',
                     'apt remove xserver-xorg-input-evdev -y']
-        else:
-            if di.distributor == 'Ubuntu' and di.release == '16.04':
-                if is_package_installed(
-                        'xserver-xorg-input-libinput-hwe-16.04'):
-                    commands = [
-                        'apt update',
-                        'apt install xserver-xorg-input-evdev-hwe-16.04 -y',
-                        'apt remove xserver-xorg-input-libinput-hwe-16.04 -y']
-                elif is_package_installed(
-                        'xserver-xorg-input-libinput'):
-                    commands = [
-                        'apt update',
-                        'apt install xserver-xorg-input-evdev-hwe-16.04 -y',
-                        'apt remove xserver-xorg-input-libinput -y']
-                else:
-                    commands = [
-                        'apt update',
-                        'apt install xserver-xorg-input-evdev-hwe-16.04 -y']
             else:
+                commands = [
+                    'apt update',
+                    'apt install xserver-xorg-input-libinput -y']
+        elif self.driver == 'evdev':
+            if is_package_installed('xserver-xorg-input-libinput'):
                 commands = [
                     'apt update',
                     'apt install xserver-xorg-input-evdev -y',
                     'apt remove xserver-xorg-input-libinput -y']
+            else:
+                commands = [
+                    'apt update',
+                    'apt install xserver-xorg-input-evdev -y']
+        else:
+            commands = [
+                'ls', 'ls', 'ls', 'ls', 'ls', 'ls', 'ls', 'ls']
         print(commands)
         self.terminal.execute(commands)
 
@@ -185,7 +196,7 @@ class DriverInstallerDialog(Gtk.Window):
 def main(args):
     print(args)
     if len(args) < 2:
-        args.append('libinput')
+        args.append('none')
     DriverInstallerDialog(args)
     Gtk.main()
 

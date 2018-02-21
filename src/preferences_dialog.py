@@ -141,38 +141,55 @@ class PreferencesDialog(Gtk.Dialog):
         grid2.set_margin_top(10)
         frame2.add(grid2)
 
-        self.checkbutton2 = Gtk.CheckButton.new_with_label(
-            _('Disable touchpad when mouse plugged'))
-        grid2.attach(self.checkbutton2, 0, 0, 1, 1)
-        #
-        self.checkbutton3 = Gtk.CheckButton.new_with_label(
-            _('Enable touchpad on exit'))
-        self.checkbutton3.connect('clicked',
-                                  self.on_checkbutton3_activate)
-        grid2.attach(self.checkbutton2, 0, 1, 1, 1)
-        #
-        self.checkbutton4 = Gtk.CheckButton.new_with_label(
-            _('Disable touchpad on exit'))
-        self.checkbutton4.connect('clicked', self.on_checkbutton4_activate)
-        grid2.attach(self.checkbutton4, 0, 2, 1, 1)
-        #
-        self.checkbutton7 = Gtk.CheckButton.new_with_label(
-            _('Disable touchpad when Touchpad-Indicator starts'))
-        grid2.attach(self.checkbutton7, 0, 3, 1, 1)
-        #
+        label = Gtk.Label(_('Disable touchpad when mouse plugged'))
+        label.set_alignment(0, 0.5)
+        grid2.attach(label, 0, 0, 1, 1)
+        self.checkbutton2 = Gtk.Switch()
+        grid2.attach(self.checkbutton2, 1, 0, 1, 1)
+
+        label = Gtk.Label(_('On Slimbook Touchpad starts:'))
+        label.set_alignment(0, 0.5)
+        grid2.attach(label, 0, 1, 1, 1)
+
+        self.on_start = {}
+        self.on_start['none'] = Gtk.RadioButton()
+        self.on_start['none'].set_label(_('None'))
+        grid2.attach(self.on_start['none'], 0, 2, 1, 1)
+
+        self.on_start['disable'] = Gtk.RadioButton(group=self.on_start['none'])
+        self.on_start['disable'].set_label(_('Disable touchpad'))
+        grid2.attach(self.on_start['disable'], 1, 2, 1, 1)
+
+        label = Gtk.Label(_('On Slimbook Touchpad ends:'))
+        label.set_alignment(0, 0.5)
+        grid2.attach(label, 0, 3, 1, 1)
+
+        self.on_end = {}
+        self.on_end['none'] = Gtk.RadioButton()
+        self.on_end['none'].set_label(_('None'))
+        grid2.attach(self.on_end['none'], 0, 4, 1, 1)
+
+        self.on_end['enable'] = Gtk.RadioButton(group=self.on_end['none'])
+        self.on_end['enable'].set_label(_('Enable touchpad'))
+        grid2.attach(self.on_end['enable'], 1, 4, 1, 1)
+
+        self.on_end['disable'] = Gtk.RadioButton(group=self.on_end['none'])
+        self.on_end['disable'].set_label(_('Disable touchpad'))
+        grid2.attach(self.on_end['disable'], 2, 4, 1, 1)
+
         self.checkbutton8 = Gtk.CheckButton.new_with_label(
             _('Disable touchpad on typing'))
         self.checkbutton8.connect('toggled', self.on_checkbutton8_toggled)
-        grid2.attach(self.checkbutton8, 0, 4, 1, 1)
-        #
-        self.label_interval = Gtk.Label('        ' + _('Milliseconds to wait \
-after the last key press before enabling the touchpad') + ':')
-        grid2.attach(self.label_interval, 0, 5, 1, 1)
+        grid2.attach(self.checkbutton8, 0, 5, 1, 1)
+
+        self.label_interval = Gtk.Label(_('Milliseconds to wait \
+after the last key\npress before enabling the touchpad') + ':')
+        grid2.attach(self.label_interval, 0, 6, 1, 1)
         #
         self.interval = Gtk.SpinButton()
         self.interval.set_adjustment(
             Gtk.Adjustment(500, 300, 10000, 100, 1000, 0))
-        grid2.attach(self.interval, 1, 5, 1, 1)
+        grid2.attach(self.interval, 1, 6, 1, 1)
 
         vbox3 = Gtk.VBox(spacing=5)
         vbox3.set_border_width(5)
@@ -240,8 +257,9 @@ after the last key press before enabling the touchpad') + ':')
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 2, 1, 1)
                 self.speed = Gtk.Scale()
+                self.speed.set_digits(0)
                 self.speed.set_adjustment(
-                    Gtk.Adjustment(0, 0, 100, 1, 10, 0))
+                    Gtk.Adjustment(0, -100, 100, 1, 10, 0))
                 grid4.attach(self.speed, 1, 2, 1, 1)
 
                 label = Gtk.Label(_('Driver: Libinput'))
@@ -257,60 +275,6 @@ after the last key press before enabling the touchpad') + ':')
                 install_libinput = Gtk.Button(_('Install Libinput?'))
                 install_libinput.connect('clicked', self.on_install_libinput)
                 grid4.attach(install_libinput, 0, 2, 1, 1)
-
-        if self.is_synaptics is True:
-
-            mbuttons_store = Gtk.ListStore(str)
-            mbuttons = ['None', 'Left mouse button', 'Middle mouse button',
-                        'Right mouse button']
-            for mbutton in mbuttons:
-                mbuttons_store.append([mbutton])
-
-            renderer_text = Gtk.CellRendererText()
-
-            self.checkbutton41 = Gtk.CheckButton.new_with_label(
-                _('Vertical scrolling'))
-            grid4.attach(self.checkbutton41, 0, 0, 2, 1)
-            self.checkbutton42 = Gtk.CheckButton.new_with_label(
-                _('Horizontal scrolling'))
-            grid4.attach(self.checkbutton42, 0, 1, 2, 1)
-            self.checkbutton43 = Gtk.CheckButton.new_with_label(
-                _('Circular scrolling'))
-            grid4.attach(self.checkbutton43, 0, 2, 2, 1)
-            self.checkbutton44 = Gtk.CheckButton.new_with_label(
-                _('Two fingers vertical scrolling'))
-            grid4.attach(self.checkbutton44, 0, 3, 2, 1)
-            self.checkbutton45 = Gtk.CheckButton.new_with_label(
-                _('Two fingers horizontal scrolling'))
-            grid4.attach(self.checkbutton45, 0, 4, 2, 1)
-            self.checkbutton46 = Gtk.CheckButton.new_with_label(
-                _('Natural scrolling'))
-            grid4.attach(self.checkbutton46, 0, 5, 2, 1)
-            self.label_tapping1 = Gtk.Label(_('Tapping with one finger'))
-            self.label_tapping1.set_alignment(0, 0.5)
-            grid4.attach(self.label_tapping1, 0, 6, 1, 1)
-            self.combobox47 = Gtk.ComboBox.new_with_model(mbuttons_store)
-            self.combobox47.pack_start(renderer_text, True)
-            self.combobox47.add_attribute(renderer_text, "text", 0)
-            grid4.attach(self.combobox47, 1, 6, 1, 1)
-
-            self.label_tapping2 = Gtk.Label(_('Tapping with two fingers'))
-            self.label_tapping2.set_alignment(0, 0.5)
-            grid4.attach(self.label_tapping2, 0, 7, 1, 1)
-            self.combobox48 = Gtk.ComboBox.new_with_model(mbuttons_store)
-            self.combobox48.pack_start(renderer_text, True)
-            self.combobox48.add_attribute(renderer_text, "text", 0)
-            grid4.attach(self.combobox48, 1, 7, 1, 1)
-
-            self.label_tapping3 = Gtk.Label(_('Tapping with three fingers'))
-            self.label_tapping3.set_alignment(0, 0.5)
-            grid4.attach(self.label_tapping3, 0, 8, 1, 1)
-            self.combobox49 = Gtk.ComboBox.new_with_model(mbuttons_store)
-            self.combobox49.pack_start(renderer_text, True)
-            self.combobox49.add_attribute(renderer_text, "text", 0)
-            grid4.attach(self.combobox49, 1, 8, 1, 1)
-        else:
-            pass
 
         vbox5 = Gtk.VBox(spacing=5)
         vbox5.set_border_width(5)
@@ -442,19 +406,32 @@ after the last key press before enabling the touchpad') + ':')
         if first_time or version != comun.VERSION:
             configuration.set_defaults()
             configuration.read()
-        self.checkbutton0.set_active(configuration.get('shortcut_enabled'))
         self.checkbutton1.set_active(configuration.get('autostart'))
         self.checkbutton2.set_active(configuration.get('on_mouse_plugged'))
-        self.checkbutton3.set_active(configuration.get('enable_on_exit'))
-        self.checkbutton4.set_active(configuration.get('disable_on_exit'))
+
+        option = configuration.get('on_start')
+        if option == 0:
+            self.on_start['none'].set_active(True)
+        elif option == -1:
+            self.on_start['disable'].set_active(True)
+
+        option = configuration.get('on_end')
+        if option == 0:
+            self.on_end['none'].set_active(True)
+        elif option == 1:
+            self.on_end['enable'].set_active(True)
+        elif option == -1:
+            self.on_end['disable'].set_active(True)
+
         self.checkbutton5.set_active(configuration.get('start_hidden'))
         self.checkbutton6.set_active(configuration.get('show_notifications'))
-        self.checkbutton7.set_active(
-            configuration.get('disable_touchpad_on_start_indicator'))
+
         self.checkbutton8.set_active(configuration.get('disable_on_typing'))
         self.interval.set_value(configuration.get('interval'))
         self.label_interval.set_sensitive(self.checkbutton8.get_active())
         self.interval.set_sensitive(self.checkbutton8.get_active())
+
+        self.checkbutton0.set_active(configuration.get('shortcut_enabled'))
         self.key = configuration.get('shortcut')
         self.shortcut_enabled = configuration.get('shortcut_enabled')
         if self.key.find('<Primary>') > -1:
@@ -462,13 +439,13 @@ after the last key press before enabling the touchpad') + ':')
         if self.key.find('<Alt>') > -1:
             self.alt.set_active(True)
         self.entry11.set_text(self.key[-1:])
-        option = configuration.get('theme')
         self.set_shortcut_sensitive(self.checkbutton0.get_active())
+        option = configuration.get('theme')
         if option == 'light':
             self.radiobutton1.set_active(True)
-        if option == 'dark':
+        elif option == 'dark':
             self.radiobutton2.set_active(True)
-        else:
+        elif option == 'normal':
             self.radiobutton3.set_active(True)
 
         self.checkbutton46.set_active(configuration.get('natural_scrolling'))
@@ -494,26 +471,35 @@ after the last key press before enabling the touchpad') + ':')
             key += '<Alt>'
         key += self.entry11.get_text()
         if self.radiobutton1.get_active() is True:
-            theme = 'light'
+            configuration.set('theme', 'light')
         elif self.radiobutton2.get_active() is True:
-            theme = 'dark'
+            configuration.set('theme', 'dark')
         else:
-            theme = 'normal'
+            configuration.set('theme', 'normal')
+
+        if self.on_start['none'].get_active() is True:
+            configuration.set('on_start', 0)
+        else:
+            configuration.set('on_start', -1)
+
+        if self.on_end['none'].get_active() is True:
+            configuration.set('on_end', 0)
+        elif self.on_end['enable'].get_active() is True:
+            configuration.set('on_end', 1)
+        else:
+            configuration.set('on_end', -1)
+
         configuration.set('shortcut_enabled', self.checkbutton0.get_active())
         configuration.set('autostart', self.checkbutton1.get_active())
         set_autostart(self.checkbutton1.get_active())
         configuration.set('on_mouse_plugged', self.checkbutton2.get_active())
-        configuration.set('enable_on_exit', self.checkbutton3.get_active())
-        configuration.set('disable_on_exit', self.checkbutton4.get_active())
+
         configuration.set('start_hidden', self.checkbutton5.get_active())
         configuration.set('show_notifications', self.checkbutton6.get_active())
-        configuration.set(
-            'disable_touchpad_on_start_indicator',
-            self.checkbutton7.get_active())
+
         configuration.set('disable_on_typing', self.checkbutton8.get_active())
         configuration.set('interval', self.interval.get_value())
         configuration.set('shortcut', key)
-        configuration.set('theme', theme)
 
         configuration.set('natural_scrolling', self.checkbutton46.get_active())
         tp = Touchpad()
