@@ -193,7 +193,7 @@ locale-langpack/%s/LC_MESSAGES\n' % (APP, lan))
     fl = open(file_txt, 'r')
     for lan in fl.readlines():
         lan = lan[:-1]
-        f.write('\tmsgfmt template1/%s.po -o ${CURDIR}/debian/%s/usr/share/\
+        f.write('\tmsgfmt po/%s.po -o ${CURDIR}/debian/%s/usr/share/\
 locale-langpack/%s/LC_MESSAGES/%s.mo\n' % (lan, APP, lan, APP))
     fl.close()
     f.write('\t# End comile languages\n')

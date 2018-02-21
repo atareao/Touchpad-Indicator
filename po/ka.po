@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: slimbook-touchpad 1.9.5\n"
+"Project-Id-Version: slimbook-touchpad 1.9.6\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
 "POT-Creation-Date: 2018-02-21 09:10+0100\n"
 "PO-Revision-Date: 2011-10-15 06:00+0000\n"
