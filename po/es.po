@@ -272,7 +272,7 @@ msgstr "¿Instalamos el controlador Libinput?"
 
 #: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:95
 msgid "Install evdev driver?"
-msgstr "¿Instalamos el controlador Evdev?
+msgstr "¿Instalamos el controlador Evdev?"
 
 #: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:113
 msgid "Ok"
