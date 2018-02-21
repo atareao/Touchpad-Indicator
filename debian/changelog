@@ -1,9 +1,9 @@
-slimbook-touchpad (1.9.6-0extras17.10.3) xenial; urgency=medium
+slimbook-touchpad (1.9.6-0extras17.10.4) xenial; urgency=medium
 
   * Changed install dialog
   * Changed preferences dialog
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 21 Feb 2018 09:47:00 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 21 Feb 2018 10:32:52 +0100
 
 slimbook-touchpad (1.9.5-0extras17.10.2) xenial; urgency=medium
 
