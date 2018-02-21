@@ -311,20 +311,27 @@ class SlimbookTouchpad(dbus.service.Object):
                 self.keyboardMonitor.start()
         if self.on_mouse_plugged:
             self.launch_watchdog()
-        if is_on_start is True and self.on_start == -1:
-            self.set_touch_enabled(False, True)
-        else:
-            if are_all_touchpad_enabled:
-                if self.on_mouse_plugged:
-                    if not is_mouse_plugged():
-                        self.set_touch_enabled(True, True)
-                    else:
-                        self.set_touch_enabled(False, True)
-                        self.change_state_item.set_sensitive(False)
-                else:
-                    self.set_touch_enabled(True, True)
-            else:
+
+        if self.on_mouse_plugged and is_mouse_plugged():
+                print('===', 1, '===')
                 self.set_touch_enabled(False, True)
+                self.change_state_item.set_sensitive(False)
+        else:
+            print('===', 2, '===')
+            if is_on_start is True:
+                print('===', 21, '===')
+                if self.on_start == -1:
+                    print('===', 211, '===')
+                    self.set_touch_enabled(False, True)
+                elif self.on_start == 1:
+                    print('===', 212, '===')
+                    self.set_touch_enabled(True, True)
+                else:
+                    print('===', 213, '===')
+                    self.set_touch_enabled(are_all_touchpad_enabled, True)
+            else:
+                print('===', 2, '===')
+                self.set_touch_enabled(are_all_touchpad_enabled, True)
 
     # ################## menu creation ######################
 

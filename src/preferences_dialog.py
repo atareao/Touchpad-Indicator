@@ -156,9 +156,13 @@ class PreferencesDialog(Gtk.Dialog):
         self.on_start['none'].set_label(_('None'))
         grid2.attach(self.on_start['none'], 0, 2, 1, 1)
 
+        self.on_start['enable'] = Gtk.RadioButton(group=self.on_start['none'])
+        self.on_start['enable'].set_label(_('Enable touchpad'))
+        grid2.attach(self.on_start['enable'], 1, 2, 1, 1)
+
         self.on_start['disable'] = Gtk.RadioButton(group=self.on_start['none'])
         self.on_start['disable'].set_label(_('Disable touchpad'))
-        grid2.attach(self.on_start['disable'], 1, 2, 1, 1)
+        grid2.attach(self.on_start['disable'], 2, 2, 1, 1)
 
         label = Gtk.Label(_('On Slimbook Touchpad ends:'))
         label.set_alignment(0, 0.5)
@@ -412,6 +416,8 @@ after the last key\npress before enabling the touchpad') + ':')
         option = configuration.get('on_start')
         if option == 0:
             self.on_start['none'].set_active(True)
+        if option == 1:
+            self.on_start['enable'].set_active(True)
         elif option == -1:
             self.on_start['disable'].set_active(True)
 
@@ -479,6 +485,8 @@ after the last key\npress before enabling the touchpad') + ':')
 
         if self.on_start['none'].get_active() is True:
             configuration.set('on_start', 0)
+        elif self.on_start['enable'].get_active() is True:
+            configuration.set('on_start', 1)
         else:
             configuration.set('on_start', -1)
 

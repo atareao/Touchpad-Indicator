@@ -1,8 +1,8 @@
-slimbook-touchpad (1.9.7-0extras17.10.0) xenial; urgency=medium
+slimbook-touchpad (1.9.7-0extras17.10.1) xenial; urgency=medium
 
   * Improved
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 21 Feb 2018 18:23:07 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 21 Feb 2018 19:10:47 +0100
 
 slimbook-touchpad (1.9.6-0extras17.10.5) xenial; urgency=medium
 
