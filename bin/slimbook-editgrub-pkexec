@@ -1,0 +1,12 @@
+#!/bin/bash
+LOCATIONS=(
+"/usr/share/slimbook-touchpad/editbrub.py"
+)
+
+for ((i = 0; i < ${#LOCATIONS[@]}; i++))
+do
+    if [[ -e "${LOCATIONS[${i}]}" ]]; then
+        python3 ${LOCATIONS[${i}]} $1
+        break
+    fi
+done

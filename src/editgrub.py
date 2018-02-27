@@ -52,12 +52,10 @@ class SmartTerminal(Vte.Terminal):
         diib.start()
 
 
-class DriverInstallerDialog(Gtk.Window):
-    def __init__(self, args):
+class EditGrubDialog(Gtk.Window):
+    def __init__(self):
         Gtk.Window.__init__(self)
-        if len(args) != 2 or args[1].lower() not in ['libinput', 'evdev']:
-            Gtk.main_quit()
-        self.set_title(_('Install driver'))
+        self.set_title(_('Edit Grub'))
         self.connect('delete-event', Gtk.main_quit)
         self.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
         self.set_icon_from_file(comun.ICON)
@@ -71,11 +69,7 @@ class DriverInstallerDialog(Gtk.Window):
         grid.set_row_spacing(MARGIN)
         self.add(grid)
 
-        self.driver = args[1].lower()
-        if self.driver == 'libinput':
-            label = Gtk.Label(_('Installing libinput driver...'))
-        else:
-            label = Gtk.Label(_('Installing evdev driver...'))
+        label = Gtk.Label(_('Editing grub...'))
         label.set_alignment(0, 0.5)
         grid.attach(label, 0, 0, 2, 1)
 
@@ -121,10 +115,10 @@ class DriverInstallerDialog(Gtk.Window):
         self.button_ok.set_sensitive(False)
         if ok is True:
             kind = Gtk.MessageType.INFO
-            message = _('Driver installed')
+            message = _('Grub edited')
         else:
             kind = Gtk.MessageType.ERROR
-            message = _('Driver NOT installed')
+            message = _('Grub NOT edited')
         dialog = Gtk.MessageDialog(self, 0, kind,
                                    Gtk.ButtonsType.OK,
                                    message)
@@ -166,43 +160,22 @@ class DriverInstallerDialog(Gtk.Window):
 
     def on_button_ok_clicked(self, button):
         GLib.idle_add(self.show_info)
-        if self.driver == 'libinput':
-            if is_package_installed('xserver-xorg-input-evdev'):
-                commands = [
-                    'apt update',
-                    'apt install xserver-xorg-input-libinput -y',
-                    'apt remove xserver-xorg-input-evdev -y']
-            else:
-                commands = [
-                    'apt update',
-                    'apt install xserver-xorg-input-libinput -y']
-        elif self.driver == 'evdev':
-            if is_package_installed('xserver-xorg-input-libinput'):
-                commands = [
-                    'apt update',
-                    'apt install xserver-xorg-input-evdev -y',
-                    'apt remove xserver-xorg-input-libinput -y']
-            else:
-                commands = [
-                    'apt update',
-                    'apt install xserver-xorg-input-evdev -y']
-        else:
-            commands = [
-                'ls', 'ls', 'ls', 'ls', 'ls', 'ls', 'ls', 'ls']
+        commands = [
+            'sed -i -e \'s/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/\
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash psmouse.proto=exps"/g\' \
+/etc/default/grub',
+            'update-grub']
         print(commands)
         self.terminal.execute(commands)
         self.destroy()
         exit(0)
 
 
-def main(args):
-    print(args)
-    if len(args) < 2:
-        args.append('none')
-    DriverInstallerDialog(args)
+def main():
+    EditGrubDialog()
     Gtk.main()
 
 
 if __name__ == '__main__':
-    main(sys.argv)
+    main()
     exit(0)

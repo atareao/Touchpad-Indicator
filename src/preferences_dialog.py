@@ -40,6 +40,8 @@ import subprocess
 from configurator import Configuration
 from touchpad import Touchpad
 from touchpad import SYNAPTICS, LIBINPUT, EVDEV
+from utils import exists_psmouse
+import webbrowser
 import comun
 from comun import _
 
@@ -280,47 +282,100 @@ after the last key\npress before enabling the touchpad') + ':')
                 install_libinput.connect('clicked', self.on_install_libinput)
                 grid4.attach(install_libinput, 0, 2, 1, 1)
 
-        vbox5 = Gtk.VBox(spacing=5)
-        vbox5.set_border_width(5)
-        notebook.append_page(vbox5, Gtk.Label.new(_('Theme')))
-        frame5 = Gtk.Frame()
-        vbox5.pack_start(frame5, True, True, 0)
-        grid5 = Gtk.Grid()
-        grid5.set_row_spacing(10)
-        grid5.set_column_spacing(10)
-        grid5.set_margin_bottom(10)
-        grid5.set_margin_left(10)
-        grid5.set_margin_right(10)
-        grid5.set_margin_top(10)
-        frame5.add(grid5)
+        if not exists_psmouse():
+            vbox5 = Gtk.VBox(spacing=5)
+            vbox5.set_border_width(5)
+            notebook.append_page(vbox5, Gtk.Label.new(_('Bugs')))
+            frame5 = Gtk.Frame()
+            vbox5.pack_start(frame5, True, True, 0)
+            grid5 = Gtk.Grid()
+            grid5.set_row_spacing(10)
+            grid5.set_column_spacing(10)
+            grid5.set_margin_bottom(10)
+            grid5.set_margin_left(10)
+            grid5.set_margin_right(10)
+            grid5.set_margin_top(10)
+            frame5.add(grid5)
+
+            text = '''
+<b>Problema:</b>
+
+Al <b>suspender</b> el ordenador (acción que sucede al bajar la tapa) y \
+reanudarlo, el <b>puntero del ratón</b> se va \na la <b>esquina superior \
+derecha</b> y no vuelva a responder.
+
+Esto es porque <b>el kernel no carga correctamente</b> el protocolo del \
+touchpad.
+
+<b>Solución:</b>
+
+Editar e grub para añadir psmouse.proto=exps durante la carga del kernel.
+
+<b>Nota importante:</b>
+Una vez editado el grub, necesitarás reiniciar el equipo para rcuperar el \
+control del touchpad.
+'''
+            label = Gtk.Label()
+            label.set_markup(text)
+            grid5.attach(label, 0, 0, 4, 2)
+
+            button_psmouse = Gtk.Button('Edit the Grub?')
+            button_psmouse.connect('clicked', self.on_edit_grub)
+            grid5.attach(button_psmouse, 1, 3, 1, 1)
+
+            button_more_info = Gtk.Button(_('Do you need more info?'))
+            button_more_info.connect('clicked', self.on_more_info)
+            grid5.attach(button_more_info, 2, 3, 1, 1)
+
+        vbox6 = Gtk.VBox(spacing=5)
+        vbox6.set_border_width(5)
+        notebook.append_page(vbox6, Gtk.Label.new(_('Theme')))
+        frame6 = Gtk.Frame()
+        vbox6.pack_start(frame6, True, True, 0)
+        grid6 = Gtk.Grid()
+        grid6.set_row_spacing(10)
+        grid6.set_column_spacing(10)
+        grid6.set_margin_bottom(10)
+        grid6.set_margin_left(10)
+        grid6.set_margin_right(10)
+        grid6.set_margin_top(10)
+        frame6.add(grid6)
 
         label4 = Gtk.Label(_('Select theme') + ':')
         label4.set_alignment(0, 0.5)
-        grid5.attach(label4, 0, 0, 1, 1)
+        grid6.attach(label4, 0, 0, 1, 1)
         self.radiobutton1 = Gtk.RadioButton()
         image1 = Gtk.Image()
         image1.set_from_file(os.path.join(comun.ICONDIR,
                              'slimbook-touchpad-light-enabled.svg'))
         self.radiobutton1.add(image1)
-        grid5.attach(self.radiobutton1, 1, 0, 1, 1)
+        grid6.attach(self.radiobutton1, 1, 0, 1, 1)
 
         self.radiobutton2 = Gtk.RadioButton(group=self.radiobutton1)
         image2 = Gtk.Image()
         image2.set_from_file(os.path.join(comun.ICONDIR,
                              'slimbook-touchpad-dark-enabled.svg'))
         self.radiobutton2.add(image2)
-        grid5.attach(self.radiobutton2, 2, 0, 1, 1)
+        grid6.attach(self.radiobutton2, 2, 0, 1, 1)
 
         self.radiobutton3 = Gtk.RadioButton(group=self.radiobutton1)
         image3 = Gtk.Image()
         image3.set_from_file(os.path.join(comun.ICONDIR,
                              'slimbook-touchpad-normal-enabled.svg'))
         self.radiobutton3.add(image3)
-        grid5.attach(self.radiobutton3, 3, 0, 1, 1)
+        grid6.attach(self.radiobutton3, 3, 0, 1, 1)
 
         self.load_preferences()
 
         self.show_all()
+
+    def on_more_info(self, widget):
+        webbrowser.open('https://slimbook.es/it/tutoriales/linux/271-solucion-\
+problema-touchpad-no-funciona-despues-de-suspender-o-cerrar-la-tapa-del-\
+slimbook')
+
+    def on_edit_grub(self, widget):
+        subprocess.call(['slimbook-editgrub'])
 
     def on_install_evdev(self, widget):
         subprocess.call(['slimbook-installdriver', 'evdev'])

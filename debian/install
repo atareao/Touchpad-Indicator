@@ -5,6 +5,7 @@ data/icons/*.svg /usr/share/slimbook-touchpad/icons
 data/icons/*.jpg /usr/share/slimbook-touchpad/icons
 data/schemas/org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.slimbook-touchpad.gschema.xml /usr/share/glib-2.0/schemas
 policykit/actions/com.ubuntu.pkexec.installdriver.policy /usr/share/polkit-1/actions/
+policykit/actions/com.ubuntu.pkexec.editgrub.policy /usr/share/polkit-1/actions/
 data/00_check_slimbook_touchpad_status /etc/pm/sleep.d
 data/00_check_slimbook_touchpad_status_systemd /usr/lib/systemd/system-sleep/
 data/slimbook-touchpad.desktop /usr/share/applications

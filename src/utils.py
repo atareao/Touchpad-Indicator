@@ -25,6 +25,19 @@ from os.path import isfile, join, basename
 import glob
 
 
+def exists_psmouse():
+    try:
+        f = open('/etc/default/grub', 'r')
+        content = f.read()
+        f.close()
+        if content.find('GRUB_CMDLINE_LINUX_DEFAULT="quiet splash \
+psmouse.proto=exps"') > -1:
+            return True
+    except Exception as e:
+        print(e)
+    return False
+
+
 def get_version():
     command = 'lsb_release -c'
     po = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE,
@@ -68,4 +81,4 @@ if __name__ == '__main__':
     print(is_package_installed('xserver-xorg-input-libinput'))
     print(get_version())
     print(is_ppa_repository_added('ppa:atareao/atareao'))
-    
+    print(exists_psmouse())
