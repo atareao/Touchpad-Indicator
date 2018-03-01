@@ -1,3 +1,9 @@
+slimbook-touchpad (1.9.8-0extras17.10.2) xenial; urgency=medium
+
+  * Updated icons
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Thu, 01 Mar 2018 11:27:51 +0100
+
 slimbook-touchpad (1.9.8-0extras17.10.1) xenial; urgency=medium
 
   * Updated translations
