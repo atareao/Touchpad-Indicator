@@ -1,8 +1,9 @@
 [Desktop Entry]
 Name=Slimbook Touchpad
 GenericName=Slimbook Touchpad
-Exec=/usr/bin/python3 /usr/bin/slimbook-touchpad
-Icon=/usr/share/slimbook-touchpad/icons/slimbook-touchpad.svg
+Exec=/usr/bin/slimbook-touchpad
+TryExec=slimbook-touchpad
+Icon=slimbook-touchpad
 Type=Application
 Terminal=false
 StartupNotify=true
