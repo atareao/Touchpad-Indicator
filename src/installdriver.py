@@ -191,8 +191,6 @@ class DriverInstallerDialog(Gtk.Window):
                 'ls', 'ls', 'ls', 'ls', 'ls', 'ls', 'ls', 'ls']
         print(commands)
         self.terminal.execute(commands)
-        self.destroy()
-        exit(0)
 
 
 def main(args):

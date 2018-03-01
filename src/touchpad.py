@@ -235,7 +235,7 @@ class Touchpad(object):
         elif type_of_touchpad == SYNAPTICS:
             regex = r'synaptics\s*accel\s*speed\s*\(\d*\):\s*(.*)'
         elif type_of_touchpad == EVDEV:
-            regex = r'evdev\s*accel\s*speed\s*\(\d*\):\s*(.*)'
+            regex = r'device\s*accel\s*constant\s*deceleration\s*\(\d*\):\s*(.*)'
         else:
             return 0.0
         matches = re.search(regex, test_str)
@@ -251,7 +251,10 @@ class Touchpad(object):
         elif type_of_touchpad == SYNAPTICS:
             regex = r'synaptics\s*accel\s*speed\s*\((\d*)\):\s*.*'
         elif type_of_touchpad == EVDEV:
-            regex = r'evdev\s*accel\s*speed\s*\((\d*)\):\s*.*'
+            speed = speed + 1.0
+            if speed <= 0:
+                speed = 0.1
+            regex = r'device\s*accel\s*constant\s*deceleration\s*\((\d*)\):\s*.*'
         else:
             return
         matches = re.search(regex, test_str)

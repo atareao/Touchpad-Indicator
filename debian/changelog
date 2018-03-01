@@ -1,3 +1,11 @@
+slimbook-touchpad (1.9.8-0extras17.10.3) xenial; urgency=medium
+
+  * Fixed some bugs
+  * Updated icons
+  * Added speed for evdev controller
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Thu, 01 Mar 2018 12:11:20 +0100
+
 slimbook-touchpad (1.9.8-0extras17.10.2) xenial; urgency=medium
 
   * Updated icons

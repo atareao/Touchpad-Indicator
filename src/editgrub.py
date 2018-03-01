@@ -167,8 +167,6 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash psmouse.proto=exps"/g\' \
             'update-grub']
         print(commands)
         self.terminal.execute(commands)
-        self.destroy()
-        exit(0)
 
 
 def main():
