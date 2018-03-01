@@ -240,6 +240,8 @@ class Touchpad(object):
             return 0.0
         matches = re.search(regex, test_str)
         if matches is not None:
+            if type_of_touchpad == EVDEV:
+                return float(matches.group(1)) - 1.0
             return float(matches.group(1))
         return 0.0
 

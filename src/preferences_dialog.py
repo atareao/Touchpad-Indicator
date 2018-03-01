@@ -280,12 +280,20 @@ after the last key\npress before enabling the touchpad') + ':')
                 install_evdev.connect('clicked', self.on_install_evdev)
                 grid4.attach(install_evdev, 0, 4, 1, 1)
             elif tipo == EVDEV:
-                label = Gtk.Label(_('Driver: Evdev'))
+                label = Gtk.Label(_('Touchpad speed?'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 1, 1, 1)
+                self.speed = Gtk.Scale()
+                self.speed.set_digits(0)
+                self.speed.set_adjustment(
+                    Gtk.Adjustment(0, -100, 100, 1, 10, 0))
+                grid4.attach(self.speed, 1, 1, 1, 1)
+                label = Gtk.Label(_('Driver: Evdev'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 2, 1, 1)
                 install_libinput = Gtk.Button(_('Install Libinput?'))
                 install_libinput.connect('clicked', self.on_install_libinput)
-                grid4.attach(install_libinput, 0, 2, 1, 1)
+                grid4.attach(install_libinput, 0, 3, 1, 1)
 
         if not exists_psmouse():
             vbox5 = Gtk.VBox(spacing=5)
@@ -521,10 +529,11 @@ slimbook')
             if tipo == SYNAPTICS:
                 pass
             elif tipo == LIBINPUT:
-                self.tapping.set_active(configuration.get('tapping'))
+                if tp.has_tapping():
+                    self.tapping.set_active(configuration.get('tapping'))
                 self.speed.set_value(configuration.get('speed'))
             elif tipo == EVDEV:
-                pass
+                self.speed.set_value(configuration.get('speed'))
 
     def save_preferences(self):
         configuration = Configuration()
@@ -576,10 +585,11 @@ slimbook')
             if tipo == SYNAPTICS:
                 pass
             elif tipo == LIBINPUT:
-                configuration.set('tapping', self.tapping.get_active())
+                if tp.has_tapping():
+                    configuration.set('tapping', self.tapping.get_active())
                 configuration.set('speed', self.speed.get_value())
             elif tipo == EVDEV:
-                pass
+                configuration.set('speed', self.speed.get_value())
 
         configuration.save()
 
