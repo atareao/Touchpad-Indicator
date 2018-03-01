@@ -158,6 +158,19 @@ class Touchpad(object):
         test_str = run('xinput --list-props %s' % (id)).lower()
         return self._get_type_from_string(test_str)
 
+    def has_tapping(self):
+        ids = self._get_ids()
+        for id in ids:
+            if not self._has_tapping(id):
+                return False
+        return True
+
+    def _has_tapping(self, id):
+        test_str = run('xinput --list-props %s' % (id)).lower()
+        regex = r'libinput\s*tapping\s*enabled\s*\(\d*\):.*'
+        matches = re.search(regex, test_str)
+        return matches is not None
+
     def get_tapping(self):
         ids = self._get_ids()
         if len(ids) > 0:
@@ -372,6 +385,6 @@ if __name__ == '__main__':
     tp.enable_all_touchpads()
     print(tp.are_all_touchpad_enabled())
     print(tp._set_tapping(12, True))
-    print(tp.get_tapping())
+    print(tp.has_tapping())
 
     exit(0)

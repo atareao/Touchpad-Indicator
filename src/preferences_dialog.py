@@ -258,7 +258,12 @@ after the last key\npress before enabling the touchpad') + ':')
                 grid4.attach(label, 0, 1, 1, 1)
                 self.tapping = Gtk.Switch()
                 grid4.attach(self.tapping, 1, 1, 1, 1)
-
+                if tp.has_tapping():
+                    label.set_sensitive(True)
+                    self.tapping.set_sensitive(True)
+                else:
+                    label.set_sensitive(False)
+                    self.tapping.set_sensitive(False)
                 label = Gtk.Label(_('Touchpad speed?'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 2, 1, 1)
