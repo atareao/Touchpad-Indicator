@@ -67,6 +67,7 @@ if is_package():
     ROOTDIR = '/usr/share/'
     LANGDIR = os.path.join(ROOTDIR, 'locale-langpack')
     APPDIR = os.path.join(ROOTDIR, APP)
+    AUTOSTART_SOURCE_DIR = APPDIR
     ICONDIR = os.path.join(APPDIR, 'icons')
     SOCIALDIR = os.path.join(APPDIR, 'social')
     CHANGELOG = os.path.join(APPDIR, 'changelog')
@@ -74,6 +75,7 @@ else:
     ROOTDIR = os.path.dirname(__file__)
     LANGDIR = os.path.normpath(os.path.join(ROOTDIR, '../po'))
     APPDIR = ROOTDIR
+    AUTOSTART_SOURCE_DIR = os.path.normpath(os.path.join(APPDIR, '../data'))
     ICONDIR = os.path.normpath(os.path.join(APPDIR, '../data/icons'))
     DEBIANDIR = os.path.normpath(os.path.join(ROOTDIR, '../debian'))
     CHANGELOG = os.path.join(DEBIANDIR, 'changelog')
@@ -99,7 +101,7 @@ CONFIG_FILE = os.path.join(CONFIG_APP_DIR, APPCONF)
 
 AUTOSTART_DIR = os.path.join(CONFIG_DIR, 'autostart')
 FILE_AUTO_START_NAME = 'slimbook-touchpad-autostart.desktop'
-FILE_AUTO_START_SRC = os.path.join(APPDIR, FILE_AUTO_START_NAME)
+FILE_AUTO_START_SRC = os.path.join(AUTOSTART_SOURCE_DIR, FILE_AUTO_START_NAME)
 FILE_AUTO_START = os.path.join(AUTOSTART_DIR, FILE_AUTO_START_NAME)
 WATCHDOG = os.path.join(APPDIR, 'watchdog.py')
 

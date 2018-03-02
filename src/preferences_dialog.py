@@ -48,10 +48,10 @@ from comun import _
 
 def set_autostart(autostart):
     if autostart is True:
-        if not os.path.exists(comun.FILE_AUTO_START):
+        if not os.path.islink(comun.FILE_AUTO_START):
             os.symlink(comun.FILE_AUTO_START_SRC, comun.FILE_AUTO_START)
     else:
-        if os.path.exists(comun.FILE_AUTO_START):
+        if os.path.islink(comun.FILE_AUTO_START):
             os.remove(comun.FILE_AUTO_START)
 
 
@@ -478,7 +478,9 @@ slimbook')
         if first_time or version != comun.VERSION:
             configuration.set_defaults()
             configuration.read()
-        self.checkbutton1.set_active(configuration.get('autostart'))
+        self.checkbutton1.set_active(os.path.islink(comun.FILE_AUTO_START))
+        print(comun.FILE_AUTO_START)
+        print('====', os.path.exists(comun.FILE_AUTO_START))
         self.checkbutton2.set_active(configuration.get('on_mouse_plugged'))
 
         option = configuration.get('on_start')
