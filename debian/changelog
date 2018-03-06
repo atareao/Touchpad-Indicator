@@ -1,10 +1,10 @@
-slimbook-touchpad (1.9.9-0extras17.10.0) xenial; urgency=medium
+slimbook-touchpad (1.9.9-0extras17.10.1) xenial; urgency=medium
 
   * Circular scrolling
   * Two finger scrolling
   * Edge scrolling
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 06 Mar 2018 10:30:24 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 06 Mar 2018 12:35:23 +0100
 
 slimbook-touchpad (1.9.8-0extras17.10.5) xenial; urgency=medium
 

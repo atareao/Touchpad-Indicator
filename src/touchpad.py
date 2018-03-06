@@ -295,7 +295,7 @@ class Touchpad(object):
                 return False
         return True
 
-    def _set_circular_scrolling(self, on=True):
+    def _set_circular_scrolling(self, id, on=True):
         test_str = run('xinput --list-props %s' % (id)).lower()
         touchpad_type = self._get_type(id)
         if touchpad_type == SYNAPTICS:
