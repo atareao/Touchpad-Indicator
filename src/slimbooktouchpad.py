@@ -339,16 +339,16 @@ class SlimbookTouchpad(dbus.service.Object):
                 print('===', 21, '===')
                 if self.on_start == -1:
                     print('===', 211, '===')
-                    self.set_touch_enabled(False, True)
+                    self.set_touch_enabled(False, False)
                 elif self.on_start == 1:
                     print('===', 212, '===')
-                    self.set_touch_enabled(True, True)
+                    self.set_touch_enabled(True, False)
                 else:
                     print('===', 213, '===')
-                    self.set_touch_enabled(are_all_touchpad_enabled, True)
+                    self.set_touch_enabled(are_all_touchpad_enabled, False)
             else:
                 print('===', 2, '===')
-                self.set_touch_enabled(are_all_touchpad_enabled, True)
+                self.set_touch_enabled(are_all_touchpad_enabled, False)
         self.disable_on_typing = configuration.get('disable_on_typing')
         if self.disable_on_typing:
             self.keyboardMonitor = KeyboardMonitor(self.interval)
