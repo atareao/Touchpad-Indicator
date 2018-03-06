@@ -158,6 +158,20 @@ class SlimbookTouchpad(dbus.service.Object):
                     configuration.set('touchpad_enabled',
                                       self.touchpad.are_all_touchpad_enabled())
                     configuration.save()
+        elif enabled and self.touchpad.are_all_touchpad_enabled():
+            if self.show_notifications and not isforwriting:
+                self.show_notification('enabled')
+            self.change_state_item.set_label(_('Disable Touchpad'))
+            if self.indicator.get_status() !=\
+                    appindicator.IndicatorStatus.PASSIVE:
+                GLib.idle_add(self.indicator.set_status,
+                              appindicator.IndicatorStatus.ACTIVE)
+            if not isforwriting:
+                configuration = Configuration()
+                configuration.set('touchpad_enabled',
+                                  self.touchpad.are_all_touchpad_enabled())
+                configuration.save()
+
         elif not enabled and self.touchpad.are_all_touchpad_enabled():
             if self.touchpad.disable_all_touchpads():
                 if self.show_notifications and not isforwriting:
@@ -172,7 +186,19 @@ class SlimbookTouchpad(dbus.service.Object):
                     configuration.set('touchpad_enabled',
                                       self.touchpad.are_all_touchpad_enabled())
                     configuration.save()
-        # print('==== end set_touch_enabled ====')
+        elif not enabled and not self.touchpad.are_all_touchpad_enabled():
+            if self.show_notifications and not isforwriting:
+                self.show_notification('disabled')
+            self.change_state_item.set_label(_('Enable Touchpad'))
+            if self.indicator.get_status() !=\
+                    appindicator.IndicatorStatus.PASSIVE:
+                GLib.idle_add(self.indicator.set_status,
+                              appindicator.IndicatorStatus.ATTENTION)
+            if not isforwriting:
+                configuration = Configuration()
+                configuration.set('touchpad_enabled',
+                                  self.touchpad.are_all_touchpad_enabled())
+                configuration.save()
 
     def show_notification(self, kind):
         """Show a notification of type kind"""

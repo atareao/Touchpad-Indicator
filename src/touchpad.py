@@ -207,7 +207,7 @@ class Touchpad(object):
 
     def _can_two_finger_scrolling(self, id):
         test_str = run('xinput --list-props %s' % (id)).lower()
-        regex = r'scroll\s*methods\s*available\s\(\d*\):\s*(\d),\s*\d,\s*\d'
+        regex = r'scroll\s*methods\s*available\s*\(\d*\):\s*(\d),\s*\d,\s*\d'
         matches = re.search(regex, test_str)
         if matches is not None:
             if matches.group(1) == '1':
@@ -252,7 +252,7 @@ class Touchpad(object):
 
     def _can_edge_scrolling(self, id):
         test_str = run('xinput --list-props %s' % (id)).lower()
-        regex = r'scroll\s*methods\s*available\s\(\d*\):\s*\d,\s*(\d),\s*\d'
+        regex = r'scroll\s*methods\s*available\s*\(\d*\):\s*\d,\s*(\d),\s*\d'
         matches = re.search(regex, test_str)
         if matches is not None:
             if matches.group(1) == '1':
