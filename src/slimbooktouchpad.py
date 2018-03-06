@@ -329,9 +329,21 @@ class SlimbookTouchpad(dbus.service.Object):
                 configuration.get('edge_scrolling'))
             self.touchpad.set_circular_scrolling(
                 configuration.get('cicular_scrolling'))
+        self.disable_on_typing = configuration.get('disable_on_typing')
+        if self.disable_on_typing:
+            self.keyboardMonitor = KeyboardMonitor(self.interval)
+            self.keyboardMonitor.connect('key_pressed', self.on_key_pressed)
+            self.keyboardMonitor.connect('key_released', self.on_key_released)
+            if self.on_mouse_plugged and is_mouse_plugged():
+                self.keyboardMonitor.stop()
+            else:
+                self.keyboardMonitor.start()
+        if self.on_mouse_plugged:
+            self.launch_watchdog()
+        time.sleep(1)
         if self.on_mouse_plugged and is_mouse_plugged():
                 print('===', 1, '===')
-                self.set_touch_enabled(False, True)
+                self.set_touch_enabled(False, False)
                 self.change_state_item.set_sensitive(False)
         else:
             print('===', 2, '===')
@@ -348,18 +360,7 @@ class SlimbookTouchpad(dbus.service.Object):
                     self.set_touch_enabled(are_all_touchpad_enabled, False)
             else:
                 print('===', 2, '===')
-                self.set_touch_enabled(are_all_touchpad_enabled, False)
-        self.disable_on_typing = configuration.get('disable_on_typing')
-        if self.disable_on_typing:
-            self.keyboardMonitor = KeyboardMonitor(self.interval)
-            self.keyboardMonitor.connect('key_pressed', self.on_key_pressed)
-            self.keyboardMonitor.connect('key_released', self.on_key_released)
-            if self.on_mouse_plugged and is_mouse_plugged():
-                self.keyboardMonitor.stop()
-            else:
-                self.keyboardMonitor.start()
-        if self.on_mouse_plugged:
-            self.launch_watchdog()
+                self.set_touch_enabled(True, False)
 
     # ################## menu creation ######################
 
