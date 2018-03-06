@@ -34,7 +34,8 @@ check_status_from_resume = None
 
 faulty_devices = ['11/2/a/0',  # TPPS/2 IBM TrackPoint
                   '11/2/5/7326',  # ImPS/2 ALPS GlidePoint
-                  '11/2/1/0']
+                  '11/2/1/0',
+                  '11/2/6/0']  # ImExPS/2
 
 udev_context = pyudev.Context()
 
