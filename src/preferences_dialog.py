@@ -589,10 +589,12 @@ slimbook')
                 self.cicular_scrolling.set_active(
                     configuration.get('cicular_scrolling'))
             elif tipo == LIBINPUT:
-                self.two_finger_scrolling.set_active(
-                    configuration.get('two_finger_scrolling'))
-                self.edge_scrolling.set_active(
-                    configuration.get('edge_scrolling'))
+                if tp.can_two_finger_scrolling():
+                    self.two_finger_scrolling.set_active(
+                        configuration.get('two_finger_scrolling'))
+                if tp.can_edge_scrolling():
+                    self.edge_scrolling.set_active(
+                        configuration.get('edge_scrolling'))
                 if tp.has_tapping():
                     self.tapping.set_active(configuration.get('tapping'))
             self.speed.set_value(configuration.get('speed'))
