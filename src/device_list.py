@@ -36,6 +36,8 @@ FILEOUTPUT = os.path.join(os.environ['HOME'], 'device_list.txt')
 
 def print_device_attrib(Device, fileoutput=None):
     if Device:
+        for key in Device.keys():
+            print('{0} -> {1}'.format(key, Device[key]))
         sys_name = Device.sys_name
         if not sys_name:
             sys_name = ''
