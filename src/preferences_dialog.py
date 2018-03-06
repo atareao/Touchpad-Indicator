@@ -249,41 +249,77 @@ after the last key\npress before enabling the touchpad') + ':')
         if tp.is_there_touchpad():
             tipo = tp._get_type(tp._get_ids()[0])
             if tipo == SYNAPTICS:
+                label = Gtk.Label(_('Touchpad speed?'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 1, 1, 1)
+                self.speed = Gtk.Scale()
+                self.speed.set_size_request(300, 0)
+                self.speed.set_digits(0)
+                self.speed.set_adjustment(
+                    Gtk.Adjustment(0, -100, 100, 1, 10, 0))
+                grid4.attach(self.speed, 1, 1, 1, 1)
+                label = Gtk.Label(_('Two finger scolling?'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 2, 1, 1)
+                self.two_finger_scrolling = Gtk.Switch()
+                grid4.attach(self.two_finger_scrolling, 1, 2, 1, 1)
+                label = Gtk.Label(_('Edge scolling?'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 3, 1, 1)
+                self.edge_scrolling = Gtk.Switch()
+                grid4.attach(self.edge_scrolling, 1, 3, 1, 1)
+                label = Gtk.Label(_('Circular scolling?'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 4, 1, 1)
+                self.cicular_scrolling = Gtk.Switch()
+                grid4.attach(self.cicular_scrolling, 1, 4, 1, 1)
                 label = Gtk.Label(_('Driver: Synaptics'))
                 label.set_alignment(0, 0.5)
-                grid4.attach(label, 0, 1, 1, 1)
+                grid4.attach(label, 0, 5, 1, 1)
             elif tipo == LIBINPUT:
-                label = Gtk.Label(_('Tapping?'))
-                label.set_alignment(0, 0.5)
-                grid4.attach(label, 0, 1, 1, 1)
-                self.tapping = Gtk.Switch()
-                grid4.attach(self.tapping, 1, 1, 1, 1)
                 if tp.has_tapping():
-                    label.set_sensitive(True)
-                    self.tapping.set_sensitive(True)
-                else:
-                    label.set_sensitive(False)
-                    self.tapping.set_sensitive(False)
+                    label = Gtk.Label(_('Tapping?'))
+                    label.set_alignment(0, 0.5)
+                    grid4.attach(label, 0, 1, 1, 1)
+                    self.tapping = Gtk.Switch()
+                    grid4.attach(self.tapping, 1, 1, 1, 1)
                 label = Gtk.Label(_('Touchpad speed?'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 2, 1, 1)
                 self.speed = Gtk.Scale()
+                self.speed.set_size_request(300, 0)
                 self.speed.set_digits(0)
                 self.speed.set_adjustment(
                     Gtk.Adjustment(0, -100, 100, 1, 10, 0))
                 grid4.attach(self.speed, 1, 2, 1, 1)
-
+                if tp.can_two_finger_scrolling():
+                    label = Gtk.Label(_('Two finger scolling?'))
+                    label.set_alignment(0, 0.5)
+                    grid4.attach(label, 0, 3, 1, 1)
+                    self.two_finger_scrolling = Gtk.Switch()
+                    self.two_finger_scrolling.connect(
+                        'state-set', self.on_two_finger_scrolling_changed)
+                    grid4.attach(self.two_finger_scrolling, 1, 3, 1, 1)
+                if tp.can_edge_scrolling():
+                    label = Gtk.Label(_('Edge scolling?'))
+                    label.set_alignment(0, 0.5)
+                    grid4.attach(label, 0, 4, 1, 1)
+                    self.edge_scrolling = Gtk.Switch()
+                    self.edge_scrolling.connect(
+                        'state-set', self.on_edge_scrolling_changed)
+                    grid4.attach(self.edge_scrolling, 1, 4, 1, 1)
                 label = Gtk.Label(_('Driver: Libinput'))
                 label.set_alignment(0, 0.5)
-                grid4.attach(label, 0, 3, 1, 1)
+                grid4.attach(label, 0, 5, 1, 1)
                 install_evdev = Gtk.Button(_('Install Evdev?'))
                 install_evdev.connect('clicked', self.on_install_evdev)
-                grid4.attach(install_evdev, 0, 4, 1, 1)
+                grid4.attach(install_evdev, 0, 6, 1, 1)
             elif tipo == EVDEV:
                 label = Gtk.Label(_('Touchpad speed?'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 1, 1, 1)
                 self.speed = Gtk.Scale()
+                self.speed.set_size_request(300, 0)
                 self.speed.set_digits(0)
                 self.speed.set_adjustment(
                     Gtk.Adjustment(0, -100, 100, 1, 10, 0))
@@ -294,7 +330,6 @@ after the last key\npress before enabling the touchpad') + ':')
                 install_libinput = Gtk.Button(_('Install Libinput?'))
                 install_libinput.connect('clicked', self.on_install_libinput)
                 grid4.attach(install_libinput, 0, 3, 1, 1)
-
         if not exists_psmouse():
             vbox5 = Gtk.VBox(spacing=5)
             vbox5.set_border_width(5)
@@ -381,6 +416,24 @@ control del touchpad.
         self.load_preferences()
 
         self.show_all()
+
+    def on_two_finger_scrolling_changed(self, widget, state):
+        if state is True:
+            if self.edge_scrolling.get_active():
+                self.edge_scrolling.handler_block_by_func(
+                    self.on_edge_scrolling_changed)
+                self.edge_scrolling.set_active(False)
+                self.edge_scrolling.handler_unblock_by_func(
+                    self.on_edge_scrolling_changed)
+
+    def on_edge_scrolling_changed(self, widget, state):
+        if state is True:
+            if self.two_finger_scrolling.get_active():
+                self.two_finger_scrolling.handler_block_by_func(
+                    self.on_two_finger_scrolling_changed)
+                self.two_finger_scrolling.set_active(False)
+                self.two_finger_scrolling.handler_unblock_by_func(
+                    self.on_two_finger_scrolling_changed)
 
     def on_more_info(self, widget):
         webbrowser.open('https://slimbook.es/it/tutoriales/linux/271-solucion-\
@@ -529,13 +582,20 @@ slimbook')
         if tp.is_there_touchpad():
             tipo = tp._get_type(tp._get_ids()[0])
             if tipo == SYNAPTICS:
-                pass
+                self.two_finger_scrolling.set_active(
+                    configuration.get('two_finger_scrolling'))
+                self.edge_scrolling.set_active(
+                    configuration.get('edge_scrolling'))
+                self.cicular_scrolling.set_active(
+                    configuration.get('cicular_scrolling'))
             elif tipo == LIBINPUT:
+                self.two_finger_scrolling.set_active(
+                    configuration.get('two_finger_scrolling'))
+                self.edge_scrolling.set_active(
+                    configuration.get('edge_scrolling'))
                 if tp.has_tapping():
                     self.tapping.set_active(configuration.get('tapping'))
-                self.speed.set_value(configuration.get('speed'))
-            elif tipo == EVDEV:
-                self.speed.set_value(configuration.get('speed'))
+            self.speed.set_value(configuration.get('speed'))
 
     def save_preferences(self):
         configuration = Configuration()
@@ -585,8 +645,25 @@ slimbook')
         if tp.is_there_touchpad():
             tipo = tp._get_type(tp._get_ids()[0])
             if tipo == SYNAPTICS:
-                pass
+                configuration.set(
+                    'two_finger_scrolling',
+                    self.two_finger_scrolling.get_active())
+                configuration.set(
+                    'edge_scrolling',
+                    self.edge_scrolling.get_active())
+                configuration.set(
+                    'cicular_scrolling',
+                    self.cicular_scrolling.get_active())
+
             elif tipo == LIBINPUT:
+                if tp.can_two_finger_scrolling():
+                    configuration.set(
+                        'two_finger_scrolling',
+                        self.two_finger_scrolling.get_active())
+                if tp.can_edge_scrolling():
+                    configuration.set(
+                        'edge_scrolling',
+                        self.edge_scrolling.get_active())
                 if tp.has_tapping():
                     configuration.set('tapping', self.tapping.get_active())
                 configuration.set('speed', self.speed.get_value())

@@ -58,7 +58,10 @@ PARAMS = {
     'natural_scrolling': True,
     'shortcut': '<Primary><Alt>c',
     'speed': 0.0,
-    'tapping': True
+    'tapping': True,
+    'two_finger_scrolling': True,
+    'edge_scrolling': False,
+    'cicular_scrolling': True
 }
 
 # check if running from source

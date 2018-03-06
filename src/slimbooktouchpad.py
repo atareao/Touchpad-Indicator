@@ -48,6 +48,7 @@ from dbus.mainloop.glib import DBusGMainLoop
 from optparse import OptionParser
 from watchdog import is_mouse_plugged
 from touchpad import Touchpad
+from touchpad import SYNAPTICS, LIBINPUT, EVDEV
 from configurator import Configuration
 from preferences_dialog import PreferencesDialog
 from comun import _
@@ -299,8 +300,35 @@ class SlimbookTouchpad(dbus.service.Object):
         self.touchpad.set_natural_scrolling_for_all(
             configuration.get('natural_scrolling'))
         self.touchpad.set_speed(configuration.get('speed') / 100.0)
-        if self.touchpad.has_tapping():
-            self.touchpad.set_tapping(configuration.get('tapping'))
+        tipo = self.touchpad._get_type(self.touchpad._get_ids()[0])
+        if tipo == LIBINPUT:
+            if self.touchpad.has_tapping():
+                self.touchpad.set_tapping(configuration.get('tapping'))
+
+            if self.touchpad.can_edge_scrolling() is True and\
+                    self.touchpad.can_two_finger_scrolling() is True:
+                if configuration.get('edge_scrolling') is True and\
+                        configuration.get('two_finger_scrolling') is True:
+                    self.touchpad.set_two_finger_scrolling(True)
+                elif configuration.get('edge_scrolling') is True:
+                    self.touchpad.set_edge_scrolling(True)
+                elif configuration.get('two_finger_scrolling') is True:
+                    self.touchpad.set_two_finger_scrolling(True)
+                else:
+                    self.touchpad.set_two_finger_scrolling(False)
+            elif self.touchpad.can_edge_scrolling() is True:
+                self.touchpad.set_edge_scrolling(
+                    self.configuration.get('edge_scrolling'))
+            elif self.touchpad.can_two_finger_scrolling() is True:
+                self.touchpad.set_two_finger_scrolling(
+                    self.configuration.get('two_finger_scrolling'))
+        elif tipo == SYNAPTICS:
+            self.touchpad.set_two_finger_scrolling(
+                configuration.get('two_finger_scrolling'))
+            self.touchpad.set_edge_scrolling(
+                configuration.get('edge_scrolling'))
+            self.touchpad.set_circular_scrolling(
+                configuration.get('cicular_scrolling'))
         self.disable_on_typing = configuration.get('disable_on_typing')
         if self.disable_on_typing:
             self.keyboardMonitor = KeyboardMonitor(self.interval)
