@@ -50,7 +50,7 @@ PARAMS = {
     'on_start': 1,
     'on_end': 1,
     'disable_on_typing': False,
-    'interval': 800,
+    'interval': 300,
     'start_hidden': False,
     'show_notifications': True,
     'theme': 'normal',

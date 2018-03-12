@@ -57,15 +57,37 @@ def set_autostart(autostart):
 
 def get_shortcuts():
     values = []
-    dcm = DConfManager('org.gnome.desktop.wm.keybindings')
-    for key in dcm.get_keys():
-        for each_element in dcm.get_value(key):
-            values.append(each_element)
-    dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys')
-    for key in dcm.get_keys():
-        each_element = dcm.get_value(key)
-        if type(each_element) == str:
-            values.append(each_element)
+    de = get_desktop_environment()
+    if de == 'gnome':
+        dcm = DConfManager('org.gnome.desktop.wm.keybindings')
+        for key in dcm.get_keys():
+            for each_element in dcm.get_value(key):
+                values.append(each_element)
+        dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys')
+        for key in dcm.get_keys():
+            each_element = dcm.get_value(key)
+            if type(each_element) == str:
+                values.append(each_element)
+    elif de == 'cinnamon':
+        dcm = DConfManager('org.cinnamon.desktop.wm.keybindings')
+        for key in dcm.get_keys():
+            for each_element in dcm.get_value(key):
+                values.append(each_element)
+        dcm = DConfManager('org.cinnamon.settings-daemon.plugins.media-keys')
+        for key in dcm.get_keys():
+            each_element = dcm.get_value(key)
+            if type(each_element) == str:
+                values.append(each_element)
+    elif de == 'mate':
+        dcm = DConfManager('org.mate.desktop.wm.keybindings')
+        for key in dcm.get_keys():
+            for each_element in dcm.get_value(key):
+                values.append(each_element)
+        dcm = DConfManager('org.mate.settings-daemon.plugins.media-keys')
+        for key in dcm.get_keys():
+            each_element = dcm.get_value(key)
+            if type(each_element) == str:
+                values.append(each_element)
     return values
 
 
@@ -503,7 +525,9 @@ slimbook')
                 key += '<Alt>'
             key += self.entry11.get_text()
             desktop_environment = get_desktop_environment()
-            if desktop_environment == 'gnome':
+            if desktop_environment == 'gnome' or\
+                    desktop_environment == 'cinnamon' or\
+                    desktop_environment == 'mate':
                 if key in get_shortcuts() and key != self.key:
                     dialog = Gtk.MessageDialog(
                         parent=self,
@@ -696,6 +720,52 @@ change_touchpad_state.py'))
                 if '/org/gnome/settings-daemon/plugins/media-keys/\
 custom-keybindings/slimbook-touchpad/' in values:
                     values.remove('/org/gnome/settings-daemon/plugins/\
+media-keys/custom-keybindings/slimbook-touchpad/')
+                    dcm.set_value('custom-keybindings', values)
+        elif desktop_environment == 'cinnamon':
+            print('cinnamon')
+            dcm = DConfManager('org.cinnamon.settings-daemon.plugins.media-keys')
+            values = dcm.get_value('custom-keybindings')
+            if self.checkbutton0.get_active():
+                if '/org/cinnamon/settings-daemon/plugins/media-keys/\
+custom-keybindings/slimbook-touchpad/' not in values:
+                    values.append('/org/cinnamon/settings-daemon/plugins/\
+media-keys/custom-keybindings/slimbook-touchpad/')
+                    dcm.set_value('custom-keybindings', values)
+                dcm = DConfManager('org.cinnamon.settings-daemon.plugins.\
+media-keys.custom-keybindings.slimbook-touchpad')
+                print(dcm.set_value('binding', key))
+                print(dcm.set_value('command', '/usr/bin/python3 \
+/usr/share/slimbook-touchpad/\
+change_touchpad_state.py'))
+                print(dcm.set_value('name', 'Touchpad-Indicator key binding'))
+            else:
+                if '/org/cinnamon/settings-daemon/plugins/media-keys/\
+custom-keybindings/slimbook-touchpad/' in values:
+                    values.remove('/org/cinnamon/settings-daemon/plugins/\
+media-keys/custom-keybindings/slimbook-touchpad/')
+                    dcm.set_value('custom-keybindings', values)
+        elif desktop_environment == 'mate':
+            print('gnom3')
+            dcm = DConfManager('org.mate.settings-daemon.plugins.media-keys')
+            values = dcm.get_value('custom-keybindings')
+            if self.checkbutton0.get_active():
+                if '/org/mate/settings-daemon/plugins/media-keys/\
+custom-keybindings/slimbook-touchpad/' not in values:
+                    values.append('/org/mate/settings-daemon/plugins/\
+media-keys/custom-keybindings/slimbook-touchpad/')
+                    dcm.set_value('custom-keybindings', values)
+                dcm = DConfManager('org.mate.settings-daemon.plugins.\
+media-keys.custom-keybindings.slimbook-touchpad')
+                print(dcm.set_value('binding', key))
+                print(dcm.set_value('command', '/usr/bin/python3 \
+/usr/share/slimbook-touchpad/\
+change_touchpad_state.py'))
+                print(dcm.set_value('name', 'Touchpad-Indicator key binding'))
+            else:
+                if '/org/mate/settings-daemon/plugins/media-keys/\
+custom-keybindings/slimbook-touchpad/' in values:
+                    values.remove('/org/mate/settings-daemon/plugins/\
 media-keys/custom-keybindings/slimbook-touchpad/')
                     dcm.set_value('custom-keybindings', values)
         elif desktop_environment == 'xfce':
