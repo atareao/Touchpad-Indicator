@@ -30,9 +30,11 @@ import sys
 import locale
 import gettext
 
+USRDIR = '/usr'
+
 
 def is_package():
-    return __file__.find('src') < 0
+    return (__file__.startswith(USRDIR) or os.getcwd().startswith(USRDIR))
 
 
 APPNAME = 'Slimbook Touchpad'
@@ -44,7 +46,6 @@ PARAMS = {
     'first-time': True,
     'version': '',
     'is_working': False,
-    'shortcut_enabled': False,
     'autostart': False,
     'on_mouse_plugged': False,
     'on_start': 1,
@@ -56,7 +57,6 @@ PARAMS = {
     'theme': 'normal',
     'touchpad_enabled': True,
     'natural_scrolling': True,
-    'shortcut': '<Primary><Alt>c',
     'speed': 0.0,
     'tapping': True,
     'two_finger_scrolling': True,

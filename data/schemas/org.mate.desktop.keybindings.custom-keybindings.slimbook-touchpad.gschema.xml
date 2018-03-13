@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema id="org.cinnamon.keybindings.custom-keybindings.slimbook-touchpad" path="/org/cinnamon/keybindings/custom-keybindings/slimbook-touchpad/">
-        <key type="s" name="binding">
-            <default>''</default>
+    <schema id="org.mate.desktop.keybindings.custom-keybindings.slimbook-touchpad" path="/org/mate/desktop/keybindings/custom-keybindings/slimbook-touchpad/">
+        <key type="as" name="binding">
+            <default>[]</default>
             <summary>Binding for touchpad</summary>
             <description>Binding for touchpad.</description>
         </key>

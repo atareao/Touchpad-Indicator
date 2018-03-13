@@ -1,9 +1,9 @@
-slimbook-touchpad (1.9.9-0extras17.10.10) xenial; urgency=medium
+slimbook-touchpad (1.9.9-0extras17.10.21) bionic; urgency=medium
 
   * Added shortcuts for Cinnamon and Mate
   * Set default config for interval 300 ms
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 12 Mar 2018 19:38:27 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 13 Mar 2018 13:42:58 +0100
 
 slimbook-touchpad (1.9.9-0extras17.10.8) xenial; urgency=medium
 

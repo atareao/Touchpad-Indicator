@@ -145,8 +145,11 @@ class SlimbookTouchpad(dbus.service.Object):
         print('are_all_touchpad_enabled: ',
               self.touchpad.are_all_touchpad_enabled())
         if enabled and not self.touchpad.are_all_touchpad_enabled():
+            print('==|==')
             if self.touchpad.enable_all_touchpads():
+                print('==|== 1')
                 if self.show_notifications and not isforwriting:
+                    print('==|== 2')
                     self.show_notification('enabled')
                 self.change_state_item.set_label(_('Disable Touchpad'))
                 if self.indicator.get_status() !=\
@@ -173,8 +176,11 @@ class SlimbookTouchpad(dbus.service.Object):
                 configuration.save()
 
         elif not enabled and self.touchpad.are_all_touchpad_enabled():
+            print('==?==')
             if self.touchpad.disable_all_touchpads():
+                print('==?== 1')
                 if self.show_notifications and not isforwriting:
+                    print('==?== 2')
                     self.show_notification('disabled')
                 self.change_state_item.set_label(_('Enable Touchpad'))
                 if self.indicator.get_status() !=\
@@ -212,7 +218,10 @@ class SlimbookTouchpad(dbus.service.Object):
                 'Slimbook Touchpad',
                 _('Touchpad Disabled'),
                 self.attention_icon)
-        self.notification.show()
+        try:
+            self.notification.show()
+        except Exception as e:
+            print(e)
 
     @dbus.service.method(dbus_interface='es.slimbook.SlimbookTouchpad')
     def on_mouse_detected_plugged(self):
