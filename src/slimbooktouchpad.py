@@ -294,7 +294,6 @@ class SlimbookTouchpad(dbus.service.Object):
         configuration = Configuration()
         self.first_time = configuration.get('first-time')
         self.version = configuration.get('version')
-        self.shortcut_enabled = configuration.get('shortcut_enabled')
         self.autostart = configuration.get('autostart')
         self.on_mouse_plugged = configuration.get('on_mouse_plugged')
 
@@ -306,7 +305,6 @@ class SlimbookTouchpad(dbus.service.Object):
         self.on_start = configuration.get('on_start')
         self.on_end = configuration.get('on_end')
 
-        self.shortcut = configuration.get('shortcut')
         self.ICON = comun.ICON
         self.active_icon = comun.STATUS_ICON[configuration.get('theme')][0]
         self.attention_icon = comun.STATUS_ICON[configuration.get('theme')][1]

@@ -562,18 +562,48 @@ slimbook')
         print('====', os.path.exists(comun.FILE_AUTO_START))
         self.checkbutton2.set_active(configuration.get('on_mouse_plugged'))
 
-        dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys.\
-custom-keybindings.slimbook-touchpad')
-        shortcut = dcm.get_value('binding')
-        if shortcut is None or len(shortcut) == 0:
-            self.checkbutton0.set_active(False)
-            self.entry11.set_text('')
-        else:
-            self.checkbutton0.set_active(True)
-            self.ctrl.set_active(shortcut.find('<Control>') > -1)
-            self.alt.set_active(shortcut.find('<Alt>') > -1)
-            self.entry11.set_text(shortcut[-1:])
+        desktop_environment = get_desktop_environment()
+        print(desktop_environment)
 
+        if desktop_environment == 'gnome' or\
+                desktop_environment == 'unity':
+            dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys.\
+custom-keybindings.slimbook-touchpad')
+            shortcut = dcm.get_value('binding')
+            if shortcut is None or len(shortcut) == 0:
+                self.checkbutton0.set_active(False)
+                self.entry11.set_text('')
+            else:
+                self.checkbutton0.set_active(True)
+                self.ctrl.set_active(shortcut.find('<Control>') > -1)
+                self.alt.set_active(shortcut.find('<Alt>') > -1)
+                self.entry11.set_text(shortcut[-1:])
+        elif desktop_environment == 'cinnamon':
+            dcm = DConfManager('org.cinnamon.desktop.keybindings.\
+custom-keybindings.slimbook-touchpad')
+            shortcuts = dcm.get_value('binding')
+            if shortcuts is None or len(shortcuts) == 0:
+                self.checkbutton0.set_active(False)
+                self.entry11.set_text('')
+            else:
+                shortcut = shortcuts[0]
+                self.checkbutton0.set_active(True)
+                self.ctrl.set_active(shortcut.find('<Control>') > -1)
+                self.alt.set_active(shortcut.find('<Alt>') > -1)
+                self.entry11.set_text(shortcut[-1:])
+        elif desktop_environment == 'mate':
+            dcm = DConfManager('org.mate.desktop.keybindings.\
+custom-keybindings.slimbook-touchpad')
+            shortcuts = dcm.get_value('binding')
+            if shortcuts is None or len(shortcuts) == 0:
+                self.checkbutton0.set_active(False)
+                self.entry11.set_text('')
+            else:
+                shortcut = shortcuts[0]
+                self.checkbutton0.set_active(True)
+                self.ctrl.set_active(shortcut.find('<Control>') > -1)
+                self.alt.set_active(shortcut.find('<Alt>') > -1)
+                self.entry11.set_text(shortcut[-1:])
         option = configuration.get('on_start')
         if option == 0:
             self.on_start['none'].set_active(True)
@@ -742,8 +772,21 @@ custom-keybindings.slimbook-touchpad')
                     key2 += self.entry11.get_text().lower()
                 if key1 not in get_shortcuts() and key2 not in get_shortcuts():
                     dcm.set_value('binding', [key1])
+                dcm = DConfManager('org.cinnamon.desktop.keybindings')
+                shortcuts = dcm.get_value('custom-list')
+                if 'slimbook-touchpad' in shortcuts:
+                    shortcuts.pop(shortcuts.index('slimbook-touchpad'))
+                    dcm.set_value('custom-list', shortcuts)
+                if 'slimbook-touchpad' not in shortcuts:
+                    shortcuts.append('slimbook-touchpad')
+                    dcm.set_value('custom-list', shortcuts)
             else:
                 dcm.set_value('binding', [])
+                dcm = DConfManager('org.cinnamon.desktop.keybindings')
+                shortcuts = dcm.get_value('custom-list')
+                if 'slimbook-touchpad' in shortcuts:
+                    shortcuts.pop(shortcuts.index('slimbook-touchpad'))
+                    dcm.set_value('custom-list', shortcuts)
         elif desktop_environment == 'mate':
             dcm = DConfManager('org.mate.desktop.keybindings.\
 custom-keybindings.slimbook-touchpad')
@@ -763,8 +806,21 @@ custom-keybindings.slimbook-touchpad')
                     key2 += self.entry11.get_text().lower()
                 if key1 not in get_shortcuts() and key2 not in get_shortcuts():
                     dcm.set_value('binding', [key1])
+                dcm = DConfManager('org.mate.desktop.keybindings')
+                shortcuts = dcm.get_value('custom-list')
+                if 'slimbook-touchpad' in shortcuts:
+                    shortcuts.pop(shortcuts.index('slimbook-touchpad'))
+                    dcm.set_value('custom-list', shortcuts)
+                if 'slimbook-touchpad' not in shortcuts:
+                    shortcuts.append('slimbook-touchpad')
+                    dcm.set('custom-list', shortcuts)
             else:
                 dcm.set_value('binding', [])
+                dcm = DConfManager('org.mate.desktop.keybindings')
+                shortcuts = dcm.get_value('custom-list')
+                if 'slimbook-touchpad' in shortcuts:
+                    shortcuts.pop(shortcuts.index('slimbook-touchpad'))
+                    dcm.set_value('custom-list', shortcuts)
         elif desktop_environment == 'xfce':
             if xfconfquery_exists():
                 xfceconf = XFCEConfiguration('xfce4-keyboard-shortcuts')
