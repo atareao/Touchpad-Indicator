@@ -21,3 +21,9 @@ Required dependencies:
     python3-pyudev,
     python3-dbus,
     xinput
+
+## Instalation
+
+sudo add-apt-repository ppa:atareao/atareao
+sudo apt update
+sudo apt install touchpad-indicator
