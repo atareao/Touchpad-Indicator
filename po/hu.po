@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: slimbook-touchpad 1.9.8\n"
+"Project-Id-Version: touchpad-indicator 1.9.9\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
-"POT-Creation-Date: 2018-03-01 10:52+0100\n"
+"POT-Creation-Date: 2018-03-17 11:06+0100\n"
 "PO-Revision-Date: 2013-05-28 21:48+0000\n"
 "Last-Translator: Báthory Péter <bathory86p@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -18,128 +18,232 @@ msgstr ""
 "X-Generator: Launchpad (build 17196)\n"
 "X-Launchpad-Export-Date: 2014-09-18 20:00+0000\n"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:58
-msgid "Edit Grub"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:72
-msgid "Editing grub..."
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:98
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:104
-msgid "Ok"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:102
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:108
-msgid "Cancel"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:113
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:434
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:119
-msgid "Exit"
-msgstr "Kilépés"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:118
-msgid "Grub edited"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:121
-msgid "Grub NOT edited"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:135
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:141
-#, python-format
-msgid "Executing: %s"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:150
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:413
-msgid "Disable Touchpad"
-msgstr "Érintőtábla letiltása"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:164
-msgid "Enable Touchpad"
-msgstr "Érintőtábla engedélyezése"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:181
-msgid "Touchpad Enabled"
-msgstr "Érintőtábla engedélyezve"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:186
-msgid "Touchpad Disabled"
-msgstr "Érintőtábla letiltva"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:343
-msgid "Homepage..."
-msgstr "Honlap..."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:348
-msgid "Get help online..."
-msgstr "Online segítség..."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:353
-msgid "Translate this application..."
-msgstr "Az alkalmazás fordítása..."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:358
-msgid "Report a bug..."
-msgstr "Hiba jelentése..."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:364
-msgid "Homepage"
-msgstr "Honlap"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:369
-msgid "Follow us in Twitter"
-msgstr "Kövess minket a Twitteren"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:374
-msgid "Follow us in Google+"
-msgstr "Kövess minket a Google+ -on"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:379
-msgid "Follow us in Facebook"
-msgstr "Kövess minket a Facebookon"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:400
-msgid "About"
-msgstr "Névjegy"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:418
-msgid "Hide icon"
-msgstr "Ikon elrejtése"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:423
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:76
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:89
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:481
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:429
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:113
+msgid "Shortcut"
+msgstr "Gyorsbillentyű"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:125
+msgid "Shortcut enabled"
+msgstr "Gyorsbillentyű engedélyezve"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:150
+msgid "Actions"
+msgstr "Műveletek"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:162
+msgid "Disable touchpad when mouse plugged"
+msgstr "Érintőtábla letiltása, ha van bedugva egér"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:168
+#, fuzzy
+msgid "On Touchpad Indicator starts:"
+msgstr "Touchpad-Indicator"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:174
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:191
+msgid "None"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:178
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:195
+#, fuzzy
+msgid "Enable touchpad"
+msgstr "Érintőtábla engedélyezése"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:182
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:199
+#, fuzzy
+msgid "Disable touchpad"
+msgstr "Érintőtábla letiltása"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:185
+#, fuzzy
+msgid "On Touchpad Indicator ends:"
+msgstr "Touchpad-Indicator"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:203
+msgid "Disable touchpad on typing"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:207
+msgid ""
+"Milliseconds to wait after the last key\n"
+"press before enabling the touchpad"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:218
+msgid "General options"
+msgstr "Általános beállítások"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:230
+msgid "Autostart"
+msgstr "Automatikus indítás"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:236
+msgid "Start hidden"
+msgstr "Indítás rejtve"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:240
+msgid "Show notifications"
+msgstr "Értesítések megjelenítése"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:246
+msgid "Touchpad configuration"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:258
+msgid "Natural scrolling?"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:268
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:302
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:331
+#, fuzzy
+msgid "Touchpad speed?"
+msgstr "Érintőtábla letiltva"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:277
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:312
+msgid "Two finger scolling?"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:282
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:320
+msgid "Edge scolling?"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:287
+msgid "Circular scolling?"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:292
+msgid "Driver: Synaptics"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:297
+msgid "Tapping?"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:327
+msgid "Driver: Libinput"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:340
+msgid "Driver: Evdev"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:345
+msgid "Theme"
+msgstr "Téma"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:357
+msgid "Select theme"
+msgstr "Válassz témát"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:469
+#, fuzzy
+msgid "This shortcut <Control> + <Alt> +"
+msgstr "A <Control> + <Alt> + "
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:470
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:472
+msgid " is assigned"
+msgstr " gyorsbillentyű van hozzárendelve"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:471
+msgid "This shortcut <Control> + <Alt> + "
+msgstr "A <Control> + <Alt> + "
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:151
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:164
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:471
+msgid "Disable Touchpad"
+msgstr "Érintőtábla letiltása"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:182
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:195
+msgid "Enable Touchpad"
+msgstr "Érintőtábla engedélyezése"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:211
+msgid "Touchpad Enabled"
+msgstr "Érintőtábla engedélyezve"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:216
+msgid "Touchpad Disabled"
+msgstr "Érintőtábla letiltva"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:401
+msgid "Homepage..."
+msgstr "Honlap..."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:406
+msgid "Get help online..."
+msgstr "Online segítség..."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:411
+msgid "Translate this application..."
+msgstr "Az alkalmazás fordítása..."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:416
+msgid "Report a bug..."
+msgstr "Hiba jelentése..."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:422
+msgid "Homepage"
+msgstr "Honlap"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:427
+msgid "Follow us in Twitter"
+msgstr "Kövess minket a Twitteren"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:432
+msgid "Follow us in Google+"
+msgstr "Kövess minket a Google+ -on"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:437
+msgid "Follow us in Facebook"
+msgstr "Kövess minket a Facebookon"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:458
+msgid "About"
+msgstr "Névjegy"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:476
+msgid "Hide icon"
+msgstr "Ikon elrejtése"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:487
 msgid "Help"
 msgstr "Súgó"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:449
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:492
+msgid "Exit"
+msgstr "Kilépés"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:507
 msgid "An indicator for the Touchpad"
 msgstr "Egy indikátor az érintőtáblához"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:577
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:635
 msgid "usage: %prog [options]"
 msgstr "használat: %prog [kapcsolók]"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:583
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:641
 msgid "show this help and exit."
 msgstr "ezen segítség megjelenítése és kilépés."
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:588
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:646
 msgid "change the touchpad state. If indicator is not running launch it."
 msgstr ""
 "megváltoztatja az érintőtábla állapotát. Ha az indikátor nem fut, elindítja."
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:594
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:652
 msgid ""
 "show the icon if indicator is hidden. Default action. If indicator is not "
 "running launch it."
@@ -147,164 +251,13 @@ msgstr ""
 "megjeleníti az ikont, ha az indikátor rejtve van. Ez az alapértelmezett "
 "művelet. Ha az indikátor nem fut, elindítja."
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:600
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:658
 msgid "list devices"
 msgstr "eszközök listázása"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:99
-msgid "Shortcut"
-msgstr "Gyorsbillentyű"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:111
-msgid "Shortcut enabled"
-msgstr "Gyorsbillentyű engedélyezve"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:134
-msgid "Actions"
-msgstr "Műveletek"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:146
-msgid "Disable touchpad when mouse plugged"
-msgstr "Érintőtábla letiltása, ha van bedugva egér"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:152
 #, fuzzy
-msgid "On Slimbook Touchpad starts:"
-msgstr "Érintőtábla engedélyezése induláskor"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:158
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:175
-msgid "None"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:162
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:179
-#, fuzzy
-msgid "Enable touchpad"
-msgstr "Érintőtábla engedélyezése"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:166
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:183
-#, fuzzy
-msgid "Disable touchpad"
-msgstr "Érintőtábla letiltása"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:169
-msgid "On Slimbook Touchpad ends:"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:187
-msgid "Disable touchpad on typing"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:191
-msgid ""
-"Milliseconds to wait after the last key\n"
-"press before enabling the touchpad"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:202
-msgid "General options"
-msgstr "Általános beállítások"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:214
-msgid "Autostart"
-msgstr "Automatikus indítás"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:220
-msgid "Start hidden"
-msgstr "Indítás rejtve"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:224
-msgid "Show notifications"
-msgstr "Értesítések megjelenítése"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:230
-msgid "Touchpad configuration"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:242
-msgid "Natural scrolling?"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:252
-msgid "Driver: Synaptics"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:256
-msgid "Tapping?"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:267
-#, fuzzy
-msgid "Touchpad speed?"
-msgstr "Érintőtábla letiltva"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:276
-msgid "Driver: Libinput"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:279
-msgid "Install Evdev?"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:283
-msgid "Driver: Evdev"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:286
-msgid "Install Libinput?"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:293
-msgid "Bugs"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:331
-msgid "Do you need more info?"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:337
-msgid "Theme"
-msgstr "Téma"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:349
-msgid "Select theme"
-msgstr "Válassz témát"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:453
-#, fuzzy
-msgid "This shortcut <Control> + <Alt> +"
-msgstr "A <Control> + <Alt> + "
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:454
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:456
-msgid " is assigned"
-msgstr " gyorsbillentyű van hozzárendelve"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:455
-msgid "This shortcut <Control> + <Alt> + "
-msgstr "A <Control> + <Alt> + "
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:60
-msgid "Install driver"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:76
-msgid "Installing libinput driver..."
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:78
-msgid "Installing evdev driver..."
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:124
-msgid "Driver installed"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:127
-msgid "Driver NOT installed"
-msgstr ""
+#~ msgid "On Slimbook Touchpad starts:"
+#~ msgstr "Érintőtábla engedélyezése induláskor"
 
 #~ msgid "Enable touchpad on exit"
 #~ msgstr "Érintőtábla engedélyezése kilépéskor"
@@ -314,9 +267,6 @@ msgstr ""
 
 #~ msgid "Disable touchpad when Touchpad-Indicator starts"
 #~ msgstr "Érintőtábla letiltása, amikor a Touchpad-indicator elindul"
-
-#~ msgid "Touchpad-Indicator"
-#~ msgstr "Touchpad-Indicator"
 
 #~ msgid "Select icon theme"
 #~ msgstr "Használandó ikontéma:"

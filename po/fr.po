@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: slimbook-touchpad 1.9.8\n"
+"Project-Id-Version: touchpad-indicator 1.9.9\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
-"POT-Creation-Date: 2018-03-01 10:52+0100\n"
+"POT-Creation-Date: 2018-03-17 11:06+0100\n"
 "PO-Revision-Date: 2014-05-25 14:12+0000\n"
 "Last-Translator: Thierry <thierry15@gmail.com>\n"
 "Language-Team: French\n"
@@ -18,186 +18,59 @@ msgstr ""
 "X-Generator: Launchpad (build 17196)\n"
 "X-Launchpad-Export-Date: 2014-09-18 20:01+0000\n"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:58
-msgid "Edit Grub"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:72
-msgid "Editing grub..."
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:98
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:104
-msgid "Ok"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:102
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:108
-msgid "Cancel"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:113
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:434
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:119
-msgid "Exit"
-msgstr "Quitter"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:118
-msgid "Grub edited"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:121
-msgid "Grub NOT edited"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/editgrub.py:135
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:141
-#, python-format
-msgid "Executing: %s"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:150
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:413
-msgid "Disable Touchpad"
-msgstr "Désactiver le pavé tactile"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:164
-msgid "Enable Touchpad"
-msgstr "Activer le pavé tactile"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:181
-msgid "Touchpad Enabled"
-msgstr "Pavé tactile activé"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:186
-msgid "Touchpad Disabled"
-msgstr "Pavé tactile désactivé"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:343
-msgid "Homepage..."
-msgstr "Page d'accueil..."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:348
-msgid "Get help online..."
-msgstr "Obtenir de l'aide en ligne..."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:353
-msgid "Translate this application..."
-msgstr "Traduire cette application..."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:358
-msgid "Report a bug..."
-msgstr "Signaler un bogue..."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:364
-msgid "Homepage"
-msgstr "Page d'accueil"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:369
-msgid "Follow us in Twitter"
-msgstr "Suivez-nous sur Twitter"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:374
-msgid "Follow us in Google+"
-msgstr "Suivez-nous sur Google+"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:379
-msgid "Follow us in Facebook"
-msgstr "Suivez-nous sur Facebook"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:400
-msgid "About"
-msgstr "À propos"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:418
-msgid "Hide icon"
-msgstr "Masquer l'icône"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:423
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:76
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:89
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:481
 msgid "Preferences"
 msgstr "Préférences"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:429
-msgid "Help"
-msgstr "Aide"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:449
-msgid "An indicator for the Touchpad"
-msgstr "Une notification pour le pavé tactilé"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:577
-msgid "usage: %prog [options]"
-msgstr "utilisation : %prog [options]"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:583
-msgid "show this help and exit."
-msgstr "afficher cette aide et sortir."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:588
-msgid "change the touchpad state. If indicator is not running launch it."
-msgstr ""
-"changer l'état du touchpad. Si l'indicateur ne fonctionne pas le lancer."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:594
-msgid ""
-"show the icon if indicator is hidden. Default action. If indicator is not "
-"running launch it."
-msgstr ""
-"afficher l'icône si l'indicateur est masqué. Action par défaut. Si "
-"l'indicateur ne fonctionne pas le lancer."
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/slimbooktouchpad.py:600
-msgid "list devices"
-msgstr "liste des périphériques"
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:99
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:113
 msgid "Shortcut"
 msgstr "Raccourci"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:111
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:125
 msgid "Shortcut enabled"
 msgstr "Raccourci activé"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:134
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:150
 msgid "Actions"
 msgstr "Actions"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:146
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:162
 msgid "Disable touchpad when mouse plugged"
 msgstr "Désactiver le pavé tactile quand la souris est branchée"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:152
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:168
 #, fuzzy
-msgid "On Slimbook Touchpad starts:"
-msgstr "Activer le touchpad au démarrage"
+msgid "On Touchpad Indicator starts:"
+msgstr "Touchpad-Indicator"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:158
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:175
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:174
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:191
 msgid "None"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:162
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:179
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:178
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:195
 #, fuzzy
 msgid "Enable touchpad"
 msgstr "Activer le pavé tactile"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:166
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:183
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:182
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:199
 #, fuzzy
 msgid "Disable touchpad"
 msgstr "Désactiver le pavé tactile"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:169
-msgid "On Slimbook Touchpad ends:"
-msgstr ""
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:185
+#, fuzzy
+msgid "On Touchpad Indicator ends:"
+msgstr "Touchpad-Indicator"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:187
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:203
 msgid "Disable touchpad on typing"
 msgstr "Désactiver le pavé tactile lors dela frappe"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:191
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:207
 #, fuzzy
 msgid ""
 "Milliseconds to wait after the last key\n"
@@ -205,109 +78,192 @@ msgid ""
 msgstr ""
 "Délai d'activation du pavé tactile après la dernière frappe (en secondes)"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:202
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:218
 msgid "General options"
 msgstr "Configuration"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:214
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:230
 msgid "Autostart"
 msgstr "Démarrage automatique"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:220
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:236
 msgid "Start hidden"
 msgstr "Démarrer caché"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:224
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:240
 msgid "Show notifications"
 msgstr "Afficher les notifications"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:230
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:246
 msgid "Touchpad configuration"
 msgstr "Configuration du pavé tactile"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:242
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:258
 #, fuzzy
 msgid "Natural scrolling?"
 msgstr "Défilement naturel"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:252
-msgid "Driver: Synaptics"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:256
-msgid "Tapping?"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:267
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:268
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:302
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:331
 #, fuzzy
 msgid "Touchpad speed?"
 msgstr "Pavé tactile désactivé"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:276
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:277
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:312
+#, fuzzy
+msgid "Two finger scolling?"
+msgstr "Défilement vertical avec deux doigts"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:282
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:320
+#, fuzzy
+msgid "Edge scolling?"
+msgstr "Défilement naturel"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:287
+#, fuzzy
+msgid "Circular scolling?"
+msgstr "Défilement circulaire"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:292
+msgid "Driver: Synaptics"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:297
+msgid "Tapping?"
+msgstr ""
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:327
 msgid "Driver: Libinput"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:279
-msgid "Install Evdev?"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:283
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:340
 msgid "Driver: Evdev"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:286
-msgid "Install Libinput?"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:293
-msgid "Bugs"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:331
-msgid "Do you need more info?"
-msgstr ""
-
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:337
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:345
 msgid "Theme"
 msgstr "Thème"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:349
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:357
 msgid "Select theme"
 msgstr "Sélectionner un thème"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:453
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:469
 #, fuzzy
 msgid "This shortcut <Control> + <Alt> +"
 msgstr "Ce raccourci <Control> + <Alt> + "
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:454
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:456
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:470
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:472
 msgid " is assigned"
 msgstr " est assigné"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/preferences_dialog.py:455
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:471
 msgid "This shortcut <Control> + <Alt> + "
 msgstr "Ce raccourci <Control> + <Alt> + "
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:60
-msgid "Install driver"
-msgstr ""
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:151
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:164
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:471
+msgid "Disable Touchpad"
+msgstr "Désactiver le pavé tactile"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:76
-msgid "Installing libinput driver..."
-msgstr ""
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:182
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:195
+msgid "Enable Touchpad"
+msgstr "Activer le pavé tactile"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:78
-msgid "Installing evdev driver..."
-msgstr ""
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:211
+msgid "Touchpad Enabled"
+msgstr "Pavé tactile activé"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:124
-msgid "Driver installed"
-msgstr ""
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:216
+msgid "Touchpad Disabled"
+msgstr "Pavé tactile désactivé"
 
-#: /datos/Sync/Programacion/Python/slimbook-touchpad/src/installdriver.py:127
-msgid "Driver NOT installed"
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:401
+msgid "Homepage..."
+msgstr "Page d'accueil..."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:406
+msgid "Get help online..."
+msgstr "Obtenir de l'aide en ligne..."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:411
+msgid "Translate this application..."
+msgstr "Traduire cette application..."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:416
+msgid "Report a bug..."
+msgstr "Signaler un bogue..."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:422
+msgid "Homepage"
+msgstr "Page d'accueil"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:427
+msgid "Follow us in Twitter"
+msgstr "Suivez-nous sur Twitter"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:432
+msgid "Follow us in Google+"
+msgstr "Suivez-nous sur Google+"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:437
+msgid "Follow us in Facebook"
+msgstr "Suivez-nous sur Facebook"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:458
+msgid "About"
+msgstr "À propos"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:476
+msgid "Hide icon"
+msgstr "Masquer l'icône"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:487
+msgid "Help"
+msgstr "Aide"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:492
+msgid "Exit"
+msgstr "Quitter"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:507
+msgid "An indicator for the Touchpad"
+msgstr "Une notification pour le pavé tactilé"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:635
+msgid "usage: %prog [options]"
+msgstr "utilisation : %prog [options]"
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:641
+msgid "show this help and exit."
+msgstr "afficher cette aide et sortir."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:646
+msgid "change the touchpad state. If indicator is not running launch it."
 msgstr ""
+"changer l'état du touchpad. Si l'indicateur ne fonctionne pas le lancer."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:652
+msgid ""
+"show the icon if indicator is hidden. Default action. If indicator is not "
+"running launch it."
+msgstr ""
+"afficher l'icône si l'indicateur est masqué. Action par défaut. Si "
+"l'indicateur ne fonctionne pas le lancer."
+
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:658
+msgid "list devices"
+msgstr "liste des périphériques"
+
+#, fuzzy
+#~ msgid "On Slimbook Touchpad starts:"
+#~ msgstr "Activer le touchpad au démarrage"
 
 #~ msgid "Enable touchpad on exit"
 #~ msgstr "Activer le touchpad en quittant"
@@ -324,17 +280,8 @@ msgstr ""
 #~ msgid "Horizontal scrolling"
 #~ msgstr "Défilement horizontal"
 
-#~ msgid "Circular scrolling"
-#~ msgstr "Défilement circulaire"
-
-#~ msgid "Two fingers vertical scrolling"
-#~ msgstr "Défilement vertical avec deux doigts"
-
 #~ msgid "Two fingers horizontal scrolling"
 #~ msgstr "Défilement horizontal avec deux doigts"
-
-#~ msgid "Touchpad-Indicator"
-#~ msgstr "Touchpad-Indicator"
 
 #~ msgid "Select icon theme"
 #~ msgstr "Choisir un thème d'icône"
