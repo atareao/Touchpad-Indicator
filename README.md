@@ -1,18 +1,13 @@
-==================
-SlimbookTouchpad
-==================
+# Touchpad Indicator
 
-With SlimbookTouchpad you can enable or disable the touchpad, with shortcuts
+With Touchpad Indicator you can enable or disable the touchpad, with shortcuts
  or by clicking on menu. Besides, it enables or disables the touchpad, when
  the computer returns from hibernation.
 
 For more information, please visit our website:
-https://slimbook.es/
+https://www.atareao.es/aplicacion/touchpad-indicator-para-ubuntu/
 
-
-============
-Requirements
-============
+## Requirements
 
 Required dependencies:
 
