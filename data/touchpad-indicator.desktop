@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Touchpad Indicator
+GenericName=Touchpad Indicator
+Exec=/usr/bin/touchpad-indicator
+TryExec=touchpad-indicator
+Icon=touchpad-indicator
+Type=Application
+Terminal=false
+StartupNotify=true
+Encoding=UTF-8
+Categories=Utility;
+X-Ubuntu-Gettext-Domain=touchpad-indicator
+Name[es]=Touchpad Indicator

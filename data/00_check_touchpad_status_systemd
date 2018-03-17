@@ -1,0 +1,17 @@
+#!/bin/sh
+#copy to /etc/pm/sleep.d
+LOGFILE="/var/log/sleep.log"
+
+case $1/$2 in
+  pre/*)
+    echo "Going to $2..."
+    # Place your pre suspend commands here, or `exit 0` if no pre suspend action required
+    ;;
+  post/*)
+    echo "Waking up from $2..."
+    # Place your post suspend (resume) commands here, or `exit 0` if no post suspend action required
+	echo "Resume systemd from suspend at `date`" >> "$LOGFILE"
+	/usr/bin/python3 /usr/share/touchpad-indicator/check_touchpad_status.py resume
+	echo "Touchpad enabled"
+	;;
+esac

@@ -1,0 +1,11 @@
+#!/bin/sh
+#copy to /etc/pm/sleep.d
+LOGFILE="/var/log/sleep.log"
+
+case "$1" in
+        resume|thaw)
+                echo "Resume normal from suspend at `date`" >> "$LOGFILE"
+                /usr/bin/python3 /usr/share/touchpad-indicator/check_touchpad_status.py resume
+                echo "Touchpad enabled"
+                ;;
+esac

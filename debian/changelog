@@ -1,17 +1,17 @@
-slimbook-touchpad (2.0.0-0extras17.10.0) xenial; urgency=medium
+touchpad-indicator (1.9.9-0extras17.10.23) bionic; urgency=medium
 
   * Shortcut only for Unity, GNOME, Cinnamon and Mate
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 14 Mar 2018 06:56:20 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 17 Mar 2018 11:06:01 +0100
 
-slimbook-touchpad (1.9.9-0extras17.10.22) xenial; urgency=medium
+touchpad-indicator (1.9.9-0extras17.10.22) xenial; urgency=medium
 
   * Added shortcuts for GNOME, Cinnamon and Mate. Tested and working.
   * Set default config for interval 300 ms
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 13 Mar 2018 20:53:35 +0100
 
-slimbook-touchpad (1.9.9-0extras17.10.8) xenial; urgency=medium
+touchpad-indicator (1.9.9-0extras17.10.8) xenial; urgency=medium
 
   * Circular scrolling
   * Two finger scrolling
@@ -20,7 +20,7 @@ slimbook-touchpad (1.9.9-0extras17.10.8) xenial; urgency=medium
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 06 Mar 2018 21:14:48 +0100
 
-slimbook-touchpad (1.9.8-0extras17.10.5) xenial; urgency=medium
+touchpad-indicator (1.9.8-0extras17.10.5) xenial; urgency=medium
 
   * Fixed some bugs
   * Updated icons
@@ -28,93 +28,93 @@ slimbook-touchpad (1.9.8-0extras17.10.5) xenial; urgency=medium
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Fri, 02 Mar 2018 18:35:52 +0100
 
-slimbook-touchpad (1.9.8-0extras17.10.2) xenial; urgency=medium
+touchpad-indicator (1.9.8-0extras17.10.2) xenial; urgency=medium
 
   * Updated icons
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Thu, 01 Mar 2018 11:27:51 +0100
 
-slimbook-touchpad (1.9.8-0extras17.10.1) xenial; urgency=medium
+touchpad-indicator (1.9.8-0extras17.10.1) xenial; urgency=medium
 
   * Updated translations
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Thu, 01 Mar 2018 10:55:26 +0100
 
-slimbook-touchpad (1.9.8-0extras17.10.0) xenial; urgency=medium
+touchpad-indicator (1.9.8-0extras17.10.0) xenial; urgency=medium
 
   * Option to edit the grub
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 27 Feb 2018 14:17:49 +0100
 
-slimbook-touchpad (1.9.7-0extras17.10.2) xenial; urgency=medium
+touchpad-indicator (1.9.7-0extras17.10.2) xenial; urgency=medium
 
   * Improved
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 21 Feb 2018 19:47:54 +0100
 
-slimbook-touchpad (1.9.6-0extras17.10.5) xenial; urgency=medium
+touchpad-indicator (1.9.6-0extras17.10.5) xenial; urgency=medium
 
   * Changed install dialog
   * Changed preferences dialog
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Wed, 21 Feb 2018 15:21:27 +0100
 
-slimbook-touchpad (1.9.5-0extras17.10.2) xenial; urgency=medium
+touchpad-indicator (1.9.5-0extras17.10.2) xenial; urgency=medium
 
   * bug on close
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 20 Feb 2018 22:05:30 +0100
 
-slimbook-touchpad (1.9.5-0extras17.10.1) xenial; urgency=medium
+touchpad-indicator (1.9.5-0extras17.10.1) xenial; urgency=medium
 
   * autostart symlink
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 20 Feb 2018 21:33:34 +0100
 
-slimbook-touchpad (1.9.5-0extras17.10.0) xenial; urgency=medium
+touchpad-indicator (1.9.5-0extras17.10.0) xenial; urgency=medium
 
   * libinput-hwe-16.04
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 20 Feb 2018 20:18:49 +0100
 
-slimbook-touchpad (1.9.4-0extras17.10.2) xenial; urgency=medium
+touchpad-indicator (1.9.4-0extras17.10.2) xenial; urgency=medium
 
   * autostart
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 20 Feb 2018 19:17:58 +0100
 
-slimbook-touchpad (1.9.4-0extras17.10.1) xenial; urgency=medium
+touchpad-indicator (1.9.4-0extras17.10.1) xenial; urgency=medium
 
   * Added tapping and speed for Libinput
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 20 Feb 2018 18:32:18 +0100
 
-slimbook-touchpad (1.9.3-0extras17.10.0) xenial; urgency=medium
+touchpad-indicator (1.9.3-0extras17.10.0) xenial; urgency=medium
 
   * Improved touchpad configuration via xinput 
   * Improved answer of touchpad
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 20 Feb 2018 09:30:07 +0100
 
-slimbook-touchpad (1.9.2-0extras17.10.5) xenial; urgency=medium
+touchpad-indicator (1.9.2-0extras17.10.5) xenial; urgency=medium
 
   * Spaces in autostart config
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 19 Feb 2018 17:09:50 +0100
 
-slimbook-touchpad (1.9.1-0extras17.10.2) xenial; urgency=medium
+touchpad-indicator (1.9.1-0extras17.10.2) xenial; urgency=medium
 
   * XLib
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 18 Feb 2018 12:34:12 +0100
 
-slimbook-touchpad (1.9.1-0extras17.10.1) xenial; urgency=medium
+touchpad-indicator (1.9.1-0extras17.10.1) xenial; urgency=medium
 
   * Fixed a bug with install Evdev and Libinput
 
  -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 17 Feb 2018 18:22:26 +0100
 
-slimbook-touchpad (1.9.1-0extras17.10.0) xenial; urgency=medium
+touchpad-indicator (1.9.1-0extras17.10.0) xenial; urgency=medium
 
   * First commit
 

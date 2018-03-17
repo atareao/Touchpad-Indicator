@@ -1,5 +1,5 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: slimbook-touchpad
+Upstream-Name: touchpad-indicator
 Source: http://www.atareao.es
 
 Files: *

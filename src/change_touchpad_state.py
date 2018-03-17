@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
+# This file is part of Touchpad-Indicator
 #
-# Change state of SlimbookTouchpad
-#
-# Copyright (C) 2010 - 2017 Lorenzo Carbonell
-# lorenzo.carbonell.cerezo@gmail.com
+# Copyright (C) 2010-2018 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
+# Copyright (C) 2010-2012 Miguel Angel Santamaría Rogado<leibag@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,9 +18,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-#
-#
+
 import dbus
 from touchpad import Touchpad
 from configurator import Configuration
@@ -32,14 +29,14 @@ bus = dbus.SessionBus()
 if __name__ == '__main__':
     try:
         touchpad_indicator_service = bus.get_object(
-            'es.slimbook.SlimbookTouchpad', '/es/slimbook/SlimbookTouchpad')
+            'es.atareao.TouchpadIndicator', '/es/atareao/TouchpadIndicator')
         change_state = touchpad_indicator_service.get_dbus_method(
-            'change_state', 'es.slimbook.SlimbookTouchpad')
+            'change_state', 'es.atareao.TouchpadIndicator')
         change_state()
-        print('SlimbookTouchpad is working')
+        print('Touchpad-Indicator is working')
     except dbus.exceptions.DBusException as argument:
         print(argument)
-        print('SlimbookTouchpad is not working')
+        print('Touchpad-Indicator is not working')
         touchpad = Touchpad()
         status = touchpad.are_all_touchpad_enabled()
         if status:

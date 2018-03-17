@@ -1,4 +1,4 @@
-Source: slimbook-touchpad
+Source: touchpad-indicator
 Section: utils
 Priority: extra
 Maintainer: Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.4
 Homepage: http://www.atareao.es
 
-Package: slimbook-touchpad
+Package: touchpad-indicator
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends},
 	gir1.2-gtk-3.0,
@@ -20,6 +20,6 @@ Depends: ${misc:Depends}, ${python:Depends},
 	python3-dbus,
 	xinput
 Description: An indicator for the touchpad
- With slimbook-touchpad you can enable or disable the touchpad, with shortcuts
+ With touchpad-indicator you can enable or disable the touchpad, with shortcuts
  or by clicking on menu. Besides, it enables or disables the touchpad, when
  the computer returns from hibernation.

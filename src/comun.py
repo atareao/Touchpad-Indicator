@@ -1,13 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
+# This file is part of Touchpad-Indicator
 #
-# com.py
-#
-# Copyright (C) 2010 - 2018
-# Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
-# Copyright (C) 2010,2011,2012
-# Miguel Angel Santamaría Rogado <leibag@gmail.com>
+# Copyright (C) 2010-2018 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
+# Copyright (C) 2010-2012 Miguel Angel Santamaría Rogado<leibag@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,9 +18,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-#
-#
 
 import os
 import sys
@@ -37,8 +31,8 @@ def is_package():
     return (__file__.startswith(USRDIR) or os.getcwd().startswith(USRDIR))
 
 
-APPNAME = 'Slimbook Touchpad'
-APP = 'slimbook-touchpad'
+APPNAME = 'Touchpad Indicator'
+APP = 'touchpad-indicator'
 APPCONF = APP + '.conf'
 
 
@@ -51,7 +45,7 @@ PARAMS = {
     'on_start': 1,
     'on_end': 1,
     'disable_on_typing': False,
-    'interval': 300,
+    'interval': 600,
     'start_hidden': False,
     'show_notifications': True,
     'theme': 'normal',
@@ -83,19 +77,19 @@ else:
     DEBIANDIR = os.path.normpath(os.path.join(ROOTDIR, '../debian'))
     CHANGELOG = os.path.join(DEBIANDIR, 'changelog')
 
-ICON = os.path.join(ICONDIR, 'slimbook-touchpad-normal-enabled.svg')
+ICON = os.path.join(ICONDIR, 'touchpad-indicator-normal-enabled.svg')
 STATUS_ICON['normal'] = (os.path.join(ICONDIR,
-                         'slimbook-touchpad-normal-enabled.svg'),
+                         'touchpad-indicator-normal-enabled.svg'),
                          os.path.join(ICONDIR,
-                         'slimbook-touchpad-normal-disabled.svg'))
+                         'touchpad-indicator-normal-disabled.svg'))
 STATUS_ICON['light'] = (os.path.join(ICONDIR,
-                        'slimbook-touchpad-light-enabled.svg'),
+                        'touchpad-indicator-light-enabled.svg'),
                         os.path.join(ICONDIR,
-                        'slimbook-touchpad-light-disabled.svg'))
+                        'touchpad-indicator-light-disabled.svg'))
 STATUS_ICON['dark'] = (os.path.join(ICONDIR,
-                       'slimbook-touchpad-dark-enabled.svg'),
+                       'touchpad-indicator-dark-enabled.svg'),
                        os.path.join(ICONDIR,
-                       'slimbook-touchpad-dark-disabled.svg'))
+                       'touchpad-indicator-dark-disabled.svg'))
 
 
 CONFIG_DIR = os.path.join(os.path.expanduser('~'), '.config')
@@ -103,7 +97,7 @@ CONFIG_APP_DIR = os.path.join(CONFIG_DIR, APP)
 CONFIG_FILE = os.path.join(CONFIG_APP_DIR, APPCONF)
 
 AUTOSTART_DIR = os.path.join(CONFIG_DIR, 'autostart')
-FILE_AUTO_START_NAME = 'slimbook-touchpad-autostart.desktop'
+FILE_AUTO_START_NAME = 'touchpad-indicator-autostart.desktop'
 FILE_AUTO_START_SRC = os.path.join(AUTOSTART_SOURCE_DIR, FILE_AUTO_START_NAME)
 FILE_AUTO_START = os.path.join(AUTOSTART_DIR, FILE_AUTO_START_NAME)
 WATCHDOG = os.path.join(APPDIR, 'watchdog.py')
