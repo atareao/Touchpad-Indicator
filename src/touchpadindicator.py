@@ -51,6 +51,7 @@ from touchpad import SYNAPTICS
 from touchpad import LIBINPUT
 from touchpad import EVDEV
 from keyboard_monitor import KeyboardMonitor
+from machine_information import get_information
 import time
 import comun
 import shlex
@@ -205,17 +206,17 @@ class TouchpadIndicator(dbus.service.Object):
 
     def show_notification(self, kind):
         """Show a notification of type kind"""
-        if kind == 'enabled':
-            self.notification.update(
-                'Touchpad Indicator',
-                _('Touchpad Enabled'),
-                self.active_icon)
-        elif kind == 'disabled':
-            self.notification.update(
-                'Touchpad Indicator',
-                _('Touchpad Disabled'),
-                self.attention_icon)
         try:
+            if kind == 'enabled':
+                self.notification.update(
+                    'Touchpad Indicator',
+                    _('Touchpad Enabled'),
+                    self.active_icon)
+            elif kind == 'disabled':
+                self.notification.update(
+                    'Touchpad Indicator',
+                    _('Touchpad Disabled'),
+                    self.attention_icon)
             self.notification.show()
         except Exception as e:
             print(e)
@@ -359,6 +360,8 @@ class TouchpadIndicator(dbus.service.Object):
                 configuration.get('edge_scrolling'))
             self.touchpad.set_circular_scrolling(
                 configuration.get('cicular_scrolling'))
+        elif tipo == EVDEV:
+            pass
         self.disable_on_typing = configuration.get('disable_on_typing')
         if self.disable_on_typing:
             self.keyboardMonitor = KeyboardMonitor(self.interval)
@@ -663,6 +666,15 @@ Default action. If indicator is not running launch it.'))
             device_list.list()
         elif options.change:
             change_status()
+    else:
+        print(get_information())
+        print('Touchpad-Indicator version: %s' % comun.VERSION)
+        Notify.init('Touchpad-Indicator')
+        object = bus.get_object('es.atareao.TouchpadIndicator',
+                                '/es/atareao/TouchpadIndicator')
+        dbus.Interface(object, 'es.atareao.TouchpadIndicator')
+        TouchpadIndicator()
+        Gtk.main()
     exit(0)
 
 

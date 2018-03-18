@@ -2,7 +2,6 @@ bin/* /usr/bin
 debian/changelog /usr/share/touchpad-indicator
 src/*.py /usr/share/touchpad-indicator
 data/icons/*.svg /usr/share/touchpad-indicator/icons
-data/icons/*.jpg /usr/share/touchpad-indicator/icons
 data/schemas/org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.touchpad-indicator.gschema.xml /usr/share/glib-2.0/schemas
 data/schemas/org.cinnamon.desktop.keybindings.custom-keybindings.touchpad-indicator.gschema.xml /usr/share/glib-2.0/schemas
 data/schemas/org.mate.desktop.keybindings.custom-keybindings.touchpad-indicator.gschema.xml /usr/share/glib-2.0/schemas

@@ -31,7 +31,7 @@ if __name__ == '__main__':
         sys.path.insert(1, os.path.normpath(
             os.path.join(os.getcwd(), '../src')))
     ####################################################################
-    from slimbooktouchpad import main
+    from touchpadindicator import main
     ####################################################################
     main()
 exit(0)
