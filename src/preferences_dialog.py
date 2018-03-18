@@ -702,10 +702,33 @@ custom-keybindings.touchpad-indicator')
                 if key2 is not None:
                     key2 += self.entry11.get_text().lower()
                 if key1 not in get_shortcuts() and key2 not in get_shortcuts():
-                    print('dfkdlaskñfda', key1)
+                    dcm = DConfManager('org.gnome.settings-daemon.plugins.\
+media-keys')
+                    shortcuts = dcm.get_value('custom-keybindings')
+                    key = '/org/gnome/settings-daemon/plugins/media-keys/\
+custom-keybindings/touchpad-indicator/'
+                    if key in shortcuts:
+                        shortcuts.pop(shortcuts.index(key))
+                        dcm.set_value('custom-keybindings', shortcuts)
+                    if key not in shortcuts:
+                        shortcuts.append(key)
+                        dcm.set_value('custom-keybindings', shortcuts)
+                    dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys.\
+custom-keybindings.touchpad-indicator')
+                    dcm.set_value('name', 'Touchpad-Indicator')
                     dcm.set_value('binding', key1)
+                    dcm.set_value('command', '/usr/bin/python3 \
+/usr/share/touchpad-indicator/change_touchpad_state.py')
             else:
                 dcm.set_value('binding', '')
+                dcm = DConfManager('org.gnome.settings-daemon.plugins.\
+media-keys')
+                shortcuts = dcm.get_value('custom-keybindings')
+                key = '/org/gnome/settings-daemon/plugins/media-keys/\
+custom-keybindings/touchpad-indicator/'
+                if key in shortcuts:
+                    shortcuts.pop(shortcuts.index(key))
+                    dcm.set_value('custom-keybindings', shortcuts)
         elif desktop_environment == 'cinnamon':
             dcm = DConfManager('org.cinnamon.desktop.keybindings.\
 custom-keybindings.touchpad-indicator')

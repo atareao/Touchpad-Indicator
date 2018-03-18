@@ -551,7 +551,7 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
 'Yared Hufkens <https://launchpad.net/~w38m4570r>\n''')
         about_dialog.set_icon(GdkPixbuf.Pixbuf.new_from_file(comun.ICON))
         about_dialog.set_logo(GdkPixbuf.Pixbuf.new_from_file(os.path.join(
-            comun.ICONDIR, 'logo1.jpg')))
+            comun.ICONDIR, 'touchpad-indicator.svg')))
         about_dialog.set_program_name(comun.APPNAME)
         return about_dialog
 
