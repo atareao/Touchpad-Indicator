@@ -747,7 +747,10 @@ custom-keybindings.touchpad-indicator')
                 if key2 is not None:
                     key2 += self.entry11.get_text().lower()
                 if key1 not in get_shortcuts() and key2 not in get_shortcuts():
+                    dcm.set_value('name', 'Touchpad-Indicator')
                     dcm.set_value('binding', [key1])
+                    dcm.set_value('command', '/usr/bin/python3 \
+/usr/share/touchpad-indicator/change_touchpad_state.py')
                 dcm = DConfManager('org.cinnamon.desktop.keybindings')
                 shortcuts = dcm.get_value('custom-list')
                 if 'touchpad-indicator' in shortcuts:
@@ -781,7 +784,10 @@ custom-keybindings.touchpad-indicator')
                 if key2 is not None:
                     key2 += self.entry11.get_text().lower()
                 if key1 not in get_shortcuts() and key2 not in get_shortcuts():
+                    dcm.set_value('name', 'Touchpad-Indicator')
                     dcm.set_value('binding', [key1])
+                    dcm.set_value('command', '/usr/bin/python3 \
+/usr/share/touchpad-indicator/change_touchpad_state.py')
                 dcm = DConfManager('org.mate.desktop.keybindings')
                 shortcuts = dcm.get_value('custom-list')
                 if 'touchpad-indicator' in shortcuts:

@@ -1,8 +1,8 @@
-touchpad-indicator (2.0.0-0extras18.04.2) bionic; urgency=medium
+touchpad-indicator (2.0.0-0extras18.04.3) xenial; urgency=medium
 
   * Shortcut only for Unity, GNOME, Cinnamon and Mate
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 18 Mar 2018 13:02:40 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 19 Mar 2018 09:23:42 +0100
 
 touchpad-indicator (1.9.9-0extras17.10.22) xenial; urgency=medium
 
