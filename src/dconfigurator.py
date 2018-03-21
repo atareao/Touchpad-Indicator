@@ -86,13 +86,19 @@ if __name__ == '__main__':
     print(dcm.set_value('custom-list',
                         ['custom0']))
     '''
-    dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.slimbook-touchpad')
-    values = dcm.get_value('binding')
-    print(values)
-    #print(dcm.set_value('binding', ['<Control><Alt>']))
-    #print(dcm.set_value('command', ''))
-    print(dcm.set_value('binding', '<Control><Alt>m'))
-    print(dcm.set_value('command', '/usr/bin/python3 /usr/share/slimbook-touchpad/change_touchpad_state.py'))
+    dcm = DConfManager('org.mate.SettingsDaemon.plugins.media-keys')
+    for key in dcm.get_keys():
+        print(key, dcm.get_value(key))
+    dcm = DConfManager('org.mate.desktop.keybindings.touchpad-indicator')
+    print('action', dcm.get_value('action'))
+    print('binding', dcm.get_value('binding'))
+    print('name', dcm.get_value('name'))
+    # values = dcm.get_value('binding')
+    # print(values)
+    # print(dcm.set_value('binding', ['<Control><Alt>']))
+    # print(dcm.set_value('command', ''))
+    # print(dcm.set_value('binding', '<Control><Alt>m'))
+    # print(dcm.set_value('command', '/usr/bin/python3 /usr/share/slimbook-touchpad/change_touchpad_state.py'))
     '''
     if '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\
 slimbook-touchpad/' in values:

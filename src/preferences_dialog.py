@@ -71,14 +71,9 @@ def get_shortcuts():
             for each_element in dcm.get_value(key):
                 values.append(each_element)
     elif de == 'mate':
-        dcm = DConfManager('org.mate.desktop.keybindings.media-keys')
+        dcm = DConfManager('org.mate.SettingsDaemon.plugins.media-keys')
         for key in dcm.get_keys():
-            for each_element in dcm.get_value(key):
-                values.append(each_element)
-        dcm = DConfManager('org.mate.desktop.keybindings.wm')
-        for key in dcm.get_keys():
-            for each_element in dcm.get_value(key):
-                values.append(each_element)
+            values.appedn(dcm.get_value(key))
     return values
 
 
@@ -768,7 +763,7 @@ custom-keybindings.touchpad-indicator')
                     dcm.set_value('custom-list', shortcuts)
         elif desktop_environment == 'mate':
             dcm = DConfManager('org.mate.desktop.keybindings.\
-custom-keybindings.touchpad-indicator')
+touchpad-indicator')
             if self.checkbutton0.get_active() and\
                     len(self.entry11.get_text()) > 0:
                 key1 = ''
@@ -785,19 +780,11 @@ custom-keybindings.touchpad-indicator')
                     key2 += self.entry11.get_text().lower()
                 if key1 not in get_shortcuts() and key2 not in get_shortcuts():
                     dcm.set_value('name', 'Touchpad-Indicator')
-                    dcm.set_value('binding', [key1])
-                    dcm.set_value('command', '/usr/bin/python3 \
+                    dcm.set_value('binding', key1)
+                    dcm.set_value('action', '/usr/bin/python3 \
 /usr/share/touchpad-indicator/change_touchpad_state.py')
-                dcm = DConfManager('org.mate.desktop.keybindings')
-                shortcuts = dcm.get_value('custom-list')
-                if 'touchpad-indicator' in shortcuts:
-                    shortcuts.pop(shortcuts.index('touchpad-indicator'))
-                    dcm.set_value('custom-list', shortcuts)
-                if 'touchpad-indicator' not in shortcuts:
-                    shortcuts.append('touchpad-indicator')
-                    dcm.set('custom-list', shortcuts)
             else:
-                dcm.set_value('binding', [])
+                dcm.set_value('binding', '')
                 dcm = DConfManager('org.mate.desktop.keybindings')
                 shortcuts = dcm.get_value('custom-list')
                 if 'touchpad-indicator' in shortcuts:
