@@ -84,11 +84,7 @@ def get_shortcuts():
     elif de == 'mate':
         dcm = DConfManager('org.mate.SettingsDaemon.plugins.media-keys')
         for key in dcm.get_keys():
-            for each_element in dcm.get_value(key):
-                if type(each_element) == str:
-                    values.append(each_element)
-                elif type(each_element) == list:
-                    values.extend(each_element)
+            values.append(dcm.get_value(key))
     return values
 
 
