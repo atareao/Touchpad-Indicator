@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema id="org.mate.desktop.keybindings.custom-keybindings.touchpad-indicator" path="/org/mate/desktop/keybindings/custom-keybindings/touchpad-indicator/">
-        <key type="as" name="binding">
-            <default>[]</default>
+    <schema id="org.mate.desktop.keybindings.touchpad-indicator" path="/org/mate/desktop/keybindings/touchpad-indicator/">
+        <key type="s" name="binding">
+            <default>''</default>
             <summary>Binding for touchpad</summary>
             <description>Binding for touchpad.</description>
         </key>
-        <key type="s" name="command">
+        <key type="s" name="action">
             <default>'/usr/bin/python3 /usr/share/touchpad-indicator/change_touchpad_state.py'</default>
             <summary>Command to change touchpad status</summary>
             <description>Command to change touchpad status.</description>
