@@ -541,7 +541,7 @@ custom-keybindings.touchpad-indicator')
                 self.entry11.set_text(shortcut[-1:])
         elif desktop_environment == 'mate':
             dcm = DConfManager('org.mate.desktop.keybindings.\
-custom-keybindings.touchpad-indicator')
+touchpad-indicator')
             shortcuts = dcm.get_value('binding')
             if shortcuts is None or len(shortcuts) == 0:
                 self.checkbutton0.set_active(False)
@@ -785,11 +785,6 @@ touchpad-indicator')
 /usr/share/touchpad-indicator/change_touchpad_state.py')
             else:
                 dcm.set_value('binding', '')
-                dcm = DConfManager('org.mate.desktop.keybindings')
-                shortcuts = dcm.get_value('custom-list')
-                if 'touchpad-indicator' in shortcuts:
-                    shortcuts.pop(shortcuts.index('touchpad-indicator'))
-                    dcm.set_value('custom-list', shortcuts)
         elif desktop_environment == 'xfce':
             if xfconfquery_exists():
                 xfceconf = XFCEConfiguration('xfce4-keyboard-shortcuts')

@@ -99,21 +99,3 @@ if __name__ == '__main__':
     # print(dcm.set_value('command', ''))
     # print(dcm.set_value('binding', '<Control><Alt>m'))
     # print(dcm.set_value('command', '/usr/bin/python3 /usr/share/slimbook-touchpad/change_touchpad_state.py'))
-    '''
-    if '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/\
-slimbook-touchpad/' in values:
-        values.remove('/org/gnome/settings-daemon/plugins/media-keys/\
-custom-keybindings/slimbook-touchpad/')
-        dcm.set_value('custom-keybindings', values)
-    else:
-        values.append('/org/gnome/settings-daemon/plugins/media-keys/\
-custom-keybindings/slimbook-touchpad/')
-        dcm.set_value('custom-keybindings', values)
-    dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys.\
-custom-keybindings.slimbook-touchpad')
-    dcm.get_keys()
-    print(dcm.set_value('binding', '<Primary><Alt>p'))
-    print(dcm.set_value('command', '/usr/bin/python3 /home/atareao_r/Dropbox/\
-tp/raring/slimbook-touchpad/src/change_touchpad_state.py'))
-    print(dcm.set_value('name', 'Touchpad-Indicator'))
-    '''
