@@ -558,7 +558,6 @@ touchpad-indicator')
                 self.checkbutton0.set_active(False)
                 self.entry11.set_text('')
             else:
-                shortcut = shortcuts[0]
                 self.checkbutton0.set_active(True)
                 self.ctrl.set_active(shortcut.find('<Control>') > -1)
                 self.alt.set_active(shortcut.find('<Alt>') > -1)
