@@ -570,9 +570,9 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
         widget.set_sensitive(False)
         preferences_dialog = PreferencesDialog(False)
         if preferences_dialog.run() == Gtk.ResponseType.ACCEPT:
+            GLib.idle_add(preferences_dialog.hide)
             preferences_dialog.close_ok()
             self.read_preferences()
-        preferences_dialog.hide()
         preferences_dialog.destroy()
         # we need to change the status icons
         widget.set_sensitive(True)
