@@ -1,8 +1,8 @@
-touchpad-indicator (2.0.2-0extras18.04.0) xenial; urgency=medium
+touchpad-indicator (2.0.2-0extras18.04.1) xenial; urgency=medium
 
   * Threading to read preferences
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Fri, 23 Mar 2018 20:17:07 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Fri, 23 Mar 2018 20:44:11 +0100
 
 touchpad-indicator (2.0.0-0extras18.04.6) xenial; urgency=medium
 

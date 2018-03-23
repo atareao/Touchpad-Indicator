@@ -44,16 +44,14 @@ from dbus.mainloop.glib import DBusGMainLoop
 from optparse import OptionParser
 from watchdog import is_mouse_plugged
 from touchpad import Touchpad
+from touchpad import SYNAPTICS, LIBINPUT, EVDEV
 from configurator import Configuration
 from preferences_dialog import PreferencesDialog
 from comun import _
-from touchpad import SYNAPTICS
-from touchpad import LIBINPUT
-from touchpad import EVDEV
 from keyboard_monitor import KeyboardMonitor
-from machine_information import get_information
 import time
 import comun
+from machine_information import get_information
 import shlex
 import device_list
 import threading
@@ -260,14 +258,10 @@ class TouchpadIndicator(dbus.service.Object):
                 configuration = Configuration()
                 is_touch_enabled = configuration.get('touchpad_enabled')
                 print('2', is_touch_enabled)
-                if is_touch_enabled is True:
-                    print('3 Enable touchpad')
-                    self.set_touch_enabled(True)
-                    self.keyboardMonitor.set_on(True)
-                else:
-                    print('3 Disable touchpad')
-                    self.set_touch_enabled(False)
-                    self.keyboardMonitor.set_on(False)
+                print('3 {0} touchpad'.format(
+                    'Enable' if not is_touch_enabled else 'Disable'))
+                self.set_touch_enabled(not is_touch_enabled)
+                self.keyboardMonitor.set_on(not is_touch_enabled)
             else:
                 self.set_touch_enabled(not is_touch_enabled)
 
@@ -391,7 +385,7 @@ class TouchpadIndicator(dbus.service.Object):
                 self.keyboardMonitor.set_on(True)
         if self.on_mouse_plugged:
             self.launch_watchdog()
-        time.sleep(1)
+        # time.sleep(1)
         if self.on_mouse_plugged and is_mouse_plugged():
                 print('===', 1, '===')
                 self.set_touch_enabled(False, False)
