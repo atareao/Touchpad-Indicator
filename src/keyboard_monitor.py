@@ -57,6 +57,8 @@ class KeyboardMonitor(Thread, GObject.GObject):
         self.elapsed_time = elapsed_time / 1000.0
         self.cola = queue.Queue()
         self.last_event = None
+        self.work = True
+        self.on = False
 
     def key_press(self):
         self.cola.put_nowait(KeyEvent(KEY_PRESSED))
@@ -66,7 +68,7 @@ class KeyboardMonitor(Thread, GObject.GObject):
         if self.keyboardListener is None:
             self.keyboardListener = xinterface.Interface(self.key_press)
         self.keyboardListener.start()
-        while True:
+        while self.work:
             try:
                 new_event = self.cola.get(True, self.elapsed_time)
                 if new_event.eventtype in [KEY_PRESSED, KEY_RELEASED]:
@@ -88,20 +90,26 @@ class KeyboardMonitor(Thread, GObject.GObject):
                 else:
                     self.cola.put_nowait(KeyEvent(KEY_RELEASED))
 
-    def stop(self):
-        print('Monitor off')
-        if self.keyboardListener is not None:
-            self.keyboardListener.stop()
-            self.keyboardListener = None
+    def end(self):
+        self.work = False
 
+    def is_on(self):
+        return self.on
 
-if __name__ == '__main__':
-    km = KeyboardMonitor(1)
-    km.start()
-    time.sleep(2)
-    km.set_monitor_on()
-    time.sleep(20)
-    km.set_monitor_off()
-    time.sleep(10)
-    km.set_monitor_on()
-    time.sleep(5)
+    def set_on(self, on):
+        self.on = on
+        if on is True:
+            print('Monitor on')
+            if self.keyboardListener is None:
+                self.keyboardListener = xinterface.Interface(self.key_press)
+                self.keyboardListener.start()
+            else:
+                self.keyboardListener.stop()
+                self.keyboardListener = None
+                self.keyboardListener = xinterface.Interface(self.key_press)
+                self.keyboardListener.start()
+        else:
+            print('Monitor off')
+            if self.keyboardListener is not None:
+                self.keyboardListener.stop()
+                self.keyboardListener = None

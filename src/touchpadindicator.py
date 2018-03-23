@@ -228,7 +228,7 @@ class TouchpadIndicator(dbus.service.Object):
             self.change_state_item.set_sensitive(False)
             self.set_touch_enabled(False)
             if self.disable_on_typing:
-                self.keyboardMonitor.stop()
+                self.keyboardMonitor.set_on(False)
 
     @dbus.service.method(dbus_interface='es.atareao.TouchpadIndicator')
     def on_mouse_detected_unplugged(self):
@@ -238,7 +238,7 @@ class TouchpadIndicator(dbus.service.Object):
             self.change_state_item.set_sensitive(True)
             self.set_touch_enabled(True)
             if self.disable_on_typing:
-                self.keyboardMonitor.start()
+                self.keyboardMonitor.set_on(True)
 
     @dbus.service.method(dbus_interface='es.atareao.TouchpadIndicator')
     def unhide(self):
@@ -254,8 +254,22 @@ class TouchpadIndicator(dbus.service.Object):
     def change_state(self):
         if not self.on_mouse_plugged or\
                 not is_mouse_plugged():
-            is_touch_enabled = not self.touchpad.are_all_touchpad_enabled()
-            self.set_touch_enabled(is_touch_enabled)
+            is_touch_enabled = self.touchpad.are_all_touchpad_enabled()
+            if self.disable_on_typing is True:
+                print('1', is_touch_enabled)
+                configuration = Configuration()
+                is_touch_enabled = configuration.get('touchpad_enabled')
+                print('2', is_touch_enabled)
+                if is_touch_enabled is True:
+                    print('3 Enable touchpad')
+                    self.set_touch_enabled(True)
+                    self.keyboardMonitor.set_on(True)
+                else:
+                    print('3 Disable touchpad')
+                    self.set_touch_enabled(False)
+                    self.keyboardMonitor.set_on(False)
+            else:
+                self.set_touch_enabled(not is_touch_enabled)
 
     @dbus.service.method(dbus_interface='es.atareao.TouchpadIndicator')
     def check_status_from_resume(self):
@@ -318,8 +332,7 @@ class TouchpadIndicator(dbus.service.Object):
         are_all_touchpad_enabled = self.touchpad.are_all_touchpad_enabled()
         # If keyboardMonitor is working must stop
         if self.keyboardMonitor is not None:
-            self.keyboardMonitor.stop()
-            self.keyboardMonitor = None
+            self.keyboardMonitor.set_on(False)
         # If Watchdog is working must stop
         if self.the_watchdog is not None:
             self.the_watchdog.kill()
@@ -365,13 +378,17 @@ class TouchpadIndicator(dbus.service.Object):
             pass
         self.disable_on_typing = configuration.get('disable_on_typing')
         if self.disable_on_typing:
-            self.keyboardMonitor = KeyboardMonitor(self.interval)
-            self.keyboardMonitor.connect('key_pressed', self.on_key_pressed)
-            self.keyboardMonitor.connect('key_released', self.on_key_released)
-            if self.on_mouse_plugged and is_mouse_plugged():
-                self.keyboardMonitor.stop()
-            else:
+            if self.keyboardMonitor is None:
+                self.keyboardMonitor = KeyboardMonitor(self.interval)
+                self.keyboardMonitor.connect('key_pressed',
+                                             self.on_key_pressed)
+                self.keyboardMonitor.connect('key_released',
+                                             self.on_key_released)
                 self.keyboardMonitor.start()
+            if self.on_mouse_plugged and is_mouse_plugged():
+                self.keyboardMonitor.set_on(False)
+            else:
+                self.keyboardMonitor.set_on(True)
         if self.on_mouse_plugged:
             self.launch_watchdog()
         time.sleep(1)
@@ -583,7 +600,7 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
         if self.the_watchdog is not None:
             self.the_watchdog.kill()
         if self.keyboardMonitor is not None:
-            self.keyboardMonitor.stop()
+            self.keyboardMonitor.end()
             self.keyboardMonitor = None
 
         if self.on_end == 1:
