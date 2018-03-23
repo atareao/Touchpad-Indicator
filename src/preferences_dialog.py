@@ -553,8 +553,8 @@ custom-keybindings.touchpad-indicator')
         elif desktop_environment == 'mate':
             dcm = DConfManager('org.mate.desktop.keybindings.\
 touchpad-indicator')
-            shortcuts = dcm.get_value('binding')
-            if shortcuts is None or len(shortcuts) == 0:
+            shortcut = dcm.get_value('binding')
+            if shortcut is None or len(shortcut) == 0:
                 self.checkbutton0.set_active(False)
                 self.entry11.set_text('')
             else:
