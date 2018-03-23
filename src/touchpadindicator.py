@@ -572,7 +572,8 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
         preferences_dialog = PreferencesDialog(False)
         if preferences_dialog.run() == Gtk.ResponseType.ACCEPT:
             preferences_dialog.close_ok()
-            threading.Thread(target=self.read_preferences, daemon=True)
+            read = threading.Thread(target=self.read_preferences, daemon=True)
+            read.start()
         preferences_dialog.destroy()
         # we need to change the status icons
         widget.set_sensitive(True)
