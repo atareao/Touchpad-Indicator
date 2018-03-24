@@ -1,8 +1,9 @@
-touchpad-indicator (2.0.2-0extras18.04.2) xenial; urgency=medium
+touchpad-indicator (2.0.3-0extras18.04.0) xenial; urgency=medium
 
+  * On scroll event over indicator up->on, down->off
   * Threading to read preferences
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 24 Mar 2018 07:50:10 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 24 Mar 2018 08:05:38 +0100
 
 touchpad-indicator (2.0.0-0extras18.04.6) xenial; urgency=medium
 

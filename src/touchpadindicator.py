@@ -22,6 +22,7 @@
 import gi
 try:
     gi.require_version('Gtk', '3.0')
+    gi.require_version('Gdk', '3.0')
     gi.require_version('GLib', '2.0')
     gi.require_version('GdkPixbuf', '2.0')
     gi.require_version('AppIndicator3', '0.1')
@@ -30,6 +31,7 @@ except Exception as e:
     print(e)
     exit(-1)
 from gi.repository import Gtk
+from gi.repository import Gdk
 from gi.repository import GdkPixbuf
 from gi.repository import AppIndicator3 as appindicator
 from gi.repository import Notify
@@ -582,7 +584,12 @@ this program.  If not, see <http://www.gnu.org/licenses/>.''')
     # ##################### callbacks for the menu #######################
 
     def on_scroll(self, widget, steps, direcction):
-        self.change_state()
+        if direcction == Gdk.ScrollDirection.UP:
+            if self.touchpad.are_all_touchpad_enabled() is False:
+                self.set_touch_enabled(True)
+        elif direcction == Gdk.ScrollDirection.DOWN:
+            if self.touchpad.are_all_touchpad_enabled() is True:
+                self.set_touch_enabled(False)
 
     def on_change_state_item(self, widget, data=None):
         self.change_state()
