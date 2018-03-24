@@ -108,9 +108,9 @@ f.close()
 pos = line.find('(')
 posf = line.find(')', pos)
 VERSION = line[pos + 1: posf].strip()
-if is_package():
+if not is_package():
     VERSION = VERSION + '-src'
-####
+
 try:
     current_locale, encoding = locale.getdefaultlocale()
     language = gettext.translation(APP, LANGDIR, [current_locale])
