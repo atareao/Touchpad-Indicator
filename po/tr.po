@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: touchpad-indicator 1.9.9\n"
+"Project-Id-Version: touchpad-indicator 2.0.2\n"
 "Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
-"POT-Creation-Date: 2018-03-17 11:06+0100\n"
+"POT-Creation-Date: 2018-03-24 07:48+0100\n"
 "PO-Revision-Date: 2014-04-19 21:23+0000\n"
 "Last-Translator: Volkan Gezer <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -18,59 +18,59 @@ msgstr ""
 "X-Generator: Launchpad (build 17196)\n"
 "X-Launchpad-Export-Date: 2014-09-18 20:01+0000\n"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:89
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:481
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:95
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:508
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:113
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:119
 msgid "Shortcut"
 msgstr "Kısayol"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:125
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:131
 msgid "Shortcut enabled"
 msgstr "Kısayol etkin"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:150
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:156
 msgid "Actions"
 msgstr "Eylemler"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:162
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:168
 msgid "Disable touchpad when mouse plugged"
 msgstr "Fare takıldığı zaman imleçsüreri devredışı bırak"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:168
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:176
 #, fuzzy
 msgid "On Touchpad Indicator starts:"
 msgstr "Touchpad-Indicator"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:174
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:191
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:182
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:199
 msgid "None"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:178
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:195
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:186
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:203
 #, fuzzy
 msgid "Enable touchpad"
 msgstr "İmleçsüreri Etkinleştir"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:182
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:199
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:190
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:207
 #, fuzzy
 msgid "Disable touchpad"
 msgstr "İmleçsüreri Devredışı Bırak"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:185
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:193
 #, fuzzy
 msgid "On Touchpad Indicator ends:"
 msgstr "Touchpad-Indicator"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:203
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:211
 msgid "Disable touchpad on typing"
 msgstr "Yazarken dokunmatik pad'i devre dışı bırak"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:207
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:215
 #, fuzzy
 msgid ""
 "Milliseconds to wait after the last key\n"
@@ -79,96 +79,96 @@ msgstr ""
 "Dokunmatik pad'i etkinleştirmeden önce son tuştan sonra beklenmesi gereken "
 "süre"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:218
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:226
 msgid "General options"
 msgstr "Genel seçenekler"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:230
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:238
 msgid "Autostart"
 msgstr "Otomatik Başlat"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:236
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:246
 msgid "Start hidden"
 msgstr "Gizli başlat"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:240
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:250
 msgid "Show notifications"
 msgstr "Bildirimleri göster"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:246
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:256
 msgid "Touchpad configuration"
 msgstr "Dokunmatik pad yapılandırması"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:258
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:268
 #, fuzzy
 msgid "Natural scrolling?"
 msgstr "Doğal kaydırma"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:268
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:302
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:331
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:280
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:326
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:361
 #, fuzzy
 msgid "Touchpad speed?"
 msgstr "İmleçsürer Devredışı"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:277
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:312
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:289
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:336
 #, fuzzy
 msgid "Two finger scolling?"
 msgstr "İki parmal ile dikey kaydırma"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:282
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:320
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:297
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:347
 #, fuzzy
 msgid "Edge scolling?"
 msgstr "Doğal kaydırma"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:287
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:305
 #, fuzzy
 msgid "Circular scolling?"
 msgstr "Dairesel kaydırma"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:292
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:313
 msgid "Driver: Synaptics"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:297
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:318
 msgid "Tapping?"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:327
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:357
 msgid "Driver: Libinput"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:340
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:370
 msgid "Driver: Evdev"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:345
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:375
 msgid "Theme"
 msgstr "Tema"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:357
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:387
 msgid "Select theme"
 msgstr "Tema seç"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:469
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:499
 #, fuzzy
 msgid "This shortcut <Control> + <Alt> +"
 msgstr "Bu kısayol <Ctrl> + <Alt> + "
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:470
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:472
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:500
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:502
 msgid " is assigned"
 msgstr " atandı"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:471
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:501
 msgid "This shortcut <Control> + <Alt> + "
 msgstr "Bu kısayol <Ctrl> + <Alt> + "
 
 #: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:151
 #: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:164
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:471
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:498
 msgid "Disable Touchpad"
 msgstr "İmleçsüreri Devredışı Bırak"
 
@@ -177,79 +177,83 @@ msgstr "İmleçsüreri Devredışı Bırak"
 msgid "Enable Touchpad"
 msgstr "İmleçsüreri Etkinleştir"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:211
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:212
 msgid "Touchpad Enabled"
 msgstr "İmleçsürer Etkin"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:216
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:217
 msgid "Touchpad Disabled"
 msgstr "İmleçsürer Devredışı"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:401
-msgid "Homepage..."
-msgstr "Anasayfa..."
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:416
+#, fuzzy
+msgid "Project page"
+msgstr "Ana Sayfa"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:406
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:421
 msgid "Get help online..."
 msgstr "Çevrimiçi yardım alın..."
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:411
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:426
 msgid "Translate this application..."
 msgstr "Bu uygulamayı tercüme et..."
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:416
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:431
 msgid "Report a bug..."
 msgstr "Bir hata bildir...."
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:422
-msgid "Homepage"
-msgstr "Ana Sayfa"
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:437
+msgid "El atareao"
+msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:427
-msgid "Follow us in Twitter"
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:442
+#, fuzzy
+msgid "Follow me in Twitter"
 msgstr "Bizi Twitter'dan takip edin..."
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:432
-msgid "Follow us in Google+"
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:447
+#, fuzzy
+msgid "Follow me in Google+"
 msgstr "Bizi Google+ üzerinden takip edin..."
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:437
-msgid "Follow us in Facebook"
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:452
+#, fuzzy
+msgid "Follow me in Facebook"
 msgstr "Bizi Facebook üzerinden takip edin..."
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:458
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:485
 msgid "About"
 msgstr "Hakkında"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:476
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:503
 msgid "Hide icon"
 msgstr "Simgeyi gizle"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:487
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:514
 msgid "Help"
 msgstr "Yardım"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:492
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:519
 msgid "Exit"
 msgstr "Çıkış"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:507
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:534
 msgid "An indicator for the Touchpad"
 msgstr "İmleçsürer için bir işaret"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:635
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:662
 msgid "usage: %prog [options]"
 msgstr "kullanım: %prog [seçenekler]"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:641
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:668
 msgid "show this help and exit."
 msgstr "bu yardımı göster ve çık"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:646
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:673
 msgid "change the touchpad state. If indicator is not running launch it."
 msgstr "eğer işaretçi bunu başlatamazsa, imleçsürer durumunu değiştir"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:652
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:679
 msgid ""
 "show the icon if indicator is hidden. Default action. If indicator is not "
 "running launch it."
@@ -257,9 +261,12 @@ msgstr ""
 "eğer işaretçi bunu başlatamazsa, işaretçi gizlendiği zaman simgeyi göster. "
 "Varsayılan eylem"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:658
+#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:685
 msgid "list devices"
 msgstr "aygıtları listele"
+
+#~ msgid "Homepage..."
+#~ msgstr "Anasayfa..."
 
 #, fuzzy
 #~ msgid "On Slimbook Touchpad starts:"

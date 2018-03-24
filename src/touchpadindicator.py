@@ -412,51 +412,63 @@ class TouchpadIndicator(dbus.service.Object):
     def get_help_menu(self):
         help_menu = Gtk.Menu()
         #
-        add2menu(help_menu,
-                 text=_('Homepage...'),
-                 conector_event='activate',
-                 conector_action=lambda x: webbrowser.open('\
-https://www.atareao.es'))
-        add2menu(help_menu,
-                 text=_('Get help online...'),
-                 conector_event='activate',
-                 conector_action=lambda x: webbrowser.open('\
+        github = add2menu(help_menu,
+                          text=_('Project page'),
+                          conector_event='activate',
+                          conector_action=lambda x: webbrowser.open('\
+https://github.com/atareao/Touchpad-Indicator'))
+        help = add2menu(help_menu,
+                        text=_('Get help online...'),
+                        conector_event='activate',
+                        conector_action=lambda x: webbrowser.open('\
 https://www.atareao.es/aplicacion/touchpad-indicator-para-ubuntu/'))
-        add2menu(help_menu,
-                 text=_('Translate this application...'),
-                 conector_event='activate',
-                 conector_action=lambda x: webbrowser.open('\
+        translate = add2menu(help_menu,
+                             text=_('Translate this application...'),
+                             conector_event='activate',
+                             conector_action=lambda x: webbrowser.open('\
 https://translations.launchpad.net/touchpad-indicator'))
-        add2menu(help_menu,
-                 text=_('Report a bug...'),
-                 conector_event='activate',
-                 conector_action=lambda x: webbrowser.open('\
+        bug = add2menu(help_menu,
+                       text=_('Report a bug...'),
+                       conector_event='activate',
+                       conector_action=lambda x: webbrowser.open('\
 https://github.com/atareao/Touchpad-Indicator/issues'))
         add2menu(help_menu)
         web = add2menu(help_menu,
-                       text=_('Homepage'),
+                       text=_('El atareao'),
                        conector_event='activate',
                        conector_action=lambda x: webbrowser.open('\
-https://www.atareao.es/aplicacion/touchpad-indicator-para-ubuntu/'))
+https://www.atareao.es'))
         twitter = add2menu(help_menu,
-                           text=_('Follow us in Twitter'),
+                           text=_('Follow me in Twitter'),
                            conector_event='activate',
                            conector_action=lambda x: webbrowser.open('\
 https://twitter.com/atareao'))
         googleplus = add2menu(help_menu,
-                              text=_('Follow us in Google+'),
+                              text=_('Follow me in Google+'),
                               conector_event='activate',
                               conector_action=lambda x: webbrowser.open('\
 https://plus.google.com/118214486317320563625/posts'))
         facebook = add2menu(help_menu,
-                            text=_('Follow us in Facebook'),
+                            text=_('Follow me in Facebook'),
                             conector_event='activate',
                             conector_action=lambda x: webbrowser.open('\
 http://www.facebook.com/elatareao'))
         add2menu(help_menu)
         #
+        github.set_image(Gtk.Image.new_from_file(
+            os.path.join(comun.ICONDIR, 'github.svg')))
+        github.set_always_show_image(True)
+        help.set_image(Gtk.Image.new_from_file(
+            os.path.join(comun.ICONDIR, 'help.svg')))
+        help.set_always_show_image(True)
+        translate.set_image(Gtk.Image.new_from_file(
+            os.path.join(comun.ICONDIR, 'translate.svg')))
+        translate.set_always_show_image(True)
+        bug.set_image(Gtk.Image.new_from_file(
+            os.path.join(comun.ICONDIR, 'bug.svg')))
+        bug.set_always_show_image(True)
         web.set_image(Gtk.Image.new_from_file(
-            os.path.join(comun.ICONDIR, 'touchpad-indicator.svg')))
+            os.path.join(comun.ICONDIR, 'web.svg')))
         web.set_always_show_image(True)
         twitter.set_image(Gtk.Image.new_from_file(os.path.join(
             comun.ICONDIR, 'twitter.svg')))
