@@ -684,12 +684,12 @@ touchpad-indicator')
         configuration.save()
         desktop_environment = get_desktop_environment()
 
-        self.ctrl.set_active(True)
-        self.alt.set_active(True)
+        if desktop_environment in ['gnome', 'unity', 'cinnamon', 'mate']:
+            self.ctrl.set_active(True)
+            self.alt.set_active(True)
 
         print(desktop_environment)
-        if desktop_environment == 'gnome' or\
-                desktop_environment == 'unity':
+        if desktop_environment in ['gnome', 'unity']:
             dcm = DConfManager('org.gnome.settings-daemon.plugins.media-keys.\
 custom-keybindings.touchpad-indicator')
             if self.checkbutton0.get_active() and\
