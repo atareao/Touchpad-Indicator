@@ -263,7 +263,7 @@ msgstr "eszközök listázása"
 #~ msgstr "Honlap..."
 
 #, fuzzy
-#~ msgid "On Slimbook Touchpad starts:"
+#~ msgid "On Touchpad Indicator starts:"
 #~ msgstr "Érintőtábla engedélyezése induláskor"
 
 #~ msgid "Enable touchpad on exit"

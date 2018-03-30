@@ -150,7 +150,7 @@ if __name__ == '__main__':
         xfceconf = XFCEConfiguration('xfce4-keyboard-shortcuts')
         akeys = xfceconf.search_for_value_in_properties_startswith(
             '/commands/custom/',
-            '/usr/share/slimbooktouchpad/change_touchpad_state.py')
+            '/usr/share/touchpad-indicator/change_touchpad_state.py')
         print('akeys: ' + str(akeys))
         if akeys:
             for akey in akeys:
@@ -161,5 +161,5 @@ if __name__ == '__main__':
             print(key)
             print(xfceconf.set_property(
                 '/commands/custom/' + key,
-                '/usr/share/slimbooktouchpad/change_touchpad_state.py'))
+                '/usr/share/touchpad-indicator/change_touchpad_state.py'))
     exit(0)

@@ -78,14 +78,6 @@ class DConfManager(object):
 
 
 if __name__ == '__main__':
-    '''
-    dcm = DConfManager('org.cinnamon.desktop.keybindings')
-    values = dcm.get_value('custom-list')
-    values.append('slimbook-touchpad')
-    print(values, type(values))
-    print(dcm.set_value('custom-list',
-                        ['custom0']))
-    '''
     dcm = DConfManager('org.mate.SettingsDaemon.plugins.media-keys')
     for key in dcm.get_keys():
         print(key, dcm.get_value(key))
@@ -93,9 +85,4 @@ if __name__ == '__main__':
     print('action', dcm.get_value('action'))
     print('binding', dcm.get_value('binding'))
     print('name', dcm.get_value('name'))
-    # values = dcm.get_value('binding')
-    # print(values)
-    # print(dcm.set_value('binding', ['<Control><Alt>']))
-    # print(dcm.set_value('command', ''))
-    # print(dcm.set_value('binding', '<Control><Alt>m'))
-    # print(dcm.set_value('command', '/usr/bin/python3 /usr/share/slimbook-touchpad/change_touchpad_state.py'))
+    

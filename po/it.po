@@ -259,7 +259,7 @@ msgstr "elenca i dispositivi"
 #~ msgstr "Sito web..."
 
 #, fuzzy
-#~ msgid "On Slimbook Touchpad starts:"
+#~ msgid "On Touchpad Indicator starts:"
 #~ msgstr "Abilita il touchpad al log in"
 
 #~ msgid "Enable touchpad on exit"

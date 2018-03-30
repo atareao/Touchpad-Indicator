@@ -261,7 +261,7 @@ msgstr "zoznam zariadený"
 #~ msgstr "Domovská stránka..."
 
 #, fuzzy
-#~ msgid "On Slimbook Touchpad starts:"
+#~ msgid "On Touchpad Indicator starts:"
 #~ msgstr "Aktivovať touchpad pri štarte"
 
 #~ msgid "Enable touchpad on exit"

@@ -271,7 +271,7 @@ msgstr "Geräte auflisten"
 #~ msgstr "Internetseite …"
 
 #, fuzzy
-#~ msgid "On Slimbook Touchpad starts:"
+#~ msgid "On Touchpad Indicator starts:"
 #~ msgstr "Touchpad beim Starten aktivieren"
 
 #~ msgid "Enable touchpad on exit"

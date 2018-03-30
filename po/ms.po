@@ -258,7 +258,7 @@ msgstr "senari peranti"
 #~ msgstr "Laman Sesawang..."
 
 #, fuzzy
-#~ msgid "On Slimbook Touchpad starts:"
+#~ msgid "On Touchpad Indicator starts:"
 #~ msgstr "Benarkan pad sesentuh bila mula"
 
 #~ msgid "Enable touchpad on exit"

@@ -269,7 +269,7 @@ msgstr "listaa laitteet"
 #~ msgstr "Verkkosivu..."
 
 #, fuzzy
-#~ msgid "On Slimbook Touchpad starts:"
+#~ msgid "On Touchpad Indicator starts:"
 #~ msgstr "Aktivoi kosketuslevy käynnistyksessä"
 
 #~ msgid "Enable touchpad on exit"

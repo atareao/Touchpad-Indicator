@@ -269,7 +269,7 @@ msgstr "liste des périphériques"
 #~ msgstr "Page d'accueil..."
 
 #, fuzzy
-#~ msgid "On Slimbook Touchpad starts:"
+#~ msgid "On Touchpad Indicator starts:"
 #~ msgstr "Activer le touchpad au démarrage"
 
 #~ msgid "Enable touchpad on exit"

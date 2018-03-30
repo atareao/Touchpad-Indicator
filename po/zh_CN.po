@@ -260,7 +260,7 @@ msgstr "列出设备"
 #~ msgstr "项目主页"
 
 #, fuzzy
-#~ msgid "On Slimbook Touchpad starts:"
+#~ msgid "On Touchpad Indicator starts:"
 #~ msgstr "启动时启用触摸板"
 
 #~ msgid "Enable touchpad on exit"
