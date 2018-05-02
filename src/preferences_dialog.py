@@ -221,7 +221,7 @@ after the last key\npress before enabling the touchpad') + ':')
         #
         self.interval = Gtk.SpinButton()
         self.interval.set_adjustment(
-            Gtk.Adjustment(500, 300, 10000, 100, 1000, 0))
+            Gtk.Adjustment(500, 10, 10000, 100, 1000, 0))
         grid2.attach(self.interval, 1, 6, 1, 1)
 
         vbox3 = Gtk.VBox(spacing=5)
