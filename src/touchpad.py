@@ -27,7 +27,7 @@ import time
 
 TOUCHPADS = ['touchpad', 'glidepoint', 'fingersensingpad', 'bcm5974',
              'dll0665', 'dll05e3', 'cyps/2', 'alpsps/2', 'imexps/2',
-             'synaptics', 'elantech', 'imps/2']
+             'synaptics', 'elantech', 'imps/2', 'dll07a8']
 
 SYNAPTICS = 0
 LIBINPUT = 1
@@ -172,6 +172,97 @@ class Touchpad(object):
         regex = r'tapping\s*enabled\s*\(\d*\):.*'
         matches = re.search(regex, test_str)
         return matches is not None
+
+    def get_capabilities(self):
+        ids = self._get_ids()
+        if len(ids) > 0:
+            return self._get_capabilities(ids[0])
+        return {'phisical-left_button': False,
+                'phisical-middle_button': False,
+                'phisical-right_button': False,
+                'two-finger-detection': False,
+                'three-finger-detection': False,
+                'vertical-resolution-configurable': False,
+                'horizontal-resolution-configurable': False}
+
+    def _get_capabilities(self, id):
+        ans = {'phisical-left_button': False,
+               'phisical-middle_button': False,
+               'phisical-right_button': False,
+               'two-finger-detection': False,
+               'three-finger-detection': False,
+               'vertical-resolution-configurable': False,
+               'horizontal-resolution-configurable': False}
+        test_str = run('xinput --list-props %s' % (id)).lower()
+        regex = r'synaptics\scapabilities\s\(\d*\):\s*(\d),\s*(\d),\s*(\d),\s*(\d),\s*(\d),\s*(\d),\s*(\d)'
+        values = re.findall(regex, test_str)
+        if len(values) > 0:
+            ans['phisical-left-button'] = (values[0][0] == '1')
+            ans['phisical-middle-button'] = (values[0][1] == '1')
+            ans['phisical-right-button'] = (values[0][2] == '1')
+            ans['two-finger-detection'] = (values[0][3] == '1')
+            ans['three-finger-detection'] = (values[0][4] == '1')
+            ans['vertical-resolution-configurable'] = (values[0][5] == '1')
+            ans['horizontal-resolution-configurable'] = (values[0][6] == '1')
+        return ans
+
+    def get_tap_configuration(self):
+        ids = self._get_ids()
+        if len(ids) > 0:
+            return self._get_tap_configuration(ids[0])
+        return {'phisical-left-button': 0,
+                'phisical-middle-button': 0,
+                'phisical-right-button': 0,
+                'two-finger-detection': 0,
+                'three-finger-detection': 0,
+                'vertical-resolution-configurable': 0,
+                'horizontal-resolution-configurable': 0}
+
+    def _get_tap_configuration(self, id):
+        """0 - disable, 1 - left button, 2 - middle button, 3 - right button"""
+        ans = {'right-top-corner': 0,
+               'right-bottom-corner': 0,
+               'left-top-corner': 0,
+               'left-bottom-corner': 0,
+               'one-finger-tap': 0,
+               'two-finger-tap': 0,
+               'three-finger-tap': 0}
+        test_str = run('xinput --list-props %s' % (id)).lower()
+        regex = r'synaptics\s*tap\s*action\s*\(\d*\):\s*(\d),\s*(\d),\s*(\d),\s*(\d),\s*(\d),\s*(\d),\s*(\d)'
+        values = re.findall(regex, test_str)
+        if len(values) > 0:
+            ans['right-top-corner'] = int(values[0][0])
+            ans['right-bottom-corner'] = int(values[0][1])
+            ans['left-top-corner'] = int(values[0][2])
+            ans['left-bottom-corner'] = int(values[0][3])
+            ans['one-finger-tap'] = int(values[0][4])
+            ans['two-finger-tap'] = int(values[0][5])
+            ans['three-finger-tap'] = int(values[0][6])
+        return ans
+
+    def _set_tap_configuration(self, id, configuration):
+        test_str = run('xinput --list-props %s' % (id)).lower()
+        regex = r'synaptics\s*tap\s*action\s*\((\d*)\):\s*\d,\s*\d,\s*\d,\s*\d,\s*\d,\s*\d,\s*\d'
+        values = re.findall(regex, test_str.lower())
+        if len(values) > 0:
+            prop = values[0]
+            run('\
+xinput --set-prop {0} {1} {2}, {3}, {4}, {5}, {6}, {7}, {8}'.format(id, prop,
+                configuration['right-top-corner'],  # 2
+                configuration['right-bottom-corner'],  # 3
+                configuration['left-top-corner'],  # 4
+                configuration['left-bottom-corner'],  # 5
+                configuration['one-finger-tap'],  # 6
+                configuration['two-finger-tap'],  # 7
+                configuration['three-finger-tap']))
+            return True
+        return False
+
+    def set_tap_configuration(self, configuration):
+        ans = True
+        for id in self._get_ids():
+            ans = self._set_tap_configuration(id, configuration)
+        return ans
 
     def get_tapping(self):
         ids = self._get_ids()

@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: touchpad-indicator 2.0.2\n"
-"Report-Msgid-Bugs-To: lorenzo.carbonell.cerezo@gmail.com\n"
-"POT-Creation-Date: 2018-03-24 07:48+0100\n"
+"Project-Id-Version: touchpad-indicator 2.0.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-06 11:49+0200\n"
 "PO-Revision-Date: 2011-10-15 06:00+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
@@ -18,234 +18,285 @@ msgstr ""
 "X-Generator: Launchpad (build 17196)\n"
 "X-Launchpad-Export-Date: 2014-09-18 20:01+0000\n"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:95
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:508
+#: src/preferences_dialog.py:112 src/touchpadindicator.py:520
 msgid "Preferences"
 msgstr "Nustatymai"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:119
+#: src/preferences_dialog.py:136
 msgid "Shortcut"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:131
+#: src/preferences_dialog.py:148
 msgid "Shortcut enabled"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:156
+#: src/preferences_dialog.py:173
 msgid "Actions"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:168
+#: src/preferences_dialog.py:185
 msgid "Disable touchpad when mouse plugged"
 msgstr "Išjungti jutiklinį kilimėlį (touchpad) prijungus pelę"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:176
+#: src/preferences_dialog.py:193
 msgid "On Touchpad Indicator starts:"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:182
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:199
+#: src/preferences_dialog.py:199 src/preferences_dialog.py:216
 msgid "None"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:186
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:203
+#: src/preferences_dialog.py:203 src/preferences_dialog.py:220
 #, fuzzy
 msgid "Enable touchpad"
 msgstr "Įjungti jutiklinį kilimėlį (touchpad)"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:190
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:207
+#: src/preferences_dialog.py:207 src/preferences_dialog.py:224
 #, fuzzy
 msgid "Disable touchpad"
 msgstr "Išjungti jutiklinį kilimėlį (touchpad)"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:193
+#: src/preferences_dialog.py:210
 #, fuzzy
 msgid "On Touchpad Indicator ends:"
 msgstr "Įjungtas jutiklinis kilimėlis (touchpad)"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:211
+#: src/preferences_dialog.py:228
 msgid "Disable touchpad on typing"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:215
+#: src/preferences_dialog.py:232
 msgid ""
 "Milliseconds to wait after the last key\n"
 "press before enabling the touchpad"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:226
+#: src/preferences_dialog.py:243
 msgid "General options"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:238
+#: src/preferences_dialog.py:255
 msgid "Autostart"
 msgstr "Automatinis pasileidimas"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:246
+#: src/preferences_dialog.py:263
 msgid "Start hidden"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:250
+#: src/preferences_dialog.py:267
 msgid "Show notifications"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:256
+#: src/preferences_dialog.py:273
 msgid "Touchpad configuration"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:268
+#: src/preferences_dialog.py:285
 msgid "Natural scrolling?"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:280
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:326
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:361
+#: src/preferences_dialog.py:297 src/preferences_dialog.py:469
+#: src/preferences_dialog.py:504
 #, fuzzy
 msgid "Touchpad speed?"
 msgstr "Išjungtas jutiklinis kilimėlis (touchpad)"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:289
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:336
+#: src/preferences_dialog.py:305 src/preferences_dialog.py:479
 msgid "Two finger scolling?"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:297
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:347
+#: src/preferences_dialog.py:313 src/preferences_dialog.py:490
 msgid "Edge scolling?"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:305
+#: src/preferences_dialog.py:321
 msgid "Circular scolling?"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:313
+#: src/preferences_dialog.py:330
+msgid "Simulation"
+msgstr ""
+
+#: src/preferences_dialog.py:334
+msgid "Right top corner"
+msgstr ""
+
+#: src/preferences_dialog.py:339 src/preferences_dialog.py:356
+#: src/preferences_dialog.py:373 src/preferences_dialog.py:390
+#: src/preferences_dialog.py:407 src/preferences_dialog.py:425
+#: src/preferences_dialog.py:443
+#, fuzzy
+msgid "Disable"
+msgstr "Išjungti jutiklinį kilimėlį (touchpad)"
+
+#: src/preferences_dialog.py:340 src/preferences_dialog.py:357
+#: src/preferences_dialog.py:374 src/preferences_dialog.py:391
+#: src/preferences_dialog.py:408 src/preferences_dialog.py:426
+#: src/preferences_dialog.py:444
+msgid "Left button"
+msgstr ""
+
+#: src/preferences_dialog.py:341 src/preferences_dialog.py:358
+#: src/preferences_dialog.py:375 src/preferences_dialog.py:392
+#: src/preferences_dialog.py:409 src/preferences_dialog.py:427
+#: src/preferences_dialog.py:445
+msgid "Middle button"
+msgstr ""
+
+#: src/preferences_dialog.py:342 src/preferences_dialog.py:359
+#: src/preferences_dialog.py:376 src/preferences_dialog.py:393
+#: src/preferences_dialog.py:410 src/preferences_dialog.py:428
+#: src/preferences_dialog.py:446
+msgid "Right button"
+msgstr ""
+
+#: src/preferences_dialog.py:351
+msgid "Right bottom corner"
+msgstr ""
+
+#: src/preferences_dialog.py:368
+msgid "Left top corner"
+msgstr ""
+
+#: src/preferences_dialog.py:385
+msgid "Left bottom corner"
+msgstr ""
+
+#: src/preferences_dialog.py:402
+msgid "One finger tap"
+msgstr ""
+
+#: src/preferences_dialog.py:420
+msgid "Two finger tap"
+msgstr ""
+
+#: src/preferences_dialog.py:438
+msgid "Three finger tap"
+msgstr ""
+
+#: src/preferences_dialog.py:456
 msgid "Driver: Synaptics"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:318
+#: src/preferences_dialog.py:461
 msgid "Tapping?"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:357
+#: src/preferences_dialog.py:500
 msgid "Driver: Libinput"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:370
+#: src/preferences_dialog.py:513
 msgid "Driver: Evdev"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:375
+#: src/preferences_dialog.py:518
 msgid "Theme"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:387
+#: src/preferences_dialog.py:530
 msgid "Select theme"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:499
+#: src/preferences_dialog.py:642
 msgid "This shortcut <Control> + <Alt> +"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:500
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:502
+#: src/preferences_dialog.py:643 src/preferences_dialog.py:645
 msgid " is assigned"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/preferences_dialog.py:501
+#: src/preferences_dialog.py:644
 msgid "This shortcut <Control> + <Alt> + "
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:151
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:164
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:498
+#: src/touchpadindicator.py:153 src/touchpadindicator.py:166
+#: src/touchpadindicator.py:510
 msgid "Disable Touchpad"
 msgstr "Išjungti jutiklinį kilimėlį (touchpad)"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:182
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:195
+#: src/touchpadindicator.py:184 src/touchpadindicator.py:197
 msgid "Enable Touchpad"
 msgstr "Įjungti jutiklinį kilimėlį (touchpad)"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:212
+#: src/touchpadindicator.py:214
 msgid "Touchpad Enabled"
 msgstr "Įjungtas jutiklinis kilimėlis (touchpad)"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:217
+#: src/touchpadindicator.py:219
 msgid "Touchpad Disabled"
 msgstr "Išjungtas jutiklinis kilimėlis (touchpad)"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:416
+#: src/touchpadindicator.py:428
 msgid "Project page"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:421
+#: src/touchpadindicator.py:433
 msgid "Get help online..."
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:426
+#: src/touchpadindicator.py:438
 msgid "Translate this application..."
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:431
+#: src/touchpadindicator.py:443
 msgid "Report a bug..."
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:437
+#: src/touchpadindicator.py:449
 msgid "El atareao"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:442
+#: src/touchpadindicator.py:454
 msgid "Follow me in Twitter"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:447
+#: src/touchpadindicator.py:459
 msgid "Follow me in Google+"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:452
+#: src/touchpadindicator.py:464
 msgid "Follow me in Facebook"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:485
+#: src/touchpadindicator.py:497
 msgid "About"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:503
+#: src/touchpadindicator.py:515
 msgid "Hide icon"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:514
+#: src/touchpadindicator.py:526
 msgid "Help"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:519
+#: src/touchpadindicator.py:531
 msgid "Exit"
 msgstr "Baigti"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:534
+#: src/touchpadindicator.py:546
 msgid "An indicator for the Touchpad"
 msgstr "Jutiklinio kilimėlio (touchpad) indikatorius"
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:662
+#: src/touchpadindicator.py:679
 msgid "usage: %prog [options]"
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:668
+#: src/touchpadindicator.py:685
 msgid "show this help and exit."
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:673
+#: src/touchpadindicator.py:690
 msgid "change the touchpad state. If indicator is not running launch it."
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:679
+#: src/touchpadindicator.py:696
 msgid ""
 "show the icon if indicator is hidden. Default action. If indicator is not "
 "running launch it."
 msgstr ""
 
-#: /datos/Sync/Programacion/Python/touchpad-indicator/src/touchpadindicator.py:685
+#: src/touchpadindicator.py:702
 msgid "list devices"
 msgstr ""

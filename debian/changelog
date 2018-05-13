@@ -1,11 +1,24 @@
-touchpad-indicator (2.0.4-0extras18.04.0) xenial; urgency=medium
+touchpad-indicator (2.1.1-0extras18.04.0) xenial; urgency=medium
+
+  * Fixed bug # 12 - https://github.com/atareao/Touchpad-Indicator/issues/12
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Fri, 06 Apr 2018 19:05:31 +0200
+
+touchpad-indicator (2.1.0-0extras18.04.2) xenial; urgency=medium
+
+  * Corner and tapping simulation configurate
+  * Not disable on typing when Control keys pressed
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Fri, 06 Apr 2018 12:47:38 +0200
+
+touchpad-indicator (2.0.4-0extras18.04.3) xenial; urgency=medium
 
   * On scroll event over indicator up->on, down->off
   * Threading to read preferences
   * Bug #1758520
   * Slimbook bug fixed
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Fri, 30 Mar 2018 07:42:03 +0200
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Fri, 30 Mar 2018 09:01:38 +0200
 
 touchpad-indicator (2.0.0-0extras18.04.6) xenial; urgency=medium
 

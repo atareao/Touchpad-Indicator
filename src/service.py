@@ -69,4 +69,4 @@ class Service(threading.Thread):
 
     def handle_event(self, keypress, keysym, raw_key, modifiers):
         if keypress:
-            self.interface.emit_event()
+            self.interface.emit_event(keypress, keysym, raw_key, modifiers)

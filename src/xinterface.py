@@ -231,8 +231,8 @@ class Interface():
                              self.active_window_class,
                              self.active_window_title)
 
-    def emit_event(self):
-        self.callback()
+    def emit_event(self, keypress, keysym, raw_key, modifiers):
+        self.callback(keypress, keysym, raw_key, modifiers)
 
     def handle_key_event(self, type, keycode, state, window_class,
                          window_title):
@@ -356,6 +356,7 @@ class Interface():
                                        same_screen=1)
         self.static_window.send_event(key_release)
 
+
 def get_window_class(window):
     if type(window) == int:
         return '.'
@@ -363,7 +364,6 @@ def get_window_class(window):
     if (wm_class is None or wm_class == ''):
         return get_window_class(window.query_tree().parent)
     return '{0}.{1}'.format(wm_class[0], wm_class[1])
-
 
 
 if __name__ == '__main__':
@@ -375,4 +375,5 @@ if __name__ == '__main__':
     # Get all windows?
     windows = display.Display().screen().root.query_tree().children
     # Print WM_CLASS properties of all windows.
-    for w in windows: print(get_window_class(w))
+    for w in windows:
+        print(get_window_class(w))

@@ -370,6 +370,16 @@ class TouchpadIndicator(dbus.service.Object):
                 configuration.get('edge_scrolling'))
             self.touchpad.set_circular_scrolling(
                 configuration.get('cicular_scrolling'))
+            tap_configuration = {
+                'right-top-corner': configuration.get('right-top-corner'),
+                'right-bottom-corner': configuration.get(
+                    'right-bottom-corner'),
+                'left-top-corner': configuration.get('left-top-corner'),
+                'left-bottom-corner': configuration.get('left-bottom-corner'),
+                'one-finger-tap': configuration.get('one-finger-tap'),
+                'two-finger-tap': configuration.get('two-finger-tap'),
+                'three-finger-tap': configuration.get('three-finger-tap')}
+            self.touchpad.set_tap_configuration(tap_configuration)
         elif tipo == EVDEV:
             pass
         self.disable_on_typing = configuration.get('disable_on_typing')

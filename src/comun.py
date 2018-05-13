@@ -55,7 +55,14 @@ PARAMS = {
     'tapping': True,
     'two_finger_scrolling': True,
     'edge_scrolling': False,
-    'cicular_scrolling': True
+    'cicular_scrolling': True,
+    'right-top-corner': 0,
+    'right-bottom-corner': 0,
+    'left-top-corner': 0,
+    'left-bottom-corner': 0,
+    'one-finger-tap': 0,
+    'two-finger-tap': 0,
+    'three-finger-tap': 0
 }
 
 # check if running from source

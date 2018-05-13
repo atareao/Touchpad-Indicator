@@ -39,6 +39,20 @@ import comun
 from comun import _
 
 
+def select_value_in_combo(combo, value):
+    model = combo.get_model()
+    for i, item in enumerate(model):
+        if value == item[1]:
+            combo.set_active(i)
+            return
+    combo.set_active(0)
+
+
+def get_selected_value_in_combo(combo):
+    model = combo.get_model()
+    return model.get_value(combo.get_active_iter(), 1)
+
+
 def set_autostart(autostart):
     if os.path.exists(comun.FILE_AUTO_START) and\
             not os.path.islink(comun.FILE_AUTO_START):
@@ -284,11 +298,10 @@ after the last key\npress before enabling the touchpad') + ':')
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 1, 1, 1)
                 self.speed = Gtk.Scale()
-                self.speed.set_size_request(300, 0)
                 self.speed.set_digits(0)
                 self.speed.set_adjustment(
                     Gtk.Adjustment(0, -100, 100, 1, 10, 0))
-                grid4.attach(self.speed, 1, 1, 1, 1)
+                grid4.attach(self.speed, 1, 1, 2, 1)
                 label = Gtk.Label(_('Two finger scolling?'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 2, 1, 1)
@@ -313,9 +326,138 @@ after the last key\npress before enabling the touchpad') + ':')
                 cicular_scrollingbox.pack_start(
                     self.cicular_scrolling, False, False, 0)
                 grid4.attach(cicular_scrollingbox, 1, 4, 1, 1)
+
+                grid4.attach(Gtk.Separator(), 0, 5, 5, 1)
+
+                label = Gtk.Label(_('Simulation'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 6, 1, 1)
+
+                label = Gtk.Label(_('Right top corner'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 7, 1, 1)
+
+                right_top_corner_store = Gtk.ListStore(str, int)
+                right_top_corner_store.append([_('Disable'), 0])
+                right_top_corner_store.append([_('Left button'), 1])
+                right_top_corner_store.append([_('Middle button'), 2])
+                right_top_corner_store.append([_('Right button'), 3])
+
+                self.right_top_corner = Gtk.ComboBox.new()
+                self.right_top_corner.set_model(right_top_corner_store)
+                cell1 = Gtk.CellRendererText()
+                self.right_top_corner.pack_start(cell1, True)
+                self.right_top_corner.add_attribute(cell1, 'text', 0)
+                grid4.attach(self.right_top_corner, 1, 7, 1, 1)
+
+                label = Gtk.Label(_('Right bottom corner'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 2, 7, 1, 1)
+
+                right_bottom_corner_store = Gtk.ListStore(str, int)
+                right_bottom_corner_store.append([_('Disable'), 0])
+                right_bottom_corner_store.append([_('Left button'), 1])
+                right_bottom_corner_store.append([_('Middle button'), 2])
+                right_bottom_corner_store.append([_('Right button'), 3])
+
+                self.right_bottom_corner = Gtk.ComboBox.new()
+                self.right_bottom_corner.set_model(right_bottom_corner_store)
+                cell1 = Gtk.CellRendererText()
+                self.right_bottom_corner.pack_start(cell1, True)
+                self.right_bottom_corner.add_attribute(cell1, 'text', 0)
+                grid4.attach(self.right_bottom_corner, 3, 7, 1, 1)
+
+                label = Gtk.Label(_('Left top corner'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 8, 1, 1)
+
+                left_top_corner_store = Gtk.ListStore(str, int)
+                left_top_corner_store.append([_('Disable'), 0])
+                left_top_corner_store.append([_('Left button'), 1])
+                left_top_corner_store.append([_('Middle button'), 2])
+                left_top_corner_store.append([_('Right button'), 3])
+
+                self.left_top_corner = Gtk.ComboBox.new()
+                self.left_top_corner.set_model(left_top_corner_store)
+                cell1 = Gtk.CellRendererText()
+                self.left_top_corner.pack_start(cell1, True)
+                self.left_top_corner.add_attribute(cell1, 'text', 0)
+                grid4.attach(self.left_top_corner, 1, 8, 1, 1)
+
+                label = Gtk.Label(_('Left bottom corner'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 2, 8, 1, 1)
+
+                left_bottom_corner_store = Gtk.ListStore(str, int)
+                left_bottom_corner_store.append([_('Disable'), 0])
+                left_bottom_corner_store.append([_('Left button'), 1])
+                left_bottom_corner_store.append([_('Middle button'), 2])
+                left_bottom_corner_store.append([_('Right button'), 3])
+
+                self.left_bottom_corner = Gtk.ComboBox.new()
+                self.left_bottom_corner.set_model(left_bottom_corner_store)
+                cell1 = Gtk.CellRendererText()
+                self.left_bottom_corner.pack_start(cell1, True)
+                self.left_bottom_corner.add_attribute(cell1, 'text', 0)
+                grid4.attach(self.left_bottom_corner, 3, 8, 1, 1)
+
+                label = Gtk.Label(_('One finger tap'))
+                label.set_alignment(0, 0.5)
+                grid4.attach(label, 0, 9, 1, 1)
+
+                one_finger_tap_store = Gtk.ListStore(str, int)
+                one_finger_tap_store.append([_('Disable'), 0])
+                one_finger_tap_store.append([_('Left button'), 1])
+                one_finger_tap_store.append([_('Middle button'), 2])
+                one_finger_tap_store.append([_('Right button'), 3])
+
+                self.one_finger_tap = Gtk.ComboBox.new()
+                self.one_finger_tap.set_model(one_finger_tap_store)
+                cell1 = Gtk.CellRendererText()
+                self.one_finger_tap.pack_start(cell1, True)
+                self.one_finger_tap.add_attribute(cell1, 'text', 0)
+                grid4.attach(self.one_finger_tap, 1, 9, 1, 1)
+
+                if tp.get_capabilities()['two-finger-detection'] is True:
+                    label = Gtk.Label(_('Two finger tap'))
+                    label.set_alignment(0, 0.5)
+                    grid4.attach(label, 0, 10, 1, 1)
+
+                    two_finger_tap_store = Gtk.ListStore(str, int)
+                    two_finger_tap_store.append([_('Disable'), 0])
+                    two_finger_tap_store.append([_('Left button'), 1])
+                    two_finger_tap_store.append([_('Middle button'), 2])
+                    two_finger_tap_store.append([_('Right button'), 3])
+
+                    self.two_finger_tap = Gtk.ComboBox.new()
+                    self.two_finger_tap.set_model(two_finger_tap_store)
+                    cell1 = Gtk.CellRendererText()
+                    self.two_finger_tap.pack_start(cell1, True)
+                    self.two_finger_tap.add_attribute(cell1, 'text', 0)
+                    grid4.attach(self.two_finger_tap, 1, 10, 1, 1)
+
+                if tp.get_capabilities()['three-finger-detection'] is True:
+                    label = Gtk.Label(_('Three finger tap'))
+                    label.set_alignment(0, 0.5)
+                    grid4.attach(label, 2, 10, 1, 1)
+
+                    three_finger_tap_store = Gtk.ListStore(str, int)
+                    three_finger_tap_store.append([_('Disable'), 0])
+                    three_finger_tap_store.append([_('Left button'), 1])
+                    three_finger_tap_store.append([_('Middle button'), 2])
+                    three_finger_tap_store.append([_('Right button'), 3])
+
+                    self.three_finger_tap = Gtk.ComboBox.new()
+                    self.three_finger_tap.set_model(three_finger_tap_store)
+                    cell1 = Gtk.CellRendererText()
+                    self.three_finger_tap.pack_start(cell1, True)
+                    self.three_finger_tap.add_attribute(cell1, 'text', 0)
+                    grid4.attach(self.three_finger_tap, 3, 10, 1, 1)
+
+                grid4.attach(Gtk.Separator(), 0, 11, 5, 1)
                 label = Gtk.Label(_('Driver: Synaptics'))
                 label.set_alignment(0, 0.5)
-                grid4.attach(label, 0, 5, 1, 1)
+                grid4.attach(label, 0, 12, 1, 1)
             elif tipo == LIBINPUT:
                 if tp.has_tapping():
                     label = Gtk.Label(_('Tapping?'))
@@ -611,6 +753,24 @@ touchpad-indicator')
                     configuration.get('edge_scrolling'))
                 self.cicular_scrolling.set_active(
                     configuration.get('cicular_scrolling'))
+                select_value_in_combo(self.right_top_corner,
+                                      configuration.get('right-top-corner'))
+                select_value_in_combo(self.right_bottom_corner,
+                                      configuration.get('right-bottom-corner'))
+                select_value_in_combo(self.left_top_corner,
+                                      configuration.get('left-top-corner'))
+                select_value_in_combo(self.left_bottom_corner,
+                                      configuration.get('left-bottom-corner'))
+                select_value_in_combo(self.one_finger_tap,
+                                      configuration.get('one-finger-tap'))
+                if tp.get_capabilities()['two-finger-detection']:
+                    select_value_in_combo(
+                        self.two_finger_tap,
+                        configuration.get('two-finger-tap'))
+                if tp.get_capabilities()['three-finger-detection']:
+                    select_value_in_combo(
+                        self.three_finger_tap,
+                        configuration.get('three-finger-tap'))
             elif tipo == LIBINPUT:
                 if tp.can_two_finger_scrolling():
                     self.two_finger_scrolling.set_active(
@@ -671,7 +831,29 @@ touchpad-indicator')
                 configuration.set(
                     'cicular_scrolling',
                     self.cicular_scrolling.get_active())
-
+                configuration.set(
+                    'right-top-corner',
+                    get_selected_value_in_combo(self.right_top_corner))
+                configuration.set(
+                    'right-bottom-corner',
+                    get_selected_value_in_combo(self.right_bottom_corner))
+                configuration.set(
+                    'left-top-corner',
+                    get_selected_value_in_combo(self.left_top_corner))
+                configuration.set(
+                    'left-bottom-corner',
+                    get_selected_value_in_combo(self.right_bottom_corner))
+                configuration.set(
+                    'one-finger-tap',
+                    get_selected_value_in_combo(self.one_finger_tap))
+                if tp.get_capabilities()['two-finger-detection']:
+                    configuration.set(
+                        'two-finger-tap',
+                        get_selected_value_in_combo(self.two_finger_tap))
+                if tp.get_capabilities()['three-finger-detection']:
+                    configuration.set(
+                        'three-finger-tap',
+                        get_selected_value_in_combo(self.three_finger_tap))
             elif tipo == LIBINPUT:
                 if tp.can_two_finger_scrolling():
                     configuration.set(

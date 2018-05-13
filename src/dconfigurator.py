@@ -85,4 +85,3 @@ if __name__ == '__main__':
     print('action', dcm.get_value('action'))
     print('binding', dcm.get_value('binding'))
     print('name', dcm.get_value('name'))
-    
