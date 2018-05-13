@@ -1,3 +1,9 @@
+touchpad-indicator (2.1.2-0extras18.04.0) bionic; urgency=medium
+
+  * Fixed bug #16 https://github.com/atareao/Touchpad-Indicator/issues/16
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 13 May 2018 22:11:25 +0200
+
 touchpad-indicator (2.1.1-0extras18.04.0) xenial; urgency=medium
 
   * Fixed bug # 12 - https://github.com/atareao/Touchpad-Indicator/issues/12
