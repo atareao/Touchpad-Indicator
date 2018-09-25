@@ -32,6 +32,7 @@ TOUCHPADS = ['touchpad', 'glidepoint', 'fingersensingpad', 'bcm5974',
 SYNAPTICS = 0
 LIBINPUT = 1
 EVDEV = 2
+UNRECOGNISED = -1
 
 TWO_FINGERS = 0
 EDGE = 1
@@ -154,11 +155,20 @@ class Touchpad(object):
                 if matches is not None:
                     if str(matches.group(0)) == 'evdev':
                         return EVDEV
-        return -1
+        return UNRECOGNISED
 
     def _get_type(self, id):
         test_str = run('xinput --list-props %s' % (id)).lower()
         return self._get_type_from_string(test_str)
+
+    def get_driver(self):
+        """
+        Return touchpad's driver
+        """
+        ids = self._get_ids()
+        if ids:
+            return self._get_type(ids[0])
+        return UNRECOGNISED
 
     def has_tapping(self):
         ids = self._get_ids()

@@ -341,7 +341,7 @@ class TouchpadIndicator(dbus.service.Object):
         self.touchpad.set_natural_scrolling_for_all(
             configuration.get('natural_scrolling'))
         self.touchpad.set_speed(configuration.get('speed') / 100.0)
-        tipo = self.touchpad._get_type(self.touchpad._get_ids()[0])
+        tipo = self.touchpad.get_driver()
         if tipo == LIBINPUT:
             if self.touchpad.has_tapping():
                 self.touchpad.set_tapping(configuration.get('tapping'))
@@ -399,9 +399,9 @@ class TouchpadIndicator(dbus.service.Object):
             self.launch_watchdog()
         # time.sleep(1)
         if self.on_mouse_plugged and is_mouse_plugged():
-                print('===', 1, '===')
-                self.set_touch_enabled(False, False)
-                self.change_state_item.set_sensitive(False)
+            print('===', 1, '===')
+            self.set_touch_enabled(False, False)
+            self.change_state_item.set_sensitive(False)
         else:
             print('===', 2, '===')
             if is_on_start is True:

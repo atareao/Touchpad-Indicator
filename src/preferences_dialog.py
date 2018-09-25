@@ -292,7 +292,7 @@ after the last key\npress before enabling the touchpad') + ':')
 
         tp = Touchpad()
         if tp.is_there_touchpad():
-            tipo = tp._get_type(tp._get_ids()[0])
+            tipo = tp.get_driver()
             if tipo == SYNAPTICS:
                 label = Gtk.Label(_('Touchpad speed?'))
                 label.set_alignment(0, 0.5)
@@ -745,7 +745,7 @@ touchpad-indicator')
         self.checkbutton46.set_active(configuration.get('natural_scrolling'))
         tp = Touchpad()
         if tp.is_there_touchpad():
-            tipo = tp._get_type(tp._get_ids()[0])
+            tipo = tp.get_driver()
             if tipo == SYNAPTICS:
                 self.two_finger_scrolling.set_active(
                     configuration.get('two_finger_scrolling'))
@@ -820,7 +820,7 @@ touchpad-indicator')
         configuration.set('natural_scrolling', self.checkbutton46.get_active())
         tp = Touchpad()
         if tp.is_there_touchpad():
-            tipo = tp._get_type(tp._get_ids()[0])
+            tipo = tp.get_driver()
             if tipo == SYNAPTICS:
                 configuration.set(
                     'two_finger_scrolling',
