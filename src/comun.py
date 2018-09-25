@@ -62,7 +62,12 @@ PARAMS = {
     'left-bottom-corner': 0,
     'one-finger-tap': 0,
     'two-finger-tap': 0,
-    'three-finger-tap': 0
+    'three-finger-tap': 0,
+    'faulty-devices' : ['11/2/a/0',  # TPPS/2 IBM TrackPoint
+                  '11/2/5/7326',  # ImPS/2 ALPS GlidePoint
+                  '11/2/1/0',
+                  '11/2/6/0', # ImExPS/2
+                  ]
 }
 
 # check if running from source
