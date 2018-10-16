@@ -29,7 +29,7 @@ if __name__ == '__main__':
         sys.path.insert(1, '/usr/share/touchpad-indicator')
     else:
         sys.path.insert(1, os.path.normpath(
-            os.path.join(os.getcwd(), '../src')))
+            os.path.join(os.path.dirname(__file__), '../src')))
     ####################################################################
     from touchpadindicator import main
     ####################################################################
