@@ -290,6 +290,8 @@ after the last key\npress before enabling the touchpad') + ':')
         checkbutton46box.pack_start(self.checkbutton46, False, False, 0)
         grid4.attach(checkbutton46box, 1, 0, 1, 1)
 
+        self.speed = None
+
         tp = Touchpad()
         if tp.is_there_touchpad():
             tipo = tp.get_driver()
@@ -780,7 +782,8 @@ touchpad-indicator')
                         configuration.get('edge_scrolling'))
                 if tp.has_tapping():
                     self.tapping.set_active(configuration.get('tapping'))
-            self.speed.set_value(configuration.get('speed'))
+            if self.speed is not None:
+                self.speed.set_value(configuration.get('speed'))
 
     def save_preferences(self):
         configuration = Configuration()
@@ -1004,7 +1007,7 @@ touchpad-indicator/change_touchpad_state.py')
 if __name__ == "__main__":
     cm = PreferencesDialog(False)
     if cm.run() == Gtk.ResponseType.ACCEPT:
-            cm.close_ok()
+        cm.close_ok()
     cm.hide()
     cm.destroy()
     exit(0)
