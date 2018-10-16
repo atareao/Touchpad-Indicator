@@ -1,3 +1,16 @@
+touchpad-indicator (2.1.3-0extras18.04.0) bionic; urgency=medium
+
+  * Merge pull request #29 from alito/includepath
+  * Merge pull request #30 from alito/configurabl
+  * Merge pull request #31 from alito/nospeedifto
+  * Merge pull request #32 from alito/guardagains
+  * Guard against missing xinput IDS
+  * Fix AttributeError when touchpad not recognis
+  * Make the list of faulty devices expandable   
+  * Change the src path added to be with respect
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 16 Oct 2018 23:35:04 +0200
+
 touchpad-indicator (2.1.2-0extras18.04.0) bionic; urgency=medium
 
   * Fixed bug #16 https://github.com/atareao/Touchpad-Indicator/issues/16
