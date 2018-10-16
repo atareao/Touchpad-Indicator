@@ -28,15 +28,11 @@ on_mouse_detected_unplugged = None
 check_status = None
 check_status_from_resume = None
 
-faulty_devices = ['11/2/a/0',  # TPPS/2 IBM TrackPoint
-                  '11/2/5/7326',  # ImPS/2 ALPS GlidePoint
-                  '11/2/1/0',
-                  '11/2/6/0']  # ImExPS/2
-
+faulty_devices = set()
 udev_context = pyudev.Context()
 
 
-def is_mouse_plugged(blacklist=faulty_devices):
+def is_mouse_plugged(blacklist=None):
     """Return True if there is any mouse connected.
     Handle timing conditions where the device disappears while checking.
     :param blacklist: list of devices to discard."""
@@ -44,7 +40,7 @@ def is_mouse_plugged(blacklist=faulty_devices):
     answer = None
     while answer is None:
         try:
-            answer = _is_mouse_plugged(blacklist)
+            answer = _is_mouse_plugged(blacklist=blacklist)
         except pyudev.device.DeviceNotFoundAtPathError as e:
             retry_count -= 1
             if retry_count == 0:
@@ -56,41 +52,50 @@ def is_mouse_plugged(blacklist=faulty_devices):
     return answer
 
 
-def _is_mouse_plugged(blacklist=faulty_devices):
+def _is_mouse_plugged(blacklist=None):
     """Return True if there is any mouse connected
        :param blacklist: list of devices to discard."""
+    return len(_get_every_mouse(blacklist=blacklist)) > 0
+    
+def _get_every_mouse(blacklist=None):
+    if blacklist is None:
+        blacklist = faulty_devices
     possible_mice = udev_context.list_devices(subsystem="input",
                                               ID_INPUT_MOUSE=True)
     mice_list = []
 
-    if blacklist is not None:
+    if blacklist:
         for mouse in possible_mice:
-            if mouse.parent is not None and 'PRODUCT' in mouse.parent.keys()\
-                    and mouse.parent['PRODUCT'] not in blacklist:
+            if mouse.parent is not None and mouse.parent.get('PRODUCT') not in blacklist \
+            and mouse.get('PRODUCT') not in blacklist:
                 mice_list.append(mouse)
     else:
         mice_list = list(possible_mice)
     print(mice_list)
-    if len(mice_list) == 0:
-        return False
-    else:
-        return True
+    return mice_list
+
+def blacklist_products(products):
+    faulty_devices.update(set(products))
+
+def blacklist_every_current_mouse():
+    current = _get_every_mouse()
+    blacklist_products([mouse.parent.get('PRODUCT') for mouse in current \
+        if mouse.parent is not None and mouse.parent.get('PRODUCT') is not None])
+    blacklist_products([mouse.get('PRODUCT') for mouse in current \
+        if mouse.get('PRODUCT') is not None])
 
 
-def is_mouse(device, blacklist=faulty_devices):
+def is_mouse(device, blacklist=None):
     """Return True if device is a mouse.
        :param device: pyudev.core.Device
        :param blacklist: list of devices to discard."""
-    if blacklist is not None:
-        try:
-            if device.parent is not None and 'PRODUCT' in device.parent.keys()\
-                    and device.parent['PRODUCT'] in blacklist:
-                return False
-            elif 'PRODUCT' in device.keys() and device['PRODUCT'] in blacklist:
-                return False
-        except KeyError:
-            # if no PRODUCT attribute, ignore the blacklist
-            pass
+
+    if blacklist is None:
+        blacklist = faulty_devices
+    if blacklist:
+        if device.parent is not None and device.parent.get('PRODUCT') in blacklist or \
+        device.get('PRODUCT') in blacklist:
+            return False
     try:
         if device.asbool("ID_INPUT_MOUSE"):
             return True
@@ -132,11 +137,6 @@ def init_dbus():
 
 def watch():
     """The watcher"""
-    global on_mouse_detected_plugged
-    global on_mouse_detected_unplugged
-    global check_status
-    global check_status_from_resume
-    global udev_context
 
     monitor = pyudev.Monitor.from_netlink(udev_context)
     # TODO: filter also by device_type, so we can get rid of is_mouse()
@@ -169,7 +169,6 @@ def watch():
                 sleep(1)
             monitor = pyudev.Monitor.from_netlink(udev_context)
             monitor.filter_by(subsystem="input", device_type=None)
-            continue
 
 
 if __name__ == "__main__":

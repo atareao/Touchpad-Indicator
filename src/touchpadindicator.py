@@ -314,6 +314,12 @@ class TouchpadIndicator(dbus.service.Object):
         self.on_start = configuration.get('on_start')
         self.on_end = configuration.get('on_end')
 
+        faulty_devices = configuration.get('faulty-devices')
+        if faulty_devices:
+            import watchdog
+            watchdog.blacklist_products(faulty_devices)
+
+
         self.ICON = comun.ICON
         self.active_icon = comun.STATUS_ICON[configuration.get('theme')][0]
         self.attention_icon = comun.STATUS_ICON[configuration.get('theme')][1]

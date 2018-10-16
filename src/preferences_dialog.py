@@ -187,7 +187,13 @@ class PreferencesDialog(Gtk.Dialog):
         grid2.attach(label, 0, 0, 1, 1)
         checkbutton2box = Gtk.HBox()
         self.checkbutton2 = Gtk.Switch()
-        checkbutton2box.pack_start(self.checkbutton2, False, False, 0)
+        checkbutton2box.pack_start(self.checkbutton2, False, False, 2)
+        these_are_not_mice_button = Gtk.Button.new_with_label(_('I declare that there are no mice plugged in'))
+        these_are_not_mice_button.set_tooltip_text(_("If Touchpad Indicator is not " \
+            "re-enabling the touchpad when you unplug your mouse, it might help to unplug all " \
+            "mice and click on this"))
+        these_are_not_mice_button.connect('clicked', self.on_invalid_mice_button)
+        checkbutton2box.pack_end(these_are_not_mice_button, True, True, 0)
         grid2.attach(checkbutton2box, 1, 0, 1, 1)
 
         label = Gtk.Label(_('On Touchpad Indicator starts:'))
@@ -592,6 +598,10 @@ after the last key\npress before enabling the touchpad') + ':')
         if self.checkbutton3.get_active() and self.checkbutton4.get_active():
             self.checkbutton3.set_active(False)
 
+    def on_invalid_mice_button(self, widget):
+        import watchdog
+        watchdog.blacklist_every_current_mouse()
+
     def close_application(self, widget):
         self.destroy()
 
@@ -871,6 +881,9 @@ touchpad-indicator')
                 configuration.set('speed', self.speed.get_value())
             elif tipo == EVDEV:
                 configuration.set('speed', self.speed.get_value())
+
+        import watchdog
+        configuration.set('faulty-devices', list(watchdog.faulty_devices))
 
         configuration.save()
         desktop_environment = get_desktop_environment()
