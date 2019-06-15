@@ -3,7 +3,7 @@
 #
 # This file is part of Touchpad-Indicator
 #
-# Copyright (C) 2010-2018 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
+# Copyright (C) 2010-2019 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
 # Copyright (C) 2010-2012 Miguel Angel Santamaría Rogado<leibag@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify

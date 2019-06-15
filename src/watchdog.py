@@ -3,7 +3,7 @@
 #
 # This file is part of Touchpad-Indicator
 #
-# Copyright (C) 2010-2018 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
+# Copyright (C) 2010-2019 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
 # Copyright (C) 2010-2012 Miguel Angel Santamaría Rogado<leibag@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -21,6 +21,7 @@
 
 import pyudev
 import dbus
+import syslog
 from time import sleep
 
 on_mouse_detected_plugged = None
@@ -30,6 +31,7 @@ check_status_from_resume = None
 
 faulty_devices = set()
 udev_context = pyudev.Context()
+udev_context.log_priority = syslog.LOG_EMERG
 
 
 def is_mouse_plugged(blacklist=None):

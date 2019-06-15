@@ -1,2 +1,13 @@
-#!/bin/sh
-#glib-compile-schemas /usr/share/glib-2.0/schemas/
+#!/bin/bash
+for user in $(cat /etc/passwd | grep -v /bin/false | grep -v nologin | grep /home | cut -d : -f 1)
+do
+	usermod -aG input $user
+done
+if [ ! -e "/usr/local/sbin/adduser.local" ]
+then
+	echo "No existe"
+	touch "/usr/local/sbin/adduser.local"
+	echo "#!/bin/bash" > /usr/local/sbin/adduser.local
+	chmod +x "/usr/local/sbin/adduser.local"
+fi
+echo 'usermod -aG input "${1:?}" #TPI' >> /usr/local/sbin/adduser.local

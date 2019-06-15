@@ -3,7 +3,7 @@
 #
 # This file is part of Touchpad-Indicator
 #
-# Copyright (C) 2010-2018 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
+# Copyright (C) 2010-2019 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
 # Copyright (C) 2010-2012 Miguel Angel Santamaría Rogado<leibag@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -119,6 +119,7 @@ def header(fileoutput):
 
 def list():
     context = pyudev.Context()
+    context.log_priority = syslog.LOG_EMERG
     fileoutput = open(FILEOUTPUT, 'w')
     header(fileoutput)
     print_devices('MOUSE', context, fileoutput)

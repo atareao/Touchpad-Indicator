@@ -3,7 +3,7 @@
 #
 # This file is part of Touchpad-Indicator
 #
-# Copyright (C) 2010-2018 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
+# Copyright (C) 2010-2019 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
 # Copyright (C) 2010-2012 Miguel Angel Santamaría Rogado<leibag@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -547,7 +547,7 @@ http://www.facebook.com/elatareao'))
         about_dialog.set_name(comun.APPNAME)
         about_dialog.set_version(comun.VERSION)
         about_dialog.set_copyright(
-            'Copyrignt (c) 2010-2018\nMiguel Angel Santamaría Rogado\
+            'Copyrignt (c) 2010-2019\nMiguel Angel Santamaría Rogado\
 \nLorenzo Carbonell Cerezo')
         about_dialog.set_comments(_('An indicator for the Touchpad'))
         about_dialog.set_license('''

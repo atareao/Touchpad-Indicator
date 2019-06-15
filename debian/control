@@ -18,6 +18,7 @@ Depends: ${misc:Depends}, ${python:Depends},
 	python3-xlib,
 	python3-pyudev,
 	python3-dbus,
+	python3-evdev,
 	xinput
 Description: An indicator for the touchpad
  With touchpad-indicator you can enable or disable the touchpad, with shortcuts

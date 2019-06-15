@@ -3,7 +3,7 @@
 #
 # This file is part of Touchpad-Indicator
 #
-# Copyright (C) 2010-2018 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
+# Copyright (C) 2010-2019 Lorenzo Carbonell<lorenzo.carbonell.cerezo@gmail.com>
 # Copyright (C) 2010-2012 Miguel Angel Santamaría Rogado<leibag@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -23,6 +23,10 @@ import re
 import shlex
 import subprocess
 import time
+import evdev
+from evdev import ecodes
+import selectors
+from selectors import DefaultSelector, EVENT_READ
 
 
 TOUCHPADS = ['touchpad', 'glidepoint', 'fingersensingpad', 'bcm5974',
@@ -57,10 +61,59 @@ def search_touchpad(where):
         return True
     return False
 
+def get_touchpads():
+    touchpads = []
+    devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
+    for device in devices:
+        evDevDevice = evdev.InputDevice(device)
+        caps = evDevDevice.capabilities()
+        if ecodes.EV_KEY in caps and ecodes.BTN_TOUCH in caps[ecodes.EV_KEY]:
+           touchpads.append(device)
+    return touchpads
 
 class Touchpad(object):
     def __init__(self):
-        pass
+        self.touchpads = get_touchpads()
+        self.is_enable = True
+
+    def is_there_touchpad(self):
+        return len(self.touchpads) > 0
+
+    def disable_all_touchpads(self):
+        try:
+            if self.is_enable:
+                for touchpad in self.touchpads:
+                    touchpad.grab()
+                self.is_enable = False
+        except Exception as e:
+            print(e)
+            return False
+        return True
+
+    def enable_all_touchpads(self):
+        try:
+            if not self.is_enable:
+                for touchpad in self.touchpads:
+                    touchpad.ungrab()
+                self.is_enable = True
+            return self.is_enable
+        except Exception as e:
+            print(e)
+            return False
+        return True
+
+    def are_all_touchpad_enabled(self):
+        return self.is_enable
+
+    def are_all_touchpad_disabled(self):
+        return not self.is_enable
+
+    def _get_ids(self):
+        ids = []
+        for id in self._get_all_ids():
+            if self._is_touchpad(id):
+                ids.append(id)
+        return ids
 
     def _get_all_ids(self):
         test_str = run('xinput --list').lower()
@@ -71,71 +124,6 @@ class Touchpad(object):
     def _is_touchpad(self, id):
         comp = run(('xinput --list-props %s') % (id))
         return search_touchpad(comp)
-
-    def is_there_touchpad(self):
-        comp = run('xinput --list')
-        return search_touchpad(comp)
-
-    def _get_ids(self):
-        ids = []
-        for id in self._get_all_ids():
-            if self._is_touchpad(id):
-                ids.append(id)
-        return ids
-
-    def set_touchpad_enabled(self, id):
-        test_str = run('xinput --list-props %s' % (id)).lower()
-        regex = r'device\s*enabled\s*\((\d*)\):\s*(\d)'
-        matches = re.search(regex, test_str)
-        if matches is not None:
-            if matches.group(2) != '1':
-                run(('xinput --set-prop %s %s 1') % (id, matches.group(1)))
-
-    def set_touchpad_disabled(self, id):
-        test_str = run('xinput --list-props %s' % (id)).lower()
-        regex = r'device\s*enabled\s*\((\d*)\):\s*(\d)'
-        matches = re.search(regex, test_str)
-        if matches is not None:
-            if matches.group(2) != '0':
-                run(('xinput --set-prop %s %s 0') % (id, matches.group(1)))
-
-    def is_touchpad_enabled(self, id):
-        test_str = run('xinput --list-props %s' % (id)).lower()
-        regex = r'device\s*enabled\s*\(\d*\):\s*(\d)'
-        matches = re.search(regex, test_str)
-        if matches is not None:
-            return str(matches.group(1)) == '1'
-        return False
-
-    def disable_all_touchpads(self):
-        for id in self._get_ids():
-            self.set_touchpad_disabled(id)
-            time.sleep(MINIMUM_TIME)
-        return not self.are_all_touchpad_enabled()
-
-    def enable_all_touchpads(self):
-        for id in self._get_ids():
-            self.set_touchpad_enabled(id)
-            time.sleep(MINIMUM_TIME)
-        return self.are_all_touchpad_enabled()
-
-    def are_all_touchpad_enabled(self):
-        ids = self._get_ids()
-        if len(ids) > 0:
-            for id in ids:
-                if not self.is_touchpad_enabled(id):
-                    return False
-            return True
-        return False
-
-    def are_all_touchpad_disabled(self):
-        ids = self._get_ids()
-        if len(ids) > 0:
-            for id in ids:
-                if self.is_touchpad_enabled(id):
-                    return False
-            return True
-        return False
 
     def _get_type_from_string(self, test_str):
         regex = r'libinput'
