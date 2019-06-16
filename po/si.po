@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: touchpad-indicator 2.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-06 11:49+0200\n"
+"POT-Creation-Date: 2019-06-15 12:48+0200\n"
 "PO-Revision-Date: 2013-06-01 04:26+0000\n"
 "Last-Translator: Thambaru Wijesekara <Unknown>\n"
 "Language-Team: Sinhalese <si@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Launchpad (build 17196)\n"
 "X-Launchpad-Export-Date: 2014-09-18 20:00+0000\n"
 
-#: src/preferences_dialog.py:112 src/touchpadindicator.py:520
+#: src/preferences_dialog.py:112 src/touchpadindicator.py:526
 msgid "Preferences"
 msgstr "අභිප්‍රේත"
 
@@ -38,175 +38,185 @@ msgstr ""
 msgid "Disable touchpad when mouse plugged"
 msgstr ""
 
-#: src/preferences_dialog.py:193
+#: src/preferences_dialog.py:191
+msgid "I declare that there are no mice plugged in"
+msgstr ""
+
+#: src/preferences_dialog.py:192
+msgid ""
+"If Touchpad Indicator is not re-enabling the touchpad when you unplug your "
+"mouse, it might help to unplug all mice and click on this"
+msgstr ""
+
+#: src/preferences_dialog.py:199
 msgid "On Touchpad Indicator starts:"
 msgstr ""
 
-#: src/preferences_dialog.py:199 src/preferences_dialog.py:216
+#: src/preferences_dialog.py:205 src/preferences_dialog.py:222
 msgid "None"
 msgstr ""
 
-#: src/preferences_dialog.py:203 src/preferences_dialog.py:220
+#: src/preferences_dialog.py:209 src/preferences_dialog.py:226
 msgid "Enable touchpad"
 msgstr ""
 
-#: src/preferences_dialog.py:207 src/preferences_dialog.py:224
+#: src/preferences_dialog.py:213 src/preferences_dialog.py:230
 msgid "Disable touchpad"
 msgstr ""
 
-#: src/preferences_dialog.py:210
+#: src/preferences_dialog.py:216
 msgid "On Touchpad Indicator ends:"
 msgstr ""
 
-#: src/preferences_dialog.py:228
+#: src/preferences_dialog.py:234
 msgid "Disable touchpad on typing"
 msgstr ""
 
-#: src/preferences_dialog.py:232
+#: src/preferences_dialog.py:238
 msgid ""
 "Milliseconds to wait after the last key\n"
 "press before enabling the touchpad"
 msgstr ""
 
-#: src/preferences_dialog.py:243
+#: src/preferences_dialog.py:249
 msgid "General options"
 msgstr ""
 
-#: src/preferences_dialog.py:255
+#: src/preferences_dialog.py:261
 msgid "Autostart"
 msgstr ""
 
-#: src/preferences_dialog.py:263
+#: src/preferences_dialog.py:269
 msgid "Start hidden"
 msgstr ""
 
-#: src/preferences_dialog.py:267
+#: src/preferences_dialog.py:273
 msgid "Show notifications"
 msgstr ""
 
-#: src/preferences_dialog.py:273
+#: src/preferences_dialog.py:279
 msgid "Touchpad configuration"
 msgstr ""
 
-#: src/preferences_dialog.py:285
+#: src/preferences_dialog.py:291
 msgid "Natural scrolling?"
 msgstr ""
 
-#: src/preferences_dialog.py:297 src/preferences_dialog.py:469
-#: src/preferences_dialog.py:504
+#: src/preferences_dialog.py:305 src/preferences_dialog.py:479
+#: src/preferences_dialog.py:514
 msgid "Touchpad speed?"
 msgstr ""
 
-#: src/preferences_dialog.py:305 src/preferences_dialog.py:479
+#: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 msgid "Two finger scolling?"
 msgstr ""
 
-#: src/preferences_dialog.py:313 src/preferences_dialog.py:490
+#: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 msgid "Edge scolling?"
 msgstr ""
 
-#: src/preferences_dialog.py:321
+#: src/preferences_dialog.py:329
 msgid "Circular scolling?"
 msgstr ""
 
-#: src/preferences_dialog.py:330
+#: src/preferences_dialog.py:340
 msgid "Simulation"
 msgstr ""
 
-#: src/preferences_dialog.py:334
+#: src/preferences_dialog.py:344
 msgid "Right top corner"
 msgstr ""
 
-#: src/preferences_dialog.py:339 src/preferences_dialog.py:356
-#: src/preferences_dialog.py:373 src/preferences_dialog.py:390
-#: src/preferences_dialog.py:407 src/preferences_dialog.py:425
-#: src/preferences_dialog.py:443
+#: src/preferences_dialog.py:349 src/preferences_dialog.py:366
+#: src/preferences_dialog.py:383 src/preferences_dialog.py:400
+#: src/preferences_dialog.py:417 src/preferences_dialog.py:435
+#: src/preferences_dialog.py:453
 msgid "Disable"
 msgstr ""
 
-#: src/preferences_dialog.py:340 src/preferences_dialog.py:357
-#: src/preferences_dialog.py:374 src/preferences_dialog.py:391
-#: src/preferences_dialog.py:408 src/preferences_dialog.py:426
-#: src/preferences_dialog.py:444
+#: src/preferences_dialog.py:350 src/preferences_dialog.py:367
+#: src/preferences_dialog.py:384 src/preferences_dialog.py:401
+#: src/preferences_dialog.py:418 src/preferences_dialog.py:436
+#: src/preferences_dialog.py:454
 msgid "Left button"
 msgstr ""
 
-#: src/preferences_dialog.py:341 src/preferences_dialog.py:358
-#: src/preferences_dialog.py:375 src/preferences_dialog.py:392
-#: src/preferences_dialog.py:409 src/preferences_dialog.py:427
-#: src/preferences_dialog.py:445
+#: src/preferences_dialog.py:351 src/preferences_dialog.py:368
+#: src/preferences_dialog.py:385 src/preferences_dialog.py:402
+#: src/preferences_dialog.py:419 src/preferences_dialog.py:437
+#: src/preferences_dialog.py:455
 msgid "Middle button"
 msgstr ""
 
-#: src/preferences_dialog.py:342 src/preferences_dialog.py:359
-#: src/preferences_dialog.py:376 src/preferences_dialog.py:393
-#: src/preferences_dialog.py:410 src/preferences_dialog.py:428
-#: src/preferences_dialog.py:446
+#: src/preferences_dialog.py:352 src/preferences_dialog.py:369
+#: src/preferences_dialog.py:386 src/preferences_dialog.py:403
+#: src/preferences_dialog.py:420 src/preferences_dialog.py:438
+#: src/preferences_dialog.py:456
 msgid "Right button"
 msgstr ""
 
-#: src/preferences_dialog.py:351
+#: src/preferences_dialog.py:361
 msgid "Right bottom corner"
 msgstr ""
 
-#: src/preferences_dialog.py:368
+#: src/preferences_dialog.py:378
 msgid "Left top corner"
 msgstr ""
 
-#: src/preferences_dialog.py:385
+#: src/preferences_dialog.py:395
 msgid "Left bottom corner"
 msgstr ""
 
-#: src/preferences_dialog.py:402
+#: src/preferences_dialog.py:412
 msgid "One finger tap"
 msgstr ""
 
-#: src/preferences_dialog.py:420
+#: src/preferences_dialog.py:430
 msgid "Two finger tap"
 msgstr ""
 
-#: src/preferences_dialog.py:438
+#: src/preferences_dialog.py:448
 msgid "Three finger tap"
 msgstr ""
 
-#: src/preferences_dialog.py:456
+#: src/preferences_dialog.py:466
 msgid "Driver: Synaptics"
 msgstr ""
 
-#: src/preferences_dialog.py:461
+#: src/preferences_dialog.py:471
 msgid "Tapping?"
 msgstr ""
 
-#: src/preferences_dialog.py:500
+#: src/preferences_dialog.py:510
 msgid "Driver: Libinput"
 msgstr ""
 
-#: src/preferences_dialog.py:513
+#: src/preferences_dialog.py:523
 msgid "Driver: Evdev"
 msgstr ""
 
-#: src/preferences_dialog.py:518
+#: src/preferences_dialog.py:528
 msgid "Theme"
 msgstr ""
 
-#: src/preferences_dialog.py:530
+#: src/preferences_dialog.py:540
 msgid "Select theme"
 msgstr ""
 
-#: src/preferences_dialog.py:642
+#: src/preferences_dialog.py:656
 msgid "This shortcut <Control> + <Alt> +"
 msgstr ""
 
-#: src/preferences_dialog.py:643 src/preferences_dialog.py:645
+#: src/preferences_dialog.py:657 src/preferences_dialog.py:659
 msgid " is assigned"
 msgstr ""
 
-#: src/preferences_dialog.py:644
+#: src/preferences_dialog.py:658
 msgid "This shortcut <Control> + <Alt> + "
 msgstr ""
 
 #: src/touchpadindicator.py:153 src/touchpadindicator.py:166
-#: src/touchpadindicator.py:510
+#: src/touchpadindicator.py:516
 msgid "Disable Touchpad"
 msgstr ""
 
@@ -222,81 +232,81 @@ msgstr ""
 msgid "Touchpad Disabled"
 msgstr ""
 
-#: src/touchpadindicator.py:428
+#: src/touchpadindicator.py:434
 #, fuzzy
 msgid "Project page"
 msgstr "නිවස්න පිටුව"
 
-#: src/touchpadindicator.py:433
+#: src/touchpadindicator.py:439
 msgid "Get help online..."
 msgstr "සබැඳිව උදව් ලබා ගන්න..."
 
-#: src/touchpadindicator.py:438
+#: src/touchpadindicator.py:444
 msgid "Translate this application..."
 msgstr "මෙම යෙදුම පරිවර්තනය කරන්න..."
 
-#: src/touchpadindicator.py:443
+#: src/touchpadindicator.py:449
 msgid "Report a bug..."
 msgstr "දෝෂයක් වාර්තා කරන්න..."
 
-#: src/touchpadindicator.py:449
+#: src/touchpadindicator.py:455
 msgid "El atareao"
 msgstr ""
 
-#: src/touchpadindicator.py:454
+#: src/touchpadindicator.py:460
 #, fuzzy
 msgid "Follow me in Twitter"
 msgstr "ට්විටර්හි අපව ලුහුබඳින්න"
 
-#: src/touchpadindicator.py:459
+#: src/touchpadindicator.py:465
 #, fuzzy
 msgid "Follow me in Google+"
 msgstr "Google+ හි අපව ලුහුබඳින්න"
 
-#: src/touchpadindicator.py:464
+#: src/touchpadindicator.py:470
 #, fuzzy
 msgid "Follow me in Facebook"
 msgstr "Facebookහි අපව ලුහුබඳින්න"
 
-#: src/touchpadindicator.py:497
+#: src/touchpadindicator.py:503
 msgid "About"
 msgstr "පිළිබඳව"
 
-#: src/touchpadindicator.py:515
+#: src/touchpadindicator.py:521
 msgid "Hide icon"
 msgstr "අයිකනය සඟවන්න"
 
-#: src/touchpadindicator.py:526
+#: src/touchpadindicator.py:532
 msgid "Help"
 msgstr "උදව්"
 
-#: src/touchpadindicator.py:531
+#: src/touchpadindicator.py:537
 msgid "Exit"
 msgstr "ඉවත්වීම"
 
-#: src/touchpadindicator.py:546
+#: src/touchpadindicator.py:552
 msgid "An indicator for the Touchpad"
 msgstr "ටච්පුවරුව සඳහා දර්ශකය"
 
-#: src/touchpadindicator.py:679
+#: src/touchpadindicator.py:685
 msgid "usage: %prog [options]"
 msgstr "භාවිතය: %prog [විකල්ප]"
 
-#: src/touchpadindicator.py:685
+#: src/touchpadindicator.py:691
 msgid "show this help and exit."
 msgstr "මෙම උදව් පෙන්වන්න හා ඉවත්වන්න."
 
-#: src/touchpadindicator.py:690
+#: src/touchpadindicator.py:696
 msgid "change the touchpad state. If indicator is not running launch it."
 msgstr ""
 
-#: src/touchpadindicator.py:696
+#: src/touchpadindicator.py:702
 msgid ""
 "show the icon if indicator is hidden. Default action. If indicator is not "
 "running launch it."
 msgstr ""
 
-#: src/touchpadindicator.py:702
+#: src/touchpadindicator.py:708
 msgid "list devices"
 msgstr ""
 

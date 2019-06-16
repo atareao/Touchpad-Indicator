@@ -1,3 +1,9 @@
+touchpad-indicator (2.2.0-0extras19.04.1ubuntu1) disco; urgency=medium
+
+  * New way to capture touchpad and keyboard events
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 15 Jun 2019 12:46:03 +0200
+
 touchpad-indicator (2.1.4-0extras19.04.1) disco; urgency=medium
 
   * Set udev log to ERR
