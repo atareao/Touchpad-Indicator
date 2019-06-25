@@ -1,3 +1,9 @@
+touchpad-indicator (2.2.1-0extras19.04.0) disco; urgency=medium
+
+  * Reverted touchpad controller
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 25 Jun 2019 06:57:18 +0200
+
 touchpad-indicator (2.2.0-0extras19.04.2) disco; urgency=medium
 
   * New way to capture touchpad and keyboard events
