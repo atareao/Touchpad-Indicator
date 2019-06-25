@@ -95,6 +95,11 @@ class Touchpad(object):
             if not self.is_enable:
                 for touchpad in self.touchpads:
                     touchpad.ungrab()
+                    try:
+                        #touchpad.ungrab()
+                        pass
+                    except Exception as ne:
+                        pass
                 self.is_enable = True
             return self.is_enable
         except Exception as e:

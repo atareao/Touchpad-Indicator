@@ -102,6 +102,7 @@ class KeyboardMonitor(Thread, GObject.GObject):
                         if self.last_emited != 'key_pressed' and self.on:
                             self.emit('key_pressed')
                             self.last_emited = 'key_pressed'
+                        print(timeToSleep)
                         time.sleep(timeToSleep)
 
     def end(self):
