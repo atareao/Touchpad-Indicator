@@ -2,5 +2,7 @@
 sed -i -E 's/.*#TPI$//g' /usr/local/sbin/adduser.local
 for user in $(cat /etc/passwd | grep -v /bin/false | grep -v nologin | grep /home | cut -d : -f 1)
 do
-    deluser $user input
+	if [ `grep -q "input:.*${user}.*" /etc/group` ]
+		deluser $user input
+	fi
 done
