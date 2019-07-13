@@ -1,8 +1,9 @@
-touchpad-indicator (2.2.1-0extras19.04.0) disco; urgency=medium
+touchpad-indicator (2.2.2-0extras19.04.1) disco; urgency=medium
 
   * Reverted touchpad controller
+  * Changed postrm
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Tue, 25 Jun 2019 06:57:18 +0200
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 13 Jul 2019 13:51:20 +0200
 
 touchpad-indicator (2.2.0-0extras19.04.2) disco; urgency=medium
 
