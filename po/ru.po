@@ -118,17 +118,17 @@ msgstr "Сенсорная панель отключена"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 #, fuzzy
-msgid "Two finger scolling?"
+msgid "Two finger scrolling?"
 msgstr "Двухпальцевая вертикальная прокрутка"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 #, fuzzy
-msgid "Edge scolling?"
+msgid "Edge scrolling?"
 msgstr "Натуральная прокрутка"
 
 #: src/preferences_dialog.py:329
 #, fuzzy
-msgid "Circular scolling?"
+msgid "Circular scrolling?"
 msgstr "Спиральная прокрутка"
 
 #: src/preferences_dialog.py:340

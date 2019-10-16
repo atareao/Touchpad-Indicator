@@ -117,17 +117,17 @@ msgstr "Pavé tactile désactivé"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 #, fuzzy
-msgid "Two finger scolling?"
+msgid "Two finger scrolling?"
 msgstr "Défilement vertical avec deux doigts"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 #, fuzzy
-msgid "Edge scolling?"
+msgid "Edge scrolling?"
 msgstr "Défilement naturel"
 
 #: src/preferences_dialog.py:329
 #, fuzzy
-msgid "Circular scolling?"
+msgid "Circular scrolling?"
 msgstr "Défilement circulaire"
 
 #: src/preferences_dialog.py:340

@@ -118,17 +118,17 @@ msgstr "Das Touchpad ist deaktiviert"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 #, fuzzy
-msgid "Two finger scolling?"
+msgid "Two finger scrolling?"
 msgstr "Vertikaler Bildlauf mit zwei Fingern"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 #, fuzzy
-msgid "Edge scolling?"
+msgid "Edge scrolling?"
 msgstr "Natürlicher Bildlauf"
 
 #: src/preferences_dialog.py:329
 #, fuzzy
-msgid "Circular scolling?"
+msgid "Circular scrolling?"
 msgstr "Kreisförmiger Bildlauf"
 
 #: src/preferences_dialog.py:340

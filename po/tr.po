@@ -118,17 +118,17 @@ msgstr "İmleçsürer Devredışı"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 #, fuzzy
-msgid "Two finger scolling?"
+msgid "Two finger scrolling?"
 msgstr "İki parmal ile dikey kaydırma"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 #, fuzzy
-msgid "Edge scolling?"
+msgid "Edge scrolling?"
 msgstr "Doğal kaydırma"
 
 #: src/preferences_dialog.py:329
 #, fuzzy
-msgid "Circular scolling?"
+msgid "Circular scrolling?"
 msgstr "Dairesel kaydırma"
 
 #: src/preferences_dialog.py:340
