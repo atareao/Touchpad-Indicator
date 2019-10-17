@@ -112,15 +112,15 @@ msgid "Touchpad speed?"
 msgstr "Touchpad zakázán"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
-msgid "Two finger scolling?"
+msgid "Two finger scrolling?"
 msgstr ""
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
-msgid "Edge scolling?"
+msgid "Edge scrolling?"
 msgstr ""
 
 #: src/preferences_dialog.py:329
-msgid "Circular scolling?"
+msgid "Circular scrolling?"
 msgstr ""
 
 #: src/preferences_dialog.py:340
