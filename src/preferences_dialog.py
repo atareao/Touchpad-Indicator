@@ -58,6 +58,8 @@ def set_autostart(autostart):
             not os.path.islink(comun.FILE_AUTO_START):
         os.remove(comun.FILE_AUTO_START)
     if autostart is True:
+        if not os.path.exists(comun.AUTOSTART_DIR):
+            os.makedirs(comun.AUTOSTART_DIR)
         if not os.path.islink(comun.FILE_AUTO_START):
             os.symlink(comun.FILE_AUTO_START_SRC, comun.FILE_AUTO_START)
     else:
