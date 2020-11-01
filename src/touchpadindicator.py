@@ -713,6 +713,9 @@ Default action. If indicator is not running launch it.'))
             device_list.list()
         elif options.change:
             change_status()
+        else:
+            make_visible()
+        exit(0)
     else:
         print(get_information())
         print('Touchpad-Indicator version: %s' % comun.VERSION)
