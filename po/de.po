@@ -234,7 +234,6 @@ msgid "Touchpad Disabled"
 msgstr "Das Touchpad ist deaktiviert"
 
 #: src/touchpadindicator.py:434
-#, fuzzy
 msgid "Project page"
 msgstr "Internetseite"
 
@@ -255,17 +254,14 @@ msgid "El atareao"
 msgstr ""
 
 #: src/touchpadindicator.py:460
-#, fuzzy
 msgid "Follow me on Twitter"
 msgstr "Auf Twitter folgen"
 
 #: src/touchpadindicator.py:465
-#, fuzzy
 msgid "Follow me on Google+"
 msgstr "Auf Google+ folgen"
 
 #: src/touchpadindicator.py:470
-#, fuzzy
 msgid "Follow me on Facebook"
 msgstr "Auf Facebook folgen"
 
