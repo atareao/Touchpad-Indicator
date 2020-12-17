@@ -30,12 +30,24 @@ python3-dbus,
 xinput
 ```
 
-## Install
+## Install from PPA
 
 ```sh
 sudo add-apt-repository ppa:atareao/atareao
 sudo apt update
 sudo apt install touchpad-indicator
+```
+
+## Build it from source and install it after that
+
+```sh
+git clone https://github.com/atareao/Touchpad-Indicator
+cd Touchpad-Indicator
+rm ./debian/source/format
+dpkg-buildpackage
+cd ..
+sudo dpkg -i touchpad-indicator_*_all.deb
+sudo apt-get install -f -y
 ```
 
 ## Usage
