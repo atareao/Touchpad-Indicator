@@ -40,7 +40,7 @@ msgstr "Touchpad deaktivieren, wenn eine Maus angeschlossen ist"
 
 #: src/preferences_dialog.py:191
 msgid "I declare that there are no mice plugged in"
-msgstr ""
+msgstr "Ich beteuere, dass keine Mäuse angeschlossen sind"
 
 #: src/preferences_dialog.py:192
 msgid ""
@@ -51,11 +51,11 @@ msgstr ""
 #: src/preferences_dialog.py:199
 #, fuzzy
 msgid "On Touchpad Indicator starts:"
-msgstr "Touchpad beim Starten aktivieren"
+msgstr "Wenn der Touchpad Indikator startet:"
 
 #: src/preferences_dialog.py:205 src/preferences_dialog.py:222
 msgid "None"
-msgstr ""
+msgstr "Nichts"
 
 #: src/preferences_dialog.py:209 src/preferences_dialog.py:226
 #, fuzzy
@@ -70,7 +70,7 @@ msgstr "Touchpad deaktivieren"
 #: src/preferences_dialog.py:216
 #, fuzzy
 msgid "On Touchpad Indicator ends:"
-msgstr "Touchpad-Anzeige"
+msgstr "Wenn der Touchpad Indikator endet:"
 
 #: src/preferences_dialog.py:234
 msgid "Disable touchpad on typing"
@@ -114,7 +114,7 @@ msgstr "Natürlicher Bildlauf"
 #: src/preferences_dialog.py:514
 #, fuzzy
 msgid "Touchpad speed?"
-msgstr "Das Touchpad ist deaktiviert"
+msgstr "Touchpadgeschwindigkeit"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 #, fuzzy
@@ -124,7 +124,7 @@ msgstr "Vertikaler Bildlauf mit zwei Fingern"
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 #, fuzzy
 msgid "Edge scrolling?"
-msgstr "Natürlicher Bildlauf"
+msgstr "Kanten Bildlauf"
 
 #: src/preferences_dialog.py:329
 #, fuzzy
@@ -195,7 +195,7 @@ msgstr ""
 
 #: src/preferences_dialog.py:466
 msgid "Driver: Synaptics"
-msgstr ""
+msgstr "Treiber: Synatics"
 
 #: src/preferences_dialog.py:471
 msgid "Tapping?"
@@ -203,11 +203,11 @@ msgstr ""
 
 #: src/preferences_dialog.py:510
 msgid "Driver: Libinput"
-msgstr ""
+msgstr "Treiber: Libinput"
 
 #: src/preferences_dialog.py:523
 msgid "Driver: Evdev"
-msgstr ""
+msgstr "Treiber: Evdev"
 
 #: src/preferences_dialog.py:528
 msgid "Theme"
@@ -254,15 +254,15 @@ msgstr "Internetseite"
 
 #: src/touchpadindicator.py:439
 msgid "Get help online..."
-msgstr "Im Netz Hilfe erhalten …"
+msgstr "Im Netz Hilfe erhalten..."
 
 #: src/touchpadindicator.py:444
 msgid "Translate this application..."
-msgstr "Diese Anwendung übersetzen …"
+msgstr "Diese Anwendung übersetzen..."
 
 #: src/touchpadindicator.py:449
 msgid "Report a bug..."
-msgstr "Einen Fehler melden …"
+msgstr "Einen Fehler melden..."
 
 #: src/touchpadindicator.py:455
 msgid "El atareao"
