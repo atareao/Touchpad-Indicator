@@ -255,15 +255,15 @@ msgid "El atareao"
 msgstr "El atareao"
 
 #: src/touchpadindicator.py:460
-msgid "Follow me in Twitter"
+msgid "Follow me on Twitter"
 msgstr "Sígueme en Twitter"
 
 #: src/touchpadindicator.py:465
-msgid "Follow me in Google+"
+msgid "Follow me on Google+"
 msgstr "Sígueme en Google+"
 
 #: src/touchpadindicator.py:470
-msgid "Follow me in Facebook"
+msgid "Follow me on Facebook"
 msgstr "Sígueme en Facebook"
 
 #: src/touchpadindicator.py:503

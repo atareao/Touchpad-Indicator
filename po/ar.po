@@ -262,17 +262,17 @@ msgstr ""
 
 #: src/touchpadindicator.py:460
 #, fuzzy
-msgid "Follow me in Twitter"
+msgid "Follow me on Twitter"
 msgstr "تابعنا على تويتر"
 
 #: src/touchpadindicator.py:465
 #, fuzzy
-msgid "Follow me in Google+"
+msgid "Follow me on Google+"
 msgstr "تابعنا على جوجل+"
 
 #: src/touchpadindicator.py:470
 #, fuzzy
-msgid "Follow me in Facebook"
+msgid "Follow me on Facebook"
 msgstr "تابعنا على فيسبوك"
 
 #: src/touchpadindicator.py:503
