@@ -196,7 +196,7 @@ msgid "Driver: Synaptics"
 msgstr ""
 
 #: src/preferences_dialog.py:471
-msgid "Tapping?"
+msgid "Tapping"
 msgstr ""
 
 #: src/preferences_dialog.py:510

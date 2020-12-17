@@ -468,7 +468,7 @@ class PreferencesDialog(Gtk.Dialog):
                 grid4.attach(label, 0, 12, 1, 1)
             elif tipo == LIBINPUT:
                 if tp.has_tapping():
-                    label = Gtk.Label(_('Tapping?'))
+                    label = Gtk.Label(_('Tapping'))
                     label.set_alignment(0, 0.5)
                     grid4.attach(label, 0, 1, 1, 1)
                     tappingbox = Gtk.HBox()

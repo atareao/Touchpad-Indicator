@@ -186,7 +186,7 @@ msgid "Driver: Synaptics"
 msgstr "Controlador: Synaptics"
 
 #: src/preferences_dialog.py:471
-msgid "Tapping?"
+msgid "Tapping"
 msgstr "¿Tocar para pulsar?"
 
 #: src/preferences_dialog.py:510
