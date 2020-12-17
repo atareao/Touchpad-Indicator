@@ -73,8 +73,12 @@ msgid "Disable touchpad on typing"
 msgstr "Touchpad beim Tippen auf der Tastatur deaktivieren"
 
 #: src/preferences_dialog.py:238
-msgid "Milliseconds to wait after the last key\npress before enabling the touchpad"
-msgstr "Wartezeit in Sekunden, nach letztem Tastendruck, \nbevor das Touchpad aktiviert wird"
+msgid ""
+"Milliseconds to wait after the last key\n"
+"press before enabling the touchpad"
+msgstr ""
+"Wartezeit in Sekunden, nach letztem Tastendruck, bevor das Touchpad "
+"aktiviert wird"
 
 #: src/preferences_dialog.py:249
 msgid "General options"
