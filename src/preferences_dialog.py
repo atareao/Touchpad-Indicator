@@ -288,7 +288,7 @@ class PreferencesDialog(Gtk.Dialog):
         grid4.set_margin_top(10)
         frame4.add(grid4)
 
-        label = Gtk.Label(_('Natural scrolling?'))
+        label = Gtk.Label(_('Natural scrolling'))
         label.set_alignment(0, 0.5)
         grid4.attach(label, 0, 0, 1, 1)
         checkbutton46box = Gtk.HBox()
@@ -302,7 +302,7 @@ class PreferencesDialog(Gtk.Dialog):
         if tp.is_there_touchpad():
             tipo = tp.get_driver()
             if tipo == SYNAPTICS:
-                label = Gtk.Label(_('Touchpad speed?'))
+                label = Gtk.Label(_('Touchpad speed'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 1, 1, 1)
                 self.speed = Gtk.Scale()
@@ -310,7 +310,7 @@ class PreferencesDialog(Gtk.Dialog):
                 self.speed.set_adjustment(
                     Gtk.Adjustment(0, -100, 100, 1, 10, 0))
                 grid4.attach(self.speed, 1, 1, 2, 1)
-                label = Gtk.Label(_('Two finger scrolling?'))
+                label = Gtk.Label(_('Two finger scrolling'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 2, 1, 1)
                 two_finger_scrollingbox = Gtk.HBox()
@@ -318,7 +318,7 @@ class PreferencesDialog(Gtk.Dialog):
                 two_finger_scrollingbox.pack_start(
                     self.two_finger_scrolling, False, False, 0)
                 grid4.attach(two_finger_scrollingbox, 1, 2, 1, 1)
-                label = Gtk.Label(_('Edge scrolling?'))
+                label = Gtk.Label(_('Edge scrolling'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 3, 1, 1)
                 edge_scrollingbox = Gtk.HBox()
@@ -326,7 +326,7 @@ class PreferencesDialog(Gtk.Dialog):
                 edge_scrollingbox.pack_start(
                     self.edge_scrolling, False, False, 0)
                 grid4.attach(edge_scrollingbox, 1, 3, 1, 1)
-                label = Gtk.Label(_('Circular scrolling?'))
+                label = Gtk.Label(_('Circular scrolling'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 4, 1, 1)
                 cicular_scrollingbox = Gtk.HBox()
@@ -476,7 +476,7 @@ class PreferencesDialog(Gtk.Dialog):
                     tappingbox.pack_start(
                         self.tapping, False, False, 0)
                     grid4.attach(tappingbox, 1, 1, 1, 1)
-                label = Gtk.Label(_('Touchpad speed?'))
+                label = Gtk.Label(_('Touchpad speed'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 2, 1, 1)
                 self.speed = Gtk.Scale()
@@ -486,7 +486,7 @@ class PreferencesDialog(Gtk.Dialog):
                     Gtk.Adjustment(0, -100, 100, 1, 10, 0))
                 grid4.attach(self.speed, 1, 2, 1, 1)
                 if tp.can_two_finger_scrolling():
-                    label = Gtk.Label(_('Two finger scrolling?'))
+                    label = Gtk.Label(_('Two finger scrolling'))
                     label.set_alignment(0, 0.5)
                     grid4.attach(label, 0, 3, 1, 1)
                     two_finger_scrollingbox = Gtk.HBox()
@@ -497,7 +497,7 @@ class PreferencesDialog(Gtk.Dialog):
                         self.two_finger_scrolling, False, False, 0)
                     grid4.attach(two_finger_scrollingbox, 1, 3, 1, 1)
                 if tp.can_edge_scrolling():
-                    label = Gtk.Label(_('Edge scrolling?'))
+                    label = Gtk.Label(_('Edge scrolling'))
                     label.set_alignment(0, 0.5)
                     grid4.attach(label, 0, 4, 1, 1)
                     edge_scrollingbox = Gtk.HBox()
@@ -511,7 +511,7 @@ class PreferencesDialog(Gtk.Dialog):
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 5, 1, 1)
             elif tipo == EVDEV:
-                label = Gtk.Label(_('Touchpad speed?'))
+                label = Gtk.Label(_('Touchpad speed'))
                 label.set_alignment(0, 0.5)
                 grid4.attach(label, 0, 1, 1, 1)
                 self.speed = Gtk.Scale()

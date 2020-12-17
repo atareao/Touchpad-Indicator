@@ -101,24 +101,24 @@ msgid "Touchpad configuration"
 msgstr "Configuración del panel táctil"
 
 #: src/preferences_dialog.py:291
-msgid "Natural scrolling?"
+msgid "Natural scrolling"
 msgstr "¿Activar el desplazamiento natural?"
 
 #: src/preferences_dialog.py:305 src/preferences_dialog.py:479
 #: src/preferences_dialog.py:514
-msgid "Touchpad speed?"
+msgid "Touchpad speed"
 msgstr "Velocidad"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
-msgid "Two finger scrolling?"
+msgid "Two finger scrolling"
 msgstr "¿Desplazamiento con dos dedos?"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
-msgid "Edge scrolling?"
+msgid "Edge scrolling"
 msgstr "¿Desplazamiento por el borde?"
 
 #: src/preferences_dialog.py:329
-msgid "Circular scrolling?"
+msgid "Circular scrolling"
 msgstr "¿Desplazamiento circular?"
 
 #: src/preferences_dialog.py:340

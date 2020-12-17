@@ -105,28 +105,28 @@ msgstr "Touchpad configuration"
 
 #: src/preferences_dialog.py:291
 #, fuzzy
-msgid "Natural scrolling?"
+msgid "Natural scrolling"
 msgstr "Natural scrolling"
 
 #: src/preferences_dialog.py:305 src/preferences_dialog.py:479
 #: src/preferences_dialog.py:514
 #, fuzzy
-msgid "Touchpad speed?"
+msgid "Touchpad speed"
 msgstr "Touchpad Disabled"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 #, fuzzy
-msgid "Two finger scrolling?"
+msgid "Two finger scrolling"
 msgstr "Two fingers vertical scrolling"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 #, fuzzy
-msgid "Edge scrolling?"
+msgid "Edge scrolling"
 msgstr "Natural scrolling"
 
 #: src/preferences_dialog.py:329
 #, fuzzy
-msgid "Circular scrolling?"
+msgid "Circular scrolling"
 msgstr "Circular scrolling"
 
 #: src/preferences_dialog.py:340

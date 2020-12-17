@@ -107,28 +107,28 @@ msgstr "Dokunmatik pad yapılandırması"
 
 #: src/preferences_dialog.py:291
 #, fuzzy
-msgid "Natural scrolling?"
+msgid "Natural scrolling"
 msgstr "Doğal kaydırma"
 
 #: src/preferences_dialog.py:305 src/preferences_dialog.py:479
 #: src/preferences_dialog.py:514
 #, fuzzy
-msgid "Touchpad speed?"
+msgid "Touchpad speed"
 msgstr "İmleçsürer Devredışı"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 #, fuzzy
-msgid "Two finger scrolling?"
+msgid "Two finger scrolling"
 msgstr "İki parmal ile dikey kaydırma"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 #, fuzzy
-msgid "Edge scrolling?"
+msgid "Edge scrolling"
 msgstr "Doğal kaydırma"
 
 #: src/preferences_dialog.py:329
 #, fuzzy
-msgid "Circular scrolling?"
+msgid "Circular scrolling"
 msgstr "Dairesel kaydırma"
 
 #: src/preferences_dialog.py:340
