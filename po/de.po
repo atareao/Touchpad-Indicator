@@ -49,7 +49,6 @@ msgid ""
 msgstr ""
 
 #: src/preferences_dialog.py:201
-#, fuzzy
 msgid "On Touchpad Indicator starts:"
 msgstr "Wenn der Touchpad Indikator startet:"
 
@@ -58,17 +57,14 @@ msgid "None"
 msgstr "Nichts"
 
 #: src/preferences_dialog.py:2011 src/preferences_dialog.py:228
-#, fuzzy
 msgid "Enable touchpad"
 msgstr "Touchpad aktivieren"
 
 #: src/preferences_dialog.py:215 src/preferences_dialog.py:232
-#, fuzzy
 msgid "Disable touchpad"
 msgstr "Touchpad deaktivieren"
 
 #: src/preferences_dialog.py:218
-#, fuzzy
 msgid "On Touchpad Indicator ends:"
 msgstr "Wenn der Touchpad Indikator endet:"
 
@@ -77,7 +73,6 @@ msgid "Disable touchpad on typing"
 msgstr "Touchpad beim Tippen auf der Tastatur deaktivieren"
 
 #: src/preferences_dialog.py:238
-#, fuzzy
 msgid "Milliseconds to wait after the last key\npress before enabling the touchpad"
 msgstr "Wartezeit in Sekunden, nach letztem Tastendruck, \nbevor das Touchpad aktiviert wird"
 
@@ -102,28 +97,23 @@ msgid "Touchpad configuration"
 msgstr "Touchpad-Einrichtung"
 
 #: src/preferences_dialog.py:293
-#, fuzzy
 msgid "Natural scrolling"
 msgstr "Natürlicher Bildlauf"
 
 #: src/preferences_dialog.py:305 src/preferences_dialog.py:481
 #: src/preferences_dialog.py:514
-#, fuzzy
 msgid "Touchpad speed"
 msgstr "Touchpadgeschwindigkeit"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:491
-#, fuzzy
 msgid "Two finger scrolling"
 msgstr "Vertikaler Bildlauf mit zwei Fingern"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:502
-#, fuzzy
 msgid "Edge scrolling"
 msgstr "Kanten Bildlauf"
 
 #: src/preferences_dialog.py:331
-#, fuzzy
 msgid "Circular scrolling"
 msgstr "Kreisförmiger Bildlauf"
 
