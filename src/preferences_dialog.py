@@ -191,8 +191,7 @@ class PreferencesDialog(Gtk.Dialog):
         self.checkbutton2 = Gtk.Switch()
         checkbutton2box.pack_start(self.checkbutton2, False, False, 2)
         these_are_not_mice_button = Gtk.Button.new_with_label(_('I declare that there are no mice plugged in'))
-        these_are_not_mice_button.set_tooltip_text(_("If Touchpad Indicator is not " \
-            "re-enabling the touchpad when you unplug your mouse, it might help to unplug all " \
+        these_are_not_mice_button.set_tooltip_text(_("If Touchpad Indicator is not re-enabling the touchpad when you unplug your mouse, it might help to unplug all " \
             "mice and click on this"))
         these_are_not_mice_button.connect('clicked', self.on_invalid_mice_button)
         checkbutton2box.pack_end(these_are_not_mice_button, True, True, 0)
@@ -237,8 +236,7 @@ class PreferencesDialog(Gtk.Dialog):
         self.checkbutton8.connect('toggled', self.on_checkbutton8_toggled)
         grid2.attach(self.checkbutton8, 0, 5, 1, 1)
 
-        self.label_interval = Gtk.Label(_('Milliseconds to wait \
-after the last key\npress before enabling the touchpad') + ':')
+        self.label_interval = Gtk.Label(_('Milliseconds to wait after the last key\npress before enabling the touchpad') + ':')
         grid2.attach(self.label_interval, 0, 6, 1, 1)
         #
         self.interval = Gtk.SpinButton()
