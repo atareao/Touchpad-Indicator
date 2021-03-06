@@ -99,24 +99,24 @@ msgid "Touchpad configuration"
 msgstr ""
 
 #: src/preferences_dialog.py:291
-msgid "Natural scrolling?"
+msgid "Natural scrolling"
 msgstr ""
 
 #: src/preferences_dialog.py:305 src/preferences_dialog.py:479
 #: src/preferences_dialog.py:514
-msgid "Touchpad speed?"
+msgid "Touchpad speed"
 msgstr ""
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
-msgid "Two finger scrolling?"
+msgid "Two finger scrolling"
 msgstr ""
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
-msgid "Edge scrolling?"
+msgid "Edge scrolling"
 msgstr ""
 
 #: src/preferences_dialog.py:329
-msgid "Circular scrolling?"
+msgid "Circular scrolling"
 msgstr ""
 
 #: src/preferences_dialog.py:340
@@ -184,7 +184,7 @@ msgid "Driver: Synaptics"
 msgstr ""
 
 #: src/preferences_dialog.py:471
-msgid "Tapping?"
+msgid "Tapping"
 msgstr ""
 
 #: src/preferences_dialog.py:510
@@ -253,15 +253,15 @@ msgid "El atareao"
 msgstr ""
 
 #: src/touchpadindicator.py:460
-msgid "Follow me in Twitter"
+msgid "Follow me on Twitter"
 msgstr ""
 
 #: src/touchpadindicator.py:465
-msgid "Follow me in Google+"
+msgid "Follow me on Google+"
 msgstr ""
 
 #: src/touchpadindicator.py:470
-msgid "Follow me in Facebook"
+msgid "Follow me on Facebook"
 msgstr ""
 
 #: src/touchpadindicator.py:503
