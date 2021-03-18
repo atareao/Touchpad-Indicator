@@ -22,6 +22,8 @@
 import os
 import machine_information
 import comun
+import syslog
+
 try:
     import pyudev
 except Exception as e:
