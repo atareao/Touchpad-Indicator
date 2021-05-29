@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -14,7 +12,7 @@
    height="24"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
    sodipodi:docname="touchpad-indicator-dark-enabled.svg">
   <defs
      id="defs4">
@@ -184,27 +182,32 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="37.791667"
-     inkscape:cx="12"
-     inkscape:cy="12"
+     inkscape:zoom="39.275791"
+     inkscape:cx="12.268441"
+     inkscape:cy="11.815234"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="false"
+     showgrid="true"
      inkscape:object-nodes="true"
      inkscape:snap-nodes="true"
      inkscape:snap-smooth-nodes="true"
      inkscape:object-paths="false"
      inkscape:snap-bbox="false"
-     inkscape:snap-global="false"
+     inkscape:snap-global="true"
      fit-margin-top="8.37"
      fit-margin-left="9.83"
      fit-margin-right="9.83"
      fit-margin-bottom="8.38"
-     inkscape:window-width="1920"
-     inkscape:window-height="1054"
+     inkscape:window-width="1600"
+     inkscape:window-height="900"
      inkscape:window-x="0"
-     inkscape:window-y="24"
-     inkscape:window-maximized="1" />
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:document-rotation="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid877" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -223,10 +226,10 @@
      id="layer1"
      transform="translate(-362.29493,-583.38026)">
     <path
-       style="fill:#3c3c3c;fill-opacity:1;stroke:none"
-       d="M 7.84375 3 C 5.48775 3 3.59375 4.85552 3.59375 7.15625 L 3.59375 16.84375 C 3.59375 19.14448 5.48775 21 7.84375 21 L 16.15625 21 C 18.51225 21 20.40625 19.14448 20.40625 16.84375 L 20.40625 7.15625 C 20.40625 4.85552 18.51225 3 16.15625 3 L 7.84375 3 z M 8.90625 5.28125 L 15.125 5.28125 C 16.892 5.28125 18.3125 6.64945 18.3125 8.375 L 18.3125 14.3125 L 5.6875 14.3125 L 5.6875 8.375 C 5.6875 6.64945 7.13926 5.28125 8.90625 5.28125 z M 5.75 16.5 L 10.75 16.5 L 10.75 19.125 L 8.875 19.125 C 7.2846534 19.125 5.9960702 17.981442 5.75 16.5 z M 13.03125 16.5 L 18.25 16.5 C 18.002018 17.981442 16.684087 19.125 15.09375 19.125 L 13.03125 19.125 L 13.03125 16.5 z "
-       transform="translate(362.29493,583.38026)"
-       id="rect6873" />
+       style="fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1"
+       d="m 370.33954,586.38026 c -2.24214,0 -4.04461,1.85552 -4.04461,4.15625 v 9.6875 c 0,2.30073 1.80247,4.15625 4.04461,4.15625 h 7.91078 c 2.24214,0 4.04461,-1.85552 4.04461,-4.15625 v -9.6875 c 0,-2.30073 -1.80247,-4.15625 -4.04461,-4.15625 z m 0.95539,2 h 6 c 1.6816,0 2.99988,1.27445 3,3 l 4.3e-4,6 h -12 l -4.3e-4,-6 c -1.2e-4,-1.72555 1.31927,-3 3.00087,-3 z m -3,11.5 4e-5,-0.5 h 5 l -4e-5,3 h -2.5 c -1.5,0 -2.5,-1 -2.5,-2.5 z m 7,-0.5 h 5 v 0.5 c 0,1.5 -0.98652,2.5 -2.5,2.5 h -2.5 z"
+       id="rect6873"
+       sodipodi:nodetypes="ssssssssscssccssccccscccscccc" />
     <rect
        ry="10.618495"
        rx="10.873544"
