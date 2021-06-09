@@ -86,3 +86,4 @@ ENV/
 
 # Rope project settings
 .ropeproject
+src/.mypy_cache/
