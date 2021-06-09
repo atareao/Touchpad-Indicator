@@ -106,28 +106,28 @@ msgstr "Configuration du pavé tactile"
 
 #: src/preferences_dialog.py:291
 #, fuzzy
-msgid "Natural scrolling?"
+msgid "Natural scrolling"
 msgstr "Défilement naturel"
 
 #: src/preferences_dialog.py:305 src/preferences_dialog.py:479
 #: src/preferences_dialog.py:514
 #, fuzzy
-msgid "Touchpad speed?"
+msgid "Touchpad speed"
 msgstr "Pavé tactile désactivé"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 #, fuzzy
-msgid "Two finger scrolling?"
+msgid "Two finger scrolling"
 msgstr "Défilement vertical avec deux doigts"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 #, fuzzy
-msgid "Edge scrolling?"
+msgid "Edge scrolling"
 msgstr "Défilement naturel"
 
 #: src/preferences_dialog.py:329
 #, fuzzy
-msgid "Circular scrolling?"
+msgid "Circular scrolling"
 msgstr "Défilement circulaire"
 
 #: src/preferences_dialog.py:340
@@ -197,7 +197,7 @@ msgid "Driver: Synaptics"
 msgstr ""
 
 #: src/preferences_dialog.py:471
-msgid "Tapping?"
+msgid "Tapping"
 msgstr ""
 
 #: src/preferences_dialog.py:510
@@ -269,17 +269,17 @@ msgstr ""
 
 #: src/touchpadindicator.py:460
 #, fuzzy
-msgid "Follow me in Twitter"
+msgid "Follow me on Twitter"
 msgstr "Suivez-nous sur Twitter"
 
 #: src/touchpadindicator.py:465
 #, fuzzy
-msgid "Follow me in Google+"
+msgid "Follow me on Google+"
 msgstr "Suivez-nous sur Google+"
 
 #: src/touchpadindicator.py:470
 #, fuzzy
-msgid "Follow me in Facebook"
+msgid "Follow me on Facebook"
 msgstr "Suivez-nous sur Facebook"
 
 #: src/touchpadindicator.py:503

@@ -457,17 +457,17 @@ https://github.com/atareao/Touchpad-Indicator/issues'))
                        conector_action=lambda x: webbrowser.open('\
 https://www.atareao.es'))
         twitter = add2menu(help_menu,
-                           text=_('Follow me in Twitter'),
+                           text=_('Follow me on Twitter'),
                            conector_event='activate',
                            conector_action=lambda x: webbrowser.open('\
 https://twitter.com/atareao'))
         googleplus = add2menu(help_menu,
-                              text=_('Follow me in Google+'),
+                              text=_('Follow me on Google+'),
                               conector_event='activate',
                               conector_action=lambda x: webbrowser.open('\
 https://plus.google.com/118214486317320563625/posts'))
         facebook = add2menu(help_menu,
-                            text=_('Follow me in Facebook'),
+                            text=_('Follow me on Facebook'),
                             conector_event='activate',
                             conector_action=lambda x: webbrowser.open('\
 http://www.facebook.com/elatareao'))
@@ -713,6 +713,9 @@ Default action. If indicator is not running launch it.'))
             device_list.list()
         elif options.change:
             change_status()
+        else:
+            make_visible()
+        exit(0)
     else:
         print(get_information())
         print('Touchpad-Indicator version: %s' % comun.VERSION)
