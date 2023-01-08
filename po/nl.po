@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: touchpad-indicator 2.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-15 12:48+0200\n"
-"PO-Revision-Date: 2013-06-04 21:52+0000\n"
-"Last-Translator: Vistaus <motionshot@vivaldi.net>\n"
+"PO-Revision-Date: 2022-02-25 18:12+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Launchpad-Export-Date: 2014-09-18 20:01+0000\n"
 
 #: src/preferences_dialog.py:112 src/touchpadindicator.py:526
@@ -28,7 +28,7 @@ msgstr "Sneltoets"
 
 #: src/preferences_dialog.py:148
 msgid "Shortcut enabled"
-msgstr "Snelkoppeling ingeschakeld"
+msgstr "Sneltoets ingeschakeld"
 
 #: src/preferences_dialog.py:173
 msgid "Actions"
@@ -36,51 +36,51 @@ msgstr "Acties"
 
 #: src/preferences_dialog.py:185
 msgid "Disable touchpad when mouse plugged"
-msgstr "Touchpad uitschakelen als er een muis is angesloten"
+msgstr "Touchpad uitschakelen als er een muis is aangesloten"
 
 #: src/preferences_dialog.py:191
 msgid "I declare that there are no mice plugged in"
-msgstr ""
+msgstr "Hierbij verklaar ik dat er geen muis is aangesloten"
 
 #: src/preferences_dialog.py:192
 msgid ""
 "If Touchpad Indicator is not re-enabling the touchpad when you unplug your "
 "mouse, it might help to unplug all mice and click on this"
 msgstr ""
+"Als Touchpad-indicator niet wordt ingeschakeld na het afkoppelen van uw "
+"muis, koppel dan alle muizen af en klik vervolgens hier"
 
 #: src/preferences_dialog.py:199
-#, fuzzy
 msgid "On Touchpad Indicator starts:"
-msgstr "Touchpad Indicator"
+msgstr "Na het starten van de indicator:"
 
 #: src/preferences_dialog.py:205 src/preferences_dialog.py:222
 msgid "None"
-msgstr ""
+msgstr "Niets doen"
 
 #: src/preferences_dialog.py:209 src/preferences_dialog.py:226
-#, fuzzy
 msgid "Enable touchpad"
 msgstr "Touchpad inschakelen"
 
 #: src/preferences_dialog.py:213 src/preferences_dialog.py:230
-#, fuzzy
 msgid "Disable touchpad"
 msgstr "Touchpad uitschakelen"
 
 #: src/preferences_dialog.py:216
-#, fuzzy
 msgid "On Touchpad Indicator ends:"
-msgstr "Touchpad Indicator"
+msgstr "Na het afsluiten van de indicator:"
 
 #: src/preferences_dialog.py:234
 msgid "Disable touchpad on typing"
-msgstr ""
+msgstr "Touchpad uitschakelen tijdens typen"
 
 #: src/preferences_dialog.py:238
 msgid ""
 "Milliseconds to wait after the last key\n"
 "press before enabling the touchpad"
 msgstr ""
+"Het aantal milliseconden na het indrukken van een toets\n"
+"alvorens het touchpad wordt ingeschakeld"
 
 #: src/preferences_dialog.py:249
 msgid "General options"
@@ -100,119 +100,116 @@ msgstr "Toon meldingen"
 
 #: src/preferences_dialog.py:279
 msgid "Touchpad configuration"
-msgstr ""
+msgstr "Touchpadvoorkeuren"
 
 #: src/preferences_dialog.py:291
 msgid "Natural scrolling"
-msgstr ""
+msgstr "Natuurlijk scrollen"
 
 #: src/preferences_dialog.py:305 src/preferences_dialog.py:479
 #: src/preferences_dialog.py:514
-#, fuzzy
 msgid "Touchpad speed"
-msgstr "Touchpad uitgeschakeld"
+msgstr "Touchpadsnelheid"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
-msgid "Two finger scrolling"
-msgstr ""
+msgid "Two finger scolling?"
+msgstr "Scrollen met twee vingers"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
-msgid "Edge scrolling"
-msgstr ""
+msgid "Edge scolling?"
+msgstr "Scrollen langs de rand"
 
 #: src/preferences_dialog.py:329
-msgid "Circular scrolling"
-msgstr ""
+msgid "Circular scolling?"
+msgstr "Circulair scrollen"
 
 #: src/preferences_dialog.py:340
 msgid "Simulation"
-msgstr ""
+msgstr "Simulatie"
 
 #: src/preferences_dialog.py:344
 msgid "Right top corner"
-msgstr ""
+msgstr "Rechterbovenhoek"
 
 #: src/preferences_dialog.py:349 src/preferences_dialog.py:366
 #: src/preferences_dialog.py:383 src/preferences_dialog.py:400
 #: src/preferences_dialog.py:417 src/preferences_dialog.py:435
 #: src/preferences_dialog.py:453
-#, fuzzy
 msgid "Disable"
-msgstr "Touchpad uitschakelen"
+msgstr "Uitschakelen"
 
 #: src/preferences_dialog.py:350 src/preferences_dialog.py:367
 #: src/preferences_dialog.py:384 src/preferences_dialog.py:401
 #: src/preferences_dialog.py:418 src/preferences_dialog.py:436
 #: src/preferences_dialog.py:454
 msgid "Left button"
-msgstr ""
+msgstr "Linkermuisknop"
 
 #: src/preferences_dialog.py:351 src/preferences_dialog.py:368
 #: src/preferences_dialog.py:385 src/preferences_dialog.py:402
 #: src/preferences_dialog.py:419 src/preferences_dialog.py:437
 #: src/preferences_dialog.py:455
 msgid "Middle button"
-msgstr ""
+msgstr "Middelste muisknop"
 
 #: src/preferences_dialog.py:352 src/preferences_dialog.py:369
 #: src/preferences_dialog.py:386 src/preferences_dialog.py:403
 #: src/preferences_dialog.py:420 src/preferences_dialog.py:438
 #: src/preferences_dialog.py:456
 msgid "Right button"
-msgstr ""
+msgstr "Rechtermuisknop"
 
 #: src/preferences_dialog.py:361
 msgid "Right bottom corner"
-msgstr ""
+msgstr "Rechteronderhoek"
 
 #: src/preferences_dialog.py:378
 msgid "Left top corner"
-msgstr ""
+msgstr "Linkerbovenhoek"
 
 #: src/preferences_dialog.py:395
 msgid "Left bottom corner"
-msgstr ""
+msgstr "Linkeronderhoek"
 
 #: src/preferences_dialog.py:412
 msgid "One finger tap"
-msgstr ""
+msgstr "Tikken met één vinger"
 
 #: src/preferences_dialog.py:430
 msgid "Two finger tap"
-msgstr ""
+msgstr "Tikken met twee vingers"
 
 #: src/preferences_dialog.py:448
 msgid "Three finger tap"
-msgstr ""
+msgstr "Tikken met drie vingers"
 
 #: src/preferences_dialog.py:466
 msgid "Driver: Synaptics"
-msgstr ""
+msgstr "Stuurprogramma: Synaptics"
 
 #: src/preferences_dialog.py:471
 msgid "Tapping"
-msgstr ""
+msgstr "Tikken"
 
 #: src/preferences_dialog.py:510
 msgid "Driver: Libinput"
-msgstr ""
+msgstr "Stuurprogramma: Libinput"
 
 #: src/preferences_dialog.py:523
 msgid "Driver: Evdev"
-msgstr ""
+msgstr "Stuurprogramma: Evdev"
 
 #: src/preferences_dialog.py:528
 msgid "Theme"
-msgstr "Stijl"
+msgstr "Thema"
 
 #: src/preferences_dialog.py:540
 msgid "Select theme"
-msgstr "Selecteer stijl"
+msgstr "Kies een thema"
 
 #: src/preferences_dialog.py:656
-#, fuzzy
 msgid "This shortcut <Control> + <Alt> +"
-msgstr "Deze snelkoppeling <Control> + <Alt> + "
+msgstr "De sneltoets <Control> + <Alt> +"
 
 #: src/preferences_dialog.py:657 src/preferences_dialog.py:659
 msgid " is assigned"
@@ -220,7 +217,7 @@ msgstr " is toegewezen"
 
 #: src/preferences_dialog.py:658
 msgid "This shortcut <Control> + <Alt> + "
-msgstr "Deze snelkoppeling <Control> + <Alt> + "
+msgstr "De sneltoets <Control> + <Alt> + "
 
 #: src/touchpadindicator.py:153 src/touchpadindicator.py:166
 #: src/touchpadindicator.py:516
@@ -240,52 +237,48 @@ msgid "Touchpad Disabled"
 msgstr "Touchpad uitgeschakeld"
 
 #: src/touchpadindicator.py:434
-#, fuzzy
 msgid "Project page"
 msgstr "Website"
 
 #: src/touchpadindicator.py:439
 msgid "Get help online..."
-msgstr "Hulp online vragen..."
+msgstr "Hulppagina openen…"
 
 #: src/touchpadindicator.py:444
 msgid "Translate this application..."
-msgstr "Vertaal deze applicatie..."
+msgstr "Helpen met vertalen…"
 
 #: src/touchpadindicator.py:449
 msgid "Report a bug..."
-msgstr "Meld een bug..."
+msgstr "Probleem melden…"
 
 #: src/touchpadindicator.py:455
 msgid "El atareao"
-msgstr ""
+msgstr "El atareao"
 
 #: src/touchpadindicator.py:460
-#, fuzzy
 msgid "Follow me on Twitter"
-msgstr "Volg ons op Twitter"
+msgstr "Volg me op Twitter"
 
 #: src/touchpadindicator.py:465
-#, fuzzy
 msgid "Follow me on Google+"
-msgstr "Volg ons op  Google+"
+msgstr "Volg me op Google+"
 
 #: src/touchpadindicator.py:470
-#, fuzzy
 msgid "Follow me on Facebook"
-msgstr "Volg ons op Facebook"
+msgstr "Volg me op Facebook"
 
 #: src/touchpadindicator.py:503
 msgid "About"
-msgstr "Over dit programma"
+msgstr "Over"
 
 #: src/touchpadindicator.py:521
 msgid "Hide icon"
-msgstr "Verberg icoon"
+msgstr "Pictogram verbergen"
 
 #: src/touchpadindicator.py:532
 msgid "Help"
-msgstr "Help"
+msgstr "Hulp"
 
 #: src/touchpadindicator.py:537
 msgid "Exit"
@@ -293,32 +286,33 @@ msgstr "Afsluiten"
 
 #: src/touchpadindicator.py:552
 msgid "An indicator for the Touchpad"
-msgstr "Een indicator voor het touchpad"
+msgstr "Een touchpad-indicator"
 
 #: src/touchpadindicator.py:685
 msgid "usage: %prog [options]"
-msgstr "Gebruik: %prog [options]"
+msgstr "Gebruik: %prog [opties]"
 
 #: src/touchpadindicator.py:691
 msgid "show this help and exit."
-msgstr "deze hulp weergeven en afsluiten"
+msgstr "Toon dit hulpbericht en sluit af."
 
 #: src/touchpadindicator.py:696
 msgid "change the touchpad state. If indicator is not running launch it."
 msgstr ""
-"verander de touchpad-toestand. Als de indicator niet draait, start het."
+"Verander de touchpad-status. Als de indicator niet gestart is, doe dat dan "
+"alsnog."
 
 #: src/touchpadindicator.py:702
 msgid ""
 "show the icon if indicator is hidden. Default action. If indicator is not "
 "running launch it."
 msgstr ""
-"toon het icoon wanneer de indicator verborgen is. Standaardactie. Als de "
-"indicator niet draait, start het."
+"Toon het pictogram als de indicator verborgen is. Dit is de "
+"standaardactie. Als de indicator niet gestart is, doe dat dan alsnog."
 
 #: src/touchpadindicator.py:708
 msgid "list devices"
-msgstr "toon apparaten"
+msgstr "Toon alle apparaten."
 
 #~ msgid "Homepage..."
 #~ msgstr "Homepage..."
