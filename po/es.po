@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: touchpad-indicator 2.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-15 12:48+0200\n"
-"PO-Revision-Date: 2014-08-30 08:10+0000\n"
-"Last-Translator: javier algilaga <algilaga@gmail.com>\n"
-"Language-Team: Spanish\n"
+"PO-Revision-Date: 2023-04-29 10:55+0000\n"
+"Last-Translator: Weblate Admin <atareao@atareao.es>\n"
+"Language-Team: Spanish <http://weblate.territoriolinux.es/projects/"
+"touchpad-indicator/touchpad-indicator/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Launchpad (build 17196)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2014-09-18 20:01+0000\n"
 
 #: src/preferences_dialog.py:112 src/touchpadindicator.py:526
@@ -40,13 +42,16 @@ msgstr "Desactivar panel táctil al conectar un ratón"
 
 #: src/preferences_dialog.py:191
 msgid "I declare that there are no mice plugged in"
-msgstr ""
+msgstr "Declaro que no hay ratones enchufados"
 
 #: src/preferences_dialog.py:192
 msgid ""
 "If Touchpad Indicator is not re-enabling the touchpad when you unplug your "
 "mouse, it might help to unplug all mice and click on this"
 msgstr ""
+"Si el indicador del panel táctil no vuelve a habilitar el panel táctil "
+"cuando desconecta el ratón, podría ser útil desconectar todos los ratones y "
+"hacer clic en este"
 
 #: src/preferences_dialog.py:199
 msgid "On Touchpad Indicator starts:"
@@ -111,15 +116,15 @@ msgstr "Velocidad"
 
 #: src/preferences_dialog.py:313 src/preferences_dialog.py:489
 msgid "Two finger scrolling"
-msgstr "¿Desplazamiento con dos dedos?"
+msgstr "Desplazamiento con dos dedos"
 
 #: src/preferences_dialog.py:321 src/preferences_dialog.py:500
 msgid "Edge scrolling"
-msgstr "¿Desplazamiento por el borde?"
+msgstr "Desplazamiento por el borde"
 
 #: src/preferences_dialog.py:329
 msgid "Circular scrolling"
-msgstr "¿Desplazamiento circular?"
+msgstr "Desplazamiento circular"
 
 #: src/preferences_dialog.py:340
 msgid "Simulation"
@@ -207,7 +212,7 @@ msgstr "Seleccionar tema"
 
 #: src/preferences_dialog.py:656
 msgid "This shortcut <Control> + <Alt> +"
-msgstr "Este atajo del teclado <Control> + <Alt> + "
+msgstr "Este atajo del teclado <Control> + <Alt> +"
 
 #: src/preferences_dialog.py:657 src/preferences_dialog.py:659
 msgid " is assigned"
